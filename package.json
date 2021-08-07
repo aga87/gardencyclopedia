@@ -1,0 +1,20 @@
+{
+  "name": "gardencyclopedia",
+  "version": "1.0.0",
+  "description": "Gardencyclopedia built with the MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "Agnieszka Labonarska",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^6.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
