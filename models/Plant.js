@@ -16,7 +16,7 @@ const PlantSchema = new Schema({
   },
   tag: {
     type: String,
-    enum: ['Vegetables', 'Fruits', 'Herbs', 'Flowers'],
+    enum: ['Uncategorised', 'Vegetables', 'Fruits', 'Herbs', 'Flowers'],
     default: 'Uncategorised'
   },
   sowFrom: {
