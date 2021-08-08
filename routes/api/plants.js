@@ -12,4 +12,15 @@ router.get('/', (req, res) => {
     .then(plants => res.json(plants));
 });
 
+// @route POST api/plants
+// @desc Add a plant
+// @access Public
+router.post('/', (req, res) => {
+  const newPlant = new Plant({
+    name: req.body.name
+  })
+
+  newPlant.save().then(plant => res.json(plant));
+});
+
 module.exports = router;
