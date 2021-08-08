@@ -53,6 +53,3 @@ function hasHarvestUntil() {
 }
 
 module.exports = Plant = mongoose.model('plant', PlantSchema);
-
-
-
