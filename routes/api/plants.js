@@ -23,4 +23,14 @@ router.post('/', (req, res) => {
   newPlant.save().then(plant => res.json(plant));
 });
 
+// @route DELETE api/plants/:id
+// @desc Delete a plant
+// @access Public
+router.delete('/:id', (req, res) => {
+  Plant.findById(req.params.id)
+    .then(plant => plant.remove().then(() => res.json("The plant was deleted successfully.")))
+    .catch(err => res.status(404).json("Something went wrong. Please try again."));
+});
+
+
 module.exports = router;
