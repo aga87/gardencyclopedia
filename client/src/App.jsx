@@ -1,10 +1,11 @@
 import React from 'react';
 import './css/index.css';
+import PlantList from './components/PlantList';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <PlantList />
     </div>
   );
 }

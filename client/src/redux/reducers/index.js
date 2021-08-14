@@ -1,10 +1,8 @@
-const initialState = 'Hello World!';
+import { combineReducers } from '@reduxjs/toolkit';
+import plantReducer, * as fromPlantReducer from './plantReducer';
 
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
+export default combineReducers({ plantReducer });
 
-export default rootReducer;
+// Selectors (global state)
+export const getPlants = state =>
+  fromPlantReducer.getPlants(state.plantReducer);
