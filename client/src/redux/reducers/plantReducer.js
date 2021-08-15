@@ -1,4 +1,4 @@
-import { GET_PLANTS, DELETE_PLANT } from '../actions/types';
+import { GET_PLANTS, ADD_PLANT, DELETE_PLANT } from '../actions/types';
 
 const initialState = {
   plants: [
@@ -19,6 +19,13 @@ const plantReducer = (state = initialState, action) => {
       return {
         ...state
       };
+    case ADD_PLANT: {
+      const newPlant = action.payload;
+      return {
+        ...state,
+        plants: [newPlant, ...state.plants]
+      };
+    }
     case DELETE_PLANT: {
       const id = action.payload;
       return {
