@@ -1,23 +1,22 @@
-import { GET_PLANTS, ADD_PLANT, DELETE_PLANT } from '../actions/types';
+import {
+  GET_PLANTS,
+  ADD_PLANT,
+  DELETE_PLANT,
+  PLANTS_LOADING
+} from '../actions/types';
 
 const initialState = {
-  plants: [
-    {
-      id: '1',
-      name: 'Chives'
-    },
-    {
-      id: '2',
-      name: 'Parsley'
-    }
-  ]
+  plants: [],
+  loading: false
 };
 
 const plantReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PLANTS:
       return {
-        ...state
+        ...state,
+        plants: action.payload,
+        loading: false
       };
     case ADD_PLANT: {
       const newPlant = action.payload;
@@ -33,6 +32,11 @@ const plantReducer = (state = initialState, action) => {
         plants: state.plants.filter(plant => plant.id !== id)
       };
     }
+    case PLANTS_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
     default:
       return state;
   }
