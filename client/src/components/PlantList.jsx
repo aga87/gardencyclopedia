@@ -10,12 +10,12 @@ const PlantList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPlants);
+    dispatch(getPlants());
   }, [dispatch]);
 
   const plantListItem = plants.map(plant => (
-    <li key={plant.id}>
-      <Plant name={plant.name} id={plant.id} />
+    <li key={plant.name}>
+      <Plant name={plant.name} />
     </li>
   ));
 

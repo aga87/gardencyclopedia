@@ -15,10 +15,14 @@ export const getPlants = () => dispatch => {
   );
 };
 
-export const addPlant = newPlant => ({
-  type: ADD_PLANT,
-  payload: newPlant
-});
+export const addPlant = newPlant => dispatch => {
+  axios.post('/api/plants', newPlant).then(res =>
+    dispatch({
+      type: ADD_PLANT,
+      payload: res.data
+    })
+  );
+};
 
 export const deletePlant = id => ({
   type: DELETE_PLANT,
