@@ -41,4 +41,4 @@ const plantReducer = (state = initialState, action) => {
 export default plantReducer;
 
 // Selectors
-export const getPlants = state => state.plants;
+export const getAllPlants = state => state.plants;

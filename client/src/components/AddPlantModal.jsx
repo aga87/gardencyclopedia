@@ -21,10 +21,16 @@ const AddPlantModal = () => {
   function onSubmit(e) {
     e.preventDefault();
 
+    /* eslint-disable-next-line no-console */
+    console.log(name, id);
+
     const newPlant = {
       name,
       id
     };
+
+    /* eslint-disable-next-line no-console */
+    console.log(newPlant, 'new plant');
 
     dispatch(addPlant(newPlant));
   }
@@ -32,7 +38,7 @@ const AddPlantModal = () => {
   return (
     <div>
       <h1>Add a new plant</h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <p>
           <label htmlFor="plantName">Name:</label>
           <input
@@ -59,9 +65,7 @@ const AddPlantModal = () => {
           />
         </p>
         <button type="button">Cancel</button>
-        <button type="submit" onSubmit={onSubmit}>
-          Add
-        </button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );
