@@ -14,8 +14,8 @@ const PlantList = () => {
   }, [dispatch]);
 
   const plantListItem = plants.map(plant => (
-    <li key={plant.name}>
-      <Plant name={plant.name} />
+    <li key={plant._id}>
+      <Plant name={plant.name} id={plant._id} />
     </li>
   ));
 

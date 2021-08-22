@@ -29,7 +29,7 @@ const plantReducer = (state = initialState, action) => {
       const id = action.payload;
       return {
         ...state,
-        plants: state.plants.filter(plant => plant.id !== id)
+        plants: state.plants.filter(plant => plant._id !== id)
       };
     }
     case PLANTS_LOADING:

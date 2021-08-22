@@ -26,6 +26,7 @@
         "assert": "htmlFor",
         "depth": 3
       }
-    ]
+    ],
+    "no-underscore-dangle": [2, { "allow": ["_id"] }]
   }
 }
