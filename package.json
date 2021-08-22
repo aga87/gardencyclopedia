@@ -13,11 +13,9 @@
   "author": "Agnieszka Labonarska",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
     "concurrently": "^6.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.13.5",
-    "prop-types": "^15.7.2"
+    "mongoose": "^5.13.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
