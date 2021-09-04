@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPlant } from '../redux/actions/plantsActions';
+import TextField from './TextField';
 
 const PlantModal = () => {
   const [name, setName] = useState('');
@@ -33,29 +34,21 @@ const PlantModal = () => {
     <div>
       <h1>Add a new plant</h1>
       <form onSubmit={handleSubmit}>
-        <p>
-          <label htmlFor="plantName">Plant name</label>
-          <input
-            id="plantName"
-            type="text"
-            size="30"
-            maxLength="30"
-            required
-            value={name}
-            onChange={handleNameChange}
-          />
-        </p>
-        <p>
-          <label htmlFor="plantDesc">Description - optional</label>
-          <input
-            id="plantDesc"
-            type="text"
-            size="30"
-            maxLength="100"
-            value={desc}
-            onChange={handleDescChange}
-          />
-        </p>
+        <TextField
+          id="plantName"
+          label="Plant name"
+          value={name}
+          maxLength="30"
+          handleChange={handleNameChange}
+          required
+        />
+        <TextField
+          id="plantDesc"
+          label="Description"
+          value={desc}
+          maxLength="100"
+          handleChange={handleDescChange}
+        />
         <button type="submit">Add</button>
       </form>
     </div>
