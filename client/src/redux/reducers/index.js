@@ -4,8 +4,8 @@ import plantsReducer, * as fromPlantsReducer from './plantsReducer';
 export default combineReducers({ plantsReducer });
 
 // Selectors (global state)
-export const getAllPlants = state =>
-  fromPlantsReducer.getAllPlants(state.plantsReducer);
+export const selectAllPlants = state =>
+  fromPlantsReducer.selectAllPlants(state.plantsReducer);
 
-export const getIsLoading = state =>
-  fromPlantsReducer.getIsLoading(state.plantsReducer);
+export const selectIsLoading = state =>
+  fromPlantsReducer.selectIsLoading(state.plantsReducer);
