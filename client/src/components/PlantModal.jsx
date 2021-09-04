@@ -7,12 +7,12 @@ const PlantModal = () => {
 
   const [name, setName] = useState('');
 
-  function onNameChange(e) {
+  function handleNameChange(e) {
     const { value } = e.target;
     setName(value);
   }
 
-  function onSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
     const newPlant = {
@@ -25,7 +25,7 @@ const PlantModal = () => {
   return (
     <div>
       <h1>Add a new plant</h1>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
         <p>
           <label htmlFor="plantName">Plant name:</label>
           <input
@@ -35,7 +35,7 @@ const PlantModal = () => {
             maxLength="30"
             required
             value={name}
-            onChange={onNameChange}
+            onChange={handleNameChange}
           />
         </p>
         <button type="submit">Add</button>
