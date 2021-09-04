@@ -32,9 +32,10 @@ const plantsReducer = (state = initialState, action) => {
     }
     case DELETE_PLANT: {
       const id = action.payload;
+      const remainingPlants = state.plants.filter(plant => plant._id !== id);
       return {
         ...state,
-        plants: state.plants.filter(plant => plant.id !== id)
+        plants: remainingPlants
       };
     }
     default:

@@ -10,10 +10,14 @@ export const addPlant = newPlant => dispatch => {
   );
 };
 
-export const deletePlant = id => ({
-  type: DELETE_PLANT,
-  payload: id
-});
+export const deletePlant = id => dispatch => {
+  axios.delete(`/api/plants/${id}`).then(() =>
+    dispatch({
+      type: DELETE_PLANT,
+      payload: id
+    })
+  );
+};
 
 export const setPlantsLoading = () => ({
   type: PLANTS_LOADING
