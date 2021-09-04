@@ -14,7 +14,7 @@ const PlantList = () => {
 
   const plantListItems = plants.map(plant => (
     <li key={plant._id}>
-      <Plant id={plant._id} name={plant.name} />
+      <Plant id={plant._id} name={plant.name} desc={plant.desc} />
     </li>
   ));
 
