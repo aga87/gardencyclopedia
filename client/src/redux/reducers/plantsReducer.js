@@ -1,7 +1,13 @@
-import { ADD_PLANT, DELETE_PLANT, GET_PLANTS } from '../actions/types';
+import {
+  ADD_PLANT,
+  DELETE_PLANT,
+  GET_PLANTS,
+  PLANTS_LOADING
+} from '../actions/types';
 
 const initialState = {
-  plants: []
+  plants: [],
+  isLoading: false
 };
 
 const plantsReducer = (state = initialState, action) => {
@@ -9,7 +15,13 @@ const plantsReducer = (state = initialState, action) => {
     case GET_PLANTS:
       return {
         ...state,
-        plants: action.payload
+        plants: action.payload,
+        isLoading: false
+      };
+    case PLANTS_LOADING:
+      return {
+        ...state,
+        isLoading: true
       };
     case ADD_PLANT: {
       const newPlant = action.payload;
@@ -34,3 +46,4 @@ export default plantsReducer;
 
 // Selectors
 export const getAllPlants = state => state.plants;
+export const getIsLoading = state => state.isLoading;
