@@ -1,7 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];
 
 const PlantSchema = new Schema({
   name: {
@@ -9,7 +22,7 @@ const PlantSchema = new Schema({
     required: true,
     trim: true
   },
-  description: {
+  desc: {
     type: String,
     trim: true,
     maxLength: 100
@@ -22,7 +35,10 @@ const PlantSchema = new Schema({
   sowFrom: {
     type: String,
     enum: months,
-    required: [hasSowUntil, 'You need to specify the starting month if the sowing end date is specified.']
+    required: [
+      hasSowUntil,
+      'You need to specify the starting month if the sowing end date is specified.'
+    ]
   },
   sowUntil: {
     type: String,
@@ -31,7 +47,10 @@ const PlantSchema = new Schema({
   harvestFrom: {
     type: String,
     enum: months,
-    required: [hasHarvestUntil, 'You need to specify the starting month if the harvesting end date is specified.']
+    required: [
+      hasHarvestUntil,
+      'You need to specify the starting month if the harvesting end date is specified.'
+    ]
   },
   harvestUntil: {
     type: String,
