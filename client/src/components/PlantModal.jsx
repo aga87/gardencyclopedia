@@ -3,20 +3,27 @@ import { useDispatch } from 'react-redux';
 import { addPlant } from '../redux/actions/plantsActions';
 
 const PlantModal = () => {
-  const dispatch = useDispatch();
-
   const [name, setName] = useState('');
+  const [desc, setDesc] = useState('');
+
+  const dispatch = useDispatch();
 
   function handleNameChange(e) {
     const { value } = e.target;
     setName(value);
   }
 
+  function handleDescChange(e) {
+    const { value } = e.target;
+    setDesc(value);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
     const newPlant = {
-      name
+      name,
+      desc
     };
 
     dispatch(addPlant(newPlant));
@@ -27,7 +34,7 @@ const PlantModal = () => {
       <h1>Add a new plant</h1>
       <form onSubmit={handleSubmit}>
         <p>
-          <label htmlFor="plantName">Plant name:</label>
+          <label htmlFor="plantName">Plant name</label>
           <input
             id="plantName"
             type="text"
@@ -36,6 +43,17 @@ const PlantModal = () => {
             required
             value={name}
             onChange={handleNameChange}
+          />
+        </p>
+        <p>
+          <label htmlFor="plantDesc">Description - optional</label>
+          <input
+            id="plantDesc"
+            type="text"
+            size="30"
+            maxLength="100"
+            value={desc}
+            onChange={handleDescChange}
           />
         </p>
         <button type="submit">Add</button>
