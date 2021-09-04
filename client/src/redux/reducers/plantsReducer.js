@@ -1,23 +1,15 @@
 import { ADD_PLANT, DELETE_PLANT, GET_PLANTS } from '../actions/types';
 
 const initialState = {
-  plants: [
-    {
-      id: '1',
-      name: 'Chives'
-    },
-    {
-      id: '2',
-      name: 'Parsley'
-    }
-  ]
+  plants: []
 };
 
 const plantsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PLANTS:
       return {
-        ...state
+        ...state,
+        plants: action.payload
       };
     case ADD_PLANT: {
       const newPlant = action.payload;
@@ -39,3 +31,6 @@ const plantsReducer = (state = initialState, action) => {
 };
 
 export default plantsReducer;
+
+// Selectors
+export const getAllPlants = state => state.plants;

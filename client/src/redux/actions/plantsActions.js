@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { ADD_PLANT, DELETE_PLANT, GET_PLANTS } from './types';
 
 export const addPlant = newPlant => ({
@@ -10,6 +11,11 @@ export const deletePlant = id => ({
   payload: id
 });
 
-export const getPlants = () => ({
-  type: GET_PLANTS
-});
+export const getPlants = () => dispatch => {
+  axios.get('/api/plants').then(res =>
+    dispatch({
+      type: GET_PLANTS,
+      payload: res.data
+    })
+  );
+};
