@@ -18,6 +18,7 @@ const PlantList = () => {
         id={plant._id}
         name={plant.name}
         desc={plant.desc}
+        category={plant.category}
         sowFrom={plant.sowFrom}
         sowUntil={plant.sowUntil}
         harvestFrom={plant.harvestFrom}
