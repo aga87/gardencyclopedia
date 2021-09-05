@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPlant } from '../redux/actions/plantsActions';
 import TextField from './TextField';
+import SelectField from './SelectField';
+import { months } from '../utils/constants';
 
 const PlantModal = () => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
+  const [sowFrom, setSowFrom] = useState('');
 
   const dispatch = useDispatch();
 
@@ -19,12 +22,18 @@ const PlantModal = () => {
     setDesc(value);
   }
 
+  function handleSowFromChange(e) {
+    const { value } = e.target;
+    setSowFrom(value);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
     const newPlant = {
       name,
-      desc
+      desc,
+      sowFrom
     };
 
     dispatch(addPlant(newPlant));
@@ -48,6 +57,14 @@ const PlantModal = () => {
           value={desc}
           maxLength="100"
           handleChange={handleDescChange}
+        />
+        <SelectField
+          id="sowFrom"
+          label="Sow from"
+          options={months}
+          selectedOption="Select month"
+          value={sowFrom}
+          handleChange={handleSowFromChange}
         />
         <button type="submit">Add</button>
       </form>
