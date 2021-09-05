@@ -3,13 +3,14 @@ import React from 'react';
 import DeletePlantBtn from './DeletePlantBtn';
 
 const Plant = props => {
-  const { name, id, desc } = props;
+  const { name, id, desc, sowFrom } = props;
 
   return (
     <figure>
       <h1>{name}</h1>
       <p>{desc}</p>
       <DeletePlantBtn id={id} />
+      <p>Sow from: {sowFrom}</p>
     </figure>
   );
 };
@@ -17,11 +18,13 @@ const Plant = props => {
 Plant.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  desc: PropTypes.string
+  desc: PropTypes.string,
+  sowFrom: PropTypes.string
 };
 
 Plant.defaultProps = {
-  desc: ''
+  desc: '',
+  sowFrom: ''
 };
 
 export default Plant;
