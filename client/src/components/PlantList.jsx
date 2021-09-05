@@ -20,6 +20,8 @@ const PlantList = () => {
         desc={plant.desc}
         sowFrom={plant.sowFrom}
         sowUntil={plant.sowUntil}
+        harvestFrom={plant.harvestFrom}
+        harvestUntil={plant.harvestUntil}
       />
     </li>
   ));
