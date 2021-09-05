@@ -27,7 +27,7 @@ const PlantSchema = new Schema({
     trim: true,
     maxLength: 100
   },
-  tag: {
+  category: {
     type: String,
     enum: ['Uncategorised', 'Vegetables', 'Fruits', 'Herbs', 'Flowers'],
     default: 'Uncategorised'
