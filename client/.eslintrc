@@ -27,6 +27,7 @@
         "depth": 3
       }
     ],
+    "jsx-a11y/no-onchange": "warn",
     "no-underscore-dangle": [2, { "allow": ["_id"] }]
   }
 }
