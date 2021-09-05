@@ -9,6 +9,7 @@ const PlantModal = () => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
   const [sowFrom, setSowFrom] = useState('');
+  const [sowUntil, setSowUntil] = useState('');
 
   const dispatch = useDispatch();
 
@@ -27,13 +28,19 @@ const PlantModal = () => {
     setSowFrom(value);
   }
 
+  function handleSowUntilChange(e) {
+    const { value } = e.target;
+    setSowUntil(value);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
     const newPlant = {
       name,
       desc,
-      sowFrom
+      sowFrom,
+      sowUntil
     };
 
     dispatch(addPlant(newPlant));
@@ -65,6 +72,14 @@ const PlantModal = () => {
           selectedOption="Select month"
           value={sowFrom}
           handleChange={handleSowFromChange}
+        />
+        <SelectField
+          id="sowUntil"
+          label="Sow until"
+          options={months}
+          selectedOption="Select month"
+          value={sowUntil}
+          handleChange={handleSowUntilChange}
         />
         <button type="submit">Add</button>
       </form>

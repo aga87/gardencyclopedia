@@ -19,7 +19,8 @@ router.post('/', (req, res) => {
   const newPlant = new Plant({
     name: req.body.name,
     desc: req.body.desc,
-    sowFrom: req.body.sowFrom
+    sowFrom: req.body.sowFrom,
+    sowUntil: req.body.sowUntil
   });
 
   newPlant.save().then(plant => res.json(plant));
