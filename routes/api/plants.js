@@ -19,6 +19,7 @@ router.post('/', (req, res) => {
   const newPlant = new Plant({
     name: req.body.name,
     desc: req.body.desc,
+    category: req.body.category,
     sowFrom: req.body.sowFrom,
     sowUntil: req.body.sowUntil,
     harvestFrom: req.body.sowFrom,

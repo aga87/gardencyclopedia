@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const months = [
   'January',
   'February',
@@ -13,3 +12,5 @@ export const months = [
   'November',
   'December'
 ];
+
+export const plantCategories = ['Vegetables', 'Fruits', 'Herbs', 'Flowers'];

@@ -3,11 +3,12 @@ import { useDispatch } from 'react-redux';
 import { addPlant } from '../redux/actions/plantsActions';
 import TextField from './TextField';
 import SelectField from './SelectField';
-import { months } from '../utils/constants';
+import { months, plantCategories } from '../utils/constants';
 
 const PlantModal = () => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
+  const [category, setCategory] = useState('');
   const [sowFrom, setSowFrom] = useState('');
   const [sowUntil, setSowUntil] = useState('');
   const [harvestFrom, setHarvestFrom] = useState('');
@@ -23,6 +24,11 @@ const PlantModal = () => {
   function handleDescChange(e) {
     const { value } = e.target;
     setDesc(value);
+  }
+
+  function handleCategoryChange(e) {
+    const { value } = e.target;
+    setCategory(value);
   }
 
   function handleSowFromChange(e) {
@@ -51,6 +57,7 @@ const PlantModal = () => {
     const newPlant = {
       name,
       desc,
+      category,
       sowFrom,
       sowUntil,
       harvestFrom,
@@ -78,6 +85,14 @@ const PlantModal = () => {
           value={desc}
           maxLength="100"
           handleChange={handleDescChange}
+        />
+        <SelectField
+          id="plantCategory"
+          label="Category"
+          options={plantCategories}
+          selectedOption="Select category"
+          value={category}
+          handleChange={handleCategoryChange}
         />
         <SelectField
           id="sowFrom"
