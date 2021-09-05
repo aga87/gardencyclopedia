@@ -8,7 +8,7 @@ const TextField = props => {
     <p>
       <label htmlFor={id}>
         {label}
-        {!required && <i>- optional</i>}
+        {required && <span aria-hidden="true"> *</span>}
       </label>
       <input
         id={id}
