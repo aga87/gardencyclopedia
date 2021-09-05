@@ -3,7 +3,7 @@ import React from 'react';
 import DeletePlantBtn from './DeletePlantBtn';
 
 const Plant = props => {
-  const { name, id, desc, sowFrom } = props;
+  const { name, id, desc, sowFrom, sowUntil } = props;
 
   return (
     <figure>
@@ -11,6 +11,7 @@ const Plant = props => {
       <p>{desc}</p>
       <DeletePlantBtn id={id} />
       <p>Sow from: {sowFrom}</p>
+      <p>Sow until: {sowUntil}</p>
     </figure>
   );
 };
@@ -19,12 +20,14 @@ Plant.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   desc: PropTypes.string,
-  sowFrom: PropTypes.string
+  sowFrom: PropTypes.string,
+  sowUntil: PropTypes.string
 };
 
 Plant.defaultProps = {
   desc: '',
-  sowFrom: ''
+  sowFrom: '',
+  sowUntil: ''
 };
 
 export default Plant;
