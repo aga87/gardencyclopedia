@@ -55,9 +55,6 @@ const PlantSchema = new Schema({
   harvestUntil: {
     type: String,
     enum: months
-  },
-  notes: {
-    type: String
   }
 });
 
