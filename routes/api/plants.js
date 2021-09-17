@@ -17,8 +17,14 @@ router.get('/', (req, res) => {
 // @access Public
 router.post('/', (req, res) => {
   const newPlant = new Plant({
-    name: req.body.name
-  })
+    name: req.body.name,
+    desc: req.body.desc,
+    category: req.body.category,
+    sowFrom: req.body.sowFrom,
+    sowUntil: req.body.sowUntil,
+    harvestFrom: req.body.sowFrom,
+    harvestUntil: req.body.sowUntil
+  });
 
   newPlant.save().then(plant => res.json(plant));
 });
@@ -28,9 +34,12 @@ router.post('/', (req, res) => {
 // @access Public
 router.delete('/:id', (req, res) => {
   Plant.findById(req.params.id)
-    .then(plant => plant.remove().then(() => res.json("The plant was deleted successfully.")))
-    .catch(err => res.status(404).json("Something went wrong. Please try again."));
+    .then(plant =>
+      plant.remove().then(() => res.json('The plant was deleted successfully.'))
+    )
+    .catch(err =>
+      res.status(404).json('Something went wrong. Please try again.')
+    );
 });
-
 
 module.exports = router;
