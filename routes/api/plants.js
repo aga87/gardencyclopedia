@@ -27,7 +27,8 @@ router.post('/', (req, res) => {
   });
 
   newPlant.save()
-  .then(plant => res.status(201).json(plant));
+  .then(plant => res.status(201).json(plant))
+  .catch(err => res.status(422).json(err.message));
 });
 
 // @route DELETE api/plants/:id
