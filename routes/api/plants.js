@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
   });
 
   newPlant.save()
-  .then(plant => res.status(201).json({message: "Plant created successfully.", plant}));
+  .then(plant => res.status(201).json(plant));
 });
 
 // @route DELETE api/plants/:id
