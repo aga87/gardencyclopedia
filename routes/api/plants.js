@@ -26,7 +26,8 @@ router.post('/', (req, res) => {
     harvestUntil: req.body.sowUntil
   });
 
-  newPlant.save().then(plant => res.json(plant));
+  newPlant.save()
+  .then(plant => res.status(201).json({message: "Plant created successfully.", plant}));
 });
 
 // @route DELETE api/plants/:id
