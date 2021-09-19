@@ -39,7 +39,7 @@ router.delete('/:id', (req, res) => {
       plant.remove().then(() => res.json('The plant was deleted successfully.'))
     )
     .catch(err =>
-      res.status(404).json('Something went wrong. Please try again.')
+      res.status(404).json('The plant you are trying to delete does not exist.')
     );
 });
 

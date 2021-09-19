@@ -19,7 +19,7 @@ const months = [
 const PlantSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    required: [true, 'Give your plant a name'],
     trim: true
   },
   desc: {
