@@ -8,6 +8,7 @@ const Plant = require('../../models/Plant');
 // @access Public
 router.get('/', (req, res) => {
   Plant.find()
+    .select('-__v')
     .sort({ name: 1 })
     .then(plants => res.status(200).json(plants));
 });
