@@ -20,12 +20,13 @@ const PlantSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Give your plant a name'],
+    maxLength: 20,
     trim: true
   },
   desc: {
     type: String,
+    maxLength: 30,
     trim: true,
-    maxLength: 100
   },
   category: {
     type: String,
