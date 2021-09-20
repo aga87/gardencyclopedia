@@ -40,7 +40,8 @@ const PlantSchema = new Schema({
       values: plantCategories,
       message: `{VALUE} is not a valid plant category. The allowed categories are: ${plantCategories.join(', ')}.`
     },
-    default: plantCategories[0]
+    default: plantCategories[0],
+    trim: true
   },
   sowFrom: {
     type: String,
@@ -51,7 +52,8 @@ const PlantSchema = new Schema({
     required: [
       hasSowUntil,
       'You need to specify the starting month if the sowing end date is specified.'
-    ]
+    ],
+    trim: true
   },
   sowUntil: {
     type: String,
@@ -62,7 +64,8 @@ const PlantSchema = new Schema({
     required: [
       hasSowFrom,
       'You need to specify the end month if the sowing start date is specified.'
-    ]
+    ],
+    trim: true
   },
   harvestFrom: {
     type: String,
@@ -73,7 +76,8 @@ const PlantSchema = new Schema({
     required: [
       hasHarvestUntil,
       'You need to specify the starting month if the harvesting end date is specified.'
-    ]
+    ],
+    trim: true
   },
   harvestUntil: {
     type: String,
@@ -84,7 +88,8 @@ const PlantSchema = new Schema({
     required: [
       hasHarvestFrom,
       'You need to specify the end month if the harvesting start date is specified.'
-    ]
+    ],
+    trim: true
   }
 });
 
