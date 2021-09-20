@@ -22,8 +22,8 @@ router.post('/', (req, res) => {
     category: req.body.category,
     sowFrom: req.body.sowFrom,
     sowUntil: req.body.sowUntil,
-    harvestFrom: req.body.sowFrom,
-    harvestUntil: req.body.sowUntil
+    harvestFrom: req.body.harvestFrom,
+    harvestUntil: req.body.harvestUntil
   });
 
   newPlant.save()
