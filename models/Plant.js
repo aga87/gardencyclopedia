@@ -33,6 +33,7 @@ const PlantSchema = new Schema({
   category: {
     type: String,
     lowercase: true,
+    trim: true,
     enum: { 
       values: plantCategories,
       message: `The allowed categories are: ${plantCategories.join(', ')}`
