@@ -16,6 +16,8 @@ const months = [
   'December'
 ];
 
+const plantCategories = ['uncategorised', 'vegetables', 'fruits', 'herbs', 'flowers'];
+
 const PlantSchema = new Schema({
   name: {
     type: String,
@@ -30,8 +32,12 @@ const PlantSchema = new Schema({
   },
   category: {
     type: String,
-    enum: ['Uncategorised', 'Vegetables', 'Fruits', 'Herbs', 'Flowers'],
-    default: 'Uncategorised'
+    lowercase: true,
+    enum: { 
+      values: plantCategories,
+      message: `The allowed categories are: ${plantCategories.join(', ')}`
+    },
+    default: plantCategories[0]
   },
   sowFrom: {
     type: String,
