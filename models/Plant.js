@@ -42,7 +42,6 @@ const PlantSchema = new Schema({
   },
   sowFrom: {
     type: String,
-    uppercase: true,
     enum: months,
     required: [
       hasSowUntil,
@@ -51,12 +50,10 @@ const PlantSchema = new Schema({
   },
   sowUntil: {
     type: String,
-    uppercase: true,
     enum: months
   },
   harvestFrom: {
     type: String,
-    uppercase: true,
     enum: months,
     required: [
       hasHarvestUntil,
@@ -65,7 +62,6 @@ const PlantSchema = new Schema({
   },
   harvestUntil: {
     type: String,
-    uppercase: true,
     enum: months
   }
 });
@@ -79,5 +75,14 @@ function hasSowUntil() {
 function hasHarvestUntil() {
   return this.harvestUntil != null;
 }
+
+// FIXME: How to use the pre save middleware? 
+// https://stackoverflow.com/questions/28116533/how-can-i-capitalize-strings-in-mongoose
+
+// PlantSchema.pre('save', function (next) {
+//   // capitalize
+//   this.sowFrom.charAt(0).toUpperCase() + this.sowFrom.slice(1).toLowerCase();
+//   next();
+// });
 
 module.exports = Plant = mongoose.model('plant', PlantSchema);
