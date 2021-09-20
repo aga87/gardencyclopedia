@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const plantCategories = ['uncategorised', 'vegetables', 'fruits', 'herbs', 'flowers'];
+
 const months = [
   'January',
   'February',
@@ -16,7 +18,7 @@ const months = [
   'December'
 ];
 
-const plantCategories = ['uncategorised', 'vegetables', 'fruits', 'herbs', 'flowers'];
+const invalidMonthMsg = `{VALUE} is not a valid month. Valid months are: ${months.join(', ')}.`;
 
 const PlantSchema = new Schema({
   name: {
@@ -36,13 +38,16 @@ const PlantSchema = new Schema({
     trim: true,
     enum: { 
       values: plantCategories,
-      message: `The allowed categories are: ${plantCategories.join(', ')}`
+      message: `{VALUE} is not a valid plant category. The allowed categories are: ${plantCategories.join(', ')}.`
     },
     default: plantCategories[0]
   },
   sowFrom: {
     type: String,
-    enum: months,
+    enum: {
+      values: months,
+      message: invalidMonthMsg
+    },
     required: [
       hasSowUntil,
       'You need to specify the starting month if the sowing end date is specified.'
@@ -50,11 +55,21 @@ const PlantSchema = new Schema({
   },
   sowUntil: {
     type: String,
-    enum: months
+    enum: {
+      values: months,
+      message: invalidMonthMsg
+    },
+    required: [
+      hasSowFrom,
+      'You need to specify the end month if the sowing start date is specified.'
+    ]
   },
   harvestFrom: {
     type: String,
-    enum: months,
+    enum: {
+      values: months,
+      message: invalidMonthMsg
+    },
     required: [
       hasHarvestUntil,
       'You need to specify the starting month if the harvesting end date is specified.'
@@ -62,14 +77,29 @@ const PlantSchema = new Schema({
   },
   harvestUntil: {
     type: String,
-    enum: months
+    enum: {
+      values: months,
+      message: invalidMonthMsg
+    },
+    required: [
+      hasHarvestFrom,
+      'You need to specify the end month if the harvesting start date is specified.'
+    ]
   }
 });
 
 // Validators
 
+function hasSowFrom() {
+  return this.sowFrom != null;
+}
+
 function hasSowUntil() {
   return this.sowUntil != null;
+}
+
+function hasHarvestFrom() {
+  return this.harvestFrom != null;
 }
 
 function hasHarvestUntil() {
