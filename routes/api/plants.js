@@ -36,7 +36,15 @@ router.post('/', (req, res) => {
   });
 
   newPlant.save()
-  .then(plant => res.status(201).json(plant))
+  .then(plant => res.status(201).json({
+    name: plant.name,
+    desc: plant.desc,
+    category: plant.category,
+    sowFrom: plant.sowFrom,
+    sowUntil: plant.sowUntil,
+    harvestFrom: plant.harvestFrom,
+    harvestUntil: plant.harvestUntil
+  }))
   .catch(err => res.status(422).json({Error: err.message}));
 });
 
