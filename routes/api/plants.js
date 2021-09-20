@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
 
   newPlant.save()
   .then(plant => res.status(201).json(plant))
-  .catch(err => res.status(422).json(err.message));
+  .catch(err => res.status(422).json({Error: err.message}));
 });
 
 // @route DELETE api/plants/:id
