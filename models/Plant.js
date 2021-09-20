@@ -22,7 +22,7 @@ const PlantSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Give your plant a name'],
-    maxLength: [5, 'Cannot be longer than 5 characters - {VALUE} exceeds the length limit.'],
+    maxLength: [20, 'Cannot be longer than 20 characters - {VALUE} exceeds the length limit.'],
     trim: true
   },
   desc: {
