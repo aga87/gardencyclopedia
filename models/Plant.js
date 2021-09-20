@@ -42,6 +42,7 @@ const PlantSchema = new Schema({
   },
   sowFrom: {
     type: String,
+    uppercase: true,
     enum: months,
     required: [
       hasSowUntil,
@@ -50,10 +51,12 @@ const PlantSchema = new Schema({
   },
   sowUntil: {
     type: String,
+    uppercase: true,
     enum: months
   },
   harvestFrom: {
     type: String,
+    uppercase: true,
     enum: months,
     required: [
       hasHarvestUntil,
@@ -62,6 +65,7 @@ const PlantSchema = new Schema({
   },
   harvestUntil: {
     type: String,
+    uppercase: true,
     enum: months
   }
 });
