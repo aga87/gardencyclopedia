@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const Plant = require('../../models/Plant');
 
 // @route GET api/plants
@@ -10,7 +9,16 @@ router.get('/', (req, res) => {
   Plant.find()
     .select('-__v')
     .sort({ name: 1 })
-    .then(plants => res.status(200).json(plants));
+    .then(plants => 
+      {
+        const plantsWithCount = {
+          count: plants.length,
+          plants
+        };
+        
+        res.status(200).json(plantsWithCount)
+      }
+    );
 });
 
 // @route POST api/plants
