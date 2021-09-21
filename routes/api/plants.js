@@ -41,7 +41,8 @@ router.post('/', (req, res) => {
     sowUntil: plant.sowUntil,
     harvestFrom: plant.harvestFrom,
     harvestUntil: plant.harvestUntil
-  }));
+  }))
+  .catch(err => res.status(422).json({Error: err.message}));
 });
 
 // @route DELETE api/plants/:id
