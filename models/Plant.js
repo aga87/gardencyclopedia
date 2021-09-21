@@ -111,4 +111,11 @@ function hasHarvestUntil() {
   return this.harvestUntil != null;
 }
 
+// FIXME: How to use the pre save middleware? 
+// PlantSchema.pre('save', function (next) {
+//   // Capitalize
+//   this.sowFrom.charAt(0).toUpperCase() + this.sowFrom.slice(1).toLowerCase();
+//   next();
+// });
+
 module.exports = Plant = mongoose.model('plant', PlantSchema);

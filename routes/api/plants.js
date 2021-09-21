@@ -59,3 +59,8 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
+
+// TODO: 
+// GET: User hit a wrong api endpoint e.g. api/plantss
+// https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
+// Handle POST: Error 400 - Bad Request (bad syntax) 
