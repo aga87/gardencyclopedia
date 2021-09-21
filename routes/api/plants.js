@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
     harvestUntil: req.body.harvestUntil
   });
 
-  newPlant.save().then(plant => res.json({
+  newPlant.save().then(plant => res.status(201).json({
     name: plant.name,
     desc: plant.desc,
     category: plant.category,
