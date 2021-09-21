@@ -33,7 +33,7 @@ Plant.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   desc: PropTypes.string,
-  category: PropTypes.oneOf(['Uncategorised', ...plantCategories]),
+  category: PropTypes.oneOf(plantCategories),
   sowFrom: PropTypes.string,
   sowUntil: PropTypes.string,
   harvestFrom: PropTypes.string,
@@ -42,11 +42,11 @@ Plant.propTypes = {
 
 Plant.defaultProps = {
   desc: '',
+  category: plantCategories[0],
   sowFrom: '',
   sowUntil: '',
   harvestFrom: '',
-  harvestUntil: '',
-  category: 'Uncategorised'
+  harvestUntil: ''
 };
 
 export default Plant;
