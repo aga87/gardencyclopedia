@@ -28,7 +28,7 @@ export const getPlants = () => dispatch => {
   axios.get('/api/plants').then(res =>
     dispatch({
       type: GET_PLANTS,
-      payload: res.data
+      payload: res.data.plants
     })
   );
 };
