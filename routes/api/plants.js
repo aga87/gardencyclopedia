@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const Plant = require('../../models/Plant');
 
 // @route GET api/plants
@@ -8,6 +7,7 @@ const Plant = require('../../models/Plant');
 // @access Public
 router.get('/', (req, res) => {
   Plant.find()
+    .select('-__v')
     .sort({ name: 1 })
     .then(plants => res.json(plants));
 });
@@ -26,7 +26,15 @@ router.post('/', (req, res) => {
     harvestUntil: req.body.harvestUntil
   });
 
-  newPlant.save().then(plant => res.json(plant));
+  newPlant.save().then(plant => res.json({
+    name: plant.name,
+    desc: plant.desc,
+    category: plant.category,
+    sowFrom: plant.sowFrom,
+    sowUntil: plant.sowUntil,
+    harvestFrom: plant.harvestFrom,
+    harvestUntil: plant.harvestUntil
+  }));
 });
 
 // @route DELETE api/plants/:id
