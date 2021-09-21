@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   Plant.find()
     .select('-__v')
     .sort({ name: 1 })
-    .then(plants => res.json(plants));
+    .then(plants => res.status(200).json(plants));
 });
 
 // @route POST api/plants
