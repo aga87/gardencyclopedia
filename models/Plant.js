@@ -23,7 +23,7 @@ const invalidMonthMsg = `{VALUE} is not a valid month. Valid months are: ${month
 const PlantSchema = new Schema({
   name: {
     type: String,
-    required: [true, 'Give your plant a name'],
+    required: [true, 'This field is required.'],
     maxLength: [20, 'Cannot be longer than 20 characters - {VALUE} exceeds the length limit.'],
     trim: true
   },
@@ -51,7 +51,7 @@ const PlantSchema = new Schema({
     },
     required: [
       hasSowUntil,
-      'You need to specify the starting month if the sowing end date is specified.'
+      'The starting month of the sowing season is required if the ending month of the sowing season (sowUntil) is set.'
     ],
     trim: true
   },
@@ -63,7 +63,7 @@ const PlantSchema = new Schema({
     },
     required: [
       hasSowFrom,
-      'You need to specify the end month if the sowing start date is specified.'
+      'The ending month of the sowing season is required if the starting month of the sowing season (sowFrom) is set.'
     ],
     trim: true
   },
@@ -75,7 +75,7 @@ const PlantSchema = new Schema({
     },
     required: [
       hasHarvestUntil,
-      'You need to specify the starting month if the harvesting end date is specified.'
+      'The starting month of the harvesting season is required if the ending month of the harvesting season (harvestUntil) is set.'
     ],
     trim: true
   },
@@ -87,7 +87,7 @@ const PlantSchema = new Schema({
     },
     required: [
       hasHarvestFrom,
-      'You need to specify the end month if the harvesting start date is specified.'
+      'The ending month of the harvesting season is required if the starting month of the harvesting season (harvestFrom) is set.'
     ],
     trim: true
   }
