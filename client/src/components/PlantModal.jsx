@@ -75,7 +75,7 @@ const PlantModal = () => {
           id="plantName"
           label="Plant name"
           value={name}
-          maxLength="30"
+          maxLength="20"
           handleChange={handleNameChange}
           required
         />
@@ -83,7 +83,7 @@ const PlantModal = () => {
           id="plantDesc"
           label="Description"
           value={desc}
-          maxLength="100"
+          maxLength="30"
           handleChange={handleDescChange}
         />
         <SelectField
