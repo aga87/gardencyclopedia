@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const plantCategories = ['uncategorised', 'vegetables', 'fruits', 'herbs', 'flowers'];
+const plantCategories = ['vegetables', 'fruits', 'herbs', 'flowers'];
 
 const months = [
   'January',
@@ -29,6 +29,7 @@ const PlantSchema = new Schema({
   },
   desc: {
     type: String,
+    default: '',
     maxLength: [30, 'Cannot be longer than 30 characters - {VALUE} exceeds the length limit.'],
     trim: true
   },
@@ -37,10 +38,10 @@ const PlantSchema = new Schema({
     lowercase: true,
     trim: true,
     enum: { 
-      values: plantCategories,
+      values: ['', ...plantCategories],
       message: `{VALUE} is not a valid plant category. The allowed categories are: ${plantCategories.join(', ')}.`
     },
-    default: plantCategories[0],
+    default: '',
     trim: true
   },
   sowFrom: {
@@ -49,8 +50,9 @@ const PlantSchema = new Schema({
       hasSowUntil,
       'The starting month of the sowing season is required if the ending month of the sowing season (sowUntil) is specified.'
     ],
+    default: '',
     enum: {
-      values: months,
+      values: ['', ...months],
       message: invalidMonthMsg
     },
     trim: true
@@ -61,8 +63,9 @@ const PlantSchema = new Schema({
       hasSowFrom,
       'The ending month of the sowing season is required if the starting month of the sowing season (sowFrom) is specified.'
     ],
+    default: '',
     enum: {
-      values: months,
+      values: ['', ...months],
       message: invalidMonthMsg
     },
     trim: true
@@ -73,8 +76,9 @@ const PlantSchema = new Schema({
       hasHarvestUntil,
       'The starting month of the harvesting season is required if the ending month of the harvesting season (harvestUntil) is specified.'
     ],
+    default: '',
     enum: {
-      values: months,
+      values: ['', ...months],
       message: invalidMonthMsg
     },
     trim: true
@@ -85,8 +89,9 @@ const PlantSchema = new Schema({
       hasHarvestFrom,
       'The ending month of the harvesting season is required if the starting month of the harvesting season (harvestFrom) is specified.'
     ],
+    default: '',
     enum: {
-      values: months,
+      values: ['', ...months],
       message: invalidMonthMsg
     },
     trim: true
@@ -96,19 +101,19 @@ const PlantSchema = new Schema({
 // Validators
 
 function hasSowFrom() {
-  return this.sowFrom != null;
+  return this.sowFrom != '';
 }
 
 function hasSowUntil() {
-  return this.sowUntil != null;
+  return this.sowUntil != '';
 }
 
 function hasHarvestFrom() {
-  return this.harvestFrom != null;
+  return this.harvestFrom != '';
 }
 
 function hasHarvestUntil() {
-  return this.harvestUntil != null;
+  return this.harvestUntil != '';
 }
 
 // FIXME: How to use the pre save middleware? 
