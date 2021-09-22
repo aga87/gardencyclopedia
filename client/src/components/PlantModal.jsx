@@ -90,7 +90,7 @@ const PlantModal = () => {
           id="plantCategory"
           label="Category"
           options={plantCategories}
-          selectedOption="Select category"
+          placeholder="Select category"
           value={category}
           handleChange={handleCategoryChange}
         />
@@ -98,7 +98,7 @@ const PlantModal = () => {
           id="sowFrom"
           label="Sow from"
           options={months}
-          selectedOption="Select month"
+          placeholder="Select month"
           value={sowFrom}
           handleChange={handleSowFromChange}
         />
@@ -106,7 +106,7 @@ const PlantModal = () => {
           id="sowUntil"
           label="Sow until"
           options={months}
-          selectedOption="Select month"
+          placeholder="Select month"
           value={sowUntil}
           handleChange={handleSowUntilChange}
         />
@@ -114,7 +114,7 @@ const PlantModal = () => {
           id="harvestFrom"
           label="Harvest from"
           options={months}
-          selectedOption="Select month"
+          placeholder="Select month"
           value={harvestFrom}
           handleChange={handleHarvestFromChange}
         />
@@ -122,7 +122,7 @@ const PlantModal = () => {
           id="harvestUntil"
           label="Harvest until"
           options={months}
-          selectedOption="Select month"
+          placeholder="Select month"
           value={harvestUntil}
           handleChange={handleHarvestUntilChange}
         />
