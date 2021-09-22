@@ -50,7 +50,7 @@ const PlantSchema = new Schema({
       'The starting month of the sowing season is required if the ending month of the sowing season (sowUntil) is specified.'
     ],
     enum: {
-      values: months,
+      values: [null, ...months],
       message: invalidMonthMsg
     },
     trim: true
@@ -62,7 +62,7 @@ const PlantSchema = new Schema({
       'The ending month of the sowing season is required if the starting month of the sowing season (sowFrom) is specified.'
     ],
     enum: {
-      values: months,
+      values: [null, ...months],
       message: invalidMonthMsg
     },
     trim: true
@@ -74,7 +74,7 @@ const PlantSchema = new Schema({
       'The starting month of the harvesting season is required if the ending month of the harvesting season (harvestUntil) is specified.'
     ],
     enum: {
-      values: months,
+      values: [null, ...months],
       message: invalidMonthMsg
     },
     trim: true
@@ -86,7 +86,7 @@ const PlantSchema = new Schema({
       'The ending month of the harvesting season is required if the starting month of the harvesting season (harvestFrom) is specified.'
     ],
     enum: {
-      values: months,
+      values: [null, ...months],
       message: invalidMonthMsg
     },
     trim: true

@@ -28,12 +28,13 @@ SelectField.propTypes = {
   label: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectedOption: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   required: PropTypes.bool
 };
 
 SelectField.defaultProps = {
+  value: null,
   required: false
 };
 

@@ -43,10 +43,10 @@ Plant.propTypes = {
 Plant.defaultProps = {
   desc: '',
   category: plantCategories[0],
-  sowFrom: '',
-  sowUntil: '',
-  harvestFrom: '',
-  harvestUntil: ''
+  sowFrom: null,
+  sowUntil: null,
+  harvestFrom: null,
+  harvestUntil: null
 };
 
 export default Plant;
