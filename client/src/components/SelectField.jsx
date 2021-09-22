@@ -34,7 +34,7 @@ SelectField.propTypes = {
 };
 
 SelectField.defaultProps = {
-  value: null,
+  value: '',
   required: false
 };
 

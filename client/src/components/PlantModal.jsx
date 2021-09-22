@@ -9,10 +9,10 @@ const PlantModal = () => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
   const [category, setCategory] = useState(plantCategories[0]);
-  const [sowFrom, setSowFrom] = useState(null);
-  const [sowUntil, setSowUntil] = useState(null);
-  const [harvestFrom, setHarvestFrom] = useState(null);
-  const [harvestUntil, setHarvestUntil] = useState(null);
+  const [sowFrom, setSowFrom] = useState('');
+  const [sowUntil, setSowUntil] = useState('');
+  const [harvestFrom, setHarvestFrom] = useState('');
+  const [harvestUntil, setHarvestUntil] = useState('');
 
   const dispatch = useDispatch();
 
