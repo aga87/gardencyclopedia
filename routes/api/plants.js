@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Plant = require('../../models/Plant');
 
+//FIXME: update node and implement new syntax
+
 // @route GET api/plants
 // @desc Get all plants
 // @access Public
