@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Plant = require('../../models/Plant');
 
+// FIXME: update node and implement new syntax
+
 // @route GET api/plants
 // @desc Get all plants
 // @access Public
@@ -42,7 +44,7 @@ router.post('/', (req, res) => {
     sowUntil: plant.sowUntil,
     harvestFrom: plant.harvestFrom,
     harvestUntil: plant.harvestUntil
-  }))
+  })) // FIXME: hide the __v in response instead of passing all these fields explicitly
   .catch(err => res.status(422).json({Error: err.message}));
 });
 
