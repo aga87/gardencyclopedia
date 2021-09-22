@@ -101,7 +101,7 @@ const PlantModal = () => {
           placeholder="Select month"
           value={sowFrom}
           handleChange={handleSowFromChange}
-          required
+          required={sowUntil !== ''}
         />
         <SelectField
           id="sowUntil"
@@ -110,6 +110,7 @@ const PlantModal = () => {
           placeholder="Select month"
           value={sowUntil}
           handleChange={handleSowUntilChange}
+          required={sowFrom !== ''}
         />
         <SelectField
           id="harvestFrom"
@@ -118,6 +119,7 @@ const PlantModal = () => {
           placeholder="Select month"
           value={harvestFrom}
           handleChange={handleHarvestFromChange}
+          required={harvestUntil !== ''}
         />
         <SelectField
           id="harvestUntil"
@@ -126,6 +128,7 @@ const PlantModal = () => {
           placeholder="Select month"
           value={harvestUntil}
           handleChange={handleHarvestUntilChange}
+          required={harvestFrom !== ''}
         />
         <button type="submit">Add</button>
       </form>
