@@ -34,6 +34,7 @@ router.post('/', (req, res) => {
   });
 
   newPlant.save().then(plant => res.status(201).json({
+    _id: plant._id,
     name: plant.name,
     desc: plant.desc,
     category: plant.category,
@@ -41,7 +42,7 @@ router.post('/', (req, res) => {
     sowUntil: plant.sowUntil,
     harvestFrom: plant.harvestFrom,
     harvestUntil: plant.harvestUntil
-  }))
+  })) // FIXME: how to hide the __v in response instead of passing all these fields explicitly?
   .catch(err => res.status(422).json({Error: err.message}));
 });
 
