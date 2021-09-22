@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SelectField = props => {
-  const { id, label, options, selectedOption, value, handleChange, required } =
+  const { id, label, options, placeholder, value, handleChange, required } =
     props;
 
   const selectOptions = options.map(option => (
@@ -16,7 +16,7 @@ const SelectField = props => {
         {required && <span aria-hidden="true"> *</span>}
       </label>
       <select id={id} required={required} value={value} onChange={handleChange}>
-        <option value="defaultValue">{selectedOption}</option>
+        <option value="defaultValue">{placeholder}</option>
         {selectOptions}
       </select>
     </p>
@@ -27,7 +27,7 @@ SelectField.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  selectedOption: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
   value: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   required: PropTypes.bool
