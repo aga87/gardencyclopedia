@@ -32,16 +32,12 @@ const Plant = props => {
 Plant.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  desc: PropTypes.string,
+  desc: PropTypes.string.isRequired,
   category: PropTypes.oneOf(['', ...plantCategories]).isRequired,
   sowFrom: PropTypes.oneOf(['', ...months]).isRequired,
   sowUntil: PropTypes.oneOf(['', ...months]).isRequired,
   harvestFrom: PropTypes.oneOf(['', ...months]).isRequired,
   harvestUntil: PropTypes.oneOf(['', ...months]).isRequired
-};
-
-Plant.defaultProps = {
-  desc: ''
 };
 
 export default Plant;

@@ -29,6 +29,7 @@ const PlantSchema = new Schema({
   },
   desc: {
     type: String,
+    default: '',
     maxLength: [30, 'Cannot be longer than 30 characters - {VALUE} exceeds the length limit.'],
     trim: true
   },
