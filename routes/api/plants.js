@@ -34,6 +34,7 @@ router.post('/', (req, res) => {
   });
 
   newPlant.save().then(plant => res.status(201).json({
+    _id: plant._id,
     name: plant.name,
     desc: plant.desc,
     category: plant.category,
