@@ -30,13 +30,12 @@ SelectField.propTypes = {
   label: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   placeholder: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   required: PropTypes.bool
 };
 
 SelectField.defaultProps = {
-  value: '', // FIXME:
   required: false
 };
 
