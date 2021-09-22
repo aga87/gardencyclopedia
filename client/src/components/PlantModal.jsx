@@ -8,7 +8,7 @@ import { months, plantCategories } from '../utils/constants';
 const PlantModal = () => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
-  const [category, setCategory] = useState(plantCategories[0]);
+  const [category, setCategory] = useState('');
   const [sowFrom, setSowFrom] = useState('');
   const [sowUntil, setSowUntil] = useState('');
   const [harvestFrom, setHarvestFrom] = useState('');

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import DeletePlantBtn from './DeletePlantBtn';
-import { plantCategories } from '../utils/constants';
+import { months, plantCategories } from '../utils/constants';
 
 const Plant = props => {
   const {
@@ -19,7 +19,7 @@ const Plant = props => {
     <figure>
       <h1>{name}</h1>
       <p>{desc}</p>
-      <p>{category}</p>
+      <p>{category || 'Uncategorised'}</p>
       <DeletePlantBtn id={id} />
       <p>Sow from: {sowFrom}</p>
       <p>Sow until: {sowUntil}</p>
@@ -33,16 +33,15 @@ Plant.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   desc: PropTypes.string,
-  category: PropTypes.oneOf(plantCategories),
-  sowFrom: PropTypes.string.isRequired,
-  sowUntil: PropTypes.string.isRequired,
-  harvestFrom: PropTypes.string.isRequired,
-  harvestUntil: PropTypes.string.isRequired
+  category: PropTypes.oneOf(['', ...plantCategories]).isRequired,
+  sowFrom: PropTypes.oneOf(['', ...months]).isRequired,
+  sowUntil: PropTypes.oneOf(['', ...months]).isRequired,
+  harvestFrom: PropTypes.oneOf(['', ...months]).isRequired,
+  harvestUntil: PropTypes.oneOf(['', ...months]).isRequired
 };
 
 Plant.defaultProps = {
-  desc: '',
-  category: plantCategories[0]
+  desc: ''
 };
 
 export default Plant;

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const plantCategories = ['uncategorised', 'vegetables', 'fruits', 'herbs', 'flowers'];
+const plantCategories = ['vegetables', 'fruits', 'herbs', 'flowers'];
 
 const months = [
   'January',
@@ -37,10 +37,10 @@ const PlantSchema = new Schema({
     lowercase: true,
     trim: true,
     enum: { 
-      values: plantCategories,
+      values: ['', ...plantCategories],
       message: `{VALUE} is not a valid plant category. The allowed categories are: ${plantCategories.join(', ')}.`
     },
-    default: plantCategories[0],
+    default: '',
     trim: true
   },
   sowFrom: {

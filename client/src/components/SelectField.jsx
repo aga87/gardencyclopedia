@@ -36,7 +36,7 @@ SelectField.propTypes = {
 };
 
 SelectField.defaultProps = {
-  value: '',
+  value: '', // FIXME:
   required: false
 };
 
