@@ -101,6 +101,7 @@ const PlantModal = () => {
           placeholder="Select month"
           value={sowFrom}
           handleChange={handleSowFromChange}
+          required
         />
         <SelectField
           id="sowUntil"
