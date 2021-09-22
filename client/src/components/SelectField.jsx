@@ -6,7 +6,7 @@ const SelectField = props => {
     props;
 
   const selectOptions = options.map(option => (
-    <option key={option}>{option}</option>
+    <option key={option} value={option}>{option}</option>
   ));
 
   return (
