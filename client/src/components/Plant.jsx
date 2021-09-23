@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import DeletePlantBtn from './DeletePlantBtn';
-import { plantCategories } from '../utils/constants';
+import { months, plantCategories } from '../utils/constants';
 
 const Plant = props => {
   const {
@@ -19,7 +19,7 @@ const Plant = props => {
     <figure>
       <h1>{name}</h1>
       <p>{desc}</p>
-      <p>{category}</p>
+      <p>{category || 'Uncategorised'}</p>
       <DeletePlantBtn id={id} />
       <p>Sow from: {sowFrom}</p>
       <p>Sow until: {sowUntil}</p>
@@ -32,21 +32,12 @@ const Plant = props => {
 Plant.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  desc: PropTypes.string,
-  category: PropTypes.oneOf(['Uncategorised', ...plantCategories]),
-  sowFrom: PropTypes.string,
-  sowUntil: PropTypes.string,
-  harvestFrom: PropTypes.string,
-  harvestUntil: PropTypes.string
-};
-
-Plant.defaultProps = {
-  desc: '',
-  sowFrom: '',
-  sowUntil: '',
-  harvestFrom: '',
-  harvestUntil: '',
-  category: 'Uncategorised'
+  desc: PropTypes.string.isRequired,
+  category: PropTypes.oneOf(['', ...plantCategories]).isRequired,
+  sowFrom: PropTypes.oneOf(['', ...months]).isRequired,
+  sowUntil: PropTypes.oneOf(['', ...months]).isRequired,
+  harvestFrom: PropTypes.oneOf(['', ...months]).isRequired,
+  harvestUntil: PropTypes.oneOf(['', ...months]).isRequired
 };
 
 export default Plant;

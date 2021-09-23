@@ -75,7 +75,7 @@ const PlantModal = () => {
           id="plantName"
           label="Plant name"
           value={name}
-          maxLength="30"
+          maxLength="20"
           handleChange={handleNameChange}
           required
         />
@@ -83,7 +83,7 @@ const PlantModal = () => {
           id="plantDesc"
           label="Description"
           value={desc}
-          maxLength="100"
+          maxLength="30"
           handleChange={handleDescChange}
         />
         <SelectField
@@ -101,6 +101,7 @@ const PlantModal = () => {
           placeholder="Select month"
           value={sowFrom}
           handleChange={handleSowFromChange}
+          required={sowUntil !== ''}
         />
         <SelectField
           id="sowUntil"
@@ -109,6 +110,7 @@ const PlantModal = () => {
           placeholder="Select month"
           value={sowUntil}
           handleChange={handleSowUntilChange}
+          required={sowFrom !== ''}
         />
         <SelectField
           id="harvestFrom"
@@ -117,6 +119,7 @@ const PlantModal = () => {
           placeholder="Select month"
           value={harvestFrom}
           handleChange={handleHarvestFromChange}
+          required={harvestUntil !== ''}
         />
         <SelectField
           id="harvestUntil"
@@ -125,6 +128,7 @@ const PlantModal = () => {
           placeholder="Select month"
           value={harvestUntil}
           handleChange={handleHarvestUntilChange}
+          required={harvestFrom !== ''}
         />
         <button type="submit">Add</button>
       </form>

@@ -13,4 +13,4 @@ export const months = [
   'December'
 ];
 
-export const plantCategories = ['Vegetables', 'Fruits', 'Herbs', 'Flowers'];
+export const plantCategories = ['vegetables', 'fruits', 'herbs', 'flowers'];
