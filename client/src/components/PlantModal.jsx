@@ -18,6 +18,15 @@ const PlantModal = () => {
 
   const dispatch = useDispatch();
 
+  const isEveryFieldValid =
+    name.values.error === '' &&
+    desc.values.error === '' &&
+    category.values.error === '' &&
+    sowFrom.values.error === '' &&
+    sowUntil.values.error === '' &&
+    harvestFrom.values.error === '' &&
+    harvestUntil.values.error === '';
+
   function handleSubmit(e) {
     e.preventDefault();
     const newPlant = {
@@ -102,7 +111,9 @@ const PlantModal = () => {
           required={harvestFrom.values.value !== ''}
         />
         <Error inputId="harvestUntil" error={harvestUntil.values.error} />
-        <button type="submit">Add</button>
+        <button type="submit" disabled={!isEveryFieldValid}>
+          Add
+        </button>
       </form>
     </div>
   );
