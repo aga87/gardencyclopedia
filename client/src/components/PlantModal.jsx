@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addPlant } from '../redux/actions/plantsActions';
 import TextField from './TextField';
 import SelectField from './SelectField';
+import Error from './Error';
 import { months, plantCategories } from '../utils/constants';
 import useFormInput from '../utils/hooks/useFormInput';
 
@@ -20,13 +21,13 @@ const PlantModal = () => {
   function handleSubmit(e) {
     e.preventDefault();
     const newPlant = {
-      name: name.value,
-      desc: desc.value,
-      category: category.value,
-      sowFrom: sowFrom.value,
-      sowUntil: sowUntil.value,
-      harvestFrom: harvestFrom.value,
-      harvestUntil: harvestUntil.value
+      name: name.values.value,
+      desc: desc.values.value,
+      category: category.values.value,
+      sowFrom: sowFrom.values.value,
+      sowUntil: sowUntil.values.value,
+      harvestFrom: harvestFrom.values.value,
+      harvestUntil: harvestUntil.values.value
     };
     dispatch(addPlant(newPlant));
   }
@@ -34,66 +35,73 @@ const PlantModal = () => {
   return (
     <div>
       <h1>Add a new plant</h1>
-      <form onSubmit={handleSubmit}>
+      <form noValidate onSubmit={handleSubmit}>
         <TextField
           id="plantName"
           label="Plant name"
-          value={name.value}
+          value={name.values.value}
           maxLength="20"
           handleChange={name.handleChange}
           required
         />
+        <Error inputId="plantName" error={name.values.error} />
         <TextField
           id="plantDesc"
           label="Description"
-          value={desc.value}
+          value={desc.values.value}
           maxLength="30"
           handleChange={desc.handleChange}
         />
+        <Error inputId="plantDesc" error={desc.values.error} />
         <SelectField
           id="plantCategory"
           label="Category"
           options={plantCategories}
           placeholder="Select category"
-          value={category.value}
+          value={category.values.value}
           handleChange={category.handleChange}
         />
+        <Error inputId="plantCategory" error={category.values.error} />
         <SelectField
           id="sowFrom"
           label="Sow from"
           options={months}
           placeholder="Select month"
-          value={sowFrom.value}
+          value={sowFrom.values.value}
           handleChange={sowFrom.handleChange}
-          required={sowUntil.value !== ''}
+          required={sowUntil.values.value !== ''}
         />
+        <Error inputId="sowFrom" error={sowFrom.values.error} />
         <SelectField
           id="sowUntil"
           label="Sow until"
           options={months}
           placeholder="Select month"
-          value={sowUntil.value}
+          value={sowUntil.values.value}
           handleChange={sowUntil.handleChange}
-          required={sowFrom.value !== ''}
+          required={sowFrom.values.value !== ''}
         />
+        <Error inputId="sowUntil" error={sowUntil.values.error} />
         <SelectField
           id="harvestFrom"
           label="Harvest from"
           options={months}
           placeholder="Select month"
-          value={harvestFrom.value}
+          value={harvestFrom.values.value}
           handleChange={harvestFrom.handleChange}
-          required={harvestUntil.value !== ''}
+          required={harvestUntil.values.value !== ''}
         />
+        <Error inputId="harvestFrom" error={harvestFrom.values.error} />
         <SelectField
           id="harvestUntil"
           label="Harvest until"
           options={months}
           placeholder="Select month"
-          value={harvestUntil.value}
+          value={harvestUntil.values.value}
           handleChange={harvestUntil.handleChange}
-          required={harvestFrom.value !== ''}
+          required={harvestFrom.values.value !== ''}
         />
+        <Error inputId="harvestUntil" error={harvestUntil.values.error} />
         <button type="submit">Add</button>
       </form>
     </div>

@@ -1,13 +1,20 @@
 import { useState } from 'react';
+import validateField from '../validation';
 
 const useFormInput = () => {
-  const [value, setValue] = useState('');
+  const [values, setValues] = useState({
+    value: '',
+    error: ''
+  });
 
   function handleChange(e) {
-    setValue(e.target.value);
+    setValues({
+      value: e.target.value,
+      error: validateField(e.target)
+    });
   }
 
-  return { value, handleChange };
+  return { values, handleChange };
 };
 
 export default useFormInput;
