@@ -12,7 +12,6 @@ const TextField = props => {
       </label>
       <input
         id={id}
-        name={id}
         type="text"
         size="30"
         maxLength={maxLength}

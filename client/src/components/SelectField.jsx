@@ -17,13 +17,7 @@ const SelectField = props => {
         {label}
         {required && <span aria-hidden="true"> *</span>}
       </label>
-      <select
-        id={id}
-        name={id}
-        required={required}
-        value={value}
-        onChange={handleChange}
-      >
+      <select id={id} required={required} value={value} onChange={handleChange}>
         <option value="">{placeholder}</option>
         {selectOptions}
       </select>

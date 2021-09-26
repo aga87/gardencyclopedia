@@ -1,33 +1,44 @@
-/**
- * Validates a form field using Constraint Validation API
- * @param {HTML Element} field to validate
+/** All validation functions:
+ * Validate a controlled form field
+ * @param {string} value - field value
+ * @param {Object} validators - field constraints
  * @returns a custom error message
  */
 
-function validateField(field) {
-  const { valid, tooLong, valueMissing } = field.validity;
-  const inputName = field.getAttribute('name');
-  if (valid) return '';
-  if (valueMissing) {
-    if (inputName === 'plantName') return 'Give your plant a name.';
-    if (inputName === 'sowFrom')
-      return 'Specify the starting month of the sowing season.';
-    if (inputName === 'sowUntil')
-      return 'Specify the ending month of the sowing season.';
-    if (inputName === 'harvestFrom')
-      return 'Specify the starting month of the harvesting season.';
-    if (inputName === 'harvestUntil')
-      return 'Specify the ending month of the harvesting season.';
-  }
-  if (tooLong) {
-    const maxLength = field.getAttribute('maxLength');
-    const inputValue = field.getAttribute('value');
-    if (inputName === 'plantName')
-      return `Plant name cannot exceed ${maxLength} characters. You are currently using ${inputValue.length} characters.`;
-    if (inputName === 'plantDesc')
-      return `Plant description cannot exceed ${maxLength} characters. You are currently using ${inputValue.length} characters.`;
-  }
-  return 'The value you entered for this field is invalid.';
+export function validateName(value, validators) {
+  if (validators.required === true && value.length === 0)
+    return 'Give your plant a name.';
+  if (value.length > validators.maxLength)
+    return `Plant name cannot exceed ${validators.maxLength} characters. You are currently using ${value.length} characters.`;
+  return '';
 }
 
-export default validateField;
+export function validateDesc(value, validators) {
+  if (value.length > validators.maxLength)
+    return `Plant description cannot exceed ${validators.maxLength} characters. You are currently using ${value.length} characters.`;
+  return '';
+}
+
+export function validateSowFrom(value, validators) {
+  if (validators.required === true && value.length === 0)
+    return 'Specify the starting month of the sowing season.';
+  return '';
+}
+
+export function validateSowUntil(value, validators) {
+  if (validators.required === true && value.length === 0)
+    return 'Specify the ending month of the sowing season.';
+  return '';
+}
+
+export function validateHarvestFrom(value, validators) {
+  if (validators.required === true && value.length === 0)
+    return 'Specify the starting month of the harvesting season.';
+  return '';
+}
+
+export function validateHarvestUntil(value, validators) {
+  if (validators.required === true && value.length === 0)
+    return 'Specify the ending month of the harvesting season.';
+  return '';
+}
