@@ -49,35 +49,35 @@ const PlantModal = () => {
   };
 
   const sowFromValidators = {
-    required: sowUntil.values.value !== ''
+    required: sowUntil.value !== ''
   };
 
   const sowUntilValidators = {
-    required: sowFrom.values.value !== ''
+    required: sowFrom.value !== ''
   };
 
   const harvestFromValidators = {
-    required: harvestUntil.values.value !== ''
+    required: harvestUntil.value !== ''
   };
 
   const harvestUntilValidators = {
-    required: harvestFrom.values.value !== ''
+    required: harvestFrom.value !== ''
   };
 
   function handleSubmit(e) {
     e.preventDefault();
 
     const formErrors = {
-      name: validateName(name.values.value, nameValidators),
-      desc: validateDesc(desc.values.value, descValidators),
-      sowFrom: validateSowFrom(sowFrom.values.value, sowFromValidators),
-      sowUntil: validateSowUntil(sowUntil.values.value, sowUntilValidators),
+      name: validateName(name.value, nameValidators),
+      desc: validateDesc(desc.value, descValidators),
+      sowFrom: validateSowFrom(sowFrom.value, sowFromValidators),
+      sowUntil: validateSowUntil(sowUntil.value, sowUntilValidators),
       harvestFrom: validateHarvestFrom(
-        harvestFrom.values.value,
+        harvestFrom.value,
         harvestFromValidators
       ),
       harvestUntil: validateHarvestUntil(
-        harvestUntil.values.value,
+        harvestUntil.value,
         harvestUntilValidators
       )
     };
@@ -95,13 +95,13 @@ const PlantModal = () => {
 
     // Submit if there is no errors
     const newPlant = {
-      name: name.values.value,
-      desc: desc.values.value,
-      category: category.values.value,
-      sowFrom: sowFrom.values.value,
-      sowUntil: sowUntil.values.value,
-      harvestFrom: harvestFrom.values.value,
-      harvestUntil: harvestUntil.values.value
+      name: name.value,
+      desc: desc.value,
+      category: category.value,
+      sowFrom: sowFrom.value,
+      sowUntil: sowUntil.value,
+      harvestFrom: harvestFrom.value,
+      harvestUntil: harvestUntil.value
     };
     dispatch(addPlant(newPlant));
   }
@@ -113,7 +113,7 @@ const PlantModal = () => {
         <TextField
           id="plantName"
           label="Plant name"
-          value={name.values.value}
+          value={name.value}
           maxLength={nameValidators.maxLength}
           handleChange={name.handleChange}
           required={nameValidators.required}
@@ -122,7 +122,7 @@ const PlantModal = () => {
         <TextField
           id="plantDesc"
           label="Description"
-          value={desc.values.value}
+          value={desc.value}
           maxLength={descValidators.maxLength}
           handleChange={desc.handleChange}
           required={descValidators.required}
@@ -133,7 +133,7 @@ const PlantModal = () => {
           label="Category"
           options={plantCategories}
           placeholder="Select category"
-          value={category.values.value}
+          value={category.value}
           handleChange={category.handleChange}
         />
         <SelectField
@@ -141,7 +141,7 @@ const PlantModal = () => {
           label="Sow from"
           options={months}
           placeholder="Select month"
-          value={sowFrom.values.value}
+          value={sowFrom.value}
           handleChange={sowFrom.handleChange}
           required={sowFromValidators.required}
         />
@@ -151,7 +151,7 @@ const PlantModal = () => {
           label="Sow until"
           options={months}
           placeholder="Select month"
-          value={sowUntil.values.value}
+          value={sowUntil.value}
           handleChange={sowUntil.handleChange}
           required={sowUntilValidators.required}
         />
@@ -161,7 +161,7 @@ const PlantModal = () => {
           label="Harvest from"
           options={months}
           placeholder="Select month"
-          value={harvestFrom.values.value}
+          value={harvestFrom.value}
           handleChange={harvestFrom.handleChange}
           required={harvestFromValidators.required}
         />
@@ -171,7 +171,7 @@ const PlantModal = () => {
           label="Harvest until"
           options={months}
           placeholder="Select month"
-          value={harvestUntil.values.value}
+          value={harvestUntil.value}
           handleChange={harvestUntil.handleChange}
           required={harvestUntilValidators.required}
         />
