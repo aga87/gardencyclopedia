@@ -7,7 +7,11 @@ const useFormInput = () => {
     setValue(e.target.value);
   }
 
-  return { value, handleChange };
+  function resetField() {
+    setValue('');
+  }
+
+  return { value, handleChange, resetField };
 };
 
 export default useFormInput;
