@@ -14,9 +14,8 @@ router.get('/', (req, res) => {
         count: plants.length,
         plants
       };
-      res.status(200).json(plantsWithCount)
-    }
-  );
+      res.status(200).json(plantsWithCount)})
+    .catch(err => res.status(500).json({Error: "Server error."}));
 });
 
 // @route POST api/plants
