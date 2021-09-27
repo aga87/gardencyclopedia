@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPlant } from '../redux/actions/plantsActions';
+import { closePlantModal } from '../redux/actions/uiActions';
 import TextField from './TextField';
 import SelectField from './SelectField';
 import Error from './Error';
@@ -115,6 +116,7 @@ const PlantModal = () => {
     };
     dispatch(addPlant(newPlant));
     resetForm();
+    dispatch(closePlantModal());
   }
 
   return (
@@ -187,6 +189,9 @@ const PlantModal = () => {
           required={harvestUntilValidators.required}
         />
         <Error inputId="harvestUntil" error={errors.harvestUntil} />
+        <button type="button" onClick={() => dispatch(closePlantModal())}>
+          X
+        </button>
         <button type="submit">Add</button>
       </form>
     </div>
