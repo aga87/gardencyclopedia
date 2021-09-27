@@ -121,8 +121,12 @@ const PlantModal = () => {
 
   return (
     <div>
-      <h1>Add a new plant</h1>
-      <form noValidate onSubmit={handleSubmit}>
+      <h1>New Plant</h1>
+      <button type="button" onClick={() => dispatch(closePlantModal())}>
+        Cancel
+      </button>
+      <button type="submit" form="plant-form">Save</button>
+      <form id="plant-form" noValidate onSubmit={handleSubmit}>
         <TextField
           id="plant-name"
           label="Plant name"
@@ -189,10 +193,6 @@ const PlantModal = () => {
           required={harvestUntilValidators.required}
         />
         <Error inputId="harvest-until" error={errors.harvestUntil} />
-        <button type="button" onClick={() => dispatch(closePlantModal())}>
-          X
-        </button>
-        <button type="submit">Add</button>
       </form>
     </div>
   );
