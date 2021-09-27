@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPlant } from '../redux/actions/plantsActions';
+import { closePlantModal } from '../redux/actions/uiActions';
 import TextField from './TextField';
 import SelectField from './SelectField';
 import Error from './Error';
@@ -13,7 +14,7 @@ import {
   validateSowUntil,
   validateHarvestFrom,
   validateHarvestUntil
-} from '../utils/validation';
+} from '../utils/validation-utils';
 
 const PlantModal = () => {
   const name = useFormInput();
@@ -115,32 +116,37 @@ const PlantModal = () => {
     };
     dispatch(addPlant(newPlant));
     resetForm();
+    dispatch(closePlantModal());
   }
 
   return (
     <div>
-      <h1>Add a new plant</h1>
-      <form noValidate onSubmit={handleSubmit}>
+      <h1>New Plant</h1>
+      <button type="button" onClick={() => dispatch(closePlantModal())}>
+        Cancel
+      </button>
+      <button type="submit" form="plant-form">Save</button>
+      <form id="plant-form" noValidate onSubmit={handleSubmit}>
         <TextField
-          id="plantName"
+          id="plant-name"
           label="Plant name"
           value={name.value}
           maxLength={nameValidators.maxLength}
           handleChange={name.handleChange}
           required={nameValidators.required}
         />
-        <Error inputId="plantName" error={errors.name} />
+        <Error inputId="plant-name" error={errors.name} />
         <TextField
-          id="plantDesc"
+          id="plant-desc"
           label="Description"
           value={desc.value}
           maxLength={descValidators.maxLength}
           handleChange={desc.handleChange}
           required={descValidators.required}
         />
-        <Error inputId="plantDesc" error={errors.desc} />
+        <Error inputId="plant-desc" error={errors.desc} />
         <SelectField
-          id="plantCategory"
+          id="plant-category"
           label="Category"
           options={plantCategories}
           placeholder="Select category"
@@ -148,7 +154,7 @@ const PlantModal = () => {
           handleChange={category.handleChange}
         />
         <SelectField
-          id="sowFrom"
+          id="sow-from"
           label="Sow from"
           options={months}
           placeholder="Select month"
@@ -156,9 +162,9 @@ const PlantModal = () => {
           handleChange={sowFrom.handleChange}
           required={sowFromValidators.required}
         />
-        <Error inputId="sowFrom" error={errors.sowFrom} />
+        <Error inputId="sow-from" error={errors.sowFrom} />
         <SelectField
-          id="sowUntil"
+          id="sow-until"
           label="Sow until"
           options={months}
           placeholder="Select month"
@@ -166,9 +172,9 @@ const PlantModal = () => {
           handleChange={sowUntil.handleChange}
           required={sowUntilValidators.required}
         />
-        <Error inputId="sowUntil" error={errors.sowUntil} />
+        <Error inputId="sow-until" error={errors.sowUntil} />
         <SelectField
-          id="harvestFrom"
+          id="harvest-from"
           label="Harvest from"
           options={months}
           placeholder="Select month"
@@ -176,9 +182,9 @@ const PlantModal = () => {
           handleChange={harvestFrom.handleChange}
           required={harvestFromValidators.required}
         />
-        <Error inputId="harvestFrom" error={errors.harvestFrom} />
+        <Error inputId="harvest-from" error={errors.harvestFrom} />
         <SelectField
-          id="harvestUntil"
+          id="harvest-until"
           label="Harvest until"
           options={months}
           placeholder="Select month"
@@ -186,8 +192,7 @@ const PlantModal = () => {
           handleChange={harvestUntil.handleChange}
           required={harvestUntilValidators.required}
         />
-        <Error inputId="harvestUntil" error={errors.harvestUntil} />
-        <button type="submit">Add</button>
+        <Error inputId="harvest-until" error={errors.harvestUntil} />
       </form>
     </div>
   );
