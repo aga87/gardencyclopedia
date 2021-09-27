@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { capitalize } from '../utils/text-utils';
 
 const SelectField = props => {
   const { id, label, options, placeholder, value, handleChange, required } =
@@ -7,7 +8,7 @@ const SelectField = props => {
 
   const selectOptions = options.map(option => (
     <option key={option} value={option}>
-      {option}
+      {capitalize(option)}
     </option>
   ));
 
