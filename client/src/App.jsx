@@ -6,6 +6,7 @@ import './css/index.css';
 import Loader from './components/Loader';
 import PlantList from './components/PlantList';
 import PlantModal from './components/PlantModal';
+import Nav from './components/Nav';
 import Btn from './components/Btn';
 import Icon from './components/Icon';
 
@@ -13,18 +14,14 @@ function App() {
   const plantModalIsOpen = useSelector(selectPlantModalIsOpen);
   const dispatch = useDispatch();
 
-  function handleOpenPlantModal() {
-    dispatch(openPlantModal());
-  }
-
   return (
     <div className="App">
       {plantModalIsOpen && <PlantModal />}
-      <Btn icon={<Icon name="plus" />} handleClick={handleOpenPlantModal} />
+      <Nav />
       <Btn
         icon={<Icon name="plus" />}
         text="New Plant"
-        handleClick={handleOpenPlantModal}
+        handleClick={() => dispatch(openPlantModal())}
       />
       <Loader />
       <PlantList />
