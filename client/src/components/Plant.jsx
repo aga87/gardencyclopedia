@@ -19,9 +19,11 @@ const Plant = props => {
 
   return (
     <figure>
-      <h1>{name}</h1>
-      <p>{desc}</p>
-      <p>{category || 'Uncategorised'}</p>
+      <figcaption>
+        <h1>{name}</h1>
+        <p>{desc}</p>
+        <p>{category || 'Uncategorised'}</p>
+      </figcaption>
       <table>
         <thead>
           <tr>
