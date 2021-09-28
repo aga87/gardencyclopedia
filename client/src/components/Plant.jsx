@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import DeletePlantBtn from './DeletePlantBtn';
 import { months, plantCategories } from '../utils/constants';
+import MonthHeadings from './MonthHeadings';
+import MonthData from './MonthData';
+import DeletePlantBtn from './DeletePlantBtn';
 
 const Plant = props => {
   const {
@@ -17,14 +19,27 @@ const Plant = props => {
 
   return (
     <figure>
-      <h1>{name}</h1>
-      <p>{desc}</p>
-      <p>{category || 'Uncategorised'}</p>
+      <figcaption>
+        <h1>{name}</h1>
+        <p>{desc}</p>
+        <p>{category || 'Uncategorised'}</p>
+      </figcaption>
+      <table>
+        <thead>
+          <tr>
+            <MonthHeadings />
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <MonthData monthStart={sowFrom} monthEnd={sowUntil} />
+          </tr>
+          <tr>
+            <MonthData monthStart={harvestFrom} monthEnd={harvestUntil} />
+          </tr>
+        </tbody>
+      </table>
       <DeletePlantBtn id={id} />
-      <p>Sow from: {sowFrom}</p>
-      <p>Sow until: {sowUntil}</p>
-      <p>Harvest from: {harvestFrom}</p>
-      <p>Harvest until: {harvestUntil}</p>
     </figure>
   );
 };
