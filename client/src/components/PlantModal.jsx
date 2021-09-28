@@ -5,6 +5,7 @@ import { closePlantModal } from '../redux/actions/uiActions';
 import TextField from './TextField';
 import SelectField from './SelectField';
 import Error from './Error';
+import Btn from './Btn';
 import { months, plantCategories } from '../utils/constants';
 import useFormInput from '../utils/hooks/useFormInput';
 import {
@@ -122,9 +123,7 @@ const PlantModal = () => {
   return (
     <div>
       <h1>New Plant</h1>
-      <button type="button" onClick={() => dispatch(closePlantModal())}>
-        Cancel
-      </button>
+      <Btn text="Cancel" handleClick={() => dispatch(closePlantModal())} />
       <button type="submit" form="plant-form">Save</button>
       <form id="plant-form" noValidate onSubmit={handleSubmit}>
         <TextField

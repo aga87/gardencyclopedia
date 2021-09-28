@@ -6,25 +6,27 @@ import './css/index.css';
 import Loader from './components/Loader';
 import PlantList from './components/PlantList';
 import PlantModal from './components/PlantModal';
+import Btn from './components/Btn';
+import Icon from './components/Icon';
 
 function App() {
   const plantModalIsOpen = useSelector(selectPlantModalIsOpen);
   const dispatch = useDispatch();
 
-  function handleOpenPlantBtnClick() {
+  function handleOpenPlantModal() {
     dispatch(openPlantModal());
   }
 
   return (
     <div className="App">
       {plantModalIsOpen && <PlantModal />}
-      <button type="button" onClick={handleOpenPlantBtnClick}>
-        +
-      </button>
+      <Btn icon={<Icon name="plus" />} handleClick={handleOpenPlantModal} />
+      <Btn
+        icon={<Icon name="plus" />}
+        text="New Plant"
+        handleClick={handleOpenPlantModal}
+      />
       <Loader />
-      <button type="button" onClick={handleOpenPlantBtnClick}>
-        + New Plant
-      </button>
       <PlantList />
     </div>
   );

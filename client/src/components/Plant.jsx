@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { deletePlant } from '../redux/actions/plantsActions';
 import { months, plantCategories } from '../utils/constants';
 import MonthHeadings from './MonthHeadings';
 import MonthData from './MonthData';
-import DeletePlantBtn from './DeletePlantBtn';
+import Btn from './Btn';
 
 const Plant = props => {
   const {
@@ -16,6 +18,12 @@ const Plant = props => {
     harvestFrom,
     harvestUntil
   } = props;
+
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(deletePlant(id));
+  }
 
   return (
     <figure>
@@ -39,7 +47,7 @@ const Plant = props => {
           </tr>
         </tbody>
       </table>
-      <DeletePlantBtn id={id} />
+      <Btn text="Delete plant" handleClick={handleClick} />
     </figure>
   );
 };
