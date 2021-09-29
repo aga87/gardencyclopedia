@@ -14,6 +14,10 @@ const App = () => {
   const plantModalIsOpen = useSelector(selectPlantModalIsOpen);
   const dispatch = useDispatch();
 
+  const handleAddClick = () => {
+    dispatch(openPlantModal());
+  };
+
   return (
     <div className="App">
       {plantModalIsOpen && <PlantModal />}
@@ -21,7 +25,7 @@ const App = () => {
       <Btn
         icon={<Icon name="plus" />}
         text="New Plant"
-        handleClick={() => dispatch(openPlantModal())}
+        handleClick={handleAddClick}
       />
       <Loader />
       <PlantList />

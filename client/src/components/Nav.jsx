@@ -7,13 +7,14 @@ import Icon from './Icon';
 const Nav = () => {
   const dispatch = useDispatch();
 
+  const handleClick = () => {
+    dispatch(openPlantModal());
+  };
+
   return (
     <nav>
       <Icon name="menu" />
-      <Btn
-        icon={<Icon name="plus" />}
-        handleClick={() => dispatch(openPlantModal())}
-      />
+      <Btn icon={<Icon name="plus" />} handleClick={handleClick} />
     </nav>
   );
 };

@@ -21,9 +21,9 @@ const Plant = props => {
 
   const dispatch = useDispatch();
 
-  function handleClick() {
+  const handleClick = () => {
     dispatch(deletePlant(id));
-  }
+  };
 
   return (
     <figure>

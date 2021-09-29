@@ -66,7 +66,7 @@ const PlantModal = () => {
     required: harvestFrom.value !== ''
   };
 
-  function resetForm() {
+  const resetForm = () => {
     name.resetField();
     desc.resetField();
     category.resetField();
@@ -74,9 +74,13 @@ const PlantModal = () => {
     sowUntil.resetField();
     harvestFrom.resetField();
     harvestUntil.resetField();
-  }
+  };
 
-  function handleSubmit(e) {
+  const handleCancelClick = () => {
+    dispatch(closePlantModal());
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
 
     const formErrors = {
@@ -118,12 +122,12 @@ const PlantModal = () => {
     dispatch(addPlant(newPlant));
     resetForm();
     dispatch(closePlantModal());
-  }
+  };
 
   return (
     <div>
       <h1>New Plant</h1>
-      <Btn text="Cancel" handleClick={() => dispatch(closePlantModal())} />
+      <Btn text="Cancel" handleClick={handleCancelClick} />
       <button type="submit" form="plant-form">
         Save
       </button>
