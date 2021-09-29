@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllPlants } from '../redux/reducers/index';
 import { getPlants } from '../redux/actions/plantsActions';
+import NoPlantsView from './NoPlantsView';
 import Plant from './Plant';
 
 const PlantList = () => {
@@ -11,6 +12,8 @@ const PlantList = () => {
   useEffect(() => {
     dispatch(getPlants());
   }, [dispatch]);
+
+  if (plants.length === 0) return <NoPlantsView />;
 
   const plantListItems = plants.map(plant => (
     <li key={plant._id}>
