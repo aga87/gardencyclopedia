@@ -18,13 +18,13 @@ import {
 } from '../utils/validation-utils';
 
 const PlantModal = () => {
-  const name = useFormInput();
-  const desc = useFormInput();
-  const category = useFormInput();
-  const sowFrom = useFormInput();
-  const sowUntil = useFormInput();
-  const harvestFrom = useFormInput();
-  const harvestUntil = useFormInput();
+  const name = useFormInput('');
+  const desc = useFormInput('');
+  const category = useFormInput(plantCategories[0]);
+  const sowFrom = useFormInput('');
+  const sowUntil = useFormInput('');
+  const harvestFrom = useFormInput('');
+  const harvestUntil = useFormInput('');
 
   const noErrors = {
     name: '',
@@ -154,7 +154,6 @@ const PlantModal = () => {
           id="plant-category"
           label="Category"
           options={plantCategories}
-          placeholder="Select category"
           value={category.value}
           handleChange={category.handleChange}
         />

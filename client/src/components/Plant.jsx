@@ -30,7 +30,7 @@ const Plant = props => {
       <figcaption>
         <h1>{name}</h1>
         <p>{desc}</p>
-        <p>{category || 'Uncategorised'}</p>
+        <p>{category}</p>
       </figcaption>
       <table>
         <thead>
@@ -56,11 +56,15 @@ Plant.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
-  category: PropTypes.oneOf(['', ...plantCategories]).isRequired,
   sowFrom: PropTypes.oneOf(['', ...months]).isRequired,
   sowUntil: PropTypes.oneOf(['', ...months]).isRequired,
   harvestFrom: PropTypes.oneOf(['', ...months]).isRequired,
-  harvestUntil: PropTypes.oneOf(['', ...months]).isRequired
+  harvestUntil: PropTypes.oneOf(['', ...months]).isRequired,
+  category: PropTypes.oneOf(plantCategories)
+};
+
+Plant.defaultProps = {
+  category: plantCategories[0]
 };
 
 export default Plant;
