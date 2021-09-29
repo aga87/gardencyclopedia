@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { ADD_PLANT, DELETE_PLANT, GET_PLANTS, PLANTS_LOADING } from './types';
+import {
+  ADD_PLANT,
+  DELETE_PLANT,
+  GET_PLANTS,
+  PLANTS_LOADING,
+  FILTER_PLANTS
+} from './types';
 
 export const addPlant = newPlant => dispatch => {
   axios.post('/api/plants', newPlant).then(res =>
@@ -32,3 +38,8 @@ export const getPlants = () => dispatch => {
     })
   );
 };
+
+export const filterPlants = filter => ({
+  type: FILTER_PLANTS,
+  payload: filter
+});
