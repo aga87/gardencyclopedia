@@ -21,6 +21,8 @@ const PlantList = () => {
     return plant.category === filter;
   });
 
+  if (filteredPlants.length === 0) return <NoPlantsView />;
+
   const plantListItems = filteredPlants.map(plant => (
     <li key={plant._id}>
       <Plant
