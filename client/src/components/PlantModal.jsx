@@ -124,7 +124,9 @@ const PlantModal = () => {
     <div>
       <h1>New Plant</h1>
       <Btn text="Cancel" handleClick={() => dispatch(closePlantModal())} />
-      <button type="submit" form="plant-form">Save</button>
+      <button type="submit" form="plant-form">
+        Save
+      </button>
       <form id="plant-form" noValidate onSubmit={handleSubmit}>
         <TextField
           id="plant-name"

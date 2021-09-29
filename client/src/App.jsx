@@ -1,8 +1,8 @@
 import React from 'react';
+import './css/index.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { openPlantModal } from './redux/actions/uiActions';
 import { selectPlantModalIsOpen } from './redux/reducers/index';
-import './css/index.css';
 import Loader from './components/Loader';
 import PlantList from './components/PlantList';
 import PlantModal from './components/PlantModal';
@@ -10,7 +10,7 @@ import Nav from './components/Nav';
 import Btn from './components/Btn';
 import Icon from './components/Icon';
 
-function App() {
+const App = () => {
   const plantModalIsOpen = useSelector(selectPlantModalIsOpen);
   const dispatch = useDispatch();
 
@@ -27,6 +27,6 @@ function App() {
       <PlantList />
     </div>
   );
-}
+};
 
 export default App;
