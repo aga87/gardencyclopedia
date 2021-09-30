@@ -1,6 +1,7 @@
 {
-  "extends": ["react-app", "airbnb", "plugin:jsx-a11y/recommended", "prettier"],
-  "plugins": ["jsx-a11y", "prettier"],
+  "extends": ["react-app", "airbnb", "plugin:jsx-a11y/recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["jsx-a11y", "prettier", "@typescript-eslint"],
   "rules": {
     "react/jsx-filename-extension": [
       1,
@@ -28,6 +29,7 @@
       }
     ],
     "jsx-a11y/no-onchange": "off",
-    "no-underscore-dangle": [2, { "allow": ["_id"] }]
+    "no-underscore-dangle": [2, { "allow": ["_id"] }],
+    "no-use-before-define": "off"
   }
 }
