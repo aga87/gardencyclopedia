@@ -19,7 +19,7 @@ const SelectField = props => {
         {required && <span aria-hidden="true"> *</span>}
       </label>
       <select id={id} required={required} value={value} onChange={handleChange}>
-        <option value="">{placeholder}</option>
+        {placeholder && <option value="">{placeholder}</option>}
         {selectOptions}
       </select>
     </p>
@@ -30,14 +30,15 @@ SelectField.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  placeholder: PropTypes.string
 };
 
 SelectField.defaultProps = {
-  required: false
+  required: false,
+  placeholder: ''
 };
 
 export default SelectField;

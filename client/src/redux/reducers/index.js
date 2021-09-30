@@ -12,6 +12,9 @@ export const selectAllPlants = state =>
 export const selectIsLoading = state =>
   fromPlantsReducer.selectIsLoading(state.plantsReducer);
 
+export const selectFilter = state =>
+  fromPlantsReducer.selectFilter(state.plantsReducer);
+
 // Global UI selectors
 export const selectPlantModalIsOpen = state =>
   fromUiReducer.selectPlantModalIsOpen(state.uiReducer);

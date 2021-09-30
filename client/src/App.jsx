@@ -1,33 +1,27 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { openPlantModal } from './redux/actions/uiActions';
-import { selectPlantModalIsOpen } from './redux/reducers/index';
 import './css/index.css';
-import Loader from './components/Loader';
+import { useSelector } from 'react-redux';
+import {
+  selectPlantModalIsOpen,
+  selectIsLoading
+} from './redux/reducers/index';
+import Spinner from './components/Spinner';
 import PlantList from './components/PlantList';
 import PlantModal from './components/PlantModal';
+import Nav from './components/Nav';
 
-function App() {
+const App = () => {
   const plantModalIsOpen = useSelector(selectPlantModalIsOpen);
-  const dispatch = useDispatch();
-
-  function handleOpenPlantBtnClick() {
-    dispatch(openPlantModal());
-  }
+  const plantsAreLoading = useSelector(selectIsLoading);
 
   return (
     <div className="App">
       {plantModalIsOpen && <PlantModal />}
-      <button type="button" onClick={handleOpenPlantBtnClick}>
-        +
-      </button>
-      <Loader />
-      <button type="button" onClick={handleOpenPlantBtnClick}>
-        + New Plant
-      </button>
+      <Nav />
+      <Spinner isLoading={plantsAreLoading} />
       <PlantList />
     </div>
   );
-}
+};
 
 export default App;

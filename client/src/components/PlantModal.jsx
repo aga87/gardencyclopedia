@@ -5,6 +5,7 @@ import { closePlantModal } from '../redux/actions/uiActions';
 import TextField from './TextField';
 import SelectField from './SelectField';
 import Error from './Error';
+import Btn from './Btn';
 import { months, plantCategories } from '../utils/constants';
 import useFormInput from '../utils/hooks/useFormInput';
 import {
@@ -17,13 +18,13 @@ import {
 } from '../utils/validation-utils';
 
 const PlantModal = () => {
-  const name = useFormInput();
-  const desc = useFormInput();
-  const category = useFormInput();
-  const sowFrom = useFormInput();
-  const sowUntil = useFormInput();
-  const harvestFrom = useFormInput();
-  const harvestUntil = useFormInput();
+  const name = useFormInput('');
+  const desc = useFormInput('');
+  const category = useFormInput(plantCategories[0]);
+  const sowFrom = useFormInput('');
+  const sowUntil = useFormInput('');
+  const harvestFrom = useFormInput('');
+  const harvestUntil = useFormInput('');
 
   const noErrors = {
     name: '',
@@ -65,7 +66,7 @@ const PlantModal = () => {
     required: harvestFrom.value !== ''
   };
 
-  function resetForm() {
+  const resetForm = () => {
     name.resetField();
     desc.resetField();
     category.resetField();
@@ -73,9 +74,13 @@ const PlantModal = () => {
     sowUntil.resetField();
     harvestFrom.resetField();
     harvestUntil.resetField();
-  }
+  };
 
-  function handleSubmit(e) {
+  const handleCancelClick = () => {
+    dispatch(closePlantModal());
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
 
     const formErrors = {
@@ -117,15 +122,15 @@ const PlantModal = () => {
     dispatch(addPlant(newPlant));
     resetForm();
     dispatch(closePlantModal());
-  }
+  };
 
   return (
     <div>
       <h1>New Plant</h1>
-      <button type="button" onClick={() => dispatch(closePlantModal())}>
-        Cancel
+      <Btn text="Cancel" handleClick={handleCancelClick} />
+      <button type="submit" form="plant-form">
+        Save
       </button>
-      <button type="submit" form="plant-form">Save</button>
       <form id="plant-form" noValidate onSubmit={handleSubmit}>
         <TextField
           id="plant-name"
@@ -149,7 +154,6 @@ const PlantModal = () => {
           id="plant-category"
           label="Category"
           options={plantCategories}
-          placeholder="Select category"
           value={category.value}
           handleChange={category.handleChange}
         />

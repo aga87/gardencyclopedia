@@ -1,18 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllPlants } from '../redux/reducers/index';
+import { selectAllPlants, selectFilter } from '../redux/reducers/index';
 import { getPlants } from '../redux/actions/plantsActions';
+import NoPlantsView from './NoPlantsView';
 import Plant from './Plant';
 
 const PlantList = () => {
   const plants = useSelector(selectAllPlants);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPlants());
   }, [dispatch]);
 
-  const plantListItems = plants.map(plant => (
+  if (plants.length === 0) return <NoPlantsView />;
+
+  const filteredPlants = plants.filter(plant => {
+    if (!filter) return plants;
+    return plant.category === filter;
+  });
+
+  if (filteredPlants.length === 0) return <NoPlantsView />;
+
+  const plantListItems = filteredPlants.map(plant => (
     <li key={plant._id}>
       <Plant
         id={plant._id}

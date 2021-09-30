@@ -2,12 +2,14 @@ import {
   ADD_PLANT,
   DELETE_PLANT,
   GET_PLANTS,
-  PLANTS_LOADING
+  PLANTS_LOADING,
+  FILTER_PLANTS
 } from '../actions/types';
 
 const initialState = {
   plants: [],
-  isLoading: false
+  isLoading: false,
+  filter: ''
 };
 
 const plantsReducer = (state = initialState, action) => {
@@ -23,6 +25,13 @@ const plantsReducer = (state = initialState, action) => {
         ...state,
         isLoading: true
       };
+    case FILTER_PLANTS: {
+      const filter = action.payload;
+      return {
+        ...state,
+        filter
+      };
+    }
     case ADD_PLANT: {
       const newPlant = action.payload;
       return {
@@ -48,3 +57,4 @@ export default plantsReducer;
 // Selectors
 export const selectAllPlants = state => state.plants;
 export const selectIsLoading = state => state.isLoading;
+export const selectFilter = state => state.filter;
