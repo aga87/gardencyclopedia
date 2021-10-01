@@ -12,6 +12,7 @@
         "extensions": [".js", ".jsx", ".tsx", ".ts"]
       }
     ],
+    "react/require-default-props": "off",
     "prettier/prettier": [
       "warn",
       {
