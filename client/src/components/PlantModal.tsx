@@ -98,7 +98,9 @@ const PlantModal = (): JSX.Element => {
       )
     };
 
-    const formErrorExists = Object.keys(formErrors).some(value => value !== '');
+    const formErrorExists = Object.values(formErrors).some(
+      value => value !== ''
+    );
 
     if (formErrorExists) {
       setErrors(formErrors);
