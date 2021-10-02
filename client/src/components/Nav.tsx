@@ -15,7 +15,7 @@ const Nav = (): JSX.Element => {
     dispatch(openPlantModal());
   };
 
-  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.value);
     dispatch(filterPlants(e.target.value));
   };

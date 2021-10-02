@@ -1,11 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { capitalize } from '../utils/text-utils';
 
-const SelectField = props => {
-  const { id, label, options, placeholder, value, handleChange, required } =
-    props;
+type SelectFieldProps = {
+  id: string;
+  label: string;
+  options: string[];
+  placeholder?: string;
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  required?: boolean;
+};
 
+const SelectField = ({
+  id,
+  label,
+  options,
+  placeholder = '',
+  value,
+  handleChange,
+  required = false
+}: SelectFieldProps): JSX.Element => {
   const selectOptions = options.map(option => (
     <option key={option} value={option}>
       {capitalize(option)}
@@ -24,21 +38,6 @@ const SelectField = props => {
       </select>
     </p>
   );
-};
-
-SelectField.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  required: PropTypes.bool,
-  placeholder: PropTypes.string
-};
-
-SelectField.defaultProps = {
-  required: false,
-  placeholder: ''
 };
 
 export default SelectField;
