@@ -10,7 +10,7 @@ import PlantList from './components/PlantList';
 import PlantModal from './components/PlantModal';
 import Nav from './components/Nav';
 
-const App = () => {
+const App = (): JSX.Element => {
   const plantModalIsOpen = useSelector(selectPlantModalIsOpen);
   const plantsAreLoading = useSelector(selectIsLoading);
 
