@@ -4,7 +4,12 @@ const initialState = {
   plantModalIsOpen: false
 };
 
-const uiReducer = (state = initialState, action) => {
+type State = typeof initialState;
+type Action = {
+  type: string;
+};
+
+const uiReducer = (state = initialState, action: Action): State => {
   switch (action.type) {
     case OPEN_PLANT_MODAL:
       return {
@@ -22,4 +27,5 @@ const uiReducer = (state = initialState, action) => {
 export default uiReducer;
 
 // Selectors
-export const selectPlantModalIsOpen = state => state.plantModalIsOpen;
+export const selectPlantModalIsOpen = (state: State): boolean =>
+  state.plantModalIsOpen;
