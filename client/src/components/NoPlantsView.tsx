@@ -4,7 +4,7 @@ import { openPlantModal } from '../redux/actions/uiActions';
 import Btn from './Btn';
 import Icon from './Icon';
 
-const NoPlantsView = () => {
+const NoPlantsView = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
