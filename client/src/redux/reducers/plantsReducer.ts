@@ -22,22 +22,22 @@ type State = {
 
 type Action =
   | {
-      type: 'GET_PLANTS';
+      type: typeof GET_PLANTS;
       payload: Plant[];
     }
   | {
-      type: 'PLANTS_LOADING';
+      type: typeof PLANTS_LOADING;
     }
   | {
-      type: 'FILTER_PLANTS';
+      type: typeof FILTER_PLANTS;
       payload: string;
     }
   | {
-      type: 'ADD_PLANT';
+      type: typeof ADD_PLANT;
       payload: Plant;
     }
   | {
-      type: 'DELETE_PLANT';
+      type: typeof DELETE_PLANT;
       payload: string;
     };
 
