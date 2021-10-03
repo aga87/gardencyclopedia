@@ -29,16 +29,12 @@ type Action =
       type: typeof PLANTS_LOADING;
     }
   | {
-      type: typeof FILTER_PLANTS;
+      type: typeof FILTER_PLANTS | typeof DELETE_PLANT;
       payload: string;
     }
   | {
       type: typeof ADD_PLANT;
       payload: Plant;
-    }
-  | {
-      type: typeof DELETE_PLANT;
-      payload: string;
     };
 
 const plantsReducer = (state = initialState, action: Action): State => {
