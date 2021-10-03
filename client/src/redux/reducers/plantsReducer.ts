@@ -12,8 +12,10 @@ const initialState = {
   filter: ''
 };
 
+type Plant = { _id: string; [key: string]: string };
+
 type State = {
-  plants: { [key: string]: string }[];
+  plants: Plant[];
   isLoading: boolean;
   filter: string;
 };
@@ -21,7 +23,7 @@ type State = {
 type Action =
   | {
       type: 'GET_PLANTS';
-      payload: { [key: string]: string }[];
+      payload: Plant[];
     }
   | {
       type: 'PLANTS_LOADING';
@@ -32,7 +34,7 @@ type Action =
     }
   | {
       type: 'ADD_PLANT';
-      payload: { [key: string]: string };
+      payload: Plant;
     }
   | {
       type: 'DELETE_PLANT';
@@ -69,7 +71,7 @@ const plantsReducer = (state = initialState, action: Action): State => {
     case DELETE_PLANT: {
       const id = action.payload;
       const remainingPlants = state.plants.filter(
-        (plant: { _id: string; [key: string]: string }) => plant._id !== id
+        (plant: Plant) => plant._id !== id
       );
       return {
         ...state,
@@ -84,7 +86,6 @@ const plantsReducer = (state = initialState, action: Action): State => {
 export default plantsReducer;
 
 // Selectors
-export const selectAllPlants = (state: State): { [key: string]: string }[] =>
-  state.plants;
+export const selectAllPlants = (state: State): Plant[] => state.plants;
 export const selectIsLoading = (state: State): boolean => state.isLoading;
 export const selectFilter = (state: State): string => state.filter;
