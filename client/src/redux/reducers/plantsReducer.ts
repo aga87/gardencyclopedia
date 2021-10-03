@@ -12,7 +12,34 @@ const initialState = {
   filter: ''
 };
 
-const plantsReducer = (state = initialState, action) => {
+type State = {
+  plants: { [key: string]: string }[];
+  isLoading: boolean;
+  filter: string;
+};
+
+type Action =
+  | {
+      type: 'GET_PLANTS';
+      payload: { [key: string]: string }[];
+    }
+  | {
+      type: 'PLANTS_LOADING';
+    }
+  | {
+      type: 'FILTER_PLANTS';
+      payload: string;
+    }
+  | {
+      type: 'ADD_PLANT';
+      payload: { [key: string]: string };
+    }
+  | {
+      type: 'DELETE_PLANT';
+      payload: string;
+    };
+
+const plantsReducer = (state = initialState, action: Action): State => {
   switch (action.type) {
     case GET_PLANTS:
       return {
@@ -41,7 +68,9 @@ const plantsReducer = (state = initialState, action) => {
     }
     case DELETE_PLANT: {
       const id = action.payload;
-      const remainingPlants = state.plants.filter(plant => plant._id !== id);
+      const remainingPlants = state.plants.filter(
+        (plant: { _id: string; [key: string]: string }) => plant._id !== id
+      );
       return {
         ...state,
         plants: remainingPlants
@@ -55,6 +84,7 @@ const plantsReducer = (state = initialState, action) => {
 export default plantsReducer;
 
 // Selectors
-export const selectAllPlants = state => state.plants;
-export const selectIsLoading = state => state.isLoading;
-export const selectFilter = state => state.filter;
+export const selectAllPlants = (state: State): { [key: string]: string }[] =>
+  state.plants;
+export const selectIsLoading = (state: State): boolean => state.isLoading;
+export const selectFilter = (state: State): string => state.filter;
