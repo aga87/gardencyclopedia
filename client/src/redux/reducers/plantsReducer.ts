@@ -12,8 +12,6 @@ const initialState = {
   filter: ''
 };
 
-export type Plant = { _id: string; [key: string]: string };
-
 type State = {
   plants: Plant[];
   isLoading: boolean;
