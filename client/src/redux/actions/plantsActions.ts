@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Dispatch } from '@reduxjs/toolkit';
 import {
   ADD_PLANT,
   DELETE_PLANT,
@@ -7,7 +8,7 @@ import {
   FILTER_PLANTS
 } from './types';
 
-export const addPlant = newPlant => dispatch => {
+export const addPlant = newPlant => (dispatch: Dispatch)=> {
   axios.post('/api/plants', newPlant).then(res =>
     dispatch({
       type: ADD_PLANT,
@@ -16,7 +17,7 @@ export const addPlant = newPlant => dispatch => {
   );
 };
 
-export const deletePlant = id => dispatch => {
+export const deletePlant = id => (dispatch: Dispatch) => {
   axios.delete(`/api/plants/${id}`).then(() =>
     dispatch({
       type: DELETE_PLANT,
@@ -29,7 +30,7 @@ export const setPlantsLoading = () => ({
   type: PLANTS_LOADING
 });
 
-export const getPlants = () => dispatch => {
+export const getPlants = () => (dispatch: Dispatch) => {
   dispatch(setPlantsLoading());
   axios.get('/api/plants').then(res =>
     dispatch({
