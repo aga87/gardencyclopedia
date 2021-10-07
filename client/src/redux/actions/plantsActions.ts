@@ -8,7 +8,7 @@ import {
   FILTER_PLANTS
 } from './types';
 
-export const addPlant = newPlant => (dispatch: Dispatch)=> {
+export const addPlant = (newPlant: Plant) => (dispatch: Dispatch)=> {
   axios.post('/api/plants', newPlant).then(res =>
     dispatch({
       type: ADD_PLANT,
@@ -17,7 +17,7 @@ export const addPlant = newPlant => (dispatch: Dispatch)=> {
   );
 };
 
-export const deletePlant = id => (dispatch: Dispatch) => {
+export const deletePlant = (id: string) => (dispatch: Dispatch) => {
   axios.delete(`/api/plants/${id}`).then(() =>
     dispatch({
       type: DELETE_PLANT,
@@ -40,7 +40,7 @@ export const getPlants = () => (dispatch: Dispatch) => {
   );
 };
 
-export const filterPlants = filter => ({
+export const filterPlants = (filter: string) => ({
   type: FILTER_PLANTS,
   payload: filter
 });

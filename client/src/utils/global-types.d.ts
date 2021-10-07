@@ -1,1 +1,1 @@
-type Plant = { _id: string; [key: string]: string };
+type Plant = { _id?: string; [key: string]: string };
