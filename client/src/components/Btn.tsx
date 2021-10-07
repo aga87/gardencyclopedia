@@ -6,7 +6,11 @@ type BtnProps = {
   handleClick: () => void;
 };
 
-const Btn = ({ text = '', icon = null, handleClick }: BtnProps): JSX.Element => (
+const Btn = ({
+  text = '',
+  icon = null,
+  handleClick
+}: BtnProps): JSX.Element => (
   <button type="button" onClick={handleClick}>
     {icon}
     {text}
