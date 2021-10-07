@@ -66,16 +66,6 @@ const PlantModal = (): JSX.Element => {
     required: harvestFrom.value !== ''
   };
 
-  const resetForm = () => {
-    name.resetField();
-    desc.resetField();
-    category.resetField();
-    sowFrom.resetField();
-    sowUntil.resetField();
-    harvestFrom.resetField();
-    harvestUntil.resetField();
-  };
-
   const handleCancelClick = () => {
     dispatch(closePlantModal());
   };
@@ -120,7 +110,6 @@ const PlantModal = (): JSX.Element => {
       harvestUntil: harvestUntil.value
     };
     dispatch(addPlant(newPlant));
-    resetForm();
     dispatch(closePlantModal());
   };
 

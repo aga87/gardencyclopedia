@@ -7,7 +7,6 @@ type ReturnType = {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
   ) => void;
-  resetField: () => void;
 };
 
 const useFormInput = (initialValue: string): ReturnType => {
@@ -21,11 +20,7 @@ const useFormInput = (initialValue: string): ReturnType => {
     setValue(e.target.value);
   }
 
-  function resetField() {
-    setValue(initialValue);
-  }
-
-  return { value, handleChange, resetField };
+  return { value, handleChange };
 };
 
 export default useFormInput;
