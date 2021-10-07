@@ -12,7 +12,30 @@ const initialState = {
   filter: ''
 };
 
-const plantsReducer = (state = initialState, action) => {
+type State = {
+  plants: Plant[];
+  isLoading: boolean;
+  filter: string;
+};
+
+type Action =
+  | {
+      type: typeof GET_PLANTS;
+      payload: Plant[];
+    }
+  | {
+      type: typeof PLANTS_LOADING;
+    }
+  | {
+      type: typeof FILTER_PLANTS | typeof DELETE_PLANT;
+      payload: string;
+    }
+  | {
+      type: typeof ADD_PLANT;
+      payload: Plant;
+    };
+
+const plantsReducer = (state = initialState, action: Action): State => {
   switch (action.type) {
     case GET_PLANTS:
       return {
@@ -41,7 +64,9 @@ const plantsReducer = (state = initialState, action) => {
     }
     case DELETE_PLANT: {
       const id = action.payload;
-      const remainingPlants = state.plants.filter(plant => plant._id !== id);
+      const remainingPlants = state.plants.filter(
+        (plant: Plant) => plant._id !== id
+      );
       return {
         ...state,
         plants: remainingPlants
@@ -55,6 +80,6 @@ const plantsReducer = (state = initialState, action) => {
 export default plantsReducer;
 
 // Selectors
-export const selectAllPlants = state => state.plants;
-export const selectIsLoading = state => state.isLoading;
-export const selectFilter = state => state.filter;
+export const selectAllPlants = (state: State): Plant[] => state.plants;
+export const selectIsLoading = (state: State): boolean => state.isLoading;
+export const selectFilter = (state: State): string => state.filter;

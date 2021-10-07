@@ -1,10 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { months } from '../utils/constants';
 
-const MonthData = props => {
-  const { monthStart, monthEnd } = props;
+// array of month strings in readonly mode
+const monthsArr = ['', ...months] as const;
 
+type MonthDataProps = {
+  monthStart: typeof monthsArr[number];
+  monthEnd: typeof monthsArr[number];
+};
+
+const MonthData = ({ monthStart, monthEnd }: MonthDataProps): JSX.Element => {
   const firstIndex = months.indexOf(monthStart);
   const lastIndex = months.indexOf(monthEnd);
   const dataIsMissing = firstIndex === -1 || lastIndex === -1;
@@ -26,11 +31,6 @@ const MonthData = props => {
   });
 
   return <>{monthRow}</>;
-};
-
-MonthData.propTypes = {
-  monthStart: PropTypes.oneOf(['', ...months]).isRequired,
-  monthEnd: PropTypes.oneOf(['', ...months]).isRequired
 };
 
 export default MonthData;

@@ -7,7 +7,7 @@ import Btn from './Btn';
 import Icon from './Icon';
 import SelectField from './SelectField';
 
-const Nav = () => {
+const Nav = (): JSX.Element => {
   const [filter, setFilter] = useState('');
   const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ const Nav = () => {
     dispatch(openPlantModal());
   };
 
-  const handleFilterChange = e => {
+  const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.value);
     dispatch(filterPlants(e.target.value));
   };

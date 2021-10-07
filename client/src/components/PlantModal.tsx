@@ -17,7 +17,7 @@ import {
   validateHarvestUntil
 } from '../utils/validation-utils';
 
-const PlantModal = () => {
+const PlantModal = (): JSX.Element => {
   const name = useFormInput('');
   const desc = useFormInput('');
   const category = useFormInput(plantCategories[0]);
@@ -42,12 +42,12 @@ const PlantModal = () => {
   // Single source of truth (on the client) for field constraints
   const nameValidators = {
     required: true,
-    maxLength: '20'
+    maxLength: 20
   };
 
   const descValidators = {
     required: false,
-    maxLength: '30'
+    maxLength: 30
   };
 
   const sowFromValidators = {
@@ -80,7 +80,7 @@ const PlantModal = () => {
     dispatch(closePlantModal());
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formErrors = {
@@ -98,8 +98,8 @@ const PlantModal = () => {
       )
     };
 
-    const formErrorExists = Object.keys(formErrors).some(
-      value => formErrors[value] !== ''
+    const formErrorExists = Object.values(formErrors).some(
+      value => value !== ''
     );
 
     if (formErrorExists) {

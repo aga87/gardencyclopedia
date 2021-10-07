@@ -1,0 +1,5 @@
+/* Capitalizes the first letter in a string */
+/* eslint-disable import/prefer-default-export */
+export function capitalize(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

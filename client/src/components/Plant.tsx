@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../redux/actions/plantsActions';
@@ -7,18 +6,31 @@ import MonthHeadings from './MonthHeadings';
 import MonthData from './MonthData';
 import Btn from './Btn';
 
-const Plant = props => {
-  const {
-    name,
-    id,
-    desc,
-    category,
-    sowFrom,
-    sowUntil,
-    harvestFrom,
-    harvestUntil
-  } = props;
+// arrays of categories and months in readonly mode
+const plantCategoriesArr = [...plantCategories] as const;
+const monthsArr = ['', ...months] as const;
 
+type PlantProps = {
+  name: string;
+  id: string;
+  desc: string;
+  category: typeof plantCategoriesArr[number];
+  sowFrom: typeof monthsArr[number];
+  sowUntil: typeof monthsArr[number];
+  harvestFrom: typeof monthsArr[number];
+  harvestUntil: typeof monthsArr[number];
+};
+
+const Plant = ({
+  name,
+  id,
+  desc,
+  category,
+  sowFrom,
+  sowUntil,
+  harvestFrom,
+  harvestUntil
+}: PlantProps): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -50,21 +62,6 @@ const Plant = props => {
       <Btn text="Delete plant" handleClick={handleClick} />
     </figure>
   );
-};
-
-Plant.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  sowFrom: PropTypes.oneOf(['', ...months]).isRequired,
-  sowUntil: PropTypes.oneOf(['', ...months]).isRequired,
-  harvestFrom: PropTypes.oneOf(['', ...months]).isRequired,
-  harvestUntil: PropTypes.oneOf(['', ...months]).isRequired,
-  category: PropTypes.oneOf(plantCategories)
-};
-
-Plant.defaultProps = {
-  category: plantCategories[0]
 };
 
 export default Plant;
