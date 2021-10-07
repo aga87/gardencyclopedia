@@ -1,20 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectAllPlants, selectFilter } from '../redux/reducers/index';
-import { getPlants } from '../redux/actions/plantsActions';
-import NoPlantsView from './NoPlantsView';
+import React from 'react';
+import Icon from './Icon';
 import Plant from './Plant';
+import NoPlantsView from './NoPlantsView';
+import { plantCategories } from '../utils/constants';
 
-const PlantList = () => {
-  const plants = useSelector(selectAllPlants);
-  const filter = useSelector(selectFilter);
-  const dispatch = useDispatch();
+// array of plant categories strings in readonly mode
+const plantCategoriesArr = [...plantCategories] as const;
 
-  useEffect(() => {
-    dispatch(getPlants());
-  }, [dispatch]);
+type PlantListProps = {
+  isLoading: boolean;
+  plants: Plant[];
+  filter: typeof plantCategoriesArr[number];
+};
 
-  if (plants.length === 0) return <NoPlantsView />;
+const PlantList = ({
+  isLoading,
+  plants,
+  filter
+}: PlantListProps): JSX.Element => {
+  if (isLoading) return <Icon name="spinner" />;
+  if (plantCategoriesArr.length === 0) return <NoPlantsView />;
 
   const filteredPlants = plants.filter(plant => {
     if (!filter) return plants;
