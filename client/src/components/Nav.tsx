@@ -22,16 +22,24 @@ const Nav = (): JSX.Element => {
 
   return (
     <nav>
-      <Icon name="menu" />
-      <SelectField
-        id="filter-plants"
-        label="Filter plants"
-        options={plantCategories}
-        placeholder="All Plants"
-        value={filter}
-        handleChange={handleFilterChange}
-      />
-      <Btn icon={<Icon name="plus" />} handleClick={handleClick} />
+      <ul>
+        <li>
+          <Icon name="menu" />
+        </li>
+        <li>
+          <SelectField
+            id="filter-plants"
+            label="Filter plants"
+            options={plantCategories}
+            placeholder="All Plants"
+            value={filter}
+            handleChange={handleFilterChange}
+          />
+        </li>
+        <li>
+          <Btn icon={<Icon name="plus" />} handleClick={handleClick} />
+        </li>
+      </ul>
     </nav>
   );
 };
