@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Dispatch } from '@reduxjs/toolkit';
+import { Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import {
   ADD_PLANT,
   DELETE_PLANT,
@@ -8,7 +8,11 @@ import {
   FILTER_PLANTS
 } from './types';
 
-export const addPlant = (newPlant: Plant) => (dispatch: Dispatch)=> {
+type BasicAction = {
+  type: string;
+};
+
+export const addPlant = (newPlant: Plant) => (dispatch: Dispatch) => {
   axios.post('/api/plants', newPlant).then(res =>
     dispatch({
       type: ADD_PLANT,
@@ -26,7 +30,7 @@ export const deletePlant = (id: string) => (dispatch: Dispatch) => {
   );
 };
 
-export const setPlantsLoading = () => ({
+export const setPlantsLoading = (): BasicAction => ({
   type: PLANTS_LOADING
 });
 
@@ -40,7 +44,7 @@ export const getPlants = () => (dispatch: Dispatch) => {
   );
 };
 
-export const filterPlants = (filter: string) => ({
+export const filterPlants = (filter: string): PayloadAction<string> => ({
   type: FILTER_PLANTS,
   payload: filter
 });
