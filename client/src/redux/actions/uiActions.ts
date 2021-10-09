@@ -1,11 +1,17 @@
 import { OPEN_PLANT_MODAL, CLOSE_PLANT_MODAL } from './types';
 
-type Action = {
-  type: string;
-};
+type Action =
+  | {
+      type: typeof OPEN_PLANT_MODAL;
+      payload: Plant;
+    }
+  | {
+      type: typeof CLOSE_PLANT_MODAL;
+    };
 
-export const openPlantModal = (): Action => ({
-  type: OPEN_PLANT_MODAL
+export const openPlantModal = (plant: Plant): Action => ({
+  type: OPEN_PLANT_MODAL,
+  payload: plant
 });
 
 export const closePlantModal = (): Action => ({

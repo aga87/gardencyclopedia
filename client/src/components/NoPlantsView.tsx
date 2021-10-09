@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { openPlantModal } from '../redux/actions/uiActions';
+import { emptyPlant } from '../utils/constants';
 import Btn from './Btn';
 import Icon from './Icon';
 
@@ -8,7 +9,7 @@ const NoPlantsView = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(openPlantModal());
+    dispatch(openPlantModal(emptyPlant));
   };
 
   return (

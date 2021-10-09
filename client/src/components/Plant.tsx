@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../redux/actions/plantsActions';
+import { openPlantModal } from '../redux/actions/uiActions';
 import { months, plantCategories } from '../utils/constants';
 import MonthHeadings from './MonthHeadings';
 import MonthData from './MonthData';
@@ -33,8 +34,23 @@ const Plant = ({
 }: PlantProps): JSX.Element => {
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleDeleteClick = () => {
     dispatch(deletePlant(id));
+  };
+
+  const handleEditClick = () => {
+    dispatch(
+      openPlantModal({
+        _id: id,
+        name,
+        desc,
+        category,
+        sowFrom,
+        sowUntil,
+        harvestFrom,
+        harvestUntil
+      })
+    );
   };
 
   return (
@@ -59,7 +75,8 @@ const Plant = ({
           </tr>
         </tbody>
       </table>
-      <Btn text="Delete plant" handleClick={handleClick} />
+      <Btn text="Delete plant" handleClick={handleDeleteClick} />
+      <Btn text="Edit plant" handleClick={handleEditClick} />
     </figure>
   );
 };

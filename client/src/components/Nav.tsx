@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { openPlantModal } from '../redux/actions/uiActions';
 import { filterPlants } from '../redux/actions/plantsActions';
-import { plantCategories } from '../utils/constants';
+import { plantCategories, emptyPlant } from '../utils/constants';
 import Btn from './Btn';
 import Icon from './Icon';
 import SelectField from './SelectField';
@@ -12,7 +12,7 @@ const Nav = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(openPlantModal());
+    dispatch(openPlantModal(emptyPlant));
   };
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

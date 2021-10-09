@@ -20,3 +20,14 @@ export const plantCategories = [
   'herbs',
   'flowers'
 ];
+
+export const emptyPlant = {
+  _id: '',
+  name: '',
+  desc: '',
+  category: plantCategories[0],
+  sowFrom: '',
+  sowUntil: '',
+  harvestFrom: '',
+  harvestUntil: ''
+};
