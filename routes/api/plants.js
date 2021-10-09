@@ -63,7 +63,7 @@ router.delete('/:id', (req, res) => {
 // @access Public
 router.put('/:id', (req, res) => {
   Plant.findById(req.params.id, function(err, plant) {
-    if (err) return res.status(404).json({Error: 'The plant you are trying to update does not exist.'});
+    if (!plant) return res.status(404).json({Error: 'The plant you are trying to update does not exist.'});
     plant.name = req.body.name || plant.name;
     plant.desc = req.body.desc || plant.desc;
     plant.category = req.body.category || plant.category;
