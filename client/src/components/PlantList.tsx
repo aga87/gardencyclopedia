@@ -3,6 +3,7 @@ import Icon from './Icon';
 import Plant from './Plant';
 import NoPlantsView from './NoPlantsView';
 import { plantCategories } from '../utils/constants';
+import EditPlantModal from './EditPlantModal';
 
 // array of plant categories strings in readonly mode
 const plantCategoriesArr = [...plantCategories] as const;
@@ -40,6 +41,7 @@ const PlantList = ({
         harvestFrom={plant.harvestFrom}
         harvestUntil={plant.harvestUntil}
       />
+      <EditPlantModal plant={plant} />
     </li>
   ));
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   ADD_PLANT,
   DELETE_PLANT,
+  EDIT_PLANT,
   GET_PLANTS,
   PLANTS_LOADING,
   FILTER_PLANTS
@@ -21,6 +22,15 @@ export const deletePlant = id => dispatch => {
     dispatch({
       type: DELETE_PLANT,
       payload: id
+    })
+  );
+};
+
+export const editPlant = (id, editedPlant) => dispatch => {
+  axios.put(`/api/plants/${id}`, editedPlant).then(res =>
+    dispatch({
+      type: EDIT_PLANT,
+      payload: res.data
     })
   );
 };
