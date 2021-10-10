@@ -13,21 +13,13 @@ const sortPlants = (plants: Plant[], sort: Sort, months: Month[]): Plant[] => {
       return plants.sort(compareCategory);
     }
     case 'sowing time': {
-      const compareSowFrom = (a: Plant, b: Plant) => {
-        if (months.indexOf(a.sowFrom) < months.indexOf(b.sowFrom)) return -1;
-        if (months.indexOf(a.sowFrom) > months.indexOf(b.sowFrom)) return 1;
-        return 0;
-      };
+      const compareSowFrom = (a: Plant, b: Plant) =>
+        months.indexOf(a.sowFrom) - months.indexOf(b.sowFrom);
       return plants.sort(compareSowFrom);
     }
-    case 'harvesting time': {
-      const compareHarvestFrom = (a: Plant, b: Plant) => {
-        if (months.indexOf(a.harvestFrom) < months.indexOf(b.harvestFrom))
-          return -1;
-        if (months.indexOf(a.harvestFrom) > months.indexOf(b.harvestFrom))
-          return 1;
-        return 0;
-      };
+    case 'harvest time': {
+      const compareHarvestFrom = (a: Plant, b: Plant) =>
+        months.indexOf(a.harvestFrom) - months.indexOf(b.harvestFrom);
       return plants.sort(compareHarvestFrom);
     }
     default:
