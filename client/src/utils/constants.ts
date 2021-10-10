@@ -1,3 +1,5 @@
+import type { Plant } from './common-types';
+
 export const months = [
   'January',
   'February',
@@ -21,7 +23,7 @@ export const plantCategories = [
   'flowers'
 ];
 
-export const emptyPlant = {
+export const emptyPlant: Plant = {
   _id: '',
   name: '',
   desc: '',

@@ -1,8 +1,9 @@
 import React from 'react';
 import { plantCategories } from '../utils/constants';
 import Icon from './Icon';
-import Plant from './Plant';
 import NoPlantsView from './NoPlantsView';
+import PlantEntry from './PlantEntry';
+import type { Plant } from '../utils/common-types';
 
 // array of plant categories strings in readonly mode
 const plantCategoriesArr = [...plantCategories] as const;
@@ -30,16 +31,7 @@ const PlantList = ({
 
   const plantListItems = filteredPlants.map(plant => (
     <li key={plant._id}>
-      <Plant
-        id={plant._id}
-        name={plant.name}
-        desc={plant.desc}
-        category={plant.category}
-        sowFrom={plant.sowFrom}
-        sowUntil={plant.sowUntil}
-        harvestFrom={plant.harvestFrom}
-        harvestUntil={plant.harvestUntil}
-      />
+      <PlantEntry plant={plant} />
     </li>
   ));
 

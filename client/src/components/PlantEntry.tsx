@@ -2,55 +2,27 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../redux/actions/plantsActions';
 import { openPlantModal } from '../redux/actions/uiActions';
-import { months, plantCategories } from '../utils/constants';
 import MonthHeadings from './MonthHeadings';
 import MonthData from './MonthData';
 import Btn from './Btn';
+import type { Plant } from '../utils/common-types';
 
-// arrays of categories and months in readonly mode
-const plantCategoriesArr = [...plantCategories] as const;
-const monthsArr = ['', ...months] as const;
-
-type PlantProps = {
-  name: string;
-  id: string;
-  desc: string;
-  category: typeof plantCategoriesArr[number];
-  sowFrom: typeof monthsArr[number];
-  sowUntil: typeof monthsArr[number];
-  harvestFrom: typeof monthsArr[number];
-  harvestUntil: typeof monthsArr[number];
+type PlantEntryProps = {
+  plant: Plant;
 };
 
-const Plant = ({
-  name,
-  id,
-  desc,
-  category,
-  sowFrom,
-  sowUntil,
-  harvestFrom,
-  harvestUntil
-}: PlantProps): JSX.Element => {
+const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
   const dispatch = useDispatch();
+  const { name, desc, category, sowFrom, sowUntil, harvestFrom, harvestUntil } =
+    plant;
+  const id = plant._id;
 
   const handleDeleteClick = () => {
     dispatch(deletePlant(id));
   };
 
   const handleEditClick = () => {
-    dispatch(
-      openPlantModal({
-        _id: id,
-        name,
-        desc,
-        category,
-        sowFrom,
-        sowUntil,
-        harvestFrom,
-        harvestUntil
-      })
-    );
+    dispatch(openPlantModal(plant));
   };
 
   return (
@@ -81,4 +53,4 @@ const Plant = ({
   );
 };
 
-export default Plant;
+export default PlantEntry;

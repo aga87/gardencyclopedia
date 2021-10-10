@@ -1,5 +1,6 @@
 import { OPEN_PLANT_MODAL, CLOSE_PLANT_MODAL } from '../actions/types';
 import { emptyPlant } from '../../utils/constants';
+import type { Plant } from '../../utils/common-types';
 
 const initialState = {
   plantModalIsOpen: false,

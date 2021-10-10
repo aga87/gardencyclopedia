@@ -1,4 +1,5 @@
 import { OPEN_PLANT_MODAL, CLOSE_PLANT_MODAL } from './types';
+import type { Plant } from '../../utils/common-types';
 
 type Action =
   | {

@@ -6,6 +6,7 @@ import {
   PLANTS_LOADING,
   FILTER_PLANTS
 } from '../actions/types';
+import type { Plant } from '../../utils/common-types';
 
 const initialState = {
   plants: [],
