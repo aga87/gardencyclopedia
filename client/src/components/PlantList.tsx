@@ -1,5 +1,5 @@
 import React from 'react';
-import { plantCategories } from '../utils/constants';
+import { plantCategories, months } from '../utils/constants';
 import sortPlants from '../utils/plants-utils';
 import Icon from './Icon';
 import NoPlantsView from './NoPlantsView';
@@ -32,7 +32,7 @@ const PlantList = ({
 
   if (filteredPlants.length === 0) return <NoPlantsView />;
 
-  const sortedFilteredPlants = sortPlants(filteredPlants, sort);
+  const sortedFilteredPlants = sortPlants(filteredPlants, sort, months);
 
   if (sortedFilteredPlants.length === 0) return <NoPlantsView />;
 
