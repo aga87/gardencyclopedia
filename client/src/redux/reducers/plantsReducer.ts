@@ -7,20 +7,20 @@ import {
   FILTER_PLANTS,
   SORT_PLANTS
 } from '../actions/types';
-import type { Plant } from '../../utils/common-types';
+import type { Plant, Sort } from '../../utils/common-types';
 
 const initialState = {
   plants: [],
   isLoading: false,
   filter: '',
-  sort: ''
+  sort: 'name'
 };
 
 type State = {
   plants: Plant[];
   isLoading: boolean;
   filter: string;
-  sort: string;
+  sort: Sort;
 };
 
 type Action =
