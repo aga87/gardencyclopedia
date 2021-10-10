@@ -23,6 +23,8 @@ export const plantCategories = [
   'flowers'
 ];
 
+export const sortOptions = ['name', 'category', 'sowing time', 'harvest time'];
+
 export const emptyPlant: Plant = {
   _id: '',
   name: '',

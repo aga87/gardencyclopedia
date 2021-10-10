@@ -1,26 +1,29 @@
 import React from 'react';
-import { plantCategories } from '../utils/constants';
+import { plantCategories, months } from '../utils/constants';
+import sortPlants from '../utils/plants-utils';
 import Icon from './Icon';
 import NoPlantsView from './NoPlantsView';
 import PlantEntry from './PlantEntry';
-import type { Plant } from '../utils/common-types';
+import type { Plant, Sort } from '../utils/common-types';
 
-// array of plant categories strings in readonly mode
+// array in readonly mode
 const plantCategoriesArr = [...plantCategories] as const;
 
 type PlantListProps = {
   isLoading: boolean;
   plants: Plant[];
   filter: typeof plantCategoriesArr[number];
+  sort: Sort;
 };
 
 const PlantList = ({
   isLoading,
   plants,
-  filter
+  filter,
+  sort
 }: PlantListProps): JSX.Element => {
   if (isLoading) return <Icon name="spinner" />;
-  if (plantCategoriesArr.length === 0) return <NoPlantsView />;
+  if (plants.length === 0) return <NoPlantsView />;
 
   const filteredPlants = plants.filter(plant => {
     if (!filter) return plants;
@@ -29,7 +32,11 @@ const PlantList = ({
 
   if (filteredPlants.length === 0) return <NoPlantsView />;
 
-  const plantListItems = filteredPlants.map(plant => (
+  const sortedFilteredPlants = sortPlants(filteredPlants, sort, months);
+
+  if (sortedFilteredPlants.length === 0) return <NoPlantsView />;
+
+  const plantListItems = sortedFilteredPlants.map(plant => (
     <li key={plant._id}>
       <PlantEntry plant={plant} />
     </li>

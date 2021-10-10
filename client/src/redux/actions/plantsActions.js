@@ -5,7 +5,8 @@ import {
   EDIT_PLANT,
   GET_PLANTS,
   PLANTS_LOADING,
-  FILTER_PLANTS
+  FILTER_PLANTS,
+  SORT_PLANTS
 } from './types';
 
 export const addPlant = newPlant => dispatch => {
@@ -52,4 +53,9 @@ export const getPlants = () => dispatch => {
 export const filterPlants = filter => ({
   type: FILTER_PLANTS,
   payload: filter
+});
+
+export const sortPlants = sort => ({
+  type: SORT_PLANTS,
+  payload: sort
 });
