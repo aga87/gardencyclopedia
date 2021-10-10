@@ -1,3 +1,5 @@
+import type { Plant } from './common-types';
+
 export const months = [
   'January',
   'February',
@@ -20,3 +22,14 @@ export const plantCategories = [
   'herbs',
   'flowers'
 ];
+
+export const emptyPlant: Plant = {
+  _id: '',
+  name: '',
+  desc: '',
+  category: plantCategories[0],
+  sowFrom: '',
+  sowUntil: '',
+  harvestFrom: '',
+  harvestUntil: ''
+};

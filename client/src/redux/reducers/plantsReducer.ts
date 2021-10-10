@@ -1,10 +1,12 @@
 import {
   ADD_PLANT,
   DELETE_PLANT,
+  EDIT_PLANT,
   GET_PLANTS,
   PLANTS_LOADING,
   FILTER_PLANTS
 } from '../actions/types';
+import type { Plant } from '../../utils/common-types';
 
 const initialState = {
   plants: [],
@@ -33,6 +35,10 @@ type Action =
   | {
       type: typeof ADD_PLANT;
       payload: Plant;
+    }
+  | {
+      type: typeof EDIT_PLANT;
+      payload: Plant;
     };
 
 const plantsReducer = (state = initialState, action: Action): State => {
@@ -60,6 +66,20 @@ const plantsReducer = (state = initialState, action: Action): State => {
       return {
         ...state,
         plants: [newPlant, ...state.plants]
+      };
+    }
+    case EDIT_PLANT: {
+      const editedPlant = action.payload;
+      const updatedPlants = state.plants.map((plant: Plant) => {
+        if (plant._id === editedPlant._id) {
+          return editedPlant;
+        }
+        return plant;
+      });
+
+      return {
+        ...state,
+        plants: updatedPlants
       };
     }
     case DELETE_PLANT: {

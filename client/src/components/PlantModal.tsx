@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addPlant } from '../redux/actions/plantsActions';
+import { addPlant, editPlant } from '../redux/actions/plantsActions';
 import { closePlantModal } from '../redux/actions/uiActions';
 import TextField from './TextField';
 import SelectField from './SelectField';
@@ -16,15 +16,20 @@ import {
   validateHarvestFrom,
   validateHarvestUntil
 } from '../utils/validation-utils';
+import type { Plant } from '../utils/common-types';
 
-const PlantModal = (): JSX.Element => {
-  const name = useFormInput('');
-  const desc = useFormInput('');
-  const category = useFormInput(plantCategories[0]);
-  const sowFrom = useFormInput('');
-  const sowUntil = useFormInput('');
-  const harvestFrom = useFormInput('');
-  const harvestUntil = useFormInput('');
+type PlantModalProps = {
+  plant: Plant;
+};
+
+const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
+  const name = useFormInput(plant.name);
+  const desc = useFormInput(plant.desc);
+  const category = useFormInput(plant.category);
+  const sowFrom = useFormInput(plant.sowFrom);
+  const sowUntil = useFormInput(plant.sowUntil);
+  const harvestFrom = useFormInput(plant.harvestFrom);
+  const harvestUntil = useFormInput(plant.harvestUntil);
 
   const noErrors = {
     name: '',
@@ -109,18 +114,21 @@ const PlantModal = (): JSX.Element => {
       harvestFrom: harvestFrom.value,
       harvestUntil: harvestUntil.value
     };
-    dispatch(addPlant(newPlant));
+
+    if (plant._id !== '') {
+      dispatch(editPlant(plant._id, newPlant));
+    } else {
+      dispatch(addPlant(newPlant));
+    }
     dispatch(closePlantModal());
   };
 
   return (
     <div>
-      <h1>New Plant</h1>
+      <h1>{plant._id === '' ? 'New Plant' : 'Edit Plant'}</h1>
       <Btn text="Cancel" handleClick={handleCancelClick} />
-      <button type="submit" form="plant-form">
-        Save
-      </button>
-      <form id="plant-form" noValidate onSubmit={handleSubmit}>
+      <form noValidate onSubmit={handleSubmit}>
+        <button type="submit">Save</button>
         <TextField
           id="plant-name"
           label="Plant name"
