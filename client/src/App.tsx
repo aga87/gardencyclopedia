@@ -8,6 +8,7 @@ import {
 import Plants from './components/Plants';
 import PlantModal from './components/PlantModal';
 import Nav from './components/Nav';
+import BottomNav from './components/BottomNav';
 
 const App = (): JSX.Element => {
   const plantModalIsOpen = useSelector(selectPlantModalIsOpen);
@@ -18,6 +19,7 @@ const App = (): JSX.Element => {
       {plantModalIsOpen && <PlantModal plant={plantToEdit} />}
       <Nav />
       <Plants />
+      <BottomNav />
     </div>
   );
 };

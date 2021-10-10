@@ -1,8 +1,9 @@
-import { plantCategories, months } from './constants';
+import { plantCategories, months, sortOptions } from './constants';
 
-// arrays of categories and months in readonly mode
+// arrays in readonly mode
 const plantCategoriesArr = [...plantCategories] as const;
 const monthsArr = ['', ...months] as const;
+const sortOptionsArr = [...sortOptions] as const;
 
 export type Plant = {
   _id: string;
@@ -14,3 +15,5 @@ export type Plant = {
   harvestFrom: typeof monthsArr[number];
   harvestUntil: typeof monthsArr[number];
 };
+
+export type Sort = typeof sortOptionsArr[number];
