@@ -16,7 +16,6 @@ import {
   validateHarvestFrom,
   validateHarvestUntil
 } from '../utils/validation-utils';
-import type { Plant, Category, Month } from '../utils/common-types';
 
 type PlantModalProps = {
   plant: Plant;

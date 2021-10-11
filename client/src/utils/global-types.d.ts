@@ -1,4 +1,3 @@
-
 // arrays in readonly mode
 const plantCategories = [
   '',
@@ -32,10 +31,11 @@ const sortOptions = [
   'harvest time'
 ] as const;
 
-export type Month = typeof months[number];
-export type Category = typeof plantCategories[number];
+type Month = typeof months[number];
+type Category = typeof plantCategories[number];
+type Sort = typeof sortOptions[number];
 
-export type Plant = {
+type Plant = {
   _id?: string;
   name: string;
   desc: string;
@@ -45,5 +45,3 @@ export type Plant = {
   harvestFrom: Month;
   harvestUntil: Month;
 };
-
-export type Sort = typeof sortOptions[number];

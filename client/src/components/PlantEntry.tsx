@@ -5,7 +5,6 @@ import { openPlantModal } from '../redux/actions/uiActions';
 import MonthHeadings from './MonthHeadings';
 import MonthData from './MonthData';
 import Btn from './Btn';
-import type { Plant } from '../utils/common-types';
 
 type PlantEntryProps = {
   plant: Plant;

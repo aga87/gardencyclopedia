@@ -1,6 +1,5 @@
 import React from 'react';
 import { months } from '../utils/constants';
-import type { Month } from '../utils/common-types';
 
 type MonthDataProps = {
   monthStart: Month;

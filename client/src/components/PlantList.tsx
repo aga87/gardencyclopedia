@@ -4,7 +4,6 @@ import sortPlants from '../utils/plants-utils';
 import Icon from './Icon';
 import NoPlantsView from './NoPlantsView';
 import PlantEntry from './PlantEntry';
-import type { Plant, Category, Sort } from '../utils/common-types';
 
 type PlantListProps = {
   isLoading: boolean;

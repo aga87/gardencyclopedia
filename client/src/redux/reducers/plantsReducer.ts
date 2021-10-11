@@ -7,7 +7,6 @@ import {
   FILTER_PLANTS,
   SORT_PLANTS
 } from '../actions/types';
-import type { Plant, Category, Sort } from '../../utils/common-types';
 
 const initialState = {
   plants: [],

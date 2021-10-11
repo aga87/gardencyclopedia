@@ -6,7 +6,6 @@ import { plantCategories, emptyPlant } from '../utils/constants';
 import Btn from './Btn';
 import Icon from './Icon';
 import SelectField from './SelectField';
-import type { Category } from '../utils/common-types';
 
 const Nav = (): JSX.Element => {
   const [filter, setFilter] = useState('');

@@ -2,7 +2,6 @@ import { combineReducers } from '@reduxjs/toolkit';
 import plantsReducer, * as fromPlantsReducer from './plantsReducer';
 import uiReducer, * as fromUiReducer from './uiReducer';
 import type { RootState } from '../store';
-import type { Plant, Category, Sort } from '../../utils/common-types';
 
 export default combineReducers({ plantsReducer, uiReducer });
 

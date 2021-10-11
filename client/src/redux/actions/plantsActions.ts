@@ -9,7 +9,6 @@ import {
   FILTER_PLANTS,
   SORT_PLANTS
 } from './types';
-import type { Plant, Category, Sort } from '../../utils/common-types';
 
 type Action =
   | {

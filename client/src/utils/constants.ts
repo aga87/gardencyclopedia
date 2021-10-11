@@ -1,5 +1,3 @@
-import type { Month, Plant, Category, Sort } from './common-types';
-
 export const months: Month[] = [
   'January',
   'February',
