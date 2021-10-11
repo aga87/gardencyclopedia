@@ -9,12 +9,17 @@ import {
   FILTER_PLANTS,
   SORT_PLANTS
 } from './types';
-import type { Plant, Sort } from '../../utils/common-types';
+import type { Plant, Category, Sort } from '../../utils/common-types';
 
-type Action = {
-  type: typeof SORT_PLANTS;
-  payload: Sort;
-};
+type Action =
+  | {
+      type: typeof SORT_PLANTS;
+      payload: Sort;
+    }
+  | {
+      type: typeof FILTER_PLANTS;
+      payload: Category;
+    };
 
 export const addPlant = (newPlant: Plant) => (dispatch: Dispatch) => {
   axios.post('/api/plants', newPlant).then(res =>
@@ -58,7 +63,7 @@ export const getPlants = () => (dispatch: Dispatch) => {
   );
 };
 
-export const filterPlants = (filter: string) => ({
+export const filterPlants = (filter: Category): Action => ({
   type: FILTER_PLANTS,
   payload: filter
 });

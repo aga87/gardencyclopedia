@@ -1,18 +1,15 @@
 import React from 'react';
-import { plantCategories, months } from '../utils/constants';
+import { months } from '../utils/constants';
 import sortPlants from '../utils/plants-utils';
 import Icon from './Icon';
 import NoPlantsView from './NoPlantsView';
 import PlantEntry from './PlantEntry';
-import type { Plant, Sort } from '../utils/common-types';
-
-// array in readonly mode
-const plantCategoriesArr = [...plantCategories] as const;
+import type { Plant, Category, Sort } from '../utils/common-types';
 
 type PlantListProps = {
   isLoading: boolean;
   plants: Plant[];
-  filter: typeof plantCategoriesArr[number];
+  filter: Category;
   sort: Sort;
 };
 

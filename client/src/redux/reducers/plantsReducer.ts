@@ -7,19 +7,19 @@ import {
   FILTER_PLANTS,
   SORT_PLANTS
 } from '../actions/types';
-import type { Plant, Sort } from '../../utils/common-types';
+import type { Plant, Category, Sort } from '../../utils/common-types';
 
 const initialState = {
   plants: [],
   isLoading: false,
-  filter: '',
+  filter: '' as Category,
   sort: 'name' as Sort
 };
 
 type State = {
   plants: Plant[];
   isLoading: boolean;
-  filter: string;
+  filter: Category;
   sort: Sort;
 };
 
@@ -32,12 +32,16 @@ type Action =
       type: typeof PLANTS_LOADING;
     }
   | {
-      type: typeof FILTER_PLANTS | typeof DELETE_PLANT;
+      type: typeof DELETE_PLANT;
       payload: string;
     }
   | {
       type: typeof ADD_PLANT | typeof EDIT_PLANT;
       payload: Plant;
+    }
+  | {
+      type: typeof FILTER_PLANTS;
+      payload: Category;
     }
   | {
       type: typeof SORT_PLANTS;
@@ -111,5 +115,5 @@ export default plantsReducer;
 // Selectors
 export const selectAllPlants = (state: State): Plant[] => state.plants;
 export const selectIsLoading = (state: State): boolean => state.isLoading;
-export const selectFilter = (state: State): string => state.filter;
+export const selectFilter = (state: State): Category => state.filter;
 export const selectSort = (state: State): Sort => state.sort;

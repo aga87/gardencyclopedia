@@ -16,7 +16,7 @@ import {
   validateHarvestFrom,
   validateHarvestUntil
 } from '../utils/validation-utils';
-import type { Plant } from '../utils/common-types';
+import type { Plant, Category } from '../utils/common-types';
 
 type PlantModalProps = {
   plant: Plant;
@@ -108,7 +108,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
     const newPlant = {
       name: name.value,
       desc: desc.value,
-      category: category.value,
+      category: category.value as Category,
       sowFrom: sowFrom.value,
       sowUntil: sowUntil.value,
       harvestFrom: harvestFrom.value,

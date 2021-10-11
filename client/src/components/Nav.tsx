@@ -6,6 +6,7 @@ import { plantCategories, emptyPlant } from '../utils/constants';
 import Btn from './Btn';
 import Icon from './Icon';
 import SelectField from './SelectField';
+import type { Category } from '../utils/common-types';
 
 const Nav = (): JSX.Element => {
   const [filter, setFilter] = useState('');
@@ -16,8 +17,8 @@ const Nav = (): JSX.Element => {
   };
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilter(e.target.value);
-    dispatch(filterPlants(e.target.value));
+    setFilter(e.target.value as Category);
+    dispatch(filterPlants(e.target.value as Category));
   };
 
   return (

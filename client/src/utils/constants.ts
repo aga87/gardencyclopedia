@@ -1,4 +1,4 @@
-import type { Plant, Sort } from './common-types';
+import type { Plant, Category, Sort } from './common-types';
 
 export const months = [
   'January',
@@ -15,7 +15,7 @@ export const months = [
   'December'
 ];
 
-export const plantCategories = [
+export const plantCategories: Category[] = [
   'uncategorised',
   'vegetables',
   'fruits',
