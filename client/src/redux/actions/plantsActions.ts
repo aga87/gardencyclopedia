@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Dispatch } from '@reduxjs/toolkit';
 import {
   ADD_PLANT,
   DELETE_PLANT,
@@ -8,8 +9,9 @@ import {
   FILTER_PLANTS,
   SORT_PLANTS
 } from './types';
+import type { Plant } from '../../utils/common-types';
 
-export const addPlant = newPlant => dispatch => {
+export const addPlant = (newPlant: Plant) => (dispatch: Dispatch) => {
   axios.post('/api/plants', newPlant).then(res =>
     dispatch({
       type: ADD_PLANT,
@@ -18,7 +20,7 @@ export const addPlant = newPlant => dispatch => {
   );
 };
 
-export const deletePlant = id => dispatch => {
+export const deletePlant = (id: string) => (dispatch: Dispatch) => {
   axios.delete(`/api/plants/${id}`).then(() =>
     dispatch({
       type: DELETE_PLANT,
@@ -27,20 +29,21 @@ export const deletePlant = id => dispatch => {
   );
 };
 
-export const editPlant = (id, editedPlant) => dispatch => {
-  axios.put(`/api/plants/${id}`, editedPlant).then(res =>
-    dispatch({
-      type: EDIT_PLANT,
-      payload: res.data
-    })
-  );
-};
+export const editPlant =
+  (id: string, editedPlant: Plant) => (dispatch: Dispatch) => {
+    axios.put(`/api/plants/${id}`, editedPlant).then(res =>
+      dispatch({
+        type: EDIT_PLANT,
+        payload: res.data
+      })
+    );
+  };
 
 export const setPlantsLoading = () => ({
   type: PLANTS_LOADING
 });
 
-export const getPlants = () => dispatch => {
+export const getPlants = () => (dispatch: Dispatch) => {
   dispatch(setPlantsLoading());
   axios.get('/api/plants').then(res =>
     dispatch({
@@ -50,12 +53,12 @@ export const getPlants = () => dispatch => {
   );
 };
 
-export const filterPlants = filter => ({
+export const filterPlants = (filter: string) => ({
   type: FILTER_PLANTS,
   payload: filter
 });
 
-export const sortPlants = sort => ({
+export const sortPlants = (sort: string) => ({
   type: SORT_PLANTS,
   payload: sort
 });

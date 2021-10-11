@@ -8,7 +8,7 @@ const sortOptionsArr = [...sortOptions] as const;
 export type Month = typeof monthsArr[number];
 
 export type Plant = {
-  _id: string;
+  _id?: string;
   name: string;
   desc: string;
   category: typeof plantCategoriesArr[number];

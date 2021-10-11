@@ -18,7 +18,7 @@ const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
   const id = plant._id;
 
   const handleDeleteClick = () => {
-    dispatch(deletePlant(id));
+    dispatch(deletePlant(id as string));
   };
 
   const handleEditClick = () => {

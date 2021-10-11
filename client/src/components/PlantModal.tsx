@@ -115,7 +115,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
       harvestUntil: harvestUntil.value
     };
 
-    if (plant._id !== '') {
+    if (plant._id) {
       dispatch(editPlant(plant._id, newPlant));
     } else {
       dispatch(addPlant(newPlant));
