@@ -1,6 +1,6 @@
-import type { Plant, Category, Sort } from './common-types';
+import type { Month, Plant, Category, Sort } from './common-types';
 
-export const months = [
+export const months: Month[] = [
   'January',
   'February',
   'March',

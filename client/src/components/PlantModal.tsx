@@ -16,7 +16,7 @@ import {
   validateHarvestFrom,
   validateHarvestUntil
 } from '../utils/validation-utils';
-import type { Plant, Category } from '../utils/common-types';
+import type { Plant, Category, Month } from '../utils/common-types';
 
 type PlantModalProps = {
   plant: Plant;
@@ -109,10 +109,10 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
       name: name.value,
       desc: desc.value,
       category: category.value as Category,
-      sowFrom: sowFrom.value,
-      sowUntil: sowUntil.value,
-      harvestFrom: harvestFrom.value,
-      harvestUntil: harvestUntil.value
+      sowFrom: sowFrom.value as Month,
+      sowUntil: sowUntil.value as Month,
+      harvestFrom: harvestFrom.value as Month,
+      harvestUntil: harvestUntil.value as Month
     };
 
     if (plant._id) {

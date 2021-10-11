@@ -1,4 +1,3 @@
-import { months } from './constants';
 
 // arrays in readonly mode
 const plantCategories = [
@@ -9,7 +8,23 @@ const plantCategories = [
   'herbs',
   'flowers'
 ] as const;
-const monthsArr = ['', ...months] as const;
+
+const months = [
+  '',
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+] as const;
+
 const sortOptions = [
   'name',
   'category',
@@ -17,7 +32,7 @@ const sortOptions = [
   'harvest time'
 ] as const;
 
-export type Month = typeof monthsArr[number];
+export type Month = typeof months[number];
 export type Category = typeof plantCategories[number];
 
 export type Plant = {
