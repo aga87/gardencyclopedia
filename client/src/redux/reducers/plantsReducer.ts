@@ -36,11 +36,7 @@ type Action =
       payload: string;
     }
   | {
-      type: typeof ADD_PLANT;
-      payload: Plant;
-    }
-  | {
-      type: typeof EDIT_PLANT;
+      type: typeof ADD_PLANT | typeof EDIT_PLANT;
       payload: Plant;
     }
   | {
