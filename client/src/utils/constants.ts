@@ -1,4 +1,4 @@
-import type { Plant } from './common-types';
+import type { Plant, Sort } from './common-types';
 
 export const months = [
   'January',
@@ -23,7 +23,12 @@ export const plantCategories = [
   'flowers'
 ];
 
-export const sortOptions = ['name', 'category', 'sowing time', 'harvest time'];
+export const sortOptions: Sort[] = [
+  'name',
+  'category',
+  'sowing time',
+  'harvest time'
+];
 
 export const emptyPlant: Plant = {
   _id: '',

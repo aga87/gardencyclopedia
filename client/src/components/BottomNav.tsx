@@ -3,14 +3,15 @@ import { useDispatch } from 'react-redux';
 import { sortPlants } from '../redux/actions/plantsActions';
 import { sortOptions } from '../utils/constants';
 import SelectField from './SelectField';
+import type { Sort } from '../utils/common-types';
 
 const BottomNav = (): JSX.Element => {
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState('name');
   const dispatch = useDispatch();
 
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSort(e.target.value);
-    dispatch(sortPlants(e.target.value));
+    setSort(e.target.value as Sort);
+    dispatch(sortPlants(e.target.value as Sort));
   };
 
   return (

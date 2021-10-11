@@ -2,7 +2,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import plantsReducer, * as fromPlantsReducer from './plantsReducer';
 import uiReducer, * as fromUiReducer from './uiReducer';
 import type { RootState } from '../store';
-import type { Plant } from '../../utils/common-types';
+import type { Plant, Sort } from '../../utils/common-types';
 
 export default combineReducers({ plantsReducer, uiReducer });
 
@@ -17,7 +17,7 @@ export const selectIsLoading = (state: RootState): boolean =>
 export const selectFilter = (state: RootState): string =>
   fromPlantsReducer.selectFilter(state.plantsReducer);
 
-export const selectSort = (state: RootState): string =>
+export const selectSort = (state: RootState): Sort =>
   fromPlantsReducer.selectSort(state.plantsReducer);
 
 // Global UI selectors

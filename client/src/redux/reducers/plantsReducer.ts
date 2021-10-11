@@ -13,7 +13,7 @@ const initialState = {
   plants: [],
   isLoading: false,
   filter: '',
-  sort: 'name'
+  sort: 'name' as Sort
 };
 
 type State = {
@@ -32,7 +32,7 @@ type Action =
       type: typeof PLANTS_LOADING;
     }
   | {
-      type: typeof FILTER_PLANTS | typeof DELETE_PLANT | typeof SORT_PLANTS;
+      type: typeof FILTER_PLANTS | typeof DELETE_PLANT;
       payload: string;
     }
   | {
@@ -42,6 +42,10 @@ type Action =
   | {
       type: typeof EDIT_PLANT;
       payload: Plant;
+    }
+  | {
+      type: typeof SORT_PLANTS;
+      payload: Sort;
     };
 
 const plantsReducer = (state = initialState, action: Action): State => {
@@ -112,4 +116,4 @@ export default plantsReducer;
 export const selectAllPlants = (state: State): Plant[] => state.plants;
 export const selectIsLoading = (state: State): boolean => state.isLoading;
 export const selectFilter = (state: State): string => state.filter;
-export const selectSort = (state: State): string => state.sort;
+export const selectSort = (state: State): Sort => state.sort;
