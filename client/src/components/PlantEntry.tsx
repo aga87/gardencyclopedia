@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../redux/actions/plantsActions';
 import { openPlantModal } from '../redux/actions/uiActions';
-import MonthHeadings from './MonthHeadings';
-import MonthData from './MonthData';
+import CalendarChart from './CalendarChart';
 import Btn from './Btn';
 import Icon from './Icon';
 
@@ -38,31 +37,30 @@ const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
         {isOpen && (
           <ul>
             <li>
-              <Btn icon={<Icon name="trash" />} text="Delete" handleClick={handleDeleteClick} />
+              <Btn
+                icon={<Icon name="trash" />}
+                text="Delete"
+                handleClick={handleDeleteClick}
+              />
             </li>
             <li>
-              <Btn icon={<Icon name="edit" />} text="Edit" handleClick={handleEditClick} />
+              <Btn
+                icon={<Icon name="edit" />}
+                text="Edit"
+                handleClick={handleEditClick}
+              />
             </li>
           </ul>
         )}
       </header>
       <p>{desc}</p>
       <p>{category}</p>
-      <table>
-        <thead>
-          <tr>
-            <MonthHeadings />
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <MonthData monthStart={sowFrom} monthEnd={sowUntil} />
-          </tr>
-          <tr>
-            <MonthData monthStart={harvestFrom} monthEnd={harvestUntil} />
-          </tr>
-        </tbody>
-      </table>
+      <CalendarChart
+        sowFrom={sowFrom}
+        sowUntil={sowUntil}
+        harvestFrom={harvestFrom}
+        harvestUntil={harvestUntil}
+      />
     </div>
   );
 };
