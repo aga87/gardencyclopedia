@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../redux/actions/plantsActions';
 import { openPlantModal } from '../redux/actions/uiActions';
 import MonthHeadings from './MonthHeadings';
 import MonthData from './MonthData';
 import Btn from './Btn';
+import Icon from './Icon';
 
 type PlantEntryProps = {
   plant: Plant;
 };
 
 const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const { name, desc, category, sowFrom, sowUntil, harvestFrom, harvestUntil } =
     plant;
@@ -24,13 +26,28 @@ const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
     dispatch(openPlantModal(plant));
   };
 
+  const handleMoreClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <figure>
-      <figcaption>
-        <h1>{name}</h1>
-        <p>{desc}</p>
-        <p>{category}</p>
-      </figcaption>
+    <div>
+      <header>
+        <h2>{name}</h2>
+        <Btn icon={<Icon name="more" />} handleClick={handleMoreClick} />
+        {isOpen && (
+          <ul>
+            <li>
+              <Btn text="Delete plant" handleClick={handleDeleteClick} />
+            </li>
+            <li>
+              <Btn text="Edit plant" handleClick={handleEditClick} />
+            </li>
+          </ul>
+        )}
+      </header>
+      <p>{desc}</p>
+      <p>{category}</p>
       <table>
         <thead>
           <tr>
@@ -46,9 +63,7 @@ const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
           </tr>
         </tbody>
       </table>
-      <Btn text="Delete plant" handleClick={handleDeleteClick} />
-      <Btn text="Edit plant" handleClick={handleEditClick} />
-    </figure>
+    </div>
   );
 };
 
