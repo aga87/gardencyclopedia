@@ -4,12 +4,29 @@ import {
   faBars,
   faPlus,
   faSpinner,
-  faEllipsisH
+  faEllipsisH,
+  faUserCog,
+  faSeedling,
+  faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
-import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
+import {
+  faTrashAlt,
+  faEdit,
+  faCalendar
+} from '@fortawesome/free-regular-svg-icons';
 
 type IconProps = {
-  name: 'menu' | 'plus' | 'spinner' | 'more' | 'trash' | 'edit';
+  name:
+    | 'menu'
+    | 'plus'
+    | 'spinner'
+    | 'more'
+    | 'trash'
+    | 'edit'
+    | 'user-cog'
+    | 'calendar'
+    | 'seedling'
+    | 'logout';
 };
 
 const Icon = ({ name }: IconProps): JSX.Element | null => {
@@ -19,6 +36,10 @@ const Icon = ({ name }: IconProps): JSX.Element | null => {
   if (name === 'more') return <FontAwesomeIcon icon={faEllipsisH} />;
   if (name === 'trash') return <FontAwesomeIcon icon={faTrashAlt} />;
   if (name === 'edit') return <FontAwesomeIcon icon={faEdit} />;
+  if (name === 'user-cog') return <FontAwesomeIcon icon={faUserCog} />;
+  if (name === 'calendar') return <FontAwesomeIcon icon={faCalendar} />;
+  if (name === 'seedling') return <FontAwesomeIcon icon={faSeedling} />;
+  if (name === 'logout') return <FontAwesomeIcon icon={faSignOutAlt} />;
   return null;
 };
 

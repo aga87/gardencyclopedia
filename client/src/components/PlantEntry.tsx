@@ -1,6 +1,6 @@
 import React from 'react';
 import CalendarChart from './CalendarChart';
-import PlantMenu from './PlantMenu';
+import PlantMenu from './Menus/PlantMenu';
 
 type PlantEntryProps = {
   plant: Plant;

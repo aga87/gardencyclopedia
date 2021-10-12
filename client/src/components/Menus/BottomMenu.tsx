@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { sortPlants } from '../redux/actions/plantsActions';
-import { sortOptions } from '../utils/constants';
-import SelectField from './SelectField';
+import { sortPlants } from '../../redux/actions/plantsActions';
+import { sortOptions } from '../../utils/constants';
+import SelectField from '../SelectField';
 
-const BottomNav = (): JSX.Element => {
+const BottomMenu = (): JSX.Element => {
   const [sort, setSort] = useState('name');
   const dispatch = useDispatch();
 
@@ -26,4 +26,4 @@ const BottomNav = (): JSX.Element => {
   );
 };
 
-export default BottomNav;
+export default BottomMenu;

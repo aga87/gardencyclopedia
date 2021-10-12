@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { openPlantModal } from '../redux/actions/uiActions';
-import { filterPlants } from '../redux/actions/plantsActions';
-import { plantCategories, emptyPlant } from '../utils/constants';
-import Btn from './Btn';
-import Icon from './Icon';
-import SelectField from './SelectField';
+import { openPlantModal } from '../../redux/actions/uiActions';
+import { filterPlants } from '../../redux/actions/plantsActions';
+import { plantCategories, emptyPlant } from '../../utils/constants';
+import Btn from '../Btn';
+import Icon from '../Icon';
+import SelectField from '../SelectField';
 
-const Nav = (): JSX.Element => {
+const TopMenu = (): JSX.Element => {
   const [filter, setFilter] = useState('');
   const dispatch = useDispatch();
 
@@ -23,9 +23,6 @@ const Nav = (): JSX.Element => {
   return (
     <nav>
       <ul>
-        <li>
-          <Icon name="menu" />
-        </li>
         <li>
           <SelectField
             id="filter-plants"
@@ -44,4 +41,4 @@ const Nav = (): JSX.Element => {
   );
 };
 
-export default Nav;
+export default TopMenu;

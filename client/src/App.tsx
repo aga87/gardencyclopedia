@@ -5,10 +5,12 @@ import {
   selectPlantModalIsOpen,
   selectPlantToEdit
 } from './redux/reducers/index';
-import Plants from './components/Plants';
+
 import PlantModal from './components/PlantModal';
-import Nav from './components/Nav';
-import BottomNav from './components/BottomNav';
+import MainMenu from './components/Menus/MainMenu';
+import TopMenu from './components/Menus/TopMenu';
+import Plants from './components/Plants';
+import BottomMenu from './components/Menus/BottomMenu';
 
 const App = (): JSX.Element => {
   const plantModalIsOpen = useSelector(selectPlantModalIsOpen);
@@ -17,9 +19,10 @@ const App = (): JSX.Element => {
   return (
     <div className="App">
       {plantModalIsOpen && <PlantModal plant={plantToEdit} />}
-      <Nav />
+      <MainMenu />
+      <TopMenu />
       <Plants />
-      <BottomNav />
+      <BottomMenu />
     </div>
   );
 };
