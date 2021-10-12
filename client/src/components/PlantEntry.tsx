@@ -38,10 +38,10 @@ const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
         {isOpen && (
           <ul>
             <li>
-              <Btn text="Delete plant" handleClick={handleDeleteClick} />
+              <Btn icon={<Icon name="trash" />} text="Delete" handleClick={handleDeleteClick} />
             </li>
             <li>
-              <Btn text="Edit plant" handleClick={handleEditClick} />
+              <Btn icon={<Icon name="edit" />} text="Edit" handleClick={handleEditClick} />
             </li>
           </ul>
         )}
