@@ -11,6 +11,7 @@ import {
 } from './types';
 
 type Action =
+  | { type: typeof PLANTS_LOADING }
   | {
       type: typeof SORT_PLANTS;
       payload: Sort;
@@ -48,7 +49,7 @@ export const editPlant =
     );
   };
 
-export const setPlantsLoading = () => ({
+export const setPlantsLoading = (): Action => ({
   type: PLANTS_LOADING
 });
 
