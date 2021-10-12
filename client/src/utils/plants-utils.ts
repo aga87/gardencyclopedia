@@ -1,5 +1,3 @@
-import type { Plant, Sort, Month } from './common-types';
-
 const sortPlants = (plants: Plant[], sort: Sort, months: Month[]): Plant[] => {
   switch (sort) {
     case 'name':

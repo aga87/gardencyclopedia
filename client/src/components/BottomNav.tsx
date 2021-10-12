@@ -5,12 +5,12 @@ import { sortOptions } from '../utils/constants';
 import SelectField from './SelectField';
 
 const BottomNav = (): JSX.Element => {
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState('name');
   const dispatch = useDispatch();
 
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSort(e.target.value);
-    dispatch(sortPlants(e.target.value));
+    setSort(e.target.value as Sort);
+    dispatch(sortPlants(e.target.value as Sort));
   };
 
   return (

@@ -16,8 +16,8 @@ const Nav = (): JSX.Element => {
   };
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilter(e.target.value);
-    dispatch(filterPlants(e.target.value));
+    setFilter(e.target.value as Category);
+    dispatch(filterPlants(e.target.value as Category));
   };
 
   return (

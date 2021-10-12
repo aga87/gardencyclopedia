@@ -1,12 +1,9 @@
 import React from 'react';
 import { months } from '../utils/constants';
 
-// array of month strings in readonly mode
-const monthsArr = ['', ...months] as const;
-
 type MonthDataProps = {
-  monthStart: typeof monthsArr[number];
-  monthEnd: typeof monthsArr[number];
+  monthStart: Month;
+  monthEnd: Month;
 };
 
 const MonthData = ({ monthStart, monthEnd }: MonthDataProps): JSX.Element => {
