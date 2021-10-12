@@ -38,7 +38,12 @@ const PlantList = ({
     </li>
   ));
 
-  return <ul>{plantListItems}</ul>;
+  return (
+    <figure>
+      <ul>{plantListItems}</ul>
+      <figcaption>{plantListItems.length} Plants</figcaption>
+    </figure>
+  );
 };
 
 export default PlantList;
