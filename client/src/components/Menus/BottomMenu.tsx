@@ -16,7 +16,7 @@ const BottomMenu = (): JSX.Element => {
   return (
     <nav>
       <SelectField
-        id="sort-plants"
+        inputId="sort-plants"
         label="Sort by:"
         options={sortOptions}
         value={sort}

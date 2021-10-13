@@ -25,7 +25,7 @@ const TopMenu = (): JSX.Element => {
       <ul>
         <li>
           <SelectField
-            id="filter-plants"
+            inputId="filter-plants"
             label="Filter plants"
             options={plantCategories}
             placeholder="All Plants"

@@ -1,7 +1,7 @@
 import React from 'react';
 
 type TextFieldProps = {
-  id: string;
+  inputId: string;
   label: string;
   value: string;
   maxLength: number;
@@ -10,7 +10,7 @@ type TextFieldProps = {
 };
 
 const TextField = ({
-  id,
+  inputId,
   label,
   value,
   maxLength,
@@ -18,12 +18,12 @@ const TextField = ({
   handleChange
 }: TextFieldProps): JSX.Element => (
   <p>
-    <label htmlFor={id}>
+    <label htmlFor={inputId}>
       {label}
       {required && <span aria-hidden="true"> *</span>}
     </label>
     <input
-      id={id}
+      id={inputId}
       type="text"
       size={30}
       maxLength={maxLength}
