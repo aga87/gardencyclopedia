@@ -1,8 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const plants = require('./routes/api/plants');
-
 const app = express();
 
 // Bodyparser middleware
@@ -18,7 +16,9 @@ mongoose
   .catch(err => console.log(err));
 
 // Routes
-app.use('/api/plants', plants);
+app.use('/api/plants', require('./routes/api/plants'));
+app.use('/api/users', require('./routes/api/users'));
+
 
 const port = process.env.PORT || 5000; // Deploy to Heroku or 5000
 
