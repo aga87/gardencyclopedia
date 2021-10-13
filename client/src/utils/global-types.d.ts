@@ -34,6 +34,7 @@ const sortOptions = [
 type Month = typeof months[number];
 type Category = typeof plantCategories[number];
 type Sort = typeof sortOptions[number];
+type View = 'calendar' | 'garden';
 
 type Plant = {
   _id?: string;

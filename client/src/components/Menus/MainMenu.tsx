@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setView } from '../../redux/actions/uiActions';
 import Btn from '../Btn';
 import Icon from '../Icon';
 
 const MainMenu = (): JSX.Element => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const dispatch = useDispatch();
 
   const handleMainMenuClick = () => {
     setIsExpanded(!isExpanded);
+  };
+
+  const handleCalendarClick = () => {
+    dispatch(setView('calendar'));
+  };
+
+  const handleGardenClick = () => {
+    dispatch(setView('garden'));
   };
 
   return (
@@ -15,10 +26,18 @@ const MainMenu = (): JSX.Element => {
       {isExpanded && (
         <ul>
           <li>
-            <Icon name="calendar" /> Calendar
+            <Btn
+              icon={<Icon name="calendar" />}
+              text="Calendar"
+              handleClick={handleCalendarClick}
+            />
           </li>
           <li>
-            <Icon name="seedling" /> Garden (coming soon)
+            <Btn
+              icon={<Icon name="seedling" />}
+              text="Garden (coming soon)"
+              handleClick={handleGardenClick}
+            />
           </li>
           <li>
             <Icon name="user-cog" /> Username
