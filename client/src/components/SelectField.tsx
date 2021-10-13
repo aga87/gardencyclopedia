@@ -2,7 +2,7 @@ import React from 'react';
 import { capitalize } from '../utils/text-utils';
 
 type SelectFieldProps = {
-  id: string;
+  inputId: string;
   label: string;
   options: string[];
   placeholder?: string;
@@ -12,7 +12,7 @@ type SelectFieldProps = {
 };
 
 const SelectField = ({
-  id,
+  inputId,
   label,
   options,
   placeholder = '',
@@ -28,11 +28,16 @@ const SelectField = ({
 
   return (
     <p>
-      <label htmlFor={id}>
+      <label htmlFor={inputId}>
         {label}
         {required && <span aria-hidden="true"> *</span>}
       </label>
-      <select id={id} required={required} value={value} onChange={handleChange}>
+      <select
+        id={inputId}
+        required={required}
+        value={value}
+        onChange={handleChange}
+      >
         {placeholder && <option value="">{placeholder}</option>}
         {selectOptions}
       </select>

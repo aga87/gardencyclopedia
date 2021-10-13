@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPlant, editPlant } from '../redux/actions/plantsActions';
 import { closePlantModal } from '../redux/actions/uiActions';
-import TextField from './TextField';
-import SelectField from './SelectField';
-import Error from './Error';
-import Btn from './Btn';
 import { months, plantCategories } from '../utils/constants';
 import useFormInput from '../utils/hooks/useFormInput';
 import {
@@ -16,6 +12,10 @@ import {
   validateHarvestFrom,
   validateHarvestUntil
 } from '../utils/validation-utils';
+import TextField from './TextField';
+import SelectField from './SelectField';
+import Error from './Error';
+import Btn from './Btn';
 
 type PlantModalProps = {
   plant: Plant;
@@ -129,7 +129,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
       <form noValidate onSubmit={handleSubmit}>
         <button type="submit">Save</button>
         <TextField
-          id="plant-name"
+          inputId="plant-name"
           label="Plant name"
           value={name.value}
           maxLength={nameValidators.maxLength}
@@ -138,7 +138,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
         />
         <Error inputId="plant-name" error={errors.name} />
         <TextField
-          id="plant-desc"
+          inputId="plant-desc"
           label="Description"
           value={desc.value}
           maxLength={descValidators.maxLength}
@@ -147,14 +147,14 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
         />
         <Error inputId="plant-desc" error={errors.desc} />
         <SelectField
-          id="plant-category"
+          inputId="plant-category"
           label="Category"
           options={plantCategories}
           value={category.value}
           handleChange={category.handleChange}
         />
         <SelectField
-          id="sow-from"
+          inputId="sow-from"
           label="Sow from"
           options={months}
           placeholder="Select month"
@@ -164,7 +164,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
         />
         <Error inputId="sow-from" error={errors.sowFrom} />
         <SelectField
-          id="sow-until"
+          inputId="sow-until"
           label="Sow until"
           options={months}
           placeholder="Select month"
@@ -174,7 +174,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
         />
         <Error inputId="sow-until" error={errors.sowUntil} />
         <SelectField
-          id="harvest-from"
+          inputId="harvest-from"
           label="Harvest from"
           options={months}
           placeholder="Select month"
@@ -184,7 +184,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
         />
         <Error inputId="harvest-from" error={errors.harvestFrom} />
         <SelectField
-          id="harvest-until"
+          inputId="harvest-until"
           label="Harvest until"
           options={months}
           placeholder="Select month"
