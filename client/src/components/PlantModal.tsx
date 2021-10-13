@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPlant, editPlant } from '../redux/actions/plantsActions';
 import { closePlantModal } from '../redux/actions/uiActions';
-import TextField from './TextField';
-import SelectField from './SelectField';
-import Error from './Error';
-import Btn from './Btn';
 import { months, plantCategories } from '../utils/constants';
 import useFormInput from '../utils/hooks/useFormInput';
 import {
@@ -16,6 +12,10 @@ import {
   validateHarvestFrom,
   validateHarvestUntil
 } from '../utils/validation-utils';
+import TextField from './TextField';
+import SelectField from './SelectField';
+import Error from './Error';
+import Btn from './Btn';
 
 type PlantModalProps = {
   plant: Plant;
