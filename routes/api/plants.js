@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
+
 const Plant = require('../../models/Plant');
 
 // @route GET api/plants
 // @desc Get all plants
-// @access Public
-router.get('/', (req, res) => {
+// @access Private
+router.get('/', auth, (req, res) => {
   Plant.find()
     .select('-__v')
     .sort({ name: 1 })
@@ -20,8 +22,8 @@ router.get('/', (req, res) => {
 
 // @route POST api/plants
 // @desc Add a plant
-// @access Public
-router.post('/', (req, res) => {
+// @access Private
+router.post('/', auth, (req, res) => {
   const newPlant = new Plant({
     name: req.body.name,
     desc: req.body.desc,
@@ -47,8 +49,8 @@ router.post('/', (req, res) => {
 
 // @route DELETE api/plants/:id
 // @desc Delete a plant
-// @access Public
-router.delete('/:id', (req, res) => {
+// @access Private
+router.delete('/:id', auth, (req, res) => {
   Plant.findById(req.params.id)
     .then(plant =>
       plant.remove().then(() => res.json('The plant was deleted successfully.'))
@@ -60,8 +62,8 @@ router.delete('/:id', (req, res) => {
 
 // @route PUT api/plants/:id
 // @desc Update a plant
-// @access Public
-router.put('/:id', (req, res) => {
+// @access Private
+router.put('/:id', auth, (req, res) => {
   Plant.findById(req.params.id, function(err, plant) {
     if (!plant) return res.status(404).json({Error: 'The plant you are trying to update does not exist.'});
     plant.name = req.body.name || plant.name;
