@@ -1,9 +1,16 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import plantsReducer, * as fromPlantsReducer from './plantsReducer';
 import uiReducer, * as fromUiReducer from './uiReducer';
+import authReducer from './authReducer';
+import errorReducer from './errorReducer';
 import type { RootState } from '../store';
 
-export default combineReducers({ plantsReducer, uiReducer });
+export default combineReducers({
+  plantsReducer,
+  uiReducer,
+  authReducer,
+  errorReducer
+});
 
 // Selectors - global
 // Global plant selectors
