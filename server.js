@@ -19,7 +19,7 @@ mongoose
 // Routes
 app.use('/api/plants', require('./routes/api/plants'));
 app.use('/api/users', require('./routes/api/users'));
-
+app.use('/api/auth', require('./routes/api/auth'));
 
 const port = process.env.PORT || 5000; // Deploy to Heroku or 5000
 
