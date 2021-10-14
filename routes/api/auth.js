@@ -9,10 +9,6 @@ const User = require('../../models/User');
 // @route POST api/auth
 // @desc Authenticate user
 // @access Public
-
-// @route POST api/users
-// @desc Register new user
-// @access Public
 router.post('/', (req, res) => {
   const { email, password } = req.body;
   if (!email || !password)
