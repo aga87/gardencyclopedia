@@ -3,8 +3,9 @@ import React from 'react';
 type TextFieldProps = {
   inputId: string;
   label: string;
+  variant?: 'text' | 'email' | 'password';
   value: string;
-  maxLength: number;
+  maxLength?: number;
   required?: boolean;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -12,6 +13,7 @@ type TextFieldProps = {
 const TextField = ({
   inputId,
   label,
+  variant = 'text',
   value,
   maxLength,
   required = false,
@@ -24,7 +26,7 @@ const TextField = ({
     </label>
     <input
       id={inputId}
-      type="text"
+      type={variant}
       size={30}
       maxLength={maxLength}
       value={value}

@@ -1,7 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const plantCategories = ['uncategorised', 'vegetables', 'fruits', 'herbs', 'flowers'];
+const plantCategories = [
+  'uncategorised',
+  'vegetables',
+  'fruits',
+  'herbs',
+  'flowers'
+];
 
 const months = [
   'January',
@@ -24,22 +30,30 @@ const PlantSchema = new Schema({
   name: {
     type: String,
     required: [true, 'This field is required.'],
-    maxLength: [20, 'Cannot be longer than 20 characters - {VALUE} exceeds the length limit.'],
+    maxLength: [
+      20,
+      'Cannot be longer than 20 characters - {VALUE} exceeds the length limit.'
+    ],
     trim: true
   },
   desc: {
     type: String,
     default: '',
-    maxLength: [30, 'Cannot be longer than 30 characters - {VALUE} exceeds the length limit.'],
+    maxLength: [
+      30,
+      'Cannot be longer than 30 characters - {VALUE} exceeds the length limit.'
+    ],
     trim: true
   },
   category: {
     type: String,
     lowercase: true,
     trim: true,
-    enum: { 
+    enum: {
       values: plantCategories,
-      message: `{VALUE} is not a valid plant category. The allowed categories are: ${plantCategories.join(', ')}.`
+      message: `{VALUE} is not a valid plant category. The allowed categories are: ${plantCategories.join(
+        ', '
+      )}.`
     },
     default: plantCategories[0],
     trim: true
