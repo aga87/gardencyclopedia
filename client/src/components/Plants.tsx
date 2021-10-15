@@ -4,12 +4,14 @@ import {
   selectIsLoading,
   selectAllPlants,
   selectFilter,
-  selectSort
+  selectSort,
+  selectIsAuthenticated
 } from '../redux/reducers/index';
 import { getPlants } from '../redux/actions/plantsActions';
 import PlantList from './PlantList';
 
 const Plants = (): JSX.Element => {
+  const isAuthenticated = useSelector(selectIsAuthenticated);
   const plants = useSelector(selectAllPlants);
   const filter = useSelector(selectFilter);
   const sort = useSelector(selectSort);
@@ -18,7 +20,7 @@ const Plants = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getPlants());
-  }, [dispatch]);
+  }, [isAuthenticated]);
 
   return (
     <PlantList

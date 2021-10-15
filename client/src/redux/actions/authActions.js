@@ -48,7 +48,7 @@ export const register =
       });
   };
 
-const tokenConfig = getState => {
+export const tokenConfig = getState => {
   const { token } = getState().authReducer;
   const config = {
     headers: {
