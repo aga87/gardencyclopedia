@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setView } from '../../redux/actions/uiActions';
+import { logout } from '../../redux/actions/authActions';
 import Btn from '../Btn';
 import Icon from '../Icon';
 
@@ -18,6 +19,10 @@ const MainMenu = (): JSX.Element => {
 
   const handleGardenClick = () => {
     dispatch(setView('garden'));
+  };
+
+  const handleLogoutClick = () => {
+    dispatch(logout());
   };
 
   return (
@@ -43,7 +48,11 @@ const MainMenu = (): JSX.Element => {
             <Icon name="user-cog" /> Username
           </li>
           <li>
-            <Icon name="logout" /> Log out
+            <Btn
+              icon={<Icon name="logout" />}
+              text="Logout"
+              handleClick={handleLogoutClick}
+            />
           </li>
         </ul>
       )}

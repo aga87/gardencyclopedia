@@ -77,4 +77,8 @@ const loadUser = () => (dispatch, getState) => {
     });
 };
 
+export const logout = () => ({
+  type: LOGOUT_SUCCESS
+});
+
 export default loadUser;
