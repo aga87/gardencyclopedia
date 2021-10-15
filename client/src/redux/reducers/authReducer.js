@@ -56,3 +56,6 @@ const authReducer = (state = initialState, action) => {
 };
 
 export default authReducer;
+
+// Selectors 
+export const selectIsAuthenticated = (state) => state.isAuthenticated;

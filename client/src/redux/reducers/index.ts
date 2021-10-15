@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import plantsReducer, * as fromPlantsReducer from './plantsReducer';
 import uiReducer, * as fromUiReducer from './uiReducer';
-import authReducer from './authReducer';
-import errorReducer from './errorReducer';
+import authReducer, * as fromAuthReducer from './authReducer';
+import errorReducer, * as fromErrorReducer from './errorReducer';
 import type { RootState } from '../store';
 
 export default combineReducers({
@@ -12,7 +12,6 @@ export default combineReducers({
   errorReducer
 });
 
-// Selectors - global
 // Global plant selectors
 export const selectAllPlants = (state: RootState): Plant[] =>
   fromPlantsReducer.selectAllPlants(state.plantsReducer);
@@ -35,3 +34,14 @@ export const selectPlantToEdit = (state: RootState): Plant =>
 
 export const selectView = (state: RootState): View =>
   fromUiReducer.selectView(state.uiReducer);
+
+// Global user selectors
+export const selectIsAuthenticated = (state: RootState) =>
+  fromAuthReducer.selectIsAuthenticated(state.authReducer);
+
+// Global error selectors
+export const selectMsg = (state: RootState) =>
+  fromErrorReducer.selectMsg(state.errorReducer);
+
+export const selectErrorId = (state: RootState) =>
+  fromErrorReducer.selectErrorId(state.errorReducer);

@@ -22,3 +22,7 @@ const errorReducer = (state = initialState, action) => {
 };
 
 export default errorReducer;
+
+// Selectors
+export const selectMsg = state => state.msg;
+export const selectErrorId = state => state.id;
