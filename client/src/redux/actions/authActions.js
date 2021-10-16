@@ -11,18 +11,6 @@ import {
 } from './types';
 import { getErrors } from './errorActions';
 
-const setUserLoading = () => ({
-  type: USER_LOADING
-});
-
-const setAuthError = () => ({
-  type: AUTH_ERROR
-});
-
-const setRegisterFail = () => ({
-  type: REGISTER_FAIL
-});
-
 export const register =
   ({ username, email, password }) =>
   dispatch => {
@@ -44,7 +32,9 @@ export const register =
         dispatch(
           getErrors(err.response.data, err.response.status, REGISTER_FAIL)
         );
-        dispatch(setRegisterFail());
+        dispatch({
+          type: REGISTER_FAIL
+        });
       });
   };
 
@@ -62,7 +52,9 @@ export const tokenConfig = getState => {
 };
 
 const loadUser = () => (dispatch, getState) => {
-  dispatch(setUserLoading());
+  dispatch({
+    type: USER_LOADING
+  });
   axios
     .get('/api/auth/user', tokenConfig(getState))
     .then(res =>
@@ -73,13 +65,11 @@ const loadUser = () => (dispatch, getState) => {
     )
     .catch(err => {
       dispatch(getErrors(err.response.data, err.response.status));
-      dispatch(setAuthError());
+      dispatch({
+        type: AUTH_ERROR
+      });
     });
 };
-
-export const setLoginFail = () => ({
-  type: LOGIN_FAIL
-});
 
 export const login =
   ({ email, password }) =>
@@ -100,7 +90,9 @@ export const login =
       )
       .catch(err => {
         dispatch(getErrors(err.response.data, err.response.status, LOGIN_FAIL));
-        dispatch(setLoginFail());
+        dispatch({
+          type: LOGIN_FAIL
+        });
       });
   };
 
