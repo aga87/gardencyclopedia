@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Dispatch } from '@reduxjs/toolkit';
 import {
   USER_LOADING,
   USER_LOADED,
@@ -10,9 +11,22 @@ import {
 } from './types';
 import { clearErrors, getErrors } from './errorActions';
 
+type User = {
+  email: string;
+  password: string;
+};
+
+type NewUser = User & { username: string };
+
+export type TokenState = () => {
+  authReducer: {
+    token: string;
+  };
+};
+
 export const register =
-  ({ username, email, password }) =>
-  dispatch => {
+  ({ username, email, password }: NewUser) =>
+  (dispatch: Dispatch) => {
     const config = {
       headers: {
         'Content-type': 'application/json'
@@ -37,20 +51,18 @@ export const register =
       });
   };
 
-export const tokenConfig = getState => {
+export const tokenConfig = (getState: TokenState) => {
   const { token } = getState().authReducer;
   const config = {
     headers: {
-      'Content-type': 'application/json'
+      'Content-type': 'application/json',
+      'x-auth-token': token || ''
     }
   };
-  if (token) {
-    config.headers['x-auth-token'] = token;
-  }
   return config;
 };
 
-const loadUser = () => (dispatch, getState) => {
+const loadUser = () => (dispatch: Dispatch, getState: TokenState) => {
   dispatch({
     type: USER_LOADING
   });
@@ -71,8 +83,8 @@ const loadUser = () => (dispatch, getState) => {
 };
 
 export const login =
-  ({ email, password }) =>
-  dispatch => {
+  ({ email, password }: User) =>
+  (dispatch: Dispatch) => {
     const config = {
       headers: {
         'Content-type': 'application/json'

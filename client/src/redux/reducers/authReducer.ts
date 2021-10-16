@@ -8,14 +8,47 @@ import {
   REGISTER_FAIL
 } from '../actions/types';
 
-const initialState = {
-  token: localStorage.getItem('token'),
+type User = {
+  username: string;
+  email: string;
+  password: string;
+};
+
+type State = {
+  token: string;
+  isAuthenticated: boolean;
+  isLoading: boolean;
+  user: null | User;
+};
+
+type Action =
+  | {
+      type:
+        | typeof USER_LOADING
+        | typeof REGISTER_FAIL
+        | typeof LOGIN_FAIL
+        | typeof LOGOUT_SUCCESS;
+    }
+  | {
+      type: typeof USER_LOADED;
+      payload: User;
+    }
+  | {
+      type: typeof REGISTER_SUCCESS | typeof LOGIN_SUCCESS;
+      payload: {
+        token: string;
+        user: User;
+      };
+    };
+
+const initialState: State = {
+  token: localStorage.getItem('token') as string,
   isAuthenticated: false,
   isLoading: false,
   user: null
 };
 
-const authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action: Action): State => {
   switch (action.type) {
     case USER_LOADING:
       return {
@@ -45,7 +78,7 @@ const authReducer = (state = initialState, action) => {
     case REGISTER_FAIL:
       localStorage.removeItem('token');
       return {
-        token: null,
+        token: '',
         isAuthenticated: false,
         isLoading: false,
         user: null
@@ -57,5 +90,6 @@ const authReducer = (state = initialState, action) => {
 
 export default authReducer;
 
-// Selectors 
-export const selectIsAuthenticated = (state) => state.isAuthenticated;
+// Selectors
+export const selectIsAuthenticated = (state: State): boolean =>
+  state.isAuthenticated;

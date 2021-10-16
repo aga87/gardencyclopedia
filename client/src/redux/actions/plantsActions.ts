@@ -11,7 +11,7 @@ import {
 } from './types';
 import { tokenConfig } from './authActions';
 import { getErrors } from './errorActions';
-import type { RootState } from '../store';
+import type { TokenState } from './authActions';
 
 type Action =
   | { type: typeof PLANTS_LOADING }
@@ -25,7 +25,7 @@ type Action =
     };
 
 export const addPlant =
-  (newPlant: Plant) => (dispatch: Dispatch, getState: RootState) => {
+  (newPlant: Plant) => (dispatch: Dispatch, getState: TokenState) => {
     axios
       .post('/api/plants', newPlant, tokenConfig(getState))
       .then(res =>
@@ -40,7 +40,7 @@ export const addPlant =
   };
 
 export const deletePlant =
-  (id: string) => (dispatch: Dispatch, getState: RootState) => {
+  (id: string) => (dispatch: Dispatch, getState: TokenState) => {
     axios
       .delete(`/api/plants/${id}`, tokenConfig(getState))
       .then(() =>
@@ -56,7 +56,7 @@ export const deletePlant =
 
 export const editPlant =
   (id: string, editedPlant: Plant) =>
-  (dispatch: Dispatch, getState: RootState) => {
+  (dispatch: Dispatch, getState: TokenState) => {
     axios
       .put(`/api/plants/${id}`, editedPlant, tokenConfig(getState))
       .then(res =>
@@ -74,7 +74,7 @@ export const setPlantsLoading = (): Action => ({
   type: PLANTS_LOADING
 });
 
-export const getPlants = () => (dispatch: Dispatch, getState: RootState) => {
+export const getPlants = () => (dispatch: Dispatch, getState: TokenState) => {
   dispatch(setPlantsLoading());
   axios
     .get('/api/plants', tokenConfig(getState))
