@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectErrMsg, selectErrorId } from '../redux/reducers/index';
+import { selectErrMsg, selectErrId } from '../redux/reducers/index';
 import useFormInput from '../utils/hooks/useFormInput';
 import { login } from '../redux/actions/authActions';
 import TextField from './TextField';
@@ -9,7 +9,7 @@ const LoginModal = (): JSX.Element => {
   const email = useFormInput('');
   const password = useFormInput('');
   const errMsg = useSelector(selectErrMsg);
-  const errorId = useSelector(selectErrorId);
+  const errId = useSelector(selectErrId);
   const dispatch = useDispatch();
 
   const emailValidators = {
@@ -54,7 +54,7 @@ const LoginModal = (): JSX.Element => {
           required={passwordValidators.required}
         />
         <button type="submit">Login</button>
-        {errorId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
+        {errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
       </form>
     </div>
   );

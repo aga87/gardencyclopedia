@@ -43,5 +43,5 @@ export const selectIsAuthenticated = (state: RootState) =>
 export const selectErrMsg = (state: RootState) =>
   fromErrorReducer.selectErrMsg(state.errorReducer);
 
-export const selectErrorId = (state: RootState) =>
-  fromErrorReducer.selectErrorId(state.errorReducer);
+export const selectErrId = (state: RootState) =>
+  fromErrorReducer.selectErrId(state.errorReducer);
