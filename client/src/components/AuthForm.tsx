@@ -2,10 +2,14 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectErrMsg, selectErrId } from '../redux/reducers/index';
 import useFormInput from '../utils/hooks/useFormInput';
-import { register } from '../redux/actions/authActions';
+import { login, register } from '../redux/actions/authActions';
 import TextField from './TextField';
 
-const RegistrationForm = (): JSX.Element => {
+type AuthFormProps = {
+  type: 'login' | 'register';
+};
+
+const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
   const username = useFormInput('');
   const email = useFormInput('');
   const password = useFormInput('');
@@ -30,26 +34,34 @@ const RegistrationForm = (): JSX.Element => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const newUser = {
-      username: username.value,
-      email: email.value,
-      password: password.value
-    };
-
-    dispatch(register(newUser));
+    if (type === 'login') {
+      const user = {
+        email: email.value,
+        password: password.value
+      };
+      dispatch(login(user));
+    } else {
+      const newUser = {
+        username: username.value,
+        email: email.value,
+        password: password.value
+      };
+      dispatch(register(newUser));
+    }
   };
 
   return (
     <form noValidate onSubmit={handleSubmit}>
-      <TextField
-        inputId="username"
-        label="Username"
-        value={username.value}
-        maxLength={usernameValidators.maxLength}
-        handleChange={username.handleChange}
-        required={usernameValidators.required}
-      />
+      {type === 'register' && (
+        <TextField
+          inputId="username"
+          label="Username"
+          value={username.value}
+          maxLength={usernameValidators.maxLength}
+          handleChange={username.handleChange}
+          required={usernameValidators.required}
+        />
+      )}
       <TextField
         inputId="email"
         label="Email"
@@ -68,10 +80,11 @@ const RegistrationForm = (): JSX.Element => {
         handleChange={password.handleChange}
         required={passwordValidators.required}
       />
-      <button type="submit">Register</button>
-      {errId === 'REGISTER_FAIL' && <p>{errMsg}</p>}
+      <button type="submit">{type === 'login' ? 'Log in' : 'Register'}</button>
+      {type === 'login' && errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
+      {type === 'register' && errId === 'REGISTER_FAIL' && <p>{errMsg}</p>}
     </form>
   );
 };
 
-export default RegistrationForm;
+export default AuthForm;
