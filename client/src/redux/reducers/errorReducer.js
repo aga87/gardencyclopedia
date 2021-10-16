@@ -1,7 +1,7 @@
 import { GET_ERRORS, CLEAR_ERRORS } from '../actions/types';
 
 const initialState = {
-  msg: {},
+  errMsg: '',
   status: null,
   id: null
 };
@@ -10,7 +10,7 @@ const errorReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ERRORS:
       return {
-        msg: action.payload.msg,
+        errMsg: action.payload.errMsg,
         status: action.payload.status,
         id: action.payload.id
       };
@@ -24,5 +24,5 @@ const errorReducer = (state = initialState, action) => {
 export default errorReducer;
 
 // Selectors
-export const selectMsg = state => state.msg;
+export const selectErrMsg = state => state.errMsg;
 export const selectErrorId = state => state.id;

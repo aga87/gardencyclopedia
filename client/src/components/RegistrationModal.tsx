@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectMsg, selectErrorId } from '../redux/reducers/index';
+import { selectErrMsg, selectErrorId } from '../redux/reducers/index';
 import useFormInput from '../utils/hooks/useFormInput';
 import { register } from '../redux/actions/authActions';
 import TextField from './TextField';
@@ -9,7 +9,7 @@ const RegistrationModal = (): JSX.Element => {
   const username = useFormInput('');
   const email = useFormInput('');
   const password = useFormInput('');
-  const msg = useSelector(selectMsg);
+  const errMsg = useSelector(selectErrMsg);
   const errorId = useSelector(selectErrorId);
   const dispatch = useDispatch();
 
@@ -71,7 +71,7 @@ const RegistrationModal = (): JSX.Element => {
           required={passwordValidators.required}
         />
         <button type="submit">Register</button>
-        {errorId === 'REGISTER_FAIL' && <p>{msg.Error}</p>}
+        {errorId === 'REGISTER_FAIL' && <p>{errMsg}</p>}
       </form>
     </div>
   );
