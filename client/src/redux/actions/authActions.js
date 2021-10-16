@@ -9,7 +9,7 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL
 } from './types';
-import { getErrors } from './errorActions';
+import { clearErrors, getErrors } from './errorActions';
 
 export const register =
   ({ username, email, password }) =>
@@ -82,12 +82,13 @@ export const login =
     const body = JSON.stringify({ email, password });
     axios
       .post('/api/auth', body, config)
-      .then(res =>
+      .then(res => {
         dispatch({
           type: LOGIN_SUCCESS,
           payload: res.data
-        })
-      )
+        });
+        dispatch(clearErrors());
+      })
       .catch(err => {
         dispatch(getErrors(err.response.data, err.response.status, LOGIN_FAIL));
         dispatch({
