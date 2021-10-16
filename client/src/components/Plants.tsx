@@ -20,7 +20,7 @@ const Plants = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getPlants());
-  }, [isAuthenticated]);
+  }, [dispatch, isAuthenticated]);
 
   return (
     <PlantList
