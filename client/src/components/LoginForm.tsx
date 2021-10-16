@@ -5,7 +5,7 @@ import useFormInput from '../utils/hooks/useFormInput';
 import { login } from '../redux/actions/authActions';
 import TextField from './TextField';
 
-const LoginModal = (): JSX.Element => {
+const LoginForm = (): JSX.Element => {
   const email = useFormInput('');
   const password = useFormInput('');
   const errMsg = useSelector(selectErrMsg);
@@ -32,32 +32,29 @@ const LoginModal = (): JSX.Element => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form noValidate onSubmit={handleSubmit}>
-        <TextField
-          inputId="email"
-          label="Email"
-          variant="email"
-          value={email.value}
-          maxLength={emailValidators.maxLength}
-          handleChange={email.handleChange}
-          required={emailValidators.required}
-        />
-        <TextField
-          inputId="password"
-          label="Password"
-          variant="password"
-          value={password.value}
-          maxLength={passwordValidators.maxLength}
-          handleChange={password.handleChange}
-          required={passwordValidators.required}
-        />
-        <button type="submit">Login</button>
-        {errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
-      </form>
-    </div>
+    <form noValidate onSubmit={handleSubmit}>
+      <TextField
+        inputId="email"
+        label="Email"
+        variant="email"
+        value={email.value}
+        maxLength={emailValidators.maxLength}
+        handleChange={email.handleChange}
+        required={emailValidators.required}
+      />
+      <TextField
+        inputId="password"
+        label="Password"
+        variant="password"
+        value={password.value}
+        maxLength={passwordValidators.maxLength}
+        handleChange={password.handleChange}
+        required={passwordValidators.required}
+      />
+      <button type="submit">Login</button>
+      {errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
+    </form>
   );
 };
 
-export default LoginModal;
+export default LoginForm;
