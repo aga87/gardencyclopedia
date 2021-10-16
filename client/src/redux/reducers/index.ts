@@ -39,6 +39,9 @@ export const selectView = (state: RootState): View =>
 export const selectIsAuthenticated = (state: RootState): boolean =>
   fromAuthReducer.selectIsAuthenticated(state.authReducer);
 
+export const selectUsername = (state: RootState): string =>
+  fromAuthReducer.selectUsername(state.authReducer);
+
 // Global error selectors
 export const selectErrMsg = (state: RootState): string =>
   fromErrorReducer.selectErrMsg(state.errorReducer);

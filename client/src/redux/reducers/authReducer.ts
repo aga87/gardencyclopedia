@@ -93,3 +93,8 @@ export default authReducer;
 // Selectors
 export const selectIsAuthenticated = (state: State): boolean =>
   state.isAuthenticated;
+
+export const selectUsername = (state: State): string => {
+  if (state.user) return state.user.username;
+  return '';
+};
