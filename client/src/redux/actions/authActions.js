@@ -2,7 +2,6 @@ import axios from 'axios';
 import {
   USER_LOADING,
   USER_LOADED,
-  AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
@@ -66,7 +65,7 @@ const loadUser = () => (dispatch, getState) => {
     .catch(err => {
       dispatch(getErrors(err.response.data, err.response.status));
       dispatch({
-        type: AUTH_ERROR
+        type: LOGIN_FAIL
       });
     });
 };
