@@ -2,18 +2,20 @@ import { GET_ERRORS, CLEAR_ERRORS } from '../actions/types';
 
 const initialState = {
   errMsg: '',
-  status: null,
+  errStatus: null,
   errId: ''
 };
 
 const errorReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ERRORS:
+    case GET_ERRORS: {
+      const { errMsg, errStatus, errId } = action.payload;
       return {
-        errMsg: action.payload.errMsg,
-        status: action.payload.status,
-        errId: action.payload.errId
+        errMsg,
+        errStatus,
+        errId
       };
+    }
     case CLEAR_ERRORS:
       return initialState;
     default:

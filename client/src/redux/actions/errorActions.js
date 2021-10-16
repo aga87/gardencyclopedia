@@ -1,8 +1,8 @@
 import { GET_ERRORS, CLEAR_ERRORS } from './types';
 
-export const getErrors = (errMsg, status, errId = '') => ({
+export const getErrors = (errMsg, errStatus, errId = '') => ({
   type: GET_ERRORS,
-  payload: { errMsg, status, errId }
+  payload: { errMsg, errStatus, errId }
 });
 
 export const clearErrors = () => ({
