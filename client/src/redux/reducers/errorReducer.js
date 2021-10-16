@@ -10,7 +10,7 @@ const errorReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ERRORS:
       return {
-        errorMsg: action.payload.msg,
+        errorMsg: action.payload.errorMsg,
         status: action.payload.status,
         id: action.payload.id
       };
