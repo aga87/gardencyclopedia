@@ -1,4 +1,5 @@
 import { GET_ERRORS, CLEAR_ERRORS } from '../actions/types';
+import type { Action } from '../actions/errorActions';
 
 const initialState = {
   errMsg: '',
@@ -6,7 +7,13 @@ const initialState = {
   errId: ''
 };
 
-const errorReducer = (state = initialState, action) => {
+type State = {
+  errMsg: string;
+  errStatus: number | null;
+  errId: string;
+};
+
+const errorReducer = (state = initialState, action: Action): State => {
   switch (action.type) {
     case GET_ERRORS: {
       const { errMsg, errStatus, errId } = action.payload;
@@ -26,5 +33,5 @@ const errorReducer = (state = initialState, action) => {
 export default errorReducer;
 
 // Selectors
-export const selectErrMsg = state => state.errMsg;
-export const selectErrId = state => state.errId;
+export const selectErrMsg = (state: State): string => state.errMsg;
+export const selectErrId = (state: State): string => state.errId;

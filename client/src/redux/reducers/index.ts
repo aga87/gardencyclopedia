@@ -40,8 +40,8 @@ export const selectIsAuthenticated = (state: RootState) =>
   fromAuthReducer.selectIsAuthenticated(state.authReducer);
 
 // Global error selectors
-export const selectErrMsg = (state: RootState) =>
+export const selectErrMsg = (state: RootState): string =>
   fromErrorReducer.selectErrMsg(state.errorReducer);
 
-export const selectErrId = (state: RootState) =>
+export const selectErrId = (state: RootState): string =>
   fromErrorReducer.selectErrId(state.errorReducer);
