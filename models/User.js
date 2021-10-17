@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   username: {
     type: String,
-    required: true,
+    required: [true, 'Username is required.'],
     maxLength: [
       20,
       'Cannot be longer than 20 characters - {VALUE} exceeds the length limit.'
@@ -12,7 +12,7 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: [true, 'Email is required.'],
     unique: true,
     maxLength: [
       254,
@@ -21,7 +21,7 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: [true, 'Password is required'],
     maxLength: [
       128,
       'Cannot be longer than 128 characters - {VALUE} exceeds the length limit.'
