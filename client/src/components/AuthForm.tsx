@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectErrMsg, selectErrId } from '../redux/reducers/index';
 import useFormInput from '../utils/hooks/useFormInput';
+import {
+  validateUsername,
+  validateEmail,
+  validatePassword
+} from '../utils/validation-utils';
 import { login, register } from '../redux/actions/authActions';
 import TextField from './TextField';
+import Error from './Error';
 
 type AuthFormProps = {
   type: 'login' | 'register';
@@ -15,6 +21,15 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
   const password = useFormInput('');
   const errMsg = useSelector(selectErrMsg);
   const errId = useSelector(selectErrId);
+  const [clientLoginErrors, setClientLoginErrors] = useState({
+    email: '',
+    password: ''
+  });
+  const [clientRegErrors, setClientRegErrors] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
   const dispatch = useDispatch();
 
   const usernameValidators = {
@@ -28,19 +43,52 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
   };
 
   const passwordValidators = {
-    maxLength: 20,
+    minLength: 8,
+    maxLength: 128,
     required: true
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // LOGIN
     if (type === 'login') {
+      // Client-side validation
+      const loginFormErrors = {
+        email: validateEmail(email.value, emailValidators),
+        password: validatePassword(password.value, passwordValidators)
+      };
+
+      setClientLoginErrors(loginFormErrors);
+
+      const formErrorExists = Object.values(loginFormErrors).some(
+        value => value !== ''
+      );
+
+      if (formErrorExists) return;
+
+      // Submit if there is no errors
       const user = {
         email: email.value,
         password: password.value
       };
       dispatch(login(user));
     } else {
+      // REGISTRATION - client-side validation
+      const regFormErrors = {
+        username: validateUsername(username.value, usernameValidators),
+        email: validateEmail(email.value, emailValidators),
+        password: validatePassword(password.value, passwordValidators)
+      };
+
+      setClientRegErrors(regFormErrors);
+
+      const formErrorExists = Object.values(regFormErrors).some(
+        value => value !== ''
+      );
+
+      if (formErrorExists) return;
+
+      // Submit if there is no errors
       const newUser = {
         username: username.value,
         email: email.value,
@@ -53,17 +101,20 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
   return (
     <form noValidate onSubmit={handleSubmit}>
       {type === 'register' && (
-        <TextField
-          inputId="username"
-          label="Username"
-          value={username.value}
-          maxLength={usernameValidators.maxLength}
-          handleChange={username.handleChange}
-          required={usernameValidators.required}
-        />
+        <div>
+          <TextField
+            inputId="username"
+            label="Username"
+            value={username.value}
+            maxLength={usernameValidators.maxLength}
+            handleChange={username.handleChange}
+            required={usernameValidators.required}
+          />
+          <Error inputId="username" error={clientRegErrors.username} />
+        </div>
       )}
       <TextField
-        inputId="email"
+        inputId={`${type}-email`}
         label="Email"
         variant="email"
         value={email.value}
@@ -71,14 +122,29 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
         handleChange={email.handleChange}
         required={emailValidators.required}
       />
+      <Error
+        inputId={`${type}-email`}
+        error={
+          type === 'login' ? clientLoginErrors.email : clientRegErrors.email
+        }
+      />
       <TextField
-        inputId="password"
+        inputId={`${type}-password`}
         label="Password"
         variant="password"
         value={password.value}
+        minLength={passwordValidators.minLength}
         maxLength={passwordValidators.maxLength}
         handleChange={password.handleChange}
         required={passwordValidators.required}
+      />
+      <Error
+        inputId={`${type}-password`}
+        error={
+          type === 'login'
+            ? clientLoginErrors.password
+            : clientRegErrors.password
+        }
       />
       <button type="submit">{type === 'login' ? 'Log in' : 'Register'}</button>
       {type === 'login' && errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
