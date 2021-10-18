@@ -5,6 +5,7 @@ const UserSchema = new Schema({
   username: {
     type: String,
     required: [true, 'Username is required.'],
+    trim: true,
     maxLength: [
       20,
       'Cannot be longer than 20 characters - {VALUE} exceeds the length limit.'
@@ -14,6 +15,7 @@ const UserSchema = new Schema({
     type: String,
     required: [true, 'Email is required.'],
     unique: true,
+    trim: true,
     maxLength: [
       254,
       'Cannot be longer than 254 characters - {VALUE} exceeds the length limit.'
