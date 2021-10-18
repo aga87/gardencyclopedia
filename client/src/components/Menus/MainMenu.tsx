@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setView } from '../../redux/actions/uiActions';
 import { logout } from '../../redux/actions/authActions';
+import { selectUsername } from '../../redux/reducers/index';
 import Btn from '../Btn';
 import Icon from '../Icon';
 
 const MainMenu = (): JSX.Element => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const username = useSelector(selectUsername);
   const dispatch = useDispatch();
 
   const handleMainMenuClick = () => {
@@ -45,7 +47,7 @@ const MainMenu = (): JSX.Element => {
             />
           </li>
           <li>
-            <Icon name="user-cog" /> Username
+            <Icon name="user-cog" /> {username}
           </li>
           <li>
             <Btn

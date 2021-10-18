@@ -1,31 +1,32 @@
 import axios from 'axios';
+import { Dispatch } from '@reduxjs/toolkit';
 import {
   USER_LOADING,
   USER_LOADED,
-  AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
   REGISTER_FAIL
 } from './types';
-import { getErrors } from './errorActions';
+import { clearErrors, getErrors } from './errorActions';
 
-const setUserLoading = () => ({
-  type: USER_LOADING
-});
+type User = {
+  email: string;
+  password: string;
+};
 
-const setAuthError = () => ({
-  type: AUTH_ERROR
-});
+type NewUser = User & { username: string };
 
-const setRegisterFail = () => ({
-  type: REGISTER_FAIL
-});
+export type TokenState = () => {
+  authReducer: {
+    token: string;
+  };
+};
 
 export const register =
-  ({ username, email, password }) =>
-  dispatch => {
+  ({ username, email, password }: NewUser) =>
+  (dispatch: Dispatch) => {
     const config = {
       headers: {
         'Content-type': 'application/json'
@@ -44,25 +45,27 @@ export const register =
         dispatch(
           getErrors(err.response.data, err.response.status, REGISTER_FAIL)
         );
-        dispatch(setRegisterFail());
+        dispatch({
+          type: REGISTER_FAIL
+        });
       });
   };
 
-export const tokenConfig = getState => {
+export const tokenConfig = (getState: TokenState) => {
   const { token } = getState().authReducer;
   const config = {
     headers: {
-      'Content-type': 'application/json'
+      'Content-type': 'application/json',
+      'x-auth-token': token || ''
     }
   };
-  if (token) {
-    config.headers['x-auth-token'] = token;
-  }
   return config;
 };
 
-const loadUser = () => (dispatch, getState) => {
-  dispatch(setUserLoading());
+const loadUser = () => (dispatch: Dispatch, getState: TokenState) => {
+  dispatch({
+    type: USER_LOADING
+  });
   axios
     .get('/api/auth/user', tokenConfig(getState))
     .then(res =>
@@ -73,17 +76,15 @@ const loadUser = () => (dispatch, getState) => {
     )
     .catch(err => {
       dispatch(getErrors(err.response.data, err.response.status));
-      dispatch(setAuthError());
+      dispatch({
+        type: LOGIN_FAIL
+      });
     });
 };
 
-export const setLoginFail = () => ({
-  type: LOGIN_FAIL
-});
-
 export const login =
-  ({ email, password }) =>
-  dispatch => {
+  ({ email, password }: User) =>
+  (dispatch: Dispatch) => {
     const config = {
       headers: {
         'Content-type': 'application/json'
@@ -92,15 +93,18 @@ export const login =
     const body = JSON.stringify({ email, password });
     axios
       .post('/api/auth', body, config)
-      .then(res =>
+      .then(res => {
         dispatch({
           type: LOGIN_SUCCESS,
           payload: res.data
-        })
-      )
+        });
+        dispatch(clearErrors());
+      })
       .catch(err => {
         dispatch(getErrors(err.response.data, err.response.status, LOGIN_FAIL));
-        dispatch(setLoginFail());
+        dispatch({
+          type: LOGIN_FAIL
+        });
       });
   };
 

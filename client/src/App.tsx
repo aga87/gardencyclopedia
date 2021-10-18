@@ -8,8 +8,7 @@ import {
   selectPlantToEdit
 } from './redux/reducers/index';
 import loadUser from './redux/actions/authActions';
-import RegistrationModal from './components/RegistrationModal';
-import LoginModal from './components/LoginModal';
+import AuthModal from './components/AuthModal';
 import PlantModal from './components/PlantModal';
 import MainMenu from './components/Menus/MainMenu';
 import TopMenu from './components/Menus/TopMenu';
@@ -30,8 +29,7 @@ const App = (): JSX.Element => {
 
   return (
     <div className="App">
-      {!isAuthenticated && <RegistrationModal />}
-      {!isAuthenticated && <LoginModal />}
+      {!isAuthenticated && <AuthModal />}
       {plantModalIsOpen && <PlantModal plant={plantToEdit} />}
       <MainMenu />
       <TopMenu />

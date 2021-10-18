@@ -36,12 +36,15 @@ export const selectView = (state: RootState): View =>
   fromUiReducer.selectView(state.uiReducer);
 
 // Global user selectors
-export const selectIsAuthenticated = (state: RootState) =>
+export const selectIsAuthenticated = (state: RootState): boolean =>
   fromAuthReducer.selectIsAuthenticated(state.authReducer);
 
-// Global error selectors
-export const selectMsg = (state: RootState) =>
-  fromErrorReducer.selectMsg(state.errorReducer);
+export const selectUsername = (state: RootState): string =>
+  fromAuthReducer.selectUsername(state.authReducer);
 
-export const selectErrorId = (state: RootState) =>
-  fromErrorReducer.selectErrorId(state.errorReducer);
+// Global error selectors
+export const selectErrMsg = (state: RootState): string =>
+  fromErrorReducer.selectErrMsg(state.errorReducer);
+
+export const selectErrId = (state: RootState): string =>
+  fromErrorReducer.selectErrId(state.errorReducer);

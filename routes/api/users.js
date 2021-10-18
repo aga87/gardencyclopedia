@@ -12,10 +12,12 @@ const User = require('../../models/User');
 router.post('/', (req, res) => {
   const { username, email, password } = req.body;
   if (!username || !email || !password)
-    return res.status(422).json({ Error: 'Please enter all fields.' });
+    return res.status(422).json('Please enter all fields.');
 
   User.findOne({ email }).then((user) => {
-    if (user) return res.status(400).json({ Message: 'User already exists.' });
+    if (user) return res.status(400).json('User already exists.');
+    if (password.length < 8) return res.status(400).json('Password must be at least 8 characters.');
+
     const newUser = new User({ email, username, password });
     // Create salt and hash
     bcrypt.genSalt(10, (err, salt) => {
