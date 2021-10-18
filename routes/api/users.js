@@ -16,6 +16,8 @@ router.post('/', (req, res) => {
 
   User.findOne({ email }).then((user) => {
     if (user) return res.status(400).json('User already exists.');
+    if (password.length < 8) return res.status(400).json('Password must be at least 8 characters.');
+
     const newUser = new User({ email, username, password });
     // Create salt and hash
     bcrypt.genSalt(10, (err, salt) => {

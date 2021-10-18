@@ -92,8 +92,8 @@ export function validateEmail(
 ): string {
   if (validators.required === true && value.length === 0)
     return 'Please enter email address.';
-  if (value.length > validators.maxLength)
-    return `Email cannot exceed ${validators.maxLength} characters. You are currently using ${value.length} characters.`;
+  if (value.length > validators.maxLength || !value.includes('@'))
+    return 'Please enter a valid email format.';
   return '';
 }
 
