@@ -7,7 +7,11 @@ type ErrorProps = {
 
 const Error = ({ inputId, error }: ErrorProps): JSX.Element | null => {
   if (!error) return null;
-  return <label htmlFor={inputId}>{error}</label>;
+  return (
+    <label htmlFor={inputId} className="error s1">
+      {error}
+    </label>
+  );
 };
 
 export default Error;

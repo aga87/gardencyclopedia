@@ -22,9 +22,14 @@ const TextField = ({
   handleChange
 }: TextFieldProps): JSX.Element => (
   <p>
-    <label htmlFor={inputId}>
+    <label htmlFor={inputId} className="label">
       {label}
-      {required && <span aria-hidden="true"> *</span>}
+      {required && (
+        <span className="label__asterisk" aria-hidden="true">
+          {' '}
+          *
+        </span>
+      )}
     </label>
     <input
       id={inputId}

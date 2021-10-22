@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Btn from './Btn';
+import Header from './Header';
+import Tab from './Tab';
 import AuthForm from './AuthForm';
 
 const AuthModal = (): JSX.Element => {
@@ -14,14 +15,31 @@ const AuthModal = (): JSX.Element => {
   };
 
   return (
-    <div>
-      <Btn text="Log in" handleClick={handleLoginTabClick} />
-      <Btn text="Register" handleClick={handleRegisterTabClick} />
-      {tab === 'login' ? (
-        <AuthForm type="login" />
-      ) : (
-        <AuthForm type="register" />
-      )}
+    <div className="c-modal">
+      <div className="c-modal__inner">
+        <div className="c-modal__content">
+          <div className="u-push">
+            <Header />
+          </div>
+          <div className="u-push-and-half u-text-right">
+            <Tab
+              text="Log in"
+              selected={tab === 'login'}
+              handleClick={handleLoginTabClick}
+            />
+            <Tab
+              text="Register"
+              selected={tab === 'register'}
+              handleClick={handleRegisterTabClick}
+            />
+          </div>
+          {tab === 'login' ? (
+            <AuthForm type="login" />
+          ) : (
+            <AuthForm type="register" />
+          )}
+        </div>
+      </div>
     </div>
   );
 };

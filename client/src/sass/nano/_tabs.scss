@@ -1,0 +1,11 @@
+.tab {
+  @include btn-base;
+  color: $grey;
+  border: none;
+  border-bottom: 2px solid $grey-04;
+
+  &.tab--selected {
+    border-color: $primary;
+    color: $black;
+  }
+}

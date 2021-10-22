@@ -1,0 +1,21 @@
+@mixin input {
+  width: 100%;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  border: 1px solid $grey;
+  border-radius: $border-radius;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 6px $primary;
+    outline: none;
+  }
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  @include input;
+}

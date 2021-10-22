@@ -11,7 +11,7 @@ const Btn = ({
   icon = null,
   handleClick
 }: BtnProps): JSX.Element => (
-  <button type="button" onClick={handleClick}>
+  <button type="button" onClick={handleClick} className="btn">
     {icon} {text}
   </button>
 );

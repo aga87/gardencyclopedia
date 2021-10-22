@@ -101,7 +101,7 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
   return (
     <form noValidate onSubmit={handleSubmit}>
       {type === 'register' && (
-        <div>
+        <div className="u-push-half">
           <TextField
             inputId="username"
             label="Username"
@@ -113,40 +113,46 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
           <Error inputId="username" error={clientRegErrors.username} />
         </div>
       )}
-      <TextField
-        inputId={`${type}-email`}
-        label="Email"
-        variant="email"
-        value={email.value}
-        maxLength={emailValidators.maxLength}
-        handleChange={email.handleChange}
-        required={emailValidators.required}
-      />
-      <Error
-        inputId={`${type}-email`}
-        error={
-          type === 'login' ? clientLoginErrors.email : clientRegErrors.email
-        }
-      />
-      <TextField
-        inputId={`${type}-password`}
-        label="Password"
-        variant="password"
-        value={password.value}
-        minLength={passwordValidators.minLength}
-        maxLength={passwordValidators.maxLength}
-        handleChange={password.handleChange}
-        required={passwordValidators.required}
-      />
-      <Error
-        inputId={`${type}-password`}
-        error={
-          type === 'login'
-            ? clientLoginErrors.password
-            : clientRegErrors.password
-        }
-      />
-      <button type="submit">{type === 'login' ? 'Log in' : 'Register'}</button>
+      <div className="u-push-half">
+        <TextField
+          inputId={`${type}-email`}
+          label="Email"
+          variant="email"
+          value={email.value}
+          maxLength={emailValidators.maxLength}
+          handleChange={email.handleChange}
+          required={emailValidators.required}
+        />
+        <Error
+          inputId={`${type}-email`}
+          error={
+            type === 'login' ? clientLoginErrors.email : clientRegErrors.email
+          }
+        />
+      </div>
+      <div className="u-push">
+        <TextField
+          inputId={`${type}-password`}
+          label="Password"
+          variant="password"
+          value={password.value}
+          minLength={passwordValidators.minLength}
+          maxLength={passwordValidators.maxLength}
+          handleChange={password.handleChange}
+          required={passwordValidators.required}
+        />
+        <Error
+          inputId={`${type}-password`}
+          error={
+            type === 'login'
+              ? clientLoginErrors.password
+              : clientRegErrors.password
+          }
+        />
+      </div>
+      <button type="submit" className="btn">
+        {type === 'login' ? 'Log in' : 'Register'}
+      </button>
       {type === 'login' && errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
       {type === 'register' && errId === 'REGISTER_FAIL' && <p>{errMsg}</p>}
     </form>

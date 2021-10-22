@@ -79,7 +79,7 @@ export function validateUsername(
   validators: TextFieldValidator
 ): string {
   if (validators.required === true && value.length === 0)
-    return 'Please enter username';
+    return 'Please enter username.';
   if (value.length > validators.maxLength)
     return `Username cannot exceed ${validators.maxLength} characters. You are currently using ${value.length} characters.`;
   return '';
@@ -102,7 +102,7 @@ export function validatePassword(
   validators: PasswordValidator
 ): string {
   if (validators.required === true && value.length === 0)
-    return 'Please enter password';
+    return 'Please enter password.';
   if (value.length > validators.maxLength)
     return `Password cannot exceed ${validators.maxLength} characters. You are currently using ${value.length} characters.`;
   if (value.length < validators.minLength)
