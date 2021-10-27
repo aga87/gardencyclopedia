@@ -16,6 +16,7 @@ import TextField from './TextField';
 import SelectField from './SelectField';
 import Error from './Error';
 import Btn from './Btn';
+import SubmitBtn from './SubmitBtn';
 
 type PlantModalProps = {
   plant: Plant;
@@ -127,7 +128,6 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
       <h1>{plant._id === '' ? 'New Plant' : 'Edit Plant'}</h1>
       <Btn text="Cancel" handleClick={handleCancelClick} />
       <form noValidate onSubmit={handleSubmit}>
-        <button type="submit">Save</button>
         <TextField
           inputId="plant-name"
           label="Plant name"
@@ -193,6 +193,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
           required={harvestUntilValidators.required}
         />
         <Error inputId="harvest-until" error={errors.harvestUntil} />
+        <SubmitBtn text="Save" />
       </form>
     </div>
   );

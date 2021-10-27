@@ -10,6 +10,7 @@ import {
 import { login, register } from '../redux/actions/authActions';
 import TextField from './TextField';
 import Error from './Error';
+import SubmitBtn from './SubmitBtn';
 
 type AuthFormProps = {
   type: 'login' | 'register';
@@ -150,9 +151,7 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
           }
         />
       </div>
-      <button type="submit" className="btn">
-        {type === 'login' ? 'Log in' : 'Register'}
-      </button>
+      <SubmitBtn text={type === 'login' ? 'Log in' : 'Register'} />
       {type === 'login' && errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
       {type === 'register' && errId === 'REGISTER_FAIL' && <p>{errMsg}</p>}
     </form>
