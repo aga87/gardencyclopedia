@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setView } from '../../redux/actions/uiActions';
+import { closeMainMenuModal, setView } from '../../redux/actions/uiActions';
 import { logout } from '../../redux/actions/authActions';
 import { selectUsername } from '../../redux/reducers/index';
 import Btn from '../Btn';
 import Icon from '../Icon';
 
 const MainMenu = (): JSX.Element => {
-  const [isExpanded, setIsExpanded] = useState(false);
   const username = useSelector(selectUsername);
   const dispatch = useDispatch();
 
-  const handleMainMenuClick = () => {
-    setIsExpanded(!isExpanded);
+  const handleCloseClick = () => {
+    dispatch(closeMainMenuModal());
+  };
+
+  const handleUserClick = () => {
+    // open user modal
   };
 
   const handleCalendarClick = () => {
@@ -25,39 +28,52 @@ const MainMenu = (): JSX.Element => {
 
   const handleLogoutClick = () => {
     dispatch(logout());
+    dispatch(closeMainMenuModal());
   };
 
   return (
-    <nav>
-      <Btn icon={<Icon name="menu" />} handleClick={handleMainMenuClick} />
-      {isExpanded && (
-        <ul>
-          <li>
-            <Btn
-              icon={<Icon name="calendar" />}
-              text="Calendar"
-              handleClick={handleCalendarClick}
-            />
-          </li>
-          <li>
-            <Btn
-              icon={<Icon name="seedling" />}
-              text="Garden (coming soon)"
-              handleClick={handleGardenClick}
-            />
-          </li>
-          <li>
-            <Icon name="user-cog" /> {username}
-          </li>
-          <li>
-            <Btn
-              icon={<Icon name="logout" />}
-              text="Logout"
-              handleClick={handleLogoutClick}
-            />
-          </li>
-        </ul>
-      )}
+    <nav className="c-main-menu">
+      <div className="c-main-menu__bar">
+        <Btn
+          icon={<Icon name="close" />}
+          text="Main Menu"
+          handleClick={handleCloseClick}
+        />
+      </div>
+      <ul className="c-main-menu__list">
+        <li>
+          <Btn
+            icon={<Icon name="user-cog" />}
+            text={username}
+            variant="dropdown"
+            handleClick={handleUserClick}
+          />
+        </li>
+        <li>
+          <Btn
+            icon={<Icon name="calendar" />}
+            text="Calendar"
+            variant="dropdown"
+            handleClick={handleCalendarClick}
+          />
+        </li>
+        <li>
+          <Btn
+            icon={<Icon name="seedling" />}
+            text="Garden"
+            variant="dropdown"
+            handleClick={handleGardenClick}
+          />
+        </li>
+        <li>
+          <Btn
+            icon={<Icon name="logout" />}
+            text="Logout"
+            variant="dropdown"
+            handleClick={handleLogoutClick}
+          />
+        </li>
+      </ul>
     </nav>
   );
 };

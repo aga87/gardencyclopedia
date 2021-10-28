@@ -1,0 +1,19 @@
+.menu-dropdown-btn {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: left;
+  background-color: $white;
+  padding: 1em 1.25em;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $grey-04;
+  }
+}

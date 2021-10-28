@@ -6,9 +6,9 @@
   bottom: 0;
 }
 
-// @mixin fixed-to-bottom {
-//   position: fixed;
-//   bottom: 0;
-//   right: 0;
-//   left: 0;
-// }
+@mixin fixed-to-bottom {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

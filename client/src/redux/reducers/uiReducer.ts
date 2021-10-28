@@ -1,4 +1,6 @@
 import {
+  OPEN_MAIN_MENU_MODAL,
+  CLOSE_MAIN_MENU_MODAL,
   OPEN_PLANT_MODAL,
   CLOSE_PLANT_MODAL,
   SET_VIEW
@@ -6,6 +8,7 @@ import {
 import { emptyPlant } from '../../utils/constants';
 
 const initialState = {
+  mainMenuModalIsOpen: false,
   plantModalIsOpen: false,
   plantToEdit: emptyPlant,
   view: 'calendar' as View
@@ -14,11 +17,14 @@ const initialState = {
 type State = typeof initialState;
 type Action =
   | {
-      type: typeof OPEN_PLANT_MODAL;
-      payload: Plant;
+      type:
+        | typeof OPEN_MAIN_MENU_MODAL
+        | typeof CLOSE_MAIN_MENU_MODAL
+        | typeof CLOSE_PLANT_MODAL;
     }
   | {
-      type: typeof CLOSE_PLANT_MODAL;
+      type: typeof OPEN_PLANT_MODAL;
+      payload: Plant;
     }
   | {
       type: typeof SET_VIEW;
@@ -27,6 +33,16 @@ type Action =
 
 const uiReducer = (state = initialState, action: Action): State => {
   switch (action.type) {
+    case OPEN_MAIN_MENU_MODAL:
+      return {
+        ...state,
+        mainMenuModalIsOpen: true
+      };
+    case CLOSE_MAIN_MENU_MODAL:
+      return {
+        ...state,
+        mainMenuModalIsOpen: false
+      };
     case OPEN_PLANT_MODAL:
       return {
         ...state,
@@ -42,7 +58,8 @@ const uiReducer = (state = initialState, action: Action): State => {
     case SET_VIEW:
       return {
         ...state,
-        view: action.payload
+        view: action.payload,
+        mainMenuModalIsOpen: false
       };
     default:
       return state;
@@ -52,6 +69,8 @@ const uiReducer = (state = initialState, action: Action): State => {
 export default uiReducer;
 
 // Selectors
+export const selectMainMenuModalIsOpen = (state: State): boolean =>
+  state.mainMenuModalIsOpen;
 export const selectPlantModalIsOpen = (state: State): boolean =>
   state.plantModalIsOpen;
 export const selectPlantToEdit = (state: State): Plant => state.plantToEdit;

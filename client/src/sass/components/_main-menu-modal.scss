@@ -1,0 +1,5 @@
+.c-main-menu-modal {
+  @include full-screen-abs;
+  z-index: 1; // to overlay fixed bottom menu
+  background: $black-065;
+}

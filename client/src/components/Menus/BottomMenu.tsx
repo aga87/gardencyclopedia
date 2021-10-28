@@ -27,22 +27,31 @@ const BottomMenu = (): JSX.Element => {
   };
 
   return (
-    <nav>
-      <SelectField
-        inputId="sort-plants"
-        label="Sort by:"
-        options={sortOptions}
-        value={sort}
-        handleChange={handleSort}
-      />
-      {view === 'garden' ? (
-        <Btn
-          icon={<Icon name="calendar" />}
-          handleClick={handleCalendarClick}
-        />
-      ) : (
-        <Btn icon={<Icon name="seedling" />} handleClick={handleGardenClick} />
-      )}
+    <nav className="c-menu">
+      <ul className="c-menu__list">
+        <li>
+          <SelectField
+            inputId="sort-plants"
+            label="Sort by:"
+            options={sortOptions}
+            value={sort}
+            handleChange={handleSort}
+          />
+        </li>
+        <li>
+          {view === 'garden' ? (
+            <Btn
+              icon={<Icon name="calendar" />}
+              handleClick={handleCalendarClick}
+            />
+          ) : (
+            <Btn
+              icon={<Icon name="seedling" />}
+              handleClick={handleGardenClick}
+            />
+          )}
+        </li>
+      </ul>
     </nav>
   );
 };

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { openPlantModal } from '../../redux/actions/uiActions';
+import {
+  openMainMenuModal,
+  openPlantModal
+} from '../../redux/actions/uiActions';
 import { filterPlants } from '../../redux/actions/plantsActions';
 import { plantCategories, emptyPlant } from '../../utils/constants';
 import Btn from '../Btn';
@@ -11,7 +14,11 @@ const TopMenu = (): JSX.Element => {
   const [filter, setFilter] = useState('');
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleMainMenuClick = () => {
+    dispatch(openMainMenuModal());
+  };
+
+  const handlePlusClick = () => {
     dispatch(openPlantModal(emptyPlant));
   };
 
@@ -21,12 +28,15 @@ const TopMenu = (): JSX.Element => {
   };
 
   return (
-    <nav>
-      <ul>
+    <nav className="c-menu">
+      <ul className="c-menu__list">
+        <li>
+          <Btn icon={<Icon name="menu" />} handleClick={handleMainMenuClick} />
+        </li>
         <li>
           <SelectField
             inputId="filter-plants"
-            label="Filter plants"
+            label="Filter plants:"
             options={plantCategories}
             placeholder="All Plants"
             value={filter}
@@ -34,7 +44,7 @@ const TopMenu = (): JSX.Element => {
           />
         </li>
         <li>
-          <Btn icon={<Icon name="plus" />} handleClick={handleClick} />
+          <Btn icon={<Icon name="plus" />} handleClick={handlePlusClick} />
         </li>
       </ul>
     </nav>
