@@ -347,6 +347,33 @@ body {
   line-height: 1.5;
 }
 
+.l-authentication {
+  min-height: 100vh;
+}
+.l-authentication__content {
+  max-width: 320px;
+  padding: 10vh 0 1.5rem;
+  margin: 0 auto;
+}
+.l-authentication__status {
+  padding: 0 0.5em;
+}
+
+.l-dashboard {
+  height: 100vh;
+}
+.l-dashboard__content {
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+
+.l-flex-centerY {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .l-fixed-to-bottom {
   position: fixed;
   bottom: 0;
@@ -379,6 +406,12 @@ input[type=password]:focus {
 
 .label__asterisk {
   color: #db4a4a;
+}
+
+.loader {
+  color: #b5baba66;
+  text-align: center;
+  font-style: italic;
 }
 
 .menu-btn {
@@ -482,6 +515,11 @@ input[type=password]:focus {
   line-height: 1.205632716;
 }
 
+.t3 {
+  font-size: 1.728rem;
+  line-height: 1.7361111111;
+}
+
 .s1 {
   font-size: 0.8333333333rem;
   line-height: 1.8;
@@ -572,23 +610,6 @@ input[type=password]:focus {
   list-style-type: none;
 }
 
-.p-authentication {
-  min-height: 100vh;
-}
-.p-authentication__content {
-  max-width: 320px;
-  padding: 10vh 1.5rem 1.5rem;
-  margin: 0 auto;
-}
-
-.p-dashboard {
-  height: 100vh;
-}
-.p-dashboard__content {
-  height: calc(100vh - 72px);
-  overflow-y: auto;
-}
-
 .u-text-right {
   text-align: right !important;
 }
@@ -603,4 +624,8 @@ input[type=password]:focus {
 
 .u-push-and-half {
   margin-bottom: 2.25rem !important;
+}
+
+.u-push-dbl {
+  margin-bottom: 3rem !important;
 }

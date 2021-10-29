@@ -1,44 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectIsUserLoading } from '../redux/reducers/index';
 import Header from '../components/Header';
-import Tab from '../components/Tab';
-import AuthForm from '../components/AuthForm';
+import Loader from '../components/Loader';
+import TabbedAuthForm from '../components/TabbedAuthForm';
 
 const Authentication = (): JSX.Element => {
-  const [tab, setTab] = useState('login');
-
-  const handleLoginTabClick = () => {
-    setTab('login');
-  };
-
-  const handleRegisterTabClick = () => {
-    setTab('register');
-  };
+  const isUserLoading = useSelector(selectIsUserLoading);
 
   return (
-    <div className="p-authentication">
-      <div className="p-authentication__content">
-        <div className="u-push">
+    <div className="l-authentication">
+      <div className="l-authentication__content">
+        <div className={isUserLoading ? "u-push-dbl" : "u-push"}>
           <Header />
         </div>
-        <div className="u-push-and-half u-text-right">
-          <Tab
-            text="Log in"
-            selected={tab === 'login'}
-            handleClick={handleLoginTabClick}
-          />
-          <Tab
-            text="Register"
-            selected={tab === 'register'}
-            handleClick={handleRegisterTabClick}
-          />
+        <div className="l-authentication__status">
+        {isUserLoading ? <Loader /> : <TabbedAuthForm />}
         </div>
-        {tab === 'login' ? (
-          <AuthForm type="login" />
-        ) : (
-          <AuthForm type="register" />
-        )}
+        </div>
       </div>
-    </div>
   );
 };
 

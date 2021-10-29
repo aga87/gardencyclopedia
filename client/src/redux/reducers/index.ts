@@ -38,7 +38,10 @@ export const selectPlantToEdit = (state: RootState): Plant =>
 export const selectView = (state: RootState): View =>
   fromUiReducer.selectView(state.uiReducer);
 
-// Global user selectors
+// Global auth/ user selectors
+export const selectIsUserLoading = (state: RootState): boolean =>
+  fromAuthReducer.selectIsUserLoading(state.authReducer);
+
 export const selectIsAuthenticated = (state: RootState): boolean =>
   fromAuthReducer.selectIsAuthenticated(state.authReducer);
 

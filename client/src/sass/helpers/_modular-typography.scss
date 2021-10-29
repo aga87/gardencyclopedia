@@ -19,10 +19,10 @@ $font-size-s2: 1rem / $type-scale / $type-scale;
 //   line-height: ceil($font-size-h2 / $blh) * ($blh / $font-size-h2);
 // }
 
-// @mixin h3 {
-//   font-size: $font-size-h3;
-//   line-height: ceil($font-size-h3 / $blh) * ($blh / $font-size-h3);
-// }
+@mixin h3 {
+  font-size: $font-size-h3;
+  line-height: ceil($font-size-h3 / $blh) * ($blh / $font-size-h3);
+}
 
 // @mixin h4 {
 //   font-size: $font-size-h4;

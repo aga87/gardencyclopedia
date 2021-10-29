@@ -2,6 +2,10 @@
   @include h1;
 }
 
+.t3 {
+  @include h3;
+}
+
 .s1 {
   @include s1;
 }

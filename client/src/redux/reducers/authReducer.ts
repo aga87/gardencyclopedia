@@ -17,7 +17,7 @@ type User = {
 type State = {
   token: string;
   isAuthenticated: boolean;
-  isLoading: boolean;
+  isUserLoading: boolean;
   user: null | User;
 };
 
@@ -44,7 +44,7 @@ type Action =
 const initialState: State = {
   token: localStorage.getItem('token') as string,
   isAuthenticated: false,
-  isLoading: false,
+  isUserLoading: false,
   user: null
 };
 
@@ -53,13 +53,13 @@ const authReducer = (state = initialState, action: Action): State => {
     case USER_LOADING:
       return {
         ...state,
-        isLoading: true
+        isUserLoading: true
       };
     case USER_LOADED:
       return {
         ...state,
         isAuthenticated: true,
-        isLoading: false,
+        isUserLoading: false,
         user: action.payload
       };
     case LOGIN_SUCCESS:
@@ -69,7 +69,7 @@ const authReducer = (state = initialState, action: Action): State => {
       return {
         token,
         isAuthenticated: true,
-        isLoading: false,
+        isUserLoading: false,
         user
       };
     }
@@ -80,7 +80,7 @@ const authReducer = (state = initialState, action: Action): State => {
       return {
         token: '',
         isAuthenticated: false,
-        isLoading: false,
+        isUserLoading: false,
         user: null
       };
     default:
@@ -91,6 +91,9 @@ const authReducer = (state = initialState, action: Action): State => {
 export default authReducer;
 
 // Selectors
+export const selectIsUserLoading = (state: State): boolean =>
+  state.isUserLoading;
+
 export const selectIsAuthenticated = (state: State): boolean =>
   state.isAuthenticated;
 

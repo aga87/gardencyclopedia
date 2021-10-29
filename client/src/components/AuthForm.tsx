@@ -13,10 +13,10 @@ import Error from './Error';
 import SubmitBtn from './SubmitBtn';
 
 type AuthFormProps = {
-  type: 'login' | 'register';
+  variant: 'login' | 'register';
 };
 
-const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
+const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   const username = useFormInput('');
   const email = useFormInput('');
   const password = useFormInput('');
@@ -52,7 +52,7 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // LOGIN
-    if (type === 'login') {
+    if (variant === 'login') {
       // Client-side validation
       const loginFormErrors = {
         email: validateEmail(email.value, emailValidators),
@@ -101,7 +101,7 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
 
   return (
     <form noValidate onSubmit={handleSubmit}>
-      {type === 'register' && (
+      {variant === 'register' && (
         <div className="u-push-half">
           <TextField
             inputId="username"
@@ -116,7 +116,7 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
       )}
       <div className="u-push-half">
         <TextField
-          inputId={`${type}-email`}
+          inputId={`${variant}-email`}
           label="Email"
           variant="email"
           value={email.value}
@@ -125,15 +125,15 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
           required={emailValidators.required}
         />
         <Error
-          inputId={`${type}-email`}
+          inputId={`${variant}-email`}
           error={
-            type === 'login' ? clientLoginErrors.email : clientRegErrors.email
+            variant === 'login' ? clientLoginErrors.email : clientRegErrors.email
           }
         />
       </div>
       <div className="u-push">
         <TextField
-          inputId={`${type}-password`}
+          inputId={`${variant}-password`}
           label="Password"
           variant="password"
           value={password.value}
@@ -143,17 +143,17 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
           required={passwordValidators.required}
         />
         <Error
-          inputId={`${type}-password`}
+          inputId={`${variant}-password`}
           error={
-            type === 'login'
+            variant === 'login'
               ? clientLoginErrors.password
               : clientRegErrors.password
           }
         />
       </div>
-      <SubmitBtn text={type === 'login' ? 'Log in' : 'Register'} />
-      {type === 'login' && errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
-      {type === 'register' && errId === 'REGISTER_FAIL' && <p>{errMsg}</p>}
+      <SubmitBtn text={variant === 'login' ? 'Log in' : 'Register'} />
+      {variant === 'login' && errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
+      {variant === 'register' && errId === 'REGISTER_FAIL' && <p>{errMsg}</p>}
     </form>
   );
 };

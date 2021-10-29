@@ -1,7 +1,7 @@
 import React from 'react';
 import { months } from '../utils/constants';
 import sortPlants from '../utils/plants-utils';
-import Icon from './Icon';
+import Loader from './Loader';
 import NoPlantsView from './NoPlantsView';
 import PlantEntry from './PlantEntry';
 
@@ -18,7 +18,12 @@ const PlantList = ({
   filter,
   sort
 }: PlantListProps): JSX.Element => {
-  if (isLoading) return <Icon name="spinner" />;
+  if (isLoading)
+    return (
+      <div className="l-flex-centerY">
+        <Loader />
+      </div>
+    );
   if (plants.length === 0) return <NoPlantsView />;
 
   const filteredPlants = plants.filter(plant => {
