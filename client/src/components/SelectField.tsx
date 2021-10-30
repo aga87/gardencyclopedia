@@ -1,5 +1,6 @@
 import React from 'react';
 import { capitalize } from '../utils/text-utils';
+import Label from './Label';
 
 type SelectFieldProps = {
   inputId: string;
@@ -27,11 +28,8 @@ const SelectField = ({
   ));
 
   return (
-    <p>
-      <label htmlFor={inputId}>
-        {label}
-        {required && <span aria-hidden="true"> *</span>}
-      </label>
+    <div>
+      <Label label={label} inputId={inputId} required={required} />
       <select
         id={inputId}
         required={required}
@@ -41,7 +39,7 @@ const SelectField = ({
         {placeholder && <option value="">{placeholder}</option>}
         {selectOptions}
       </select>
-    </p>
+    </div>
   );
 };
 

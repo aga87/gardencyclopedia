@@ -1,12 +1,13 @@
 import React from 'react';
+import Label from './Label';
 
 type TextFieldProps = {
   inputId: string;
   label: string;
   variant?: 'text' | 'email' | 'password';
   value: string;
+  maxLength: number;
   minLength?: number;
-  maxLength?: number;
   required?: boolean;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -21,16 +22,8 @@ const TextField = ({
   required = false,
   handleChange
 }: TextFieldProps): JSX.Element => (
-  <p>
-    <label htmlFor={inputId} className="label">
-      {label}
-      {required && (
-        <span className="label__asterisk" aria-hidden="true">
-          {' '}
-          *
-        </span>
-      )}
-    </label>
+  <div>
+    <Label label={label} inputId={inputId} required={required} />
     <input
       id={inputId}
       type={variant}
@@ -41,7 +34,7 @@ const TextField = ({
       onChange={handleChange}
       required={required}
     />
-  </p>
+  </div>
 );
 
 export default TextField;
