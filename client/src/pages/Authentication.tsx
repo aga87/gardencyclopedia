@@ -11,14 +11,14 @@ const Authentication = (): JSX.Element => {
   return (
     <div className="l-authentication">
       <div className="l-authentication__content">
-        <div className={isUserLoading ? "u-push-dbl" : "u-push"}>
+        <div className={isUserLoading ? 'u-push-dbl' : 'u-push'}>
           <Header />
         </div>
         <div className="l-authentication__status">
-        {isUserLoading ? <Loader /> : <TabbedAuthForm />}
-        </div>
+          {isUserLoading ? <Loader /> : <TabbedAuthForm />}
         </div>
       </div>
+    </div>
   );
 };
 

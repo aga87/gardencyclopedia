@@ -127,7 +127,9 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
         <Error
           inputId={`${variant}-email`}
           error={
-            variant === 'login' ? clientLoginErrors.email : clientRegErrors.email
+            variant === 'login'
+              ? clientLoginErrors.email
+              : clientRegErrors.email
           }
         />
       </div>

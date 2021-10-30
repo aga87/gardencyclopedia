@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Tab from './Tab';
 import AuthForm from './AuthForm';
 
-const TabbedAuthForm = () => {
+const TabbedAuthForm = (): JSX.Element => {
   const [tab, setTab] = useState<'login' | 'register'>('login');
 
   const handleLoginTabClick = () => {
