@@ -1,12 +1,6 @@
 .c-header {
   text-align: center;
 
-  &__logo {
-    display: inline-block;
-    width: 100%;
-    color: $green;
-  }
-
   &__title {
     $screen-xxs: 20rem;
     @include fluid-typography(10rem, $screen-xxs, 1rem, 2.5rem);

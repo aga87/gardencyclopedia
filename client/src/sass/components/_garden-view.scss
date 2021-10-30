@@ -1,20 +1,19 @@
-.c-garden {
-  padding: ($blh * 3rem) 0;
+.c-garden-view {
   text-align: center;
   color: $grey;
 
   &__title {
     font-style: italic;
     font-weight: 300;
-    margin-bottom: $blh * 1rem;
+    margin-bottom: $blh * 0.5rem;
   }
 
-  &__logo {
-    color: $green;
-    opacity: 0.5;
+  &__subtitle {
+    font-style: normal;
   }
 
   &__list {
     list-style-type: none;
+    margin-bottom: $blh * 0.5rem;
   }
 }

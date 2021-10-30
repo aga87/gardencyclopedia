@@ -1,7 +1,8 @@
 import React from 'react';
 import Icon from './Icon';
+import Logo from './Logo';
 
-const Garden = (): JSX.Element => {
+const GardenView = (): JSX.Element => {
   const upcomingFeatures = [
     'Keep track of all plants in your garden.',
     'Record plant location, growing medium and conditions.',
@@ -11,24 +12,21 @@ const Garden = (): JSX.Element => {
   ];
 
   const upcomingFeaturesListItems = upcomingFeatures.map(feature => (
-    <li>
-      <Icon name="seedling" /> {feature}
-    </li>
+    <li>{feature}</li>
   ));
 
   return (
-    <section className="c-garden">
-      <h1 className="c-garden__title t1">
-        <span className="c-garden__logo">
-          <Icon name="seedling" />
-        </span>
-        <br />
+    <div className="c-garden-view">
+      <Logo variant="light" />
+      <h1 className="c-garden-view__title t1">
         Garden
-        <br /> Coming Soon:
+        <br />
+        <span className="c-garden-view__subtitle t3">Coming Soon:</span>
       </h1>
-      <ul className="c-garden__list">{upcomingFeaturesListItems}</ul>
-    </section>
+      <ul className="c-garden-view__list">{upcomingFeaturesListItems}</ul>
+      <Icon name="seedling" />
+    </div>
   );
 };
 
-export default Garden;
+export default GardenView;
