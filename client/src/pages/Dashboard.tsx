@@ -9,8 +9,8 @@ import {
 import PlantModal from '../components/PlantModal';
 import MainMenuModal from '../components/MainMenuModal';
 import TopMenu from '../components/Menus/TopMenu';
-import Plants from '../components/Plants';
-import Garden from '../components/Garden';
+import CalendarView from '../components/CalendarView';
+import GardenView from '../components/GardenView';
 import BottomMenu from '../components/Menus/BottomMenu';
 
 const Dashboard = (): JSX.Element => {
@@ -26,9 +26,15 @@ const Dashboard = (): JSX.Element => {
 
       <div className="l-dashboard">
         <TopMenu />
-        <div className="l-dashboard__content">
-          {view === 'calendar' ? <Plants /> : <Garden />}
-        </div>
+        <section className="l-dashboard__content">
+          {view === 'calendar' ? (
+            <CalendarView />
+          ) : (
+            <div className="l-flex-centerY">
+              <GardenView />
+            </div>
+          )}
+        </section>
         <div className="l-fixed-to-bottom">
           <BottomMenu />
         </div>
