@@ -18,7 +18,6 @@ const Select = ({
   handleChange,
   ariaLabel = ''
 }: SelectProps): JSX.Element => {
-
   let className = 'select';
   if (variant !== 'primary') {
     className = `select select--custom select--${variant}`;
