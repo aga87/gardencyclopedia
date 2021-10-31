@@ -8,7 +8,8 @@ import { filterPlants } from '../../redux/actions/plantsActions';
 import { plantCategories, emptyPlant } from '../../utils/constants';
 import Btn from '../Btn';
 import Icon from '../Icon';
-import SelectField from '../SelectField';
+import Label from '../Label';
+import Select from '../Select';
 
 const TopMenu = (): JSX.Element => {
   const [filter, setFilter] = useState('');
@@ -34,9 +35,9 @@ const TopMenu = (): JSX.Element => {
           <Btn icon={<Icon name="menu" />} handleClick={handleMainMenuClick} />
         </li>
         <li>
-          <SelectField
-            inputId="filter-plants"
-            label="Filter plants:"
+          <Label inputId="filter-plants" label="Filter plants:" />
+          <Select
+            id="filter-plants"
             options={plantCategories}
             placeholder="All Plants"
             value={filter}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { capitalize } from '../utils/text-utils';
 import Label from './Label';
+import Error from './Error';
 
 type SelectFieldProps = {
   inputId: string;
@@ -10,6 +11,8 @@ type SelectFieldProps = {
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   required?: boolean;
+  errorId: string;
+  errorMsg: string;
 };
 
 const SelectField = ({
@@ -19,7 +22,9 @@ const SelectField = ({
   placeholder = '',
   value,
   handleChange,
-  required = false
+  required = false,
+  errorId,
+  errorMsg
 }: SelectFieldProps): JSX.Element => {
   const selectOptions = options.map(option => (
     <option key={option} value={option}>
@@ -39,6 +44,7 @@ const SelectField = ({
         {placeholder && <option value="">{placeholder}</option>}
         {selectOptions}
       </select>
+      <Error id={errorId} msg={errorMsg} />
     </div>
   );
 };

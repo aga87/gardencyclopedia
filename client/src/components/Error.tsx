@@ -1,16 +1,21 @@
 import React from 'react';
 
 type ErrorProps = {
-  inputId: string;
-  error: string;
+  id?: string;
+  msg: string;
+  variant?: 'client' | 'server';
 };
 
-const Error = ({ inputId, error }: ErrorProps): JSX.Element | null => {
-  if (!error) return null;
+const Error = ({
+  id = '',
+  msg,
+  variant = 'client'
+}: ErrorProps): JSX.Element | null => {
+  if (!msg) return null;
   return (
-    <label htmlFor={inputId} className="error s1">
-      {error}
-    </label>
+    <p id={id} className={variant === 'client' ? 'error s1' : 'error-server'}>
+      {msg}
+    </p>
   );
 };
 

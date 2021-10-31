@@ -14,7 +14,6 @@ import {
 } from '../utils/validation-utils';
 import TextField from './TextField';
 import SelectField from './SelectField';
-import Error from './Error';
 import Btn from './Btn';
 import SubmitBtn from './SubmitBtn';
 
@@ -34,7 +33,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
   const noErrors = {
     name: '',
     desc: '',
-    // (no category field - always valid)
+    category: '',
     sowFrom: '',
     sowUntil: '',
     harvestFrom: '',
@@ -81,6 +80,7 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
     const formErrors = {
       name: validateName(name.value, nameValidators),
       desc: validateDesc(desc.value, descValidators),
+      category: '', // always valid
       sowFrom: validateSowFrom(sowFrom.value, sowFromValidators),
       sowUntil: validateSowUntil(sowUntil.value, sowUntilValidators),
       harvestFrom: validateHarvestFrom(
@@ -135,8 +135,9 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
           maxLength={nameValidators.maxLength}
           handleChange={name.handleChange}
           required={nameValidators.required}
+          errorId="plant-name-error"
+          errorMsg={errors.name}
         />
-        <Error inputId="plant-name" error={errors.name} />
         <TextField
           inputId="plant-desc"
           label="Description"
@@ -144,14 +145,17 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
           maxLength={descValidators.maxLength}
           handleChange={desc.handleChange}
           required={descValidators.required}
+          errorId="plant-desc-error"
+          errorMsg={errors.desc}
         />
-        <Error inputId="plant-desc" error={errors.desc} />
         <SelectField
           inputId="plant-category"
           label="Category"
           options={plantCategories}
           value={category.value}
           handleChange={category.handleChange}
+          errorId="plant-category-error"
+          errorMsg={errors.category}
         />
         <SelectField
           inputId="sow-from"
@@ -161,8 +165,9 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
           value={sowFrom.value}
           handleChange={sowFrom.handleChange}
           required={sowFromValidators.required}
+          errorId="sow-from-error"
+          errorMsg={errors.sowFrom}
         />
-        <Error inputId="sow-from" error={errors.sowFrom} />
         <SelectField
           inputId="sow-until"
           label="Sow until"
@@ -171,8 +176,9 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
           value={sowUntil.value}
           handleChange={sowUntil.handleChange}
           required={sowUntilValidators.required}
+          errorId="sow-until-error"
+          errorMsg={errors.sowUntil}
         />
-        <Error inputId="sow-until" error={errors.sowUntil} />
         <SelectField
           inputId="harvest-from"
           label="Harvest from"
@@ -181,8 +187,9 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
           value={harvestFrom.value}
           handleChange={harvestFrom.handleChange}
           required={harvestFromValidators.required}
+          errorId="harvest-from-error"
+          errorMsg={errors.harvestFrom}
         />
-        <Error inputId="harvest-from" error={errors.harvestFrom} />
         <SelectField
           inputId="harvest-until"
           label="Harvest until"
@@ -191,8 +198,9 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
           value={harvestUntil.value}
           handleChange={harvestUntil.handleChange}
           required={harvestUntilValidators.required}
+          errorId="harvest-until-error"
+          errorMsg={errors.harvestUntil}
         />
-        <Error inputId="harvest-until" error={errors.harvestUntil} />
         <SubmitBtn text="Save" />
       </form>
     </div>

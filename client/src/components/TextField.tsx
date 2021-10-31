@@ -1,39 +1,46 @@
 import React from 'react';
 import Label from './Label';
+import Error from './Error';
 
 type TextFieldProps = {
   inputId: string;
   label: string;
-  variant?: 'text' | 'email' | 'password';
+  type?: 'text' | 'email' | 'password';
   value: string;
   maxLength: number;
   minLength?: number;
   required?: boolean;
+  errorId: string;
+  errorMsg: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const TextField = ({
   inputId,
   label,
-  variant = 'text',
+  type = 'text',
   value,
   minLength = 0,
   maxLength,
   required = false,
+  errorId,
+  errorMsg,
   handleChange
 }: TextFieldProps): JSX.Element => (
   <div>
     <Label label={label} inputId={inputId} required={required} />
     <input
       id={inputId}
-      type={variant}
+      type={type}
       size={30}
       minLength={minLength}
       maxLength={maxLength}
       value={value}
       onChange={handleChange}
       required={required}
+      aria-describedby={errorId}
     />
+    <Error id={errorId} msg={errorMsg} />
   </div>
 );
 

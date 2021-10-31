@@ -101,6 +101,17 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
 
   return (
     <form noValidate onSubmit={handleSubmit}>
+      {variant === 'login' && errId === 'LOGIN_FAIL' && (
+        <div className="u-push-half">
+          <Error variant="server" msg={errMsg} />
+        </div>
+      )}
+      {variant === 'register' && errId === 'REGISTER_FAIL' && (
+        <div className="u-push-half">
+          <Error variant="server" msg={errMsg} />
+        </div>
+      )}
+
       {variant === 'register' && (
         <div className="u-push-half">
           <TextField
@@ -110,23 +121,22 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
             maxLength={usernameValidators.maxLength}
             handleChange={username.handleChange}
             required={usernameValidators.required}
+            errorId="username-error"
+            errorMsg={clientRegErrors.username}
           />
-          <Error inputId="username" error={clientRegErrors.username} />
         </div>
       )}
       <div className="u-push-half">
         <TextField
           inputId={`${variant}-email`}
           label="Email"
-          variant="email"
+          type="email"
           value={email.value}
           maxLength={emailValidators.maxLength}
           handleChange={email.handleChange}
           required={emailValidators.required}
-        />
-        <Error
-          inputId={`${variant}-email`}
-          error={
+          errorId={`${variant}-email-error`}
+          errorMsg={
             variant === 'login'
               ? clientLoginErrors.email
               : clientRegErrors.email
@@ -137,16 +147,14 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
         <TextField
           inputId={`${variant}-password`}
           label="Password"
-          variant="password"
+          type="password"
           value={password.value}
           minLength={passwordValidators.minLength}
           maxLength={passwordValidators.maxLength}
           handleChange={password.handleChange}
           required={passwordValidators.required}
-        />
-        <Error
-          inputId={`${variant}-password`}
-          error={
+          errorId={`${variant}-password-error`}
+          errorMsg={
             variant === 'login'
               ? clientLoginErrors.password
               : clientRegErrors.password
@@ -154,8 +162,6 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
         />
       </div>
       <SubmitBtn text={variant === 'login' ? 'Log in' : 'Register'} />
-      {variant === 'login' && errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
-      {variant === 'register' && errId === 'REGISTER_FAIL' && <p>{errMsg}</p>}
     </form>
   );
 };
