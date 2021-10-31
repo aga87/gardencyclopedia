@@ -470,6 +470,17 @@ body {
   background-color: #b5baba66;
 }
 
+.month-data {
+  background-color: #b5baba66;
+  height: 0.75rem;
+}
+.month-data.month-data--sow {
+  background-color: #199e66;
+}
+.month-data.month-data--harvest {
+  background-color: #ffa500;
+}
+
 .select {
   width: 100%;
   font-size: inherit;
@@ -557,6 +568,15 @@ body {
 .s1 {
   font-size: 0.8333333333rem;
   line-height: 1.8;
+}
+
+.c-calendar-chart {
+  width: 100%;
+}
+.c-calendar-chart__heading {
+  width: calc(100% / 12);
+  text-align: center;
+  color: #b6bbbb;
 }
 
 .c-garden-view {
