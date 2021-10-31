@@ -2,20 +2,28 @@ import React from 'react';
 import { capitalize } from '../utils/text-utils';
 
 type SelectProps = {
-  id: string;
+  variant?: 'primary' | 'filter' | 'sort';
   options: string[];
   placeholder?: string;
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  ariaLabel?: string;
 };
 
 const Select = ({
-  id,
+  variant = 'primary',
   options,
   placeholder = '',
   value,
-  handleChange
+  handleChange,
+  ariaLabel = ''
 }: SelectProps): JSX.Element => {
+
+  let className = 'select';
+  if (variant !== 'primary') {
+    className = `select select--custom select--${variant}`;
+  }
+
   const selectOptions = options.map(option => (
     <option key={option} value={option}>
       {capitalize(option)}
@@ -23,7 +31,12 @@ const Select = ({
   ));
 
   return (
-    <select id={id} value={value} onChange={handleChange}>
+    <select
+      value={value}
+      onChange={handleChange}
+      aria-label={ariaLabel}
+      className={className}
+    >
       {placeholder && <option value="">{placeholder}</option>}
       {selectOptions}
     </select>

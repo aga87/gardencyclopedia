@@ -35,13 +35,13 @@ const TopMenu = (): JSX.Element => {
           <Btn icon={<Icon name="menu" />} handleClick={handleMainMenuClick} />
         </li>
         <li>
-          <Label inputId="filter-plants" label="Filter plants:" />
           <Select
-            id="filter-plants"
+            variant="filter"
             options={plantCategories}
             placeholder="All Plants"
             value={filter}
             handleChange={handleFilterChange}
+            ariaLabel="Filter plants"
           />
         </li>
         <li>

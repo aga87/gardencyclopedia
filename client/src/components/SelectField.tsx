@@ -1,6 +1,7 @@
 import React from 'react';
 import { capitalize } from '../utils/text-utils';
 import Label from './Label';
+import Select from './Select';
 import Error from './Error';
 
 type SelectFieldProps = {
@@ -36,10 +37,12 @@ const SelectField = ({
     <div>
       <Label label={label} inputId={inputId} required={required} />
       <select
+        className="select"
         id={inputId}
         required={required}
         value={value}
         onChange={handleChange}
+        aria-describedby={errorId}
       >
         {placeholder && <option value="">{placeholder}</option>}
         {selectOptions}

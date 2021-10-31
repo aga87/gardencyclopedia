@@ -5,7 +5,6 @@ import { setView } from '../../redux/actions/uiActions';
 import { selectView } from '../../redux/reducers/index';
 import { sortOptions } from '../../utils/constants';
 import Select from '../Select';
-import Label from '../Label';
 import Btn from '../Btn';
 import Icon from '../Icon';
 
@@ -31,12 +30,12 @@ const BottomMenu = (): JSX.Element => {
     <nav className="c-menu">
       <ul className="c-menu__list">
         <li>
-          <Label inputId="sort-plants" label="Sort by:" />
           <Select
-            id="sort-plants"
+            variant="sort"
             options={sortOptions}
             value={sort}
             handleChange={handleSort}
+            ariaLabel="Sort by"
           />
         </li>
         <li>

@@ -1,0 +1,22 @@
+.select {
+  @include input;
+  text-align: center;
+
+  &.select--custom {
+    $bg-size: 9px;
+    appearance: none;
+    height: calc(#{$menu-height} - 2px);
+    padding: 0 calc(0.5em + #{$bg-size}) 0 0.5em;
+    background-repeat: no-repeat;
+    background-size: $bg-size;
+    background-position: 95% 55%;
+  }
+
+  &.select--filter {
+    background-image: url('../svg/caret-down-solid.svg');
+  }
+
+  &.select--sort {
+    background-image: url('../svg/sort-solid.svg');
+  }
+}
