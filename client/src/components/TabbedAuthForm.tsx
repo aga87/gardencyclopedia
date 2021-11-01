@@ -14,8 +14,8 @@ const TabbedAuthForm = (): JSX.Element => {
   };
 
   return (
-    <div>
-      <div className="u-push-and-half u-text-right">
+    <div className="c-tabbed-form l-tabbed-form">
+      <div className="l-tabbed-form__tabs">
         <Tab
           text="Log in"
           selected={tab === 'login'}

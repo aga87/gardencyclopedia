@@ -1,9 +1,19 @@
 .c-calendar {
-  &__plant-list {
+  &__list {
     list-style-type: none;
   }
 
-  &__plant-item {
+  &__caption {
+    text-align: center;
+    font-weight: bold;
+    background-color: $white;
+    padding: $blh * 0.25rem 0.5em;
+    border-top: 1px solid $red;
+  }
+}
+
+.l-calendar {
+  &__list-item {
     margin-bottom: $blh * 1rem;
   }
 
@@ -12,10 +22,5 @@
     left: 0;
     right: 0;
     bottom: $menu-height;
-    text-align: center;
-    font-weight: bold;
-    background-color: $white;
-    padding: $blh * 0.25rem 0.5em;
-    border-top: 1px solid $red;
   }
 }

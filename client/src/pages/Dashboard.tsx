@@ -24,7 +24,7 @@ const Dashboard = (): JSX.Element => {
       {mainMenuModalIsOpen && <MainMenuModal />}
       {plantModalIsOpen && <PlantModal plant={plantToEdit} />}
 
-      <div className="l-dashboard">
+      <div className="p-dashboard l-dashboard">
         <TopMenu />
         <section className="l-dashboard__content">
           {view === 'calendar' ? (
@@ -35,7 +35,7 @@ const Dashboard = (): JSX.Element => {
             </div>
           )}
         </section>
-        <div className="l-fixed-to-bottom">
+        <div className="l-dashboard__bottom-menu">
           <BottomMenu />
         </div>
       </div>

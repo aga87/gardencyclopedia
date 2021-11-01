@@ -9,14 +9,18 @@ const Authentication = (): JSX.Element => {
   const isUserLoading = useSelector(selectIsUserLoading);
 
   return (
-    <div className="l-authentication">
+    <div className="p-authentication l-authentication">
       <div className="l-authentication__content">
-        <div className={isUserLoading ? 'u-push-dbl' : 'u-push'}>
-          <Header />
-        </div>
-        <div className="l-authentication__status">
-          {isUserLoading ? <Loader /> : <TabbedAuthForm />}
-        </div>
+        <Header />
+        {isUserLoading ? (
+          <div className="l-authentication__loader">
+            <Loader />
+          </div>
+        ) : (
+          <div className="l-authentication__form">
+            <TabbedAuthForm />
+          </div>
+        )}
       </div>
     </div>
   );
