@@ -613,6 +613,16 @@ body {
   font-weight: 300;
 }
 
+.l-form__error {
+  margin-bottom: 0.75rem;
+}
+.l-form__field {
+  margin-bottom: 0.75rem;
+}
+.l-form__field-last {
+  margin-bottom: 1.5rem;
+}
+
 .c-garden-view {
   text-align: center;
   color: #b6bbbb;
@@ -681,10 +691,13 @@ body {
 }
 
 .c-menu {
-  height: 36px;
   background-color: #db4a4a;
 }
-.c-menu__list {
+
+.l-menu {
+  height: 36px;
+}
+.l-menu__list {
   display: flex;
   height: 100%;
   justify-content: space-between;
@@ -723,10 +736,6 @@ body {
 
 .u-text-right {
   text-align: right !important;
-}
-
-.u-push-half {
-  margin-bottom: 0.75rem !important;
 }
 
 .u-push {

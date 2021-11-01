@@ -27,8 +27,8 @@ const BottomMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className="c-menu">
-      <ul className="c-menu__list">
+    <nav className="c-menu l-menu">
+      <ul className="l-menu__list">
         <li>
           <Select
             variant="sort"

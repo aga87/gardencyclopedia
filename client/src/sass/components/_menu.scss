@@ -1,6 +1,9 @@
 .c-menu {
-  height: $menu-height;
   background-color: $red;
+}
+
+.l-menu {
+  height: $menu-height;
 
   &__list {
     display: flex;

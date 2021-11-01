@@ -100,20 +100,20 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   };
 
   return (
-    <form noValidate onSubmit={handleSubmit}>
+    <form noValidate onSubmit={handleSubmit} className="c-form l-form">
       {variant === 'login' && errId === 'LOGIN_FAIL' && (
-        <div className="u-push-half">
+        <div className="l-form__error">
           <Error variant="server" msg={errMsg} />
         </div>
       )}
       {variant === 'register' && errId === 'REGISTER_FAIL' && (
-        <div className="u-push-half">
+        <div className="l-form__error">
           <Error variant="server" msg={errMsg} />
         </div>
       )}
 
       {variant === 'register' && (
-        <div className="u-push-half">
+        <div className="l-form__field">
           <TextField
             inputId="username"
             label="Username"
@@ -126,7 +126,7 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
           />
         </div>
       )}
-      <div className="u-push-half">
+      <div className="l-form__field">
         <TextField
           inputId={`${variant}-email`}
           label="Email"
@@ -143,7 +143,7 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
           }
         />
       </div>
-      <div className="u-push">
+      <div className="l-form__field-last">
         <TextField
           inputId={`${variant}-password`}
           label="Password"

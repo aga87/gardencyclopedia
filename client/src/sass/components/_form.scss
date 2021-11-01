@@ -1,0 +1,13 @@
+.l-form {
+  &__error {
+    margin-bottom: $blh * 0.5rem;
+  }
+
+  &__field {
+    margin-bottom: $blh * 0.5rem;
+  }
+
+  &__field-last {
+    margin-bottom: $blh * 1rem;
+  }
+}

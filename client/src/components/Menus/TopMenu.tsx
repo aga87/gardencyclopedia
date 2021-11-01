@@ -28,8 +28,8 @@ const TopMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className="c-menu">
-      <ul className="c-menu__list">
+    <nav className="c-menu l-menu">
+      <ul className="l-menu__list">
         <li>
           <Btn icon={<Icon name="menu" />} handleClick={handleMainMenuClick} />
         </li>
