@@ -17,10 +17,13 @@
 
   &.menu-btn--secondary {
     color: $grey-04;
+    @include h6;
+    padding-bottom: 0;
+    padding-top: 0;
 
     &:hover,
     &:active {
-      color: $grey;
+      color: $dark-grey;
     }
   }
 }

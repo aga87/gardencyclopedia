@@ -1,0 +1,21 @@
+.c-calendar {
+  &__plant-list {
+    list-style-type: none;
+  }
+
+  &__plant-item {
+    margin-bottom: $blh * 1rem;
+  }
+
+  &__caption {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: $menu-height;
+    text-align: center;
+    font-weight: bold;
+    background-color: $white;
+    padding: $blh * 0.25rem 0.5em;
+    border-top: 1px solid $red;
+  }
+}

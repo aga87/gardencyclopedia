@@ -7,15 +7,17 @@ type CalendarProps = {
 
 const Calendar = ({ plants }: CalendarProps): JSX.Element => {
   const plantListItems = plants.map(plant => (
-    <li key={plant._id}>
+    <li key={plant._id} className="c-calendar__plant-item">
       <PlantEntry plant={plant} />
     </li>
   ));
 
   return (
-    <figure>
-      <ul>{plantListItems}</ul>
-      <figcaption>{plantListItems.length} Plants</figcaption>
+    <figure className="c-calendar">
+      <ul className="c-calendar__plant-list">{plantListItems}</ul>
+      <figcaption className="c-calendar__caption">
+        {plantListItems.length} {plantListItems.length > 1 ? 'Plants' : 'Plant'}{' '}
+      </figcaption>
     </figure>
   );
 };

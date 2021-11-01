@@ -34,10 +34,10 @@ $font-size-s2: 1rem / $type-scale / $type-scale;
   line-height: ceil($font-size-h5 / $blh) * ($blh / $font-size-h5);
 }
 
-// @mixin h6 {
-//   font-size: $font-size-h6;
-//   line-height: $blh;
-// }
+@mixin h6 {
+  font-size: $font-size-h6;
+  line-height: $blh;
+}
 
 @mixin s1 {
   font-size: $font-size-s1;
