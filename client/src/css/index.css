@@ -739,20 +739,22 @@ body {
   padding: 0.75rem;
 }
 
-.c-plant-entry {
-  color: #383838;
+.c-plant-entry-header__title {
+  font-style: italic;
 }
-.c-plant-entry__header {
+
+.l-plant-entry-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
-.c-plant-entry__title {
-  font-style: italic;
-}
-.c-plant-entry__menu-btn {
+.l-plant-entry-header__menu-btn {
   position: relative;
   top: 4px;
+}
+
+.c-plant-entry {
+  color: #383838;
 }
 .c-plant-entry__desc {
   font-style: italic;

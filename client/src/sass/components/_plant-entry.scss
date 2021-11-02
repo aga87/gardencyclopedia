@@ -1,21 +1,6 @@
 .c-plant-entry {
   color: $dark-grey;
 
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  &__title {
-    font-style: italic;
-  }
-
-  &__menu-btn {
-    position: relative;
-    top: 4px;
-  }
-
   &__desc {
     font-style: italic;
     font-weight: 300;
