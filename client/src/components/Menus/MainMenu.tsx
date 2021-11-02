@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeMainMenuModal, setView } from '../../redux/actions/uiActions';
+import { setView } from '../../redux/actions/uiActions';
 import { logout } from '../../redux/actions/authActions';
 import { selectUsername } from '../../redux/reducers/index';
 import Btn from '../Btn';
@@ -10,12 +10,8 @@ const MainMenu = (): JSX.Element => {
   const username = useSelector(selectUsername);
   const dispatch = useDispatch();
 
-  const handleCloseClick = () => {
-    dispatch(closeMainMenuModal());
-  };
-
   const handleUserClick = () => {
-    // open user modal
+    // TODO: open user modal
   };
 
   const handleCalendarClick = () => {
@@ -28,18 +24,10 @@ const MainMenu = (): JSX.Element => {
 
   const handleLogoutClick = () => {
     dispatch(logout());
-    dispatch(closeMainMenuModal());
   };
 
   return (
     <nav className="c-main-menu">
-      <div className="c-main-menu__bar">
-        <Btn
-          icon={<Icon name="close" />}
-          text="Main Menu"
-          handleClick={handleCloseClick}
-        />
-      </div>
       <ul className="c-main-menu__list">
         <li>
           <Btn

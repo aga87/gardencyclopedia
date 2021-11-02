@@ -2,7 +2,8 @@ import {
   OPEN_MAIN_MENU_MODAL,
   OPEN_PLANT_MODAL,
   CLOSE_MODAL,
-  SET_VIEW
+  SET_VIEW,
+  LOGOUT_SUCCESS
 } from '../actions/types';
 import { emptyPlant } from '../../utils/constants';
 
@@ -16,7 +17,10 @@ const initialState = {
 type State = typeof initialState;
 type Action =
   | {
-      type: typeof OPEN_MAIN_MENU_MODAL | typeof CLOSE_MODAL;
+      type:
+        | typeof OPEN_MAIN_MENU_MODAL
+        | typeof CLOSE_MODAL
+        | typeof LOGOUT_SUCCESS;
     }
   | {
       type: typeof OPEN_PLANT_MODAL;
@@ -53,6 +57,8 @@ const uiReducer = (state = initialState, action: Action): State => {
         view: action.payload,
         mainMenuModalIsOpen: false
       };
+    case LOGOUT_SUCCESS:
+      return initialState;
     default:
       return state;
   }
