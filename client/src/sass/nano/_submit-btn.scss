@@ -24,4 +24,14 @@
     background-color: $green;
     color: $white;
   }
+
+  &.submit-btn--secondary {
+    font-weight: bold;
+    color: $red;
+    border-color: $red;
+
+    &:active {
+      background-color: $red-05;
+    }
+  }
 }
