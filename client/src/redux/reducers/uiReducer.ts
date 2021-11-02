@@ -1,8 +1,7 @@
 import {
   OPEN_MAIN_MENU_MODAL,
-  CLOSE_MAIN_MENU_MODAL,
   OPEN_PLANT_MODAL,
-  CLOSE_PLANT_MODAL,
+  CLOSE_MODAL,
   SET_VIEW
 } from '../actions/types';
 import { emptyPlant } from '../../utils/constants';
@@ -17,10 +16,7 @@ const initialState = {
 type State = typeof initialState;
 type Action =
   | {
-      type:
-        | typeof OPEN_MAIN_MENU_MODAL
-        | typeof CLOSE_MAIN_MENU_MODAL
-        | typeof CLOSE_PLANT_MODAL;
+      type: typeof OPEN_MAIN_MENU_MODAL | typeof CLOSE_MODAL;
     }
   | {
       type: typeof OPEN_PLANT_MODAL;
@@ -38,20 +34,16 @@ const uiReducer = (state = initialState, action: Action): State => {
         ...state,
         mainMenuModalIsOpen: true
       };
-    case CLOSE_MAIN_MENU_MODAL:
-      return {
-        ...state,
-        mainMenuModalIsOpen: false
-      };
     case OPEN_PLANT_MODAL:
       return {
         ...state,
         plantModalIsOpen: true,
         plantToEdit: action.payload
       };
-    case CLOSE_PLANT_MODAL:
+    case CLOSE_MODAL:
       return {
         ...state,
+        mainMenuModalIsOpen: false,
         plantModalIsOpen: false,
         plantToEdit: emptyPlant
       };
