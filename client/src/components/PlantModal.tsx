@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPlant, editPlant } from '../redux/actions/plantsActions';
-import { closePlantModal } from '../redux/actions/uiActions';
+import { closeModal } from '../redux/actions/uiActions';
 import { months, plantCategories } from '../utils/constants';
 import useFormInput from '../utils/hooks/useFormInput';
 import {
@@ -12,9 +12,10 @@ import {
   validateHarvestFrom,
   validateHarvestUntil
 } from '../utils/validation-utils';
+import Modal from './Modal';
 import TextField from './TextField';
 import SelectField from './SelectField';
-import Btn from './Btn';
+import Fieldset from './Fieldset';
 import SubmitBtn from './SubmitBtn';
 
 type PlantModalProps = {
@@ -70,10 +71,6 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
     required: harvestFrom.value !== ''
   };
 
-  const handleCancelClick = () => {
-    dispatch(closePlantModal());
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -120,90 +117,106 @@ const PlantModal = ({ plant }: PlantModalProps): JSX.Element => {
     } else {
       dispatch(addPlant(newPlant));
     }
-    dispatch(closePlantModal());
+    dispatch(closeModal());
   };
 
   return (
-    <div>
-      <h1>{plant._id === '' ? 'New Plant' : 'Edit Plant'}</h1>
-      <Btn text="Cancel" handleClick={handleCancelClick} />
-      <form noValidate onSubmit={handleSubmit}>
-        <TextField
-          inputId="plant-name"
-          label="Plant name"
-          value={name.value}
-          maxLength={nameValidators.maxLength}
-          handleChange={name.handleChange}
-          required={nameValidators.required}
-          errorId="plant-name-error"
-          errorMsg={errors.name}
-        />
-        <TextField
-          inputId="plant-desc"
-          label="Description"
-          value={desc.value}
-          maxLength={descValidators.maxLength}
-          handleChange={desc.handleChange}
-          required={descValidators.required}
-          errorId="plant-desc-error"
-          errorMsg={errors.desc}
-        />
-        <SelectField
-          inputId="plant-category"
-          label="Category"
-          options={plantCategories}
-          value={category.value}
-          handleChange={category.handleChange}
-          errorId="plant-category-error"
-          errorMsg={errors.category}
-        />
-        <SelectField
-          inputId="sow-from"
-          label="Sow from"
-          options={months}
-          placeholder="Select month"
-          value={sowFrom.value}
-          handleChange={sowFrom.handleChange}
-          required={sowFromValidators.required}
-          errorId="sow-from-error"
-          errorMsg={errors.sowFrom}
-        />
-        <SelectField
-          inputId="sow-until"
-          label="Sow until"
-          options={months}
-          placeholder="Select month"
-          value={sowUntil.value}
-          handleChange={sowUntil.handleChange}
-          required={sowUntilValidators.required}
-          errorId="sow-until-error"
-          errorMsg={errors.sowUntil}
-        />
-        <SelectField
-          inputId="harvest-from"
-          label="Harvest from"
-          options={months}
-          placeholder="Select month"
-          value={harvestFrom.value}
-          handleChange={harvestFrom.handleChange}
-          required={harvestFromValidators.required}
-          errorId="harvest-from-error"
-          errorMsg={errors.harvestFrom}
-        />
-        <SelectField
-          inputId="harvest-until"
-          label="Harvest until"
-          options={months}
-          placeholder="Select month"
-          value={harvestUntil.value}
-          handleChange={harvestUntil.handleChange}
-          required={harvestUntilValidators.required}
-          errorId="harvest-until-error"
-          errorMsg={errors.harvestUntil}
-        />
-        <SubmitBtn text="Save" />
+    <Modal title={plant._id === '' ? 'New Plant' : 'Edit Plant'}>
+      <form className="c-form l-form" noValidate onSubmit={handleSubmit}>
+        <div className="l-form__field">
+          <TextField
+            inputId="plant-name"
+            label="Plant name"
+            value={name.value}
+            maxLength={nameValidators.maxLength}
+            handleChange={name.handleChange}
+            required={nameValidators.required}
+            errorId="plant-name-error"
+            errorMsg={errors.name}
+          />
+        </div>
+        <div className="l-form__field">
+          <TextField
+            inputId="plant-desc"
+            label="Description"
+            value={desc.value}
+            maxLength={descValidators.maxLength}
+            handleChange={desc.handleChange}
+            required={descValidators.required}
+            errorId="plant-desc-error"
+            errorMsg={errors.desc}
+          />
+        </div>
+        <div className="l-form__field">
+          <SelectField
+            inputId="plant-category"
+            label="Category"
+            options={plantCategories}
+            value={category.value}
+            handleChange={category.handleChange}
+            errorId="plant-category-error"
+            errorMsg={errors.category}
+          />
+        </div>
+        <div className="l-form__field-last">
+          <Fieldset legend="Calendar">
+            <div className="l-form__field">
+              <SelectField
+                inputId="sow-from"
+                label="Sow from"
+                options={months}
+                placeholder="Select month"
+                value={sowFrom.value}
+                handleChange={sowFrom.handleChange}
+                required={sowFromValidators.required}
+                errorId="sow-from-error"
+                errorMsg={errors.sowFrom}
+              />
+            </div>
+            <div className="l-form__field">
+              <SelectField
+                inputId="sow-until"
+                label="Sow until"
+                options={months}
+                placeholder="Select month"
+                value={sowUntil.value}
+                handleChange={sowUntil.handleChange}
+                required={sowUntilValidators.required}
+                errorId="sow-until-error"
+                errorMsg={errors.sowUntil}
+              />
+            </div>
+            <div className="l-form__field">
+              <SelectField
+                inputId="harvest-from"
+                label="Harvest from"
+                options={months}
+                placeholder="Select month"
+                value={harvestFrom.value}
+                handleChange={harvestFrom.handleChange}
+                required={harvestFromValidators.required}
+                errorId="harvest-from-error"
+                errorMsg={errors.harvestFrom}
+              />
+            </div>
+            <div className="l-form__field">
+              <SelectField
+                inputId="harvest-until"
+                label="Harvest until"
+                options={months}
+                placeholder="Select month"
+                value={harvestUntil.value}
+                handleChange={harvestUntil.handleChange}
+                required={harvestUntilValidators.required}
+                errorId="harvest-until-error"
+                errorMsg={errors.harvestUntil}
+              />
+            </div>
+          </Fieldset>
+        </div>
+        <SubmitBtn variant="secondary" text="Save" />
       </form>
-    </div>
+    </Modal>
   );
 };
 
