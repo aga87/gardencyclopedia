@@ -1,18 +1,7 @@
-.c-plant-entry {
-  color: $dark-grey;
+.l-plant-entry__desc {
+  margin-bottom: $blh * 0.25rem;
+}
 
-  &__desc {
-    font-style: italic;
-    font-weight: 300;
-    margin-bottom: $blh * 0.25rem;
-  }
-
-  &__category {
-    display: inline-block;
-    font-weight: 300;
-    padding: 0 0.5em;
-    border: 1px solid $grey;
-    border-radius: $border-radius;
-    margin-bottom: $blh * 0.5rem;
-  }
+.l-plant-entry__category {
+  margin-bottom: $blh * 0.5rem;
 }

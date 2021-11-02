@@ -1,6 +1,7 @@
 import React from 'react';
-import { capitalize } from '../utils/text-utils';
 import PlantEntryHeader from './PlantEntryHeader';
+import PlantDesc from './PlantDesc';
+import Tag from './Tag';
 import CalendarChart from './CalendarChart';
 
 type PlantEntryProps = {
@@ -14,8 +15,12 @@ const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
   return (
     <div className="c-plant-entry">
       <PlantEntryHeader plant={plant} />
-      <p className="c-plant-entry__desc">{desc}</p>
-      <p className="c-plant-entry__category s1">{capitalize(category)}</p>
+      <div className="l-plant-entry__desc">
+        <PlantDesc desc={desc} />
+      </div>
+      <div className="l-plant-entry__category">
+        <Tag tag={category} />
+      </div>
       <CalendarChart
         sowFrom={sowFrom}
         sowUntil={sowUntil}
