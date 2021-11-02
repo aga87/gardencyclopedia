@@ -1,0 +1,34 @@
+.c-modal {
+  background-color: $white; // fallback
+  background-color: $black-065;
+
+  &__content {
+    background-color: $white;
+    border-bottom: 2px solid $red;
+    border-right: 1px solid $red;
+  }
+}
+
+.l-modal {
+  @include fixed-full-screen;
+  z-index: 1;
+  overflow: auto;
+
+  &__content {
+    max-width: 300px;
+    min-height: 100%;
+
+    &.l-modal__content--narrow {
+      max-width: 220px;
+    }
+  }
+
+  &__header {
+    position: sticky;
+    top: 0;
+  }
+
+  &__children {
+    padding: $blh * 0.5rem;
+  }
+}
