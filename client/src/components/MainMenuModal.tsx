@@ -1,10 +1,11 @@
 import React from 'react';
 import MainMenu from './Menus/MainMenu';
+import Modal from './Modal';
 
 const MainMenuModal = (): JSX.Element => (
-  <div className="c-main-menu-modal">
+  <Modal variant="narrow" title="Main Menu">
     <MainMenu />
-  </div>
+  </Modal>
 );
 
 export default MainMenuModal;
