@@ -9,7 +9,8 @@ export const SORT_PLANTS = 'SORT_PLANTS';
 
 // UI actions
 export const OPEN_MAIN_MENU_MODAL = 'OPEN_MAIN_MENU_MODAL';
-export const OPEN_PLANT_MODAL = 'OPEN_PLANT_MODAL';
+export const OPEN_ADD_PLANT_MODAL = 'OPEN_ADD_PLANT_MODAL';
+export const OPEN_EDIT_PLANT_MODAL = 'OPEN_EDIT_PLANT_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const SET_VIEW = 'SET_VIEW';
 

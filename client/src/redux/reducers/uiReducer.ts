@@ -1,6 +1,7 @@
 import {
   OPEN_MAIN_MENU_MODAL,
-  OPEN_PLANT_MODAL,
+  OPEN_ADD_PLANT_MODAL,
+  OPEN_EDIT_PLANT_MODAL,
   CLOSE_MODAL,
   SET_VIEW,
   LOGOUT_SUCCESS
@@ -9,7 +10,8 @@ import { emptyPlant } from '../../utils/constants';
 
 const initialState = {
   mainMenuModalIsOpen: false,
-  plantModalIsOpen: false,
+  isAddPlantModalOpen: false,
+  isEditPlantModalOpen: false,
   plantToEdit: emptyPlant,
   view: 'calendar' as View
 };
@@ -23,7 +25,7 @@ type Action =
         | typeof LOGOUT_SUCCESS;
     }
   | {
-      type: typeof OPEN_PLANT_MODAL;
+      type: typeof OPEN_ADD_PLANT_MODAL | typeof OPEN_EDIT_PLANT_MODAL;
       payload: Plant;
     }
   | {
@@ -38,17 +40,24 @@ const uiReducer = (state = initialState, action: Action): State => {
         ...state,
         mainMenuModalIsOpen: true
       };
-    case OPEN_PLANT_MODAL:
+    case OPEN_ADD_PLANT_MODAL:
       return {
         ...state,
-        plantModalIsOpen: true,
+        isAddPlantModalOpen: true,
+        plantToEdit: action.payload
+      };
+    case OPEN_EDIT_PLANT_MODAL:
+      return {
+        ...state,
+        isEditPlantModalOpen: true,
         plantToEdit: action.payload
       };
     case CLOSE_MODAL:
       return {
         ...state,
         mainMenuModalIsOpen: false,
-        plantModalIsOpen: false,
+        isAddPlantModalOpen: false,
+        isEditPlantModalOpen: false,
         plantToEdit: emptyPlant
       };
     case SET_VIEW:
@@ -69,7 +78,9 @@ export default uiReducer;
 // Selectors
 export const selectMainMenuModalIsOpen = (state: State): boolean =>
   state.mainMenuModalIsOpen;
-export const selectPlantModalIsOpen = (state: State): boolean =>
-  state.plantModalIsOpen;
+export const selectIsAddPlantModalOpen = (state: State): boolean =>
+  state.isAddPlantModalOpen;
+export const selectIsEditPlantModalOpen = (state: State): boolean =>
+  state.isEditPlantModalOpen;
 export const selectPlantToEdit = (state: State): Plant => state.plantToEdit;
 export const selectView = (state: State): View => state.view;

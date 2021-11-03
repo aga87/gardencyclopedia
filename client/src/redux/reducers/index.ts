@@ -29,8 +29,11 @@ export const selectSort = (state: RootState): Sort =>
 export const selectMainMenuModalIsOpen = (state: RootState): boolean =>
   fromUiReducer.selectMainMenuModalIsOpen(state.uiReducer);
 
-export const selectPlantModalIsOpen = (state: RootState): boolean =>
-  fromUiReducer.selectPlantModalIsOpen(state.uiReducer);
+export const selectIsAddPlantModalOpen = (state: RootState): boolean =>
+  fromUiReducer.selectIsAddPlantModalOpen(state.uiReducer);
+
+export const selectIsEditPlantModalOpen = (state: RootState): boolean =>
+  fromUiReducer.selectIsEditPlantModalOpen(state.uiReducer);
 
 export const selectPlantToEdit = (state: RootState): Plant =>
   fromUiReducer.selectPlantToEdit(state.uiReducer);

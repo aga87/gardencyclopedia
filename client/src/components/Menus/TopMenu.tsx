@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   openMainMenuModal,
-  openPlantModal
+  openAddPlantModal
 } from '../../redux/actions/uiActions';
 import { filterPlants } from '../../redux/actions/plantsActions';
 import { plantCategories, emptyPlant } from '../../utils/constants';
@@ -19,7 +19,7 @@ const TopMenu = (): JSX.Element => {
   };
 
   const handlePlusClick = () => {
-    dispatch(openPlantModal(emptyPlant));
+    dispatch(openAddPlantModal(emptyPlant));
   };
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

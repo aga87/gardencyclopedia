@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../../redux/actions/plantsActions';
-import { openPlantModal } from '../../redux/actions/uiActions';
+import { openEditPlantModal } from '../../redux/actions/uiActions';
 import Btn from '../Btn';
 import Icon from '../Icon';
 
@@ -24,7 +24,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
 
   const handleEditClick = () => {
     setIsExpanded(false);
-    dispatch(openPlantModal(plant));
+    dispatch(openEditPlantModal(plant));
   };
 
   return (
