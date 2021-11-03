@@ -342,7 +342,6 @@ html {
 body {
   height: 100%;
   background-color: #fff;
-  color: #000;
   color: #383838;
   font-family: "Lato", sans-serif;
   line-height: 1.5;
@@ -440,6 +439,10 @@ body {
   background-color: #fff;
   padding: 1em 0.75em;
   border: none;
+}
+.menu-dropdown-btn__icon {
+  display: inline-block;
+  width: 2em;
 }
 .menu-dropdown-btn:hover {
   cursor: pointer;
@@ -773,6 +776,22 @@ body {
 
 .l-plant-entry__category {
   margin-bottom: 0.75rem;
+}
+
+.c-plant-menu__dropdown {
+  list-style-type: none;
+  border: 1px solid #db4a4a;
+  border-radius: 5px;
+}
+
+.l-plant-menu {
+  position: relative;
+}
+.l-plant-menu__dropdown {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  min-width: 140px;
 }
 
 .l-tabbed-form__tabs {

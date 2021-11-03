@@ -1,0 +1,18 @@
+.c-plant-menu {
+  &__dropdown {
+    list-style-type: none;
+    border: 1px solid $red;
+    border-radius: $border-radius;
+  }
+}
+
+.l-plant-menu {
+  position: relative;
+
+  &__dropdown {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    min-width: 140px;
+  }
+}

@@ -26,7 +26,10 @@ const Btn = ({
 
   return (
     <button type='button' onClick={handleClick} className={className}>
-      {icon} {text}
+      {icon && (
+        <span className={text ? 'menu-dropdown-btn__icon' : ''}>{icon}</span>
+      )}
+      {text}
     </button>
   );
 };
