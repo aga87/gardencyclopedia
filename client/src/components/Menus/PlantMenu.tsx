@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../../redux/actions/plantsActions';
-import { openPlantModal } from '../../redux/actions/uiActions';
+import { openEditPlantModal } from '../../redux/actions/uiActions';
 import Btn from '../Btn';
 import Icon from '../Icon';
 
@@ -24,25 +24,31 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
 
   const handleEditClick = () => {
     setIsExpanded(false);
-    dispatch(openPlantModal(plant));
+    dispatch(openEditPlantModal(plant));
   };
 
   return (
-    <nav>
-      <Btn icon={<Icon name="more" />} handleClick={handleMoreClick} />
+    <nav className="c-plant-menu l-plant-menu">
+      <Btn
+        variant='secondary'
+        icon={<Icon name='more' />}
+        handleClick={handleMoreClick}
+      />
       {isExpanded && (
-        <ul>
+        <ul className="c-plant-menu__dropdown l-plant-menu__dropdown">
           <li>
             <Btn
-              icon={<Icon name="trash" />}
-              text="Delete"
+              variant='dropdown'
+              icon={<Icon name='trash' />}
+              text='Delete'
               handleClick={handleDeleteClick}
             />
           </li>
           <li>
             <Btn
-              icon={<Icon name="edit" />}
-              text="Edit"
+              variant='dropdown'
+              icon={<Icon name='edit' />}
+              text='Edit'
               handleClick={handleEditClick}
             />
           </li>

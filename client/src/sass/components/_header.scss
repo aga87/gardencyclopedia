@@ -1,0 +1,10 @@
+.c-header {
+  text-align: center;
+
+  &__title {
+    $screen-xxs: 20rem;
+    @include fluid-typography(10rem, $screen-xxs, 1rem, 2.5rem);
+    font-style: italic;
+    font-weight: 400;
+  }
+}

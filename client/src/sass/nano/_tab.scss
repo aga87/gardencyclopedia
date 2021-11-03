@@ -1,0 +1,21 @@
+.tab {
+  display: inline-block;
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  background: $white;
+  color: $grey;
+  padding: 0.25em 0.5em;
+  border: none;
+  border-bottom: 2px solid $grey-04;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+
+  &.tab--selected {
+    border-color: $green;
+    color: $black;
+  }
+}

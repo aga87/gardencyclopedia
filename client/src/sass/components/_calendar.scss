@@ -1,0 +1,26 @@
+.c-calendar {
+  &__list {
+    list-style-type: none;
+  }
+
+  &__caption {
+    text-align: center;
+    font-weight: bold;
+    background-color: $white;
+    padding: $blh * 0.25rem 0.5em;
+    border-top: 1px solid $red;
+  }
+}
+
+.l-calendar {
+  &__list-item {
+    margin-bottom: $blh * 1rem;
+  }
+
+  &__caption {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: $menu-height;
+  }
+}

@@ -1,0 +1,19 @@
+.t1 {
+  @include h1;
+}
+
+.t3 {
+  @include h3;
+}
+
+.t5 {
+  @include h5;
+}
+
+.t6 {
+  @include h6;
+}
+
+.s1 {
+  @include s1;
+}

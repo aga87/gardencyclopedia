@@ -1,0 +1,16 @@
+@mixin input {
+  width: 100%;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  background-color: $white;
+  padding: (0.25rem * $blh) 0.5em;
+  border: 1px solid $grey;
+  border-radius: $border-radius;
+
+  &:focus {
+    border-color: $green;
+    box-shadow: 0 0 6px $green;
+    outline: none;
+  }
+}

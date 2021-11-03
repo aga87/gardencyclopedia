@@ -1,0 +1,19 @@
+.l-authentication {
+  min-height: 100vh;
+  padding: 10vh 0.5em (1rem * $blh);
+
+  &__content {
+    max-width: $screen-xxs;
+    max-width: 305px;
+    margin: 0 auto;
+  }
+
+  &__loader {
+    text-align: center;
+    padding-top: $blh * 2rem;
+  }
+
+  &__form {
+    padding: ($blh * 1rem) 0.5em 0;
+  }
+}

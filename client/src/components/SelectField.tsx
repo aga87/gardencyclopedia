@@ -1,5 +1,7 @@
 import React from 'react';
 import { capitalize } from '../utils/text-utils';
+import Label from './Label';
+import Error from './Error';
 
 type SelectFieldProps = {
   inputId: string;
@@ -9,6 +11,8 @@ type SelectFieldProps = {
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   required?: boolean;
+  errorId: string;
+  errorMsg: string;
 };
 
 const SelectField = ({
@@ -18,7 +22,9 @@ const SelectField = ({
   placeholder = '',
   value,
   handleChange,
-  required = false
+  required = false,
+  errorId,
+  errorMsg
 }: SelectFieldProps): JSX.Element => {
   const selectOptions = options.map(option => (
     <option key={option} value={option}>
@@ -27,21 +33,21 @@ const SelectField = ({
   ));
 
   return (
-    <p>
-      <label htmlFor={inputId}>
-        {label}
-        {required && <span aria-hidden="true"> *</span>}
-      </label>
+    <div>
+      <Label label={label} inputId={inputId} required={required} />
       <select
+        className='select'
         id={inputId}
         required={required}
         value={value}
         onChange={handleChange}
+        aria-describedby={errorId}
       >
-        {placeholder && <option value="">{placeholder}</option>}
+        {placeholder && <option value=''>{placeholder}</option>}
         {selectOptions}
       </select>
-    </p>
+      <Error id={errorId} msg={errorMsg} />
+    </div>
   );
 };
 

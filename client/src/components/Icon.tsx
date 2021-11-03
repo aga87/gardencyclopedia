@@ -7,7 +7,8 @@ import {
   faEllipsisH,
   faUserCog,
   faSeedling,
-  faSignOutAlt
+  faSignOutAlt,
+  faTimes
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faTrashAlt,
@@ -26,7 +27,8 @@ type IconProps = {
     | 'user-cog'
     | 'calendar'
     | 'seedling'
-    | 'logout';
+    | 'logout'
+    | 'close';
 };
 
 const Icon = ({ name }: IconProps): JSX.Element | null => {
@@ -40,6 +42,7 @@ const Icon = ({ name }: IconProps): JSX.Element | null => {
   if (name === 'calendar') return <FontAwesomeIcon icon={faCalendar} />;
   if (name === 'seedling') return <FontAwesomeIcon icon={faSeedling} />;
   if (name === 'logout') return <FontAwesomeIcon icon={faSignOutAlt} />;
+  if (name === 'close') return <FontAwesomeIcon icon={faTimes} />;
   return null;
 };
 

@@ -1,42 +1,20 @@
 import React, { useEffect } from 'react';
 import './css/index.css';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectIsAuthenticated,
-  selectView,
-  selectPlantModalIsOpen,
-  selectPlantToEdit
-} from './redux/reducers/index';
+import { selectIsAuthenticated } from './redux/reducers/index';
 import loadUser from './redux/actions/authActions';
-import AuthModal from './components/AuthModal';
-import PlantModal from './components/PlantModal';
-import MainMenu from './components/Menus/MainMenu';
-import TopMenu from './components/Menus/TopMenu';
-import Plants from './components/Plants';
-import Garden from './components/Garden';
-import BottomMenu from './components/Menus/BottomMenu';
+import Authentication from './pages/Authentication';
+import Dashboard from './pages/Dashboard';
 
 const App = (): JSX.Element => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
-  const view = useSelector(selectView);
-  const plantModalIsOpen = useSelector(selectPlantModalIsOpen);
-  const plantToEdit = useSelector(selectPlantToEdit);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadUser());
   });
 
-  return (
-    <div className="App">
-      {!isAuthenticated && <AuthModal />}
-      {plantModalIsOpen && <PlantModal plant={plantToEdit} />}
-      <MainMenu />
-      <TopMenu />
-      {view === 'calendar' ? <Plants /> : <Garden />}
-      <BottomMenu />
-    </div>
-  );
+  return <div>{isAuthenticated ? <Dashboard /> : <Authentication />}</div>;
 };
 
 export default App;

@@ -1,0 +1,29 @@
+.menu-btn {
+  display: inline-block;
+  font-family: inherit;
+  @include h5;
+  color: $white;
+  background-color: transparent;
+  padding: (0.25rem * $blh) (0.5rem * $blh);
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.menu-btn--secondary {
+    color: $grey-04;
+    @include h6;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    &:hover,
+    &:active {
+      color: $dark-grey;
+    }
+  }
+}

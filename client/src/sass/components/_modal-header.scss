@@ -1,0 +1,15 @@
+.c-modal-header {
+  height: $menu-height;
+  background-color: $red;
+  color: $white;
+}
+
+.l-modal-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &__title {
+    @include centerXY-abs;
+  }
+}

@@ -10,12 +10,13 @@ import {
 import { login, register } from '../redux/actions/authActions';
 import TextField from './TextField';
 import Error from './Error';
+import SubmitBtn from './SubmitBtn';
 
 type AuthFormProps = {
-  type: 'login' | 'register';
+  variant: 'login' | 'register';
 };
 
-const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
+const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   const username = useFormInput('');
   const email = useFormInput('');
   const password = useFormInput('');
@@ -32,30 +33,31 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
   });
   const dispatch = useDispatch();
 
-  const usernameValidators = {
-    maxLength: 20,
-    required: true
-  };
-
-  const emailValidators = {
-    maxLength: 254,
-    required: true
-  };
-
-  const passwordValidators = {
-    minLength: 8,
-    maxLength: 128,
-    required: true
+  // Field constraints
+  const constraints = {
+    username: {
+      maxLength: 20,
+      required: true
+    },
+    email: {
+      maxLength: 254,
+      required: true
+    },
+    password: {
+      minLength: 8,
+      maxLength: 128,
+      required: true
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // LOGIN
-    if (type === 'login') {
+    if (variant === 'login') {
       // Client-side validation
       const loginFormErrors = {
-        email: validateEmail(email.value, emailValidators),
-        password: validatePassword(password.value, passwordValidators)
+        email: validateEmail(email.value, constraints.email),
+        password: validatePassword(password.value, constraints.password)
       };
 
       setClientLoginErrors(loginFormErrors);
@@ -75,9 +77,9 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
     } else {
       // REGISTRATION - client-side validation
       const regFormErrors = {
-        username: validateUsername(username.value, usernameValidators),
-        email: validateEmail(email.value, emailValidators),
-        password: validatePassword(password.value, passwordValidators)
+        username: validateUsername(username.value, constraints.username),
+        email: validateEmail(email.value, constraints.email),
+        password: validatePassword(password.value, constraints.password)
       };
 
       setClientRegErrors(regFormErrors);
@@ -99,56 +101,68 @@ const AuthForm = ({ type }: AuthFormProps): JSX.Element => {
   };
 
   return (
-    <form noValidate onSubmit={handleSubmit}>
-      {type === 'register' && (
-        <div>
-          <TextField
-            inputId="username"
-            label="Username"
-            value={username.value}
-            maxLength={usernameValidators.maxLength}
-            handleChange={username.handleChange}
-            required={usernameValidators.required}
-          />
-          <Error inputId="username" error={clientRegErrors.username} />
+    <form noValidate onSubmit={handleSubmit} className='c-form l-form'>
+      {variant === 'login' && errId === 'LOGIN_FAIL' && (
+        <div className='l-form__error'>
+          <Error variant='server' msg={errMsg} />
         </div>
       )}
-      <TextField
-        inputId={`${type}-email`}
-        label="Email"
-        variant="email"
-        value={email.value}
-        maxLength={emailValidators.maxLength}
-        handleChange={email.handleChange}
-        required={emailValidators.required}
-      />
-      <Error
-        inputId={`${type}-email`}
-        error={
-          type === 'login' ? clientLoginErrors.email : clientRegErrors.email
-        }
-      />
-      <TextField
-        inputId={`${type}-password`}
-        label="Password"
-        variant="password"
-        value={password.value}
-        minLength={passwordValidators.minLength}
-        maxLength={passwordValidators.maxLength}
-        handleChange={password.handleChange}
-        required={passwordValidators.required}
-      />
-      <Error
-        inputId={`${type}-password`}
-        error={
-          type === 'login'
-            ? clientLoginErrors.password
-            : clientRegErrors.password
-        }
-      />
-      <button type="submit">{type === 'login' ? 'Log in' : 'Register'}</button>
-      {type === 'login' && errId === 'LOGIN_FAIL' && <p>{errMsg}</p>}
-      {type === 'register' && errId === 'REGISTER_FAIL' && <p>{errMsg}</p>}
+      {variant === 'register' && errId === 'REGISTER_FAIL' && (
+        <div className='l-form__error'>
+          <Error variant='server' msg={errMsg} />
+        </div>
+      )}
+
+      {variant === 'register' && (
+        <div className='l-form__field'>
+          <TextField
+            inputId='username'
+            label='Username'
+            value={username.value}
+            maxLength={constraints.username.maxLength}
+            handleChange={username.handleChange}
+            required={constraints.username.required}
+            errorId='username-error'
+            errorMsg={clientRegErrors.username}
+          />
+        </div>
+      )}
+      <div className='l-form__field'>
+        <TextField
+          inputId={`${variant}-email`}
+          label='Email'
+          type='email'
+          value={email.value}
+          maxLength={constraints.email.maxLength}
+          handleChange={email.handleChange}
+          required={constraints.email.required}
+          errorId={`${variant}-email-error`}
+          errorMsg={
+            variant === 'login'
+              ? clientLoginErrors.email
+              : clientRegErrors.email
+          }
+        />
+      </div>
+      <div className='l-form__field-last'>
+        <TextField
+          inputId={`${variant}-password`}
+          label='Password'
+          type='password'
+          value={password.value}
+          minLength={constraints.password.minLength}
+          maxLength={constraints.password.maxLength}
+          handleChange={password.handleChange}
+          required={constraints.password.required}
+          errorId={`${variant}-password-error`}
+          errorMsg={
+            variant === 'login'
+              ? clientLoginErrors.password
+              : clientRegErrors.password
+          }
+        />
+      </div>
+      <SubmitBtn text={variant === 'login' ? 'Log in' : 'Register'} />
     </form>
   );
 };

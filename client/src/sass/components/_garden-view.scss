@@ -1,0 +1,27 @@
+.c-garden-view {
+  text-align: center;
+  color: $grey;
+
+  &__title {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  &__subtitle {
+    font-style: normal;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+}
+
+.l-garden-view {
+  &__title {
+    margin-bottom: $blh * 0.5rem;
+  }
+
+  &__list {
+    margin-bottom: $blh * 0.5rem;
+  }
+}

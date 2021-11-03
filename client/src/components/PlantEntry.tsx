@@ -1,23 +1,26 @@
 import React from 'react';
+import PlantEntryHeader from './PlantEntryHeader';
+import PlantDesc from './PlantDesc';
+import Tag from './Tag';
 import CalendarChart from './CalendarChart';
-import PlantMenu from './Menus/PlantMenu';
 
 type PlantEntryProps = {
   plant: Plant;
 };
 
 const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
-  const { name, desc, category, sowFrom, sowUntil, harvestFrom, harvestUntil } =
+  const { desc, category, sowFrom, sowUntil, harvestFrom, harvestUntil } =
     plant;
 
   return (
-    <div>
-      <header>
-        <h2>{name}</h2>
-        <PlantMenu plant={plant} />
-      </header>
-      <p>{desc}</p>
-      <p>{category}</p>
+    <div className='c-plant-entry'>
+      <PlantEntryHeader plant={plant} />
+      <div className='l-plant-entry__desc'>
+        <PlantDesc desc={desc} />
+      </div>
+      <div className='l-plant-entry__category'>
+        <Tag tag={category} />
+      </div>
       <CalendarChart
         sowFrom={sowFrom}
         sowUntil={sowUntil}
