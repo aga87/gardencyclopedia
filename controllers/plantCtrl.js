@@ -45,17 +45,19 @@ const plantCtrl = {
   },
 
   delete: async (req, res) => {
-    Plant.findById(req.params.id)
-      .then((plant) =>
-        plant
-          .remove()
-          .then(() => res.json('The plant was deleted successfully.'))
-      )
-      .catch((err) =>
-        res
+    try {
+      const plantToDelete = await Plant.findById(req.params.id);
+      if (!plantToDelete)
+        return res
           .status(404)
-          .json({ Error: 'The plant you are trying to delete does not exist.' })
-      );
+          .json({
+            Error: 'The plant you are trying to delete does not exist.'
+          });
+      await plantToDelete.remove();
+      res.json('Plant was deleted successfully.');
+    } catch (err) {
+      res.status(500).json({ Error: err.message });
+    }
   },
 
   edit: (req, res) => {
