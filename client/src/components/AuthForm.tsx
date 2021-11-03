@@ -33,20 +33,21 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   });
   const dispatch = useDispatch();
 
-  const usernameValidators = {
-    maxLength: 20,
-    required: true
-  };
-
-  const emailValidators = {
-    maxLength: 254,
-    required: true
-  };
-
-  const passwordValidators = {
-    minLength: 8,
-    maxLength: 128,
-    required: true
+  // Field constraints
+  const constraints = {
+    username: {
+      maxLength: 20,
+      required: true
+    },
+    email: {
+      maxLength: 254,
+      required: true
+    },
+    password: {
+      minLength: 8,
+      maxLength: 128,
+      required: true
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -55,8 +56,8 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
     if (variant === 'login') {
       // Client-side validation
       const loginFormErrors = {
-        email: validateEmail(email.value, emailValidators),
-        password: validatePassword(password.value, passwordValidators)
+        email: validateEmail(email.value, constraints.email),
+        password: validatePassword(password.value, constraints.password)
       };
 
       setClientLoginErrors(loginFormErrors);
@@ -76,9 +77,9 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
     } else {
       // REGISTRATION - client-side validation
       const regFormErrors = {
-        username: validateUsername(username.value, usernameValidators),
-        email: validateEmail(email.value, emailValidators),
-        password: validatePassword(password.value, passwordValidators)
+        username: validateUsername(username.value, constraints.username),
+        email: validateEmail(email.value, constraints.email),
+        password: validatePassword(password.value, constraints.password)
       };
 
       setClientRegErrors(regFormErrors);
@@ -118,9 +119,9 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
             inputId="username"
             label="Username"
             value={username.value}
-            maxLength={usernameValidators.maxLength}
+            maxLength={constraints.username.maxLength}
             handleChange={username.handleChange}
-            required={usernameValidators.required}
+            required={constraints.username.required}
             errorId="username-error"
             errorMsg={clientRegErrors.username}
           />
@@ -132,9 +133,9 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
           label="Email"
           type="email"
           value={email.value}
-          maxLength={emailValidators.maxLength}
+          maxLength={constraints.email.maxLength}
           handleChange={email.handleChange}
-          required={emailValidators.required}
+          required={constraints.email.required}
           errorId={`${variant}-email-error`}
           errorMsg={
             variant === 'login'
@@ -149,10 +150,10 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
           label="Password"
           type="password"
           value={password.value}
-          minLength={passwordValidators.minLength}
-          maxLength={passwordValidators.maxLength}
+          minLength={constraints.password.minLength}
+          maxLength={constraints.password.maxLength}
           handleChange={password.handleChange}
-          required={passwordValidators.required}
+          required={constraints.password.required}
           errorId={`${variant}-password-error`}
           errorMsg={
             variant === 'login'
