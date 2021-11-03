@@ -16,31 +16,32 @@ const plantCtrl = {
   },
 
   add: async (req, res) => {
-    const newPlant = new Plant({
-      name: req.body.name,
-      desc: req.body.desc,
-      category: req.body.category,
-      sowFrom: req.body.sowFrom,
-      sowUntil: req.body.sowUntil,
-      harvestFrom: req.body.harvestFrom,
-      harvestUntil: req.body.harvestUntil
-    });
+    try {
+      const newPlant = new Plant({
+        name: req.body.name,
+        desc: req.body.desc,
+        category: req.body.category,
+        sowFrom: req.body.sowFrom,
+        sowUntil: req.body.sowUntil,
+        harvestFrom: req.body.harvestFrom,
+        harvestUntil: req.body.harvestUntil
+      });
 
-    newPlant
-      .save()
-      .then((plant) =>
-        res.status(201).json({
-          _id: plant._id,
-          name: plant.name,
-          desc: plant.desc,
-          category: plant.category,
-          sowFrom: plant.sowFrom,
-          sowUntil: plant.sowUntil,
-          harvestFrom: plant.harvestFrom,
-          harvestUntil: plant.harvestUntil
-        })
-      )
-      .catch((err) => res.status(422).json({ Error: err.message }));
+      const plant = await newPlant.save();
+      //  Don't output __v field
+      res.status(201).json({
+        _id: plant._id,
+        name: plant.name,
+        desc: plant.desc,
+        category: plant.category,
+        sowFrom: plant.sowFrom,
+        sowUntil: plant.sowUntil,
+        harvestFrom: plant.harvestFrom,
+        harvestUntil: plant.harvestUntil
+      });
+    } catch (err) {
+      return res.status(422).json({ Error: err.message });
+    }
   },
 
   delete: async (req, res) => {
