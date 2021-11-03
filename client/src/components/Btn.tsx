@@ -25,7 +25,7 @@ const Btn = ({
   })();
 
   return (
-    <button type="button" onClick={handleClick} className={className}>
+    <button type='button' onClick={handleClick} className={className}>
       {icon} {text}
     </button>
   );

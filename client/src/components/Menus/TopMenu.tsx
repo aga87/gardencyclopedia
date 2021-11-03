@@ -28,23 +28,23 @@ const TopMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className="c-top-menu l-top-menu">
-      <ul className="l-top-menu__list">
+    <nav className='c-top-menu l-top-menu'>
+      <ul className='l-top-menu__list'>
         <li>
-          <Btn icon={<Icon name="menu" />} handleClick={handleMainMenuClick} />
+          <Btn icon={<Icon name='menu' />} handleClick={handleMainMenuClick} />
         </li>
         <li>
           <Select
-            variant="filter"
+            variant='filter'
             options={plantCategories}
-            placeholder="All Plants"
+            placeholder='All Plants'
             value={filter}
             handleChange={handleFilterChange}
-            ariaLabel="Filter plants"
+            ariaLabel='Filter plants'
           />
         </li>
         <li>
-          <Btn icon={<Icon name="plus" />} handleClick={handlePlusClick} />
+          <Btn icon={<Icon name='plus' />} handleClick={handlePlusClick} />
         </li>
       </ul>
     </nav>

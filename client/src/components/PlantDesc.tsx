@@ -5,7 +5,7 @@ type PlantDescProps = {
 };
 
 const PlantDesc = ({ desc }: PlantDescProps): JSX.Element => (
-  <p className="plant-desc">{desc}</p>
+  <p className='plant-desc'>{desc}</p>
 );
 
 export default PlantDesc;

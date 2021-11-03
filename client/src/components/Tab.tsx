@@ -8,7 +8,7 @@ type TabProps = {
 
 const Tab = ({ text, selected, handleClick }: TabProps): JSX.Element => (
   <button
-    type="button"
+    type='button'
     onClick={handleClick}
     className={selected ? 'tab tab--selected' : 'tab'}
   >

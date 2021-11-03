@@ -30,7 +30,7 @@ const TextField = ({
   <div>
     <Label label={label} inputId={inputId} required={required} />
     <input
-      className="input"
+      className='input'
       id={inputId}
       type={type}
       size={30}

@@ -16,23 +16,23 @@ const CalendarChart = ({
   harvestUntil
 }: CalendarChartProps): JSX.Element => {
   const monthHeadings = months.map(month => (
-    <th className="c-calendar-chart__heading s1" key={month}>
+    <th className='c-calendar-chart__heading s1' key={month}>
       {month.slice(0, 3)}
     </th>
   ));
 
   return (
-    <table className="c-calendar-chart">
+    <table className='c-calendar-chart'>
       <thead>
         <tr>{monthHeadings}</tr>
       </thead>
       <tbody>
         <tr>
-          <MonthData variant="sow" monthStart={sowFrom} monthEnd={sowUntil} />
+          <MonthData variant='sow' monthStart={sowFrom} monthEnd={sowUntil} />
         </tr>
         <tr>
           <MonthData
-            variant="harvest"
+            variant='harvest'
             monthStart={harvestFrom}
             monthEnd={harvestUntil}
           />

@@ -11,10 +11,10 @@ const Label = ({
   inputId,
   required = false
 }: LabelProps): JSX.Element => (
-  <label htmlFor={inputId} className="label">
+  <label htmlFor={inputId} className='label'>
     {label}
     {required && (
-      <span className="label__asterisk" aria-hidden="true">
+      <span className='label__asterisk' aria-hidden='true'>
         {' '}
         *
       </span>

@@ -36,14 +36,14 @@ const SelectField = ({
     <div>
       <Label label={label} inputId={inputId} required={required} />
       <select
-        className="select"
+        className='select'
         id={inputId}
         required={required}
         value={value}
         onChange={handleChange}
         aria-describedby={errorId}
       >
-        {placeholder && <option value="">{placeholder}</option>}
+        {placeholder && <option value=''>{placeholder}</option>}
         {selectOptions}
       </select>
       <Error id={errorId} msg={errorMsg} />

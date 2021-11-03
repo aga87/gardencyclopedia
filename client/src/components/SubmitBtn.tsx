@@ -15,7 +15,7 @@ const SubmitBtn = ({
   }
 
   return (
-    <button type="submit" className={className}>
+    <button type='submit' className={className}>
       {text}
     </button>
   );

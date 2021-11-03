@@ -9,15 +9,15 @@ const Authentication = (): JSX.Element => {
   const isUserLoading = useSelector(selectIsUserLoading);
 
   return (
-    <div className="p-authentication l-authentication">
-      <div className="l-authentication__content">
+    <div className='p-authentication l-authentication'>
+      <div className='l-authentication__content'>
         <Header />
         {isUserLoading ? (
-          <div className="l-authentication__loader">
+          <div className='l-authentication__loader'>
             <Loader />
           </div>
         ) : (
-          <div className="l-authentication__form">
+          <div className='l-authentication__form'>
             <TabbedAuthForm />
           </div>
         )}

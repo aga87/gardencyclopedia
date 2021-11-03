@@ -30,25 +30,25 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
   return (
     <nav>
       <Btn
-        variant="secondary"
-        icon={<Icon name="more" />}
+        variant='secondary'
+        icon={<Icon name='more' />}
         handleClick={handleMoreClick}
       />
       {isExpanded && (
         <ul>
           <li>
             <Btn
-              variant="dropdown"
-              icon={<Icon name="trash" />}
-              text="Delete"
+              variant='dropdown'
+              icon={<Icon name='trash' />}
+              text='Delete'
               handleClick={handleDeleteClick}
             />
           </li>
           <li>
             <Btn
-              variant="dropdown"
-              icon={<Icon name="edit" />}
-              text="Edit"
+              variant='dropdown'
+              icon={<Icon name='edit' />}
+              text='Edit'
               handleClick={handleEditClick}
             />
           </li>

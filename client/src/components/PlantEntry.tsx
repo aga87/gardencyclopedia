@@ -13,12 +13,12 @@ const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
     plant;
 
   return (
-    <div className="c-plant-entry">
+    <div className='c-plant-entry'>
       <PlantEntryHeader plant={plant} />
-      <div className="l-plant-entry__desc">
+      <div className='l-plant-entry__desc'>
         <PlantDesc desc={desc} />
       </div>
-      <div className="l-plant-entry__category">
+      <div className='l-plant-entry__category'>
         <Tag tag={category} />
       </div>
       <CalendarChart

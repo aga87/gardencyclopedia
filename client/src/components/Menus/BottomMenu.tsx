@@ -27,26 +27,26 @@ const BottomMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className="c-bottom-menu l-bottom-menu">
-      <ul className="l-bottom-menu__list">
-        <li className="l-bottom-menu__list-item-center">
+    <nav className='c-bottom-menu l-bottom-menu'>
+      <ul className='l-bottom-menu__list'>
+        <li className='l-bottom-menu__list-item-center'>
           <Select
-            variant="sort"
+            variant='sort'
             options={sortOptions}
             value={sort}
             handleChange={handleSort}
-            ariaLabel="Sort by"
+            ariaLabel='Sort by'
           />
         </li>
         <li>
           {view === 'garden' ? (
             <Btn
-              icon={<Icon name="calendar" />}
+              icon={<Icon name='calendar' />}
               handleClick={handleCalendarClick}
             />
           ) : (
             <Btn
-              icon={<Icon name="seedling" />}
+              icon={<Icon name='seedling' />}
               handleClick={handleGardenClick}
             />
           )}

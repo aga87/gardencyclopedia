@@ -36,7 +36,7 @@ const Select = ({
       aria-label={ariaLabel}
       className={className}
     >
-      {placeholder && <option value="">{placeholder}</option>}
+      {placeholder && <option value=''>{placeholder}</option>}
       {selectOptions}
     </select>
   );

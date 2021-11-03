@@ -13,7 +13,7 @@ const Logo = ({ variant = 'primary' }: LogoProps): JSX.Element => {
 
   return (
     <div className={className}>
-      <Icon name="seedling" />
+      <Icon name='seedling' />
     </div>
   );
 };

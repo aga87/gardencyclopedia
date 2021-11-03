@@ -101,37 +101,37 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   };
 
   return (
-    <form noValidate onSubmit={handleSubmit} className="c-form l-form">
+    <form noValidate onSubmit={handleSubmit} className='c-form l-form'>
       {variant === 'login' && errId === 'LOGIN_FAIL' && (
-        <div className="l-form__error">
-          <Error variant="server" msg={errMsg} />
+        <div className='l-form__error'>
+          <Error variant='server' msg={errMsg} />
         </div>
       )}
       {variant === 'register' && errId === 'REGISTER_FAIL' && (
-        <div className="l-form__error">
-          <Error variant="server" msg={errMsg} />
+        <div className='l-form__error'>
+          <Error variant='server' msg={errMsg} />
         </div>
       )}
 
       {variant === 'register' && (
-        <div className="l-form__field">
+        <div className='l-form__field'>
           <TextField
-            inputId="username"
-            label="Username"
+            inputId='username'
+            label='Username'
             value={username.value}
             maxLength={constraints.username.maxLength}
             handleChange={username.handleChange}
             required={constraints.username.required}
-            errorId="username-error"
+            errorId='username-error'
             errorMsg={clientRegErrors.username}
           />
         </div>
       )}
-      <div className="l-form__field">
+      <div className='l-form__field'>
         <TextField
           inputId={`${variant}-email`}
-          label="Email"
-          type="email"
+          label='Email'
+          type='email'
           value={email.value}
           maxLength={constraints.email.maxLength}
           handleChange={email.handleChange}
@@ -144,11 +144,11 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
           }
         />
       </div>
-      <div className="l-form__field-last">
+      <div className='l-form__field-last'>
         <TextField
           inputId={`${variant}-password`}
-          label="Password"
-          type="password"
+          label='Password'
+          type='password'
           value={password.value}
           minLength={constraints.password.minLength}
           maxLength={constraints.password.maxLength}

@@ -16,9 +16,9 @@ const ModalHeader = ({ title }: ModalHeaderProps): JSX.Element => {
   };
 
   return (
-    <header className="c-modal-header l-modal-header">
-      <Btn icon={<Icon name="close" />} handleClick={handleCloseModal} />
-      <h2 className="l-modal-header__title t6">{title}</h2>
+    <header className='c-modal-header l-modal-header'>
+      <Btn icon={<Icon name='close' />} handleClick={handleCloseModal} />
+      <h2 className='l-modal-header__title t6'>{title}</h2>
     </header>
   );
 };

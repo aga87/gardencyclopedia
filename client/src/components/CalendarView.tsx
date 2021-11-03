@@ -36,13 +36,13 @@ const CalendarView = (): JSX.Element => {
 
   if (isLoading)
     return (
-      <div className="l-flex-centerY">
+      <div className='l-flex-centerY'>
         <Loader />
       </div>
     );
   if (sortedFilteredPlants.length === 0)
     return (
-      <div className="l-flex-centerY">
+      <div className='l-flex-centerY'>
         <NoPlants />
       </div>
     );

@@ -14,15 +14,15 @@ const TabbedAuthForm = (): JSX.Element => {
   };
 
   return (
-    <div className="c-tabbed-form l-tabbed-form">
-      <div className="l-tabbed-form__tabs">
+    <div className='c-tabbed-form l-tabbed-form'>
+      <div className='l-tabbed-form__tabs'>
         <Tab
-          text="Log in"
+          text='Log in'
           selected={tab === 'login'}
           handleClick={handleLoginTabClick}
         />
         <Tab
-          text="Register"
+          text='Register'
           selected={tab === 'register'}
           handleClick={handleRegisterTabClick}
         />

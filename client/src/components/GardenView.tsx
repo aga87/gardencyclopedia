@@ -16,17 +16,17 @@ const GardenView = (): JSX.Element => {
   ));
 
   return (
-    <div className="c-garden-view">
-      <Logo variant="light" />
-      <h1 className="c-garden-view__title l-garden-view__title t1">
+    <div className='c-garden-view'>
+      <Logo variant='light' />
+      <h1 className='c-garden-view__title l-garden-view__title t1'>
         Garden
         <br />
-        <span className="c-garden-view__subtitle t3">Coming Soon:</span>
+        <span className='c-garden-view__subtitle t3'>Coming Soon:</span>
       </h1>
-      <ul className="c-garden-view__list l-garden-view__list">
+      <ul className='c-garden-view__list l-garden-view__list'>
         {upcomingFeaturesListItems}
       </ul>
-      <Icon name="seedling" />
+      <Icon name='seedling' />
     </div>
   );
 };

@@ -22,21 +22,21 @@ const Dashboard = (): JSX.Element => {
   return (
     <div>
       {mainMenuModalIsOpen && <MainMenuModal />}
-      {isAddPlantModalOpen && <PlantModal variant="add" />}
-      {isEditPlantModalOpen && <PlantModal variant="edit" />}
+      {isAddPlantModalOpen && <PlantModal variant='add' />}
+      {isEditPlantModalOpen && <PlantModal variant='edit' />}
 
-      <div className="p-dashboard l-dashboard">
+      <div className='p-dashboard l-dashboard'>
         <TopMenu />
-        <section className="l-dashboard__content">
+        <section className='l-dashboard__content'>
           {view === 'calendar' ? (
             <CalendarView />
           ) : (
-            <div className="l-flex-centerY">
+            <div className='l-flex-centerY'>
               <GardenView />
             </div>
           )}
         </section>
-        <div className="l-dashboard__bottom-menu">
+        <div className='l-dashboard__bottom-menu'>
           <BottomMenu />
         </div>
       </div>

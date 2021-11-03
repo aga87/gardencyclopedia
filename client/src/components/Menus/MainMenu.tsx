@@ -27,37 +27,37 @@ const MainMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className="c-main-menu">
-      <ul className="c-main-menu__list">
+    <nav className='c-main-menu'>
+      <ul className='c-main-menu__list'>
         <li>
           <Btn
-            icon={<Icon name="user-cog" />}
+            icon={<Icon name='user-cog' />}
             text={username}
-            variant="dropdown"
+            variant='dropdown'
             handleClick={handleUserClick}
           />
         </li>
         <li>
           <Btn
-            icon={<Icon name="calendar" />}
-            text="Calendar"
-            variant="dropdown"
+            icon={<Icon name='calendar' />}
+            text='Calendar'
+            variant='dropdown'
             handleClick={handleCalendarClick}
           />
         </li>
         <li>
           <Btn
-            icon={<Icon name="seedling" />}
-            text="Garden"
-            variant="dropdown"
+            icon={<Icon name='seedling' />}
+            text='Garden'
+            variant='dropdown'
             handleClick={handleGardenClick}
           />
         </li>
         <li>
           <Btn
-            icon={<Icon name="logout" />}
-            text="Logout"
-            variant="dropdown"
+            icon={<Icon name='logout' />}
+            text='Logout'
+            variant='dropdown'
             handleClick={handleLogoutClick}
           />
         </li>
