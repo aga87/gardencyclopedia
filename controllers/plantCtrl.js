@@ -3,17 +3,16 @@ const Plant = require('../models/Plant');
 
 const plantCtrl = {
   getAll: async (req, res) => {
-    Plant.find()
-      .select('-__v')
-      .sort({ name: 1 })
-      .then((plants) => {
-        const plantsWithCount = {
-          count: plants.length,
-          plants
-        };
-        res.status(200).json(plantsWithCount);
-      })
-      .catch((err) => res.status(500).json({ Error: 'Server error.' }));
+    try {
+      const plants = await Plant.find().select('-__v').sort({ name: 1 });
+      const plantsWithCount = {
+        count: plants.length,
+        plants
+      };
+      res.status(200).json(plantsWithCount);
+    } catch (err) {
+      return res.status(500).json({ Error: 'Server error.' });
+    }
   },
 
   add: async (req, res) => {
