@@ -390,8 +390,9 @@ body {
 }
 
 .loader {
-  color: #b5baba66;
+  display: inline-block;
   text-align: center;
+  color: #b5baba66;
   font-style: italic;
 }
 
@@ -804,6 +805,7 @@ body {
   margin: 0 auto;
 }
 .l-authentication__loader {
+  text-align: center;
   padding-top: 3rem;
 }
 .l-authentication__form {
