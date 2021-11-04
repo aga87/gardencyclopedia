@@ -1,4 +1,3 @@
-// const auth = require('../middleware/auth');
 const Plant = require('../models/Plant');
 
 const plantCtrl = {
