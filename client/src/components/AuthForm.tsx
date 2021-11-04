@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectErrMsg, selectErrId } from '../redux/reducers/index';
+import {
+  selectErrMsg,
+  selectErrId,
+  selectHasJustRegistered
+} from '../redux/reducers/index';
 import useFormInput from '../utils/hooks/useFormInput';
 import {
   validateUsername,
@@ -17,6 +21,7 @@ type AuthFormProps = {
 };
 
 const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
+  const hasJustRegistered = useSelector(selectHasJustRegistered);
   const username = useFormInput('');
   const email = useFormInput('');
   const password = useFormInput('');
@@ -112,7 +117,9 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
           <Error variant='server' msg={errMsg} />
         </div>
       )}
-
+      {variant === 'register' && hasJustRegistered && (
+        <p>Registration successful. Please log in.</p>
+      )}
       {variant === 'register' && (
         <div className='l-form__field'>
           <TextField

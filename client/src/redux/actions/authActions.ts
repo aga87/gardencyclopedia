@@ -35,12 +35,13 @@ export const register =
     const body = JSON.stringify({ username, email, password });
     axios
       .post('/api/users', body, config)
-      .then(res =>
+      .then(res => {
         dispatch({
           type: REGISTER_SUCCESS,
           payload: res.data
-        })
-      )
+        });
+        dispatch(clearErrors());
+      })
       .catch(err => {
         dispatch(
           getErrors(err.response.data, err.response.status, REGISTER_FAIL)

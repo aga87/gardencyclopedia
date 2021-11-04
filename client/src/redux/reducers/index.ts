@@ -42,6 +42,9 @@ export const selectView = (state: RootState): View =>
   fromUiReducer.selectView(state.uiReducer);
 
 // Global auth/ user selectors
+export const selectHasJustRegistered = (state: RootState): boolean =>
+  fromAuthReducer.selectHasJustRegistered(state.authReducer);
+
 export const selectIsUserLoading = (state: RootState): boolean =>
   fromAuthReducer.selectIsUserLoading(state.authReducer);
 

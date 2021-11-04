@@ -16,6 +16,7 @@ type User = {
 
 const initialState = {
   token: localStorage.getItem('token') as string,
+  hasJustRegistered: false,
   isAuthenticated: false,
   isUserLoading: false,
   user: null as null | User
@@ -57,13 +58,23 @@ const authReducer = (state = initialState, action: Action): State => {
         isUserLoading: false,
         user: action.payload
       };
-    case LOGIN_SUCCESS:
-    case REGISTER_SUCCESS: {
+    case LOGIN_SUCCESS: {
       const { token, user } = action.payload;
       localStorage.setItem('token', token);
       return {
+        ...state,
         token,
         isAuthenticated: true,
+        isUserLoading: false,
+        user
+      };
+    }
+    case REGISTER_SUCCESS: {
+      const { token, user } = action.payload;
+      return {
+        token,
+        hasJustRegistered: true,
+        isAuthenticated: false,
         isUserLoading: false,
         user
       };
@@ -73,6 +84,7 @@ const authReducer = (state = initialState, action: Action): State => {
     case REGISTER_FAIL:
       localStorage.removeItem('token');
       return {
+        hasJustRegistered: false,
         token: '',
         isAuthenticated: false,
         isUserLoading: false,
@@ -86,6 +98,10 @@ const authReducer = (state = initialState, action: Action): State => {
 export default authReducer;
 
 // Selectors
+
+export const selectHasJustRegistered = (state: State): boolean =>
+  state.hasJustRegistered;
+
 export const selectIsUserLoading = (state: State): boolean =>
   state.isUserLoading;
 
