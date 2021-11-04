@@ -17,6 +17,7 @@ const initialState = {
 };
 
 type State = typeof initialState;
+
 type Action =
   | {
       type:

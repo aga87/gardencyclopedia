@@ -3,15 +3,11 @@ import type { Action } from '../actions/errorActions';
 
 const initialState = {
   errMsg: '',
-  errStatus: null,
+  errStatus: null as null | number,
   errId: ''
 };
 
-type State = {
-  errMsg: string;
-  errStatus: number | null;
-  errId: string;
-};
+type State = typeof initialState;
 
 const errorReducer = (state = initialState, action: Action): State => {
   switch (action.type) {

@@ -14,12 +14,14 @@ type User = {
   password: string;
 };
 
-type State = {
-  token: string;
-  isAuthenticated: boolean;
-  isUserLoading: boolean;
-  user: null | User;
+const initialState = {
+  token: localStorage.getItem('token') as string,
+  isAuthenticated: false,
+  isUserLoading: false,
+  user: null as null | User
 };
+
+type State = typeof initialState;
 
 type Action =
   | {
@@ -40,13 +42,6 @@ type Action =
         user: User;
       };
     };
-
-const initialState: State = {
-  token: localStorage.getItem('token') as string,
-  isAuthenticated: false,
-  isUserLoading: false,
-  user: null
-};
 
 const authReducer = (state = initialState, action: Action): State => {
   switch (action.type) {
