@@ -9,7 +9,7 @@ import {
 import { emptyPlant } from '../../utils/constants';
 
 const initialState = {
-  mainMenuModalIsOpen: false,
+  isMainMenuModalOpen: false,
   isAddPlantModalOpen: false,
   isEditPlantModalOpen: false,
   plantToEdit: emptyPlant,
@@ -38,7 +38,7 @@ const uiReducer = (state = initialState, action: Action): State => {
     case OPEN_MAIN_MENU_MODAL:
       return {
         ...state,
-        mainMenuModalIsOpen: true
+        isMainMenuModalOpen: true
       };
     case OPEN_ADD_PLANT_MODAL:
       return {
@@ -55,7 +55,7 @@ const uiReducer = (state = initialState, action: Action): State => {
     case CLOSE_MODAL:
       return {
         ...state,
-        mainMenuModalIsOpen: false,
+        isMainMenuModalOpen: false,
         isAddPlantModalOpen: false,
         isEditPlantModalOpen: false,
         plantToEdit: emptyPlant
@@ -64,7 +64,7 @@ const uiReducer = (state = initialState, action: Action): State => {
       return {
         ...state,
         view: action.payload,
-        mainMenuModalIsOpen: false
+        isMainMenuModalOpen: false
       };
     case LOGOUT_SUCCESS:
       return initialState;
@@ -76,8 +76,8 @@ const uiReducer = (state = initialState, action: Action): State => {
 export default uiReducer;
 
 // Selectors
-export const selectMainMenuModalIsOpen = (state: State): boolean =>
-  state.mainMenuModalIsOpen;
+export const selectIsMainMenuModalOpen = (state: State): boolean =>
+  state.isMainMenuModalOpen;
 export const selectIsAddPlantModalOpen = (state: State): boolean =>
   state.isAddPlantModalOpen;
 export const selectIsEditPlantModalOpen = (state: State): boolean =>

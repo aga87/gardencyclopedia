@@ -26,8 +26,8 @@ export const selectSort = (state: RootState): Sort =>
   fromPlantsReducer.selectSort(state.plantsReducer);
 
 // Global UI selectors
-export const selectMainMenuModalIsOpen = (state: RootState): boolean =>
-  fromUiReducer.selectMainMenuModalIsOpen(state.uiReducer);
+export const selectIsMainMenuModalOpen = (state: RootState): boolean =>
+  fromUiReducer.selectIsMainMenuModalOpen(state.uiReducer);
 
 export const selectIsAddPlantModalOpen = (state: RootState): boolean =>
   fromUiReducer.selectIsAddPlantModalOpen(state.uiReducer);
