@@ -25,67 +25,70 @@ type Action =
     };
 
 export const addPlant =
-  (newPlant: Plant) => (dispatch: Dispatch, getState: TokenState) => {
-    axios
-      .post('/api/plants', newPlant, tokenConfig(getState))
-      .then(res =>
-        dispatch({
-          type: ADD_PLANT,
-          payload: res.data
-        })
-      )
-      .catch(err =>
-        dispatch(getErrors(err.response.data, err.response.status))
+  (newPlant: Plant) => async (dispatch: Dispatch, getState: TokenState) => {
+    try {
+      const res = await axios.post(
+        '/api/plants',
+        newPlant,
+        tokenConfig(getState)
       );
+      return dispatch({
+        type: ADD_PLANT,
+        payload: res.data
+      });
+    } catch (err: any) {
+      return dispatch(getErrors(err.response.data, err.response.status));
+    }
   };
 
 export const deletePlant =
-  (id: string) => (dispatch: Dispatch, getState: TokenState) => {
-    axios
-      .delete(`/api/plants/${id}`, tokenConfig(getState))
-      .then(() =>
-        dispatch({
-          type: DELETE_PLANT,
-          payload: id
-        })
-      )
-      .catch(err =>
-        dispatch(getErrors(err.response.data, err.response.status))
-      );
+  (id: string) => async (dispatch: Dispatch, getState: TokenState) => {
+    try {
+      await axios.delete(`/api/plants/${id}`, tokenConfig(getState));
+      return dispatch({
+        type: DELETE_PLANT,
+        payload: id
+      });
+    } catch (err: any) {
+      return dispatch(getErrors(err.response.data, err.response.status));
+    }
   };
 
 export const editPlant =
   (id: string, editedPlant: Plant) =>
-  (dispatch: Dispatch, getState: TokenState) => {
-    axios
-      .put(`/api/plants/${id}`, editedPlant, tokenConfig(getState))
-      .then(res =>
-        dispatch({
-          type: EDIT_PLANT,
-          payload: res.data
-        })
-      )
-      .catch(err =>
-        dispatch(getErrors(err.response.data, err.response.status))
+  async (dispatch: Dispatch, getState: TokenState) => {
+    try {
+      const res = await axios.put(
+        `/api/plants/${id}`,
+        editedPlant,
+        tokenConfig(getState)
       );
+      return dispatch({
+        type: EDIT_PLANT,
+        payload: res.data
+      });
+    } catch (err: any) {
+      return dispatch(getErrors(err.response.data, err.response.status));
+    }
   };
 
 export const setPlantsLoading = (): Action => ({
   type: PLANTS_LOADING
 });
 
-export const getPlants = () => (dispatch: Dispatch, getState: TokenState) => {
-  dispatch(setPlantsLoading());
-  axios
-    .get('/api/plants', tokenConfig(getState))
-    .then(res =>
-      dispatch({
+export const getPlants =
+  () => async (dispatch: Dispatch, getState: TokenState) => {
+    dispatch(setPlantsLoading());
+    try {
+      const res = await axios.get('/api/plants', tokenConfig(getState));
+      return dispatch({
         type: GET_PLANTS,
         payload: res.data.plants
-      })
-    )
-    .catch(err => dispatch(getErrors(err.response.data, err.response.status)));
-};
+      });
+    } catch (err: any) {
+      return dispatch(getErrors(err.response.data, err.response.status));
+    }
+  };
 
 export const filterPlants = (filter: Category): Action => ({
   type: FILTER_PLANTS,
