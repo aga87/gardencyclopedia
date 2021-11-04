@@ -27,7 +27,7 @@ const PlantForm = (): JSX.Element => {
   const sowUntil = useFormInput(plantToEdit.sowUntil);
   const harvestFrom = useFormInput(plantToEdit.harvestFrom);
   const harvestUntil = useFormInput(plantToEdit.harvestUntil);
-  const noErrors = {
+  const [errors, setErrors] = useState({
     name: '',
     desc: '',
     category: '',
@@ -35,8 +35,7 @@ const PlantForm = (): JSX.Element => {
     sowUntil: '',
     harvestFrom: '',
     harvestUntil: ''
-  };
-  const [errors, setErrors] = useState(noErrors);
+  });
   const dispatch = useDispatch();
 
   // Field constraints
@@ -82,16 +81,13 @@ const PlantForm = (): JSX.Element => {
       )
     };
 
+    setErrors(formErrors);
+
     const formErrorExists = Object.values(formErrors).some(
       value => value !== ''
     );
 
-    if (formErrorExists) {
-      setErrors(formErrors);
-      return;
-    }
-
-    setErrors(noErrors);
+    if (formErrorExists) return;
 
     // Submit if there is no errors
     const newPlant = {

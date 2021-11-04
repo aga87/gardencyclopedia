@@ -11,7 +11,7 @@ import Icon from '../Icon';
 import Select from '../Select';
 
 const TopMenu = (): JSX.Element => {
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState<Category>('');
   const dispatch = useDispatch();
 
   const handleMainMenuClick = () => {

@@ -9,7 +9,7 @@ import Btn from '../Btn';
 import Icon from '../Icon';
 
 const BottomMenu = (): JSX.Element => {
-  const [sort, setSort] = useState('name');
+  const [sort, setSort] = useState<Sort>('name');
   const view = useSelector(selectView);
   const dispatch = useDispatch();
 
