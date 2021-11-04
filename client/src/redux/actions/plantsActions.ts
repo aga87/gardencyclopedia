@@ -45,12 +45,12 @@ export const deletePlant =
   (id: string) => async (dispatch: Dispatch, getState: TokenState) => {
     try {
       await axios.delete(`/api/plants/${id}`, tokenConfig(getState));
-      return dispatch({
+      dispatch({
         type: DELETE_PLANT,
         payload: id
       });
     } catch (err: any) {
-      return dispatch(getErrors(err.response.data, err.response.status));
+      dispatch(getErrors(err.response.data, err.response.status));
     }
   };
 
@@ -63,12 +63,12 @@ export const editPlant =
         editedPlant,
         tokenConfig(getState)
       );
-      return dispatch({
+      dispatch({
         type: EDIT_PLANT,
         payload: res.data
       });
     } catch (err: any) {
-      return dispatch(getErrors(err.response.data, err.response.status));
+      dispatch(getErrors(err.response.data, err.response.status));
     }
   };
 
@@ -81,12 +81,12 @@ export const getPlants =
     dispatch(setPlantsLoading());
     try {
       const res = await axios.get('/api/plants', tokenConfig(getState));
-      return dispatch({
+      dispatch({
         type: GET_PLANTS,
         payload: res.data.plants
       });
     } catch (err: any) {
-      return dispatch(getErrors(err.response.data, err.response.status));
+      dispatch(getErrors(err.response.data, err.response.status));
     }
   };
 
