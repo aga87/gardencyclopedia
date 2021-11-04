@@ -5,7 +5,7 @@ import {
   openAddPlantModal
 } from '../../redux/actions/uiActions';
 import { filterPlants } from '../../redux/actions/plantsActions';
-import { plantCategories, emptyPlant } from '../../utils/constants';
+import { plantCategories } from '../../utils/constants';
 import Btn from '../Btn';
 import Icon from '../Icon';
 import Select from '../Select';
@@ -19,7 +19,7 @@ const TopMenu = (): JSX.Element => {
   };
 
   const handlePlusClick = () => {
-    dispatch(openAddPlantModal(emptyPlant));
+    dispatch(openAddPlantModal());
   };
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

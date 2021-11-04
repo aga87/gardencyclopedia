@@ -30,8 +30,7 @@ const uiReducer = (state = initialState, action: Action): State => {
     case OPEN_ADD_PLANT_MODAL:
       return {
         ...state,
-        isAddPlantModalOpen: true,
-        plantToEdit: action.payload
+        isAddPlantModalOpen: true
       };
     case OPEN_EDIT_PLANT_MODAL:
       return {

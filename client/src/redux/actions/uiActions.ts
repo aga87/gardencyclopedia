@@ -8,10 +8,13 @@ import {
 
 export type UIAction =
   | {
-      type: typeof OPEN_MAIN_MENU_MODAL | typeof CLOSE_MODAL;
+      type:
+        | typeof OPEN_MAIN_MENU_MODAL
+        | typeof CLOSE_MODAL
+        | typeof OPEN_ADD_PLANT_MODAL;
     }
   | {
-      type: typeof OPEN_ADD_PLANT_MODAL | typeof OPEN_EDIT_PLANT_MODAL;
+      type: typeof OPEN_EDIT_PLANT_MODAL;
       payload: Plant;
     }
   | {
@@ -23,9 +26,8 @@ export const openMainMenuModal = (): UIAction => ({
   type: OPEN_MAIN_MENU_MODAL
 });
 
-export const openAddPlantModal = (plant: Plant): UIAction => ({
-  type: OPEN_ADD_PLANT_MODAL,
-  payload: plant
+export const openAddPlantModal = (): UIAction => ({
+  type: OPEN_ADD_PLANT_MODAL
 });
 
 export const openEditPlantModal = (plant: Plant): UIAction => ({
