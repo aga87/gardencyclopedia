@@ -1,19 +1,15 @@
 import { GET_ERRORS, CLEAR_ERRORS } from '../actions/types';
-import type { Action } from '../actions/errorActions';
+import type { ErrAction } from '../actions/errorActions';
 
 const initialState = {
   errMsg: '',
-  errStatus: null,
+  errStatus: null as null | number,
   errId: ''
 };
 
-type State = {
-  errMsg: string;
-  errStatus: number | null;
-  errId: string;
-};
+type State = typeof initialState;
 
-const errorReducer = (state = initialState, action: Action): State => {
+const errorReducer = (state = initialState, action: ErrAction): State => {
   switch (action.type) {
     case GET_ERRORS: {
       const { errMsg, errStatus, errId } = action.payload;

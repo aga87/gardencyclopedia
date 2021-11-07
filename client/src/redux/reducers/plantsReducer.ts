@@ -9,18 +9,13 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  plants: [],
+  plants: [] as Plant[],
   isLoading: false,
   filter: '' as Category,
   sort: 'name' as Sort
 };
 
-type State = {
-  plants: Plant[];
-  isLoading: boolean;
-  filter: Category;
-  sort: Sort;
-};
+type State = typeof initialState;
 
 type Action =
   | {

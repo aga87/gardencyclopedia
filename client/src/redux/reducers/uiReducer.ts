@@ -7,9 +7,10 @@ import {
   LOGOUT_SUCCESS
 } from '../actions/types';
 import { emptyPlant } from '../../utils/constants';
+import type { UIAction } from '../actions/uiActions';
 
 const initialState = {
-  mainMenuModalIsOpen: false,
+  isMainMenuModalOpen: false,
   isAddPlantModalOpen: false,
   isEditPlantModalOpen: false,
   plantToEdit: emptyPlant,
@@ -17,34 +18,19 @@ const initialState = {
 };
 
 type State = typeof initialState;
-type Action =
-  | {
-      type:
-        | typeof OPEN_MAIN_MENU_MODAL
-        | typeof CLOSE_MODAL
-        | typeof LOGOUT_SUCCESS;
-    }
-  | {
-      type: typeof OPEN_ADD_PLANT_MODAL | typeof OPEN_EDIT_PLANT_MODAL;
-      payload: Plant;
-    }
-  | {
-      type: typeof SET_VIEW;
-      payload: View;
-    };
+type Action = UIAction | { type: typeof LOGOUT_SUCCESS };
 
 const uiReducer = (state = initialState, action: Action): State => {
   switch (action.type) {
     case OPEN_MAIN_MENU_MODAL:
       return {
         ...state,
-        mainMenuModalIsOpen: true
+        isMainMenuModalOpen: true
       };
     case OPEN_ADD_PLANT_MODAL:
       return {
         ...state,
-        isAddPlantModalOpen: true,
-        plantToEdit: action.payload
+        isAddPlantModalOpen: true
       };
     case OPEN_EDIT_PLANT_MODAL:
       return {
@@ -55,7 +41,7 @@ const uiReducer = (state = initialState, action: Action): State => {
     case CLOSE_MODAL:
       return {
         ...state,
-        mainMenuModalIsOpen: false,
+        isMainMenuModalOpen: false,
         isAddPlantModalOpen: false,
         isEditPlantModalOpen: false,
         plantToEdit: emptyPlant
@@ -64,7 +50,7 @@ const uiReducer = (state = initialState, action: Action): State => {
       return {
         ...state,
         view: action.payload,
-        mainMenuModalIsOpen: false
+        isMainMenuModalOpen: false
       };
     case LOGOUT_SUCCESS:
       return initialState;
@@ -76,8 +62,8 @@ const uiReducer = (state = initialState, action: Action): State => {
 export default uiReducer;
 
 // Selectors
-export const selectMainMenuModalIsOpen = (state: State): boolean =>
-  state.mainMenuModalIsOpen;
+export const selectIsMainMenuModalOpen = (state: State): boolean =>
+  state.isMainMenuModalOpen;
 export const selectIsAddPlantModalOpen = (state: State): boolean =>
   state.isAddPlantModalOpen;
 export const selectIsEditPlantModalOpen = (state: State): boolean =>

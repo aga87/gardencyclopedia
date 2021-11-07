@@ -26,8 +26,8 @@ export const selectSort = (state: RootState): Sort =>
   fromPlantsReducer.selectSort(state.plantsReducer);
 
 // Global UI selectors
-export const selectMainMenuModalIsOpen = (state: RootState): boolean =>
-  fromUiReducer.selectMainMenuModalIsOpen(state.uiReducer);
+export const selectIsMainMenuModalOpen = (state: RootState): boolean =>
+  fromUiReducer.selectIsMainMenuModalOpen(state.uiReducer);
 
 export const selectIsAddPlantModalOpen = (state: RootState): boolean =>
   fromUiReducer.selectIsAddPlantModalOpen(state.uiReducer);
@@ -42,6 +42,9 @@ export const selectView = (state: RootState): View =>
   fromUiReducer.selectView(state.uiReducer);
 
 // Global auth/ user selectors
+export const selectHasJustRegistered = (state: RootState): boolean =>
+  fromAuthReducer.selectHasJustRegistered(state.authReducer);
+
 export const selectIsUserLoading = (state: RootState): boolean =>
   fromAuthReducer.selectIsUserLoading(state.authReducer);
 

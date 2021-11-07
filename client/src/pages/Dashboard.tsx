@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
-  selectMainMenuModalIsOpen,
+  selectIsMainMenuModalOpen,
   selectView,
   selectIsAddPlantModalOpen,
   selectIsEditPlantModalOpen
@@ -14,14 +14,14 @@ import GardenView from '../components/GardenView';
 import BottomMenu from '../components/Menus/BottomMenu';
 
 const Dashboard = (): JSX.Element => {
-  const mainMenuModalIsOpen = useSelector(selectMainMenuModalIsOpen);
+  const isMainMenuModalOpen = useSelector(selectIsMainMenuModalOpen);
   const isAddPlantModalOpen = useSelector(selectIsAddPlantModalOpen);
   const isEditPlantModalOpen = useSelector(selectIsEditPlantModalOpen);
   const view = useSelector(selectView);
 
   return (
     <div>
-      {mainMenuModalIsOpen && <MainMenuModal />}
+      {isMainMenuModalOpen && <MainMenuModal />}
       {isAddPlantModalOpen && <PlantModal variant='add' />}
       {isEditPlantModalOpen && <PlantModal variant='edit' />}
 
