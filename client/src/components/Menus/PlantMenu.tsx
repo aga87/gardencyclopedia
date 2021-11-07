@@ -28,14 +28,14 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
   };
 
   return (
-    <nav className="c-plant-menu l-plant-menu">
+    <nav className='c-plant-menu l-plant-menu'>
       <Btn
         variant='secondary'
         icon={<Icon name='more' />}
         handleClick={handleMoreClick}
       />
       {isExpanded && (
-        <ul className="c-plant-menu__dropdown l-plant-menu__dropdown">
+        <ul className='c-plant-menu__dropdown l-plant-menu__dropdown'>
           <li>
             <Btn
               variant='dropdown'
