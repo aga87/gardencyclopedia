@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Tab from './Tab';
+import Tab from './nano/Tab';
 import AuthForm from './AuthForm';
 
 const TabbedAuthForm = (): JSX.Element => {
