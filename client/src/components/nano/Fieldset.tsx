@@ -9,8 +9,8 @@ const Fieldset: React.FC<FieldsetProps> = ({
   legend,
   children
 }): JSX.Element => (
-  <fieldset className='c-fieldset'>
-    <legend className='c-fieldset__legend'>{legend}</legend>
+  <fieldset className='fieldset'>
+    <legend className='fieldset__legend'>{legend}</legend>
     {children}
   </fieldset>
 );

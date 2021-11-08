@@ -15,7 +15,7 @@ import {
 } from '../utils/validation-utils';
 import TextField from './TextField';
 import SelectField from './SelectField';
-import Fieldset from './Fieldset';
+import Fieldset from './nano/Fieldset';
 import SubmitBtn from './nano/SubmitBtn';
 
 const PlantForm = (): JSX.Element => {
