@@ -1,6 +1,6 @@
 import React from 'react';
 import { capitalize } from '../utils/text-utils';
-import Label from './Label';
+import Label from './nano/Label';
 import Error from './nano/Error';
 
 type SelectFieldProps = {

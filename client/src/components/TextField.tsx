@@ -1,5 +1,5 @@
 import React from 'react';
-import Label from './Label';
+import Label from './nano/Label';
 import Error from './nano/Error';
 
 type TextFieldProps = {
