@@ -1,6 +1,6 @@
 import React from 'react';
 import PlantEntryHeader from './PlantEntryHeader';
-import PlantDesc from './PlantDesc';
+import PlantDesc from './nano/PlantDesc';
 import Tag from './nano/Tag';
 import CalendarChart from './CalendarChart';
 
