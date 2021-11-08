@@ -7,4 +7,4 @@ export default {
   component: LoaderComponent
 } as ComponentMeta<typeof LoaderComponent>;
 
-export const Loader = () => <LoaderComponent />;
+export const Loader  = () => <LoaderComponent />;

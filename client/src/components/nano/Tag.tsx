@@ -1,5 +1,5 @@
 import React from 'react';
-import { capitalize } from '../utils/text-utils';
+import { capitalize } from '../../utils/text-utils';
 
 type TagProps = {
   tag: string;

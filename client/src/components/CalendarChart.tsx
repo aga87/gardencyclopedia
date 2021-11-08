@@ -1,6 +1,6 @@
 import React from 'react';
 import { months } from '../utils/constants';
-import MonthData from './MonthData';
+import MonthlyDataRow from './nano/MonthlyDataRow';
 
 type CalendarChartProps = {
   sowFrom: Month;
@@ -27,16 +27,16 @@ const CalendarChart = ({
         <tr>{monthHeadings}</tr>
       </thead>
       <tbody>
-        <tr>
-          <MonthData variant='sow' monthStart={sowFrom} monthEnd={sowUntil} />
-        </tr>
-        <tr>
-          <MonthData
-            variant='harvest'
-            monthStart={harvestFrom}
-            monthEnd={harvestUntil}
-          />
-        </tr>
+        <MonthlyDataRow
+          variant='sow'
+          monthStart={sowFrom}
+          monthEnd={sowUntil}
+        />
+        <MonthlyDataRow
+          variant='harvest'
+          monthStart={harvestFrom}
+          monthEnd={harvestUntil}
+        />
       </tbody>
     </table>
   );

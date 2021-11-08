@@ -1,7 +1,7 @@
 import React from 'react';
 import PlantEntryHeader from './PlantEntryHeader';
 import PlantDesc from './PlantDesc';
-import Tag from './Tag';
+import Tag from './nano/Tag';
 import CalendarChart from './CalendarChart';
 
 type PlantEntryProps = {

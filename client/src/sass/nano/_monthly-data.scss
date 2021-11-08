@@ -1,12 +1,13 @@
-.month-data {
+.monthly-data {
   background-color: $grey-04;
+  width: calc(100% / 12);
   height: $blh * 0.5rem;
 
-  &.month-data--sow {
+  &.monthly-data--sow {
     background-color: $green;
   }
 
-  &.month-data--harvest {
+  &.monthly-data--harvest {
     background-color: $orange;
   }
 }
