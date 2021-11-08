@@ -6,7 +6,7 @@ import { selectView } from '../../redux/reducers/index';
 import { sortOptions } from '../../utils/constants';
 import Select from '../Select';
 import Btn from '../Btn';
-import Icon from '../Icon';
+import Icon from '../nano/Icon';
 
 const BottomMenu = (): JSX.Element => {
   const [sort, setSort] = useState<Sort>('name');

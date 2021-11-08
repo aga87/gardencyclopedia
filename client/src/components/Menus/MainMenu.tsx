@@ -4,7 +4,7 @@ import { setView } from '../../redux/actions/uiActions';
 import { logout } from '../../redux/actions/authActions';
 import { selectUsername } from '../../redux/reducers/index';
 import Btn from '../Btn';
-import Icon from '../Icon';
+import Icon from '../nano/Icon';
 
 const MainMenu = (): JSX.Element => {
   const username = useSelector(selectUsername);

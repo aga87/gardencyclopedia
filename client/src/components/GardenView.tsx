@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './Icon';
+import Icon from './nano/Icon';
 import Logo from './nano/Logo';
 
 const GardenView = (): JSX.Element => {

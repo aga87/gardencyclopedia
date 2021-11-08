@@ -7,7 +7,7 @@ import {
 import { filterPlants } from '../../redux/actions/plantsActions';
 import { plantCategories } from '../../utils/constants';
 import Btn from '../Btn';
-import Icon from '../Icon';
+import Icon from '../nano/Icon';
 import Select from '../Select';
 
 const TopMenu = (): JSX.Element => {

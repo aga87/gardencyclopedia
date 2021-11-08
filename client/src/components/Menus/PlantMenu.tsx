@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { deletePlant } from '../../redux/actions/plantsActions';
 import { openEditPlantModal } from '../../redux/actions/uiActions';
 import Btn from '../Btn';
-import Icon from '../Icon';
+import Icon from '../nano/Icon';
 
 type PlantMenuProps = {
   plant: Plant;
