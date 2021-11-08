@@ -3,17 +3,17 @@ import React from 'react';
 type ErrorProps = {
   id?: string;
   msg: string;
-  variant?: 'client' | 'server';
+  variant?: 'primary' | 'server';
 };
 
 const Error = ({
   id = '',
   msg,
-  variant = 'client'
+  variant = 'primary'
 }: ErrorProps): JSX.Element | null => {
   if (!msg) return null;
   return (
-    <p id={id} className={variant === 'client' ? 'error s1' : 'error-server'}>
+    <p id={id} className={variant === 'primary' ? 'error s1' : 'error-server'}>
       {msg}
     </p>
   );

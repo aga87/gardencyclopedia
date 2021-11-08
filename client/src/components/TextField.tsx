@@ -1,6 +1,6 @@
 import React from 'react';
 import Label from './Label';
-import Error from './Error';
+import Error from './nano/Error';
 
 type TextFieldProps = {
   inputId: string;
