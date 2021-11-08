@@ -16,7 +16,7 @@ import {
 import TextField from './TextField';
 import SelectField from './SelectField';
 import Fieldset from './Fieldset';
-import SubmitBtn from './SubmitBtn';
+import SubmitBtn from './nano/SubmitBtn';
 
 const PlantForm = (): JSX.Element => {
   const plantToEdit = useSelector(selectPlantToEdit);

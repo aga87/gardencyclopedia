@@ -14,7 +14,7 @@ import {
 import { login, register } from '../redux/actions/authActions';
 import TextField from './TextField';
 import Error from './nano/Error';
-import SubmitBtn from './SubmitBtn';
+import SubmitBtn from './nano/SubmitBtn';
 
 type AuthFormProps = {
   variant: 'login' | 'register';
