@@ -33,10 +33,10 @@ const SelectField = ({
   ));
 
   return (
-    <div>
+    <div className='c-select-field'>
       <Label label={label} inputId={inputId} required={required} />
       <select
-        className='select'
+        className='c-select-field__select'
         id={inputId}
         required={required}
         value={value}

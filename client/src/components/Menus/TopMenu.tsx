@@ -8,7 +8,7 @@ import { filterPlants } from '../../redux/actions/plantsActions';
 import { plantCategories } from '../../utils/constants';
 import Btn from '../Btn';
 import Icon from '../nano/Icon';
-import Select from '../Select';
+import Select from '../nano/Select';
 
 const TopMenu = (): JSX.Element => {
   const [filter, setFilter] = useState<Category>('');
@@ -35,7 +35,6 @@ const TopMenu = (): JSX.Element => {
         </li>
         <li>
           <Select
-            variant='filter'
             options={plantCategories}
             placeholder='All Plants'
             value={filter}

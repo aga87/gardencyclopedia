@@ -4,7 +4,7 @@ import { sortPlants } from '../../redux/actions/plantsActions';
 import { setView } from '../../redux/actions/uiActions';
 import { selectView } from '../../redux/reducers/index';
 import { sortOptions } from '../../utils/constants';
-import Select from '../Select';
+import Select from '../nano/Select';
 import Btn from '../Btn';
 import Icon from '../nano/Icon';
 
@@ -35,7 +35,7 @@ const BottomMenu = (): JSX.Element => {
             options={sortOptions}
             value={sort}
             handleChange={handleSort}
-            ariaLabel='Sort by'
+            ariaLabel='Sort plants by'
           />
         </li>
         <li>
