@@ -1,7 +1,7 @@
 import React from 'react';
 import { capitalize } from '../utils/text-utils';
-import Label from './Label';
-import Error from './Error';
+import Label from './nano/Label';
+import Error from './nano/Error';
 
 type SelectFieldProps = {
   inputId: string;
@@ -33,10 +33,10 @@ const SelectField = ({
   ));
 
   return (
-    <div>
+    <div className='c-select-field'>
       <Label label={label} inputId={inputId} required={required} />
       <select
-        className='select'
+        className='c-select-field__select'
         id={inputId}
         required={required}
         value={value}

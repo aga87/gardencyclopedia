@@ -15,8 +15,8 @@ import {
 } from '../utils/validation-utils';
 import TextField from './TextField';
 import SelectField from './SelectField';
-import Fieldset from './Fieldset';
-import SubmitBtn from './SubmitBtn';
+import Fieldset from './nano/Fieldset';
+import SubmitBtn from './nano/SubmitBtn';
 
 const PlantForm = (): JSX.Element => {
   const plantToEdit = useSelector(selectPlantToEdit);

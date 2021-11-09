@@ -13,8 +13,8 @@ import {
 } from '../utils/validation-utils';
 import { login, register } from '../redux/actions/authActions';
 import TextField from './TextField';
-import Error from './Error';
-import SubmitBtn from './SubmitBtn';
+import Error from './nano/Error';
+import SubmitBtn from './nano/SubmitBtn';
 
 type AuthFormProps = {
   variant: 'login' | 'register';

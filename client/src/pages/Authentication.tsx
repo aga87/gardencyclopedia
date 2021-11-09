@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectIsUserLoading } from '../redux/reducers/index';
 import Header from '../components/Header';
-import Loader from '../components/Loader';
+import Loader from '../components/nano/Loader';
 import TabbedAuthForm from '../components/TabbedAuthForm';
 
 const Authentication = (): JSX.Element => {

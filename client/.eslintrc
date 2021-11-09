@@ -12,6 +12,15 @@
         "extensions": [".js", ".jsx", ".tsx", ".ts"]
       }
     ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.stories.tsx"],
+
+        "peerDependencies": false
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "prettier/prettier": [
       "warn",

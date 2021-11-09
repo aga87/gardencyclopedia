@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from './Logo';
+import Logo from './nano/Logo';
 
 const Header = (): JSX.Element => (
   <header className='c-header'>

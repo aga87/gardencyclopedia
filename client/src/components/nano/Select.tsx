@@ -1,8 +1,8 @@
 import React from 'react';
-import { capitalize } from '../utils/text-utils';
+import { capitalize } from '../../utils/text-utils';
 
 type SelectProps = {
-  variant?: 'primary' | 'filter' | 'sort';
+  variant?: 'primary' | 'sort';
   options: string[];
   placeholder?: string;
   value: string;
@@ -20,7 +20,7 @@ const Select = ({
 }: SelectProps): JSX.Element => {
   let className = 'select';
   if (variant !== 'primary') {
-    className = `select select--custom select--${variant}`;
+    className = `select select--${variant}`;
   }
 
   const selectOptions = options.map(option => (
