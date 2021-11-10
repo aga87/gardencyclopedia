@@ -28,6 +28,7 @@ const MainMenu = (): JSX.Element => {
 
   return (
     <nav className='c-main-menu'>
+      <p className='c-main-menu__title'>Gardencyclopedia</p>
       <ul className='c-main-menu__list'>
         <li>
           <Btn

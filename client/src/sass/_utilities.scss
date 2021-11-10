@@ -1,0 +1,12 @@
+// Layout utils
+.xss-only {
+  @include screen-min($screen-xs) {
+    display: none !important;
+  }
+}
+
+.not-xxs {
+  @include screen-max($screen-xs) {
+    display: none !important;
+  }
+}

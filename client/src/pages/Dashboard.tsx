@@ -12,6 +12,7 @@ import TopMenu from '../components/Menus/TopMenu';
 import CalendarView from '../components/CalendarView';
 import GardenView from '../components/GardenView';
 import BottomMenu from '../components/Menus/BottomMenu';
+import MainMenu from '../components/Menus/MainMenu';
 
 const Dashboard = (): JSX.Element => {
   const isMainMenuModalOpen = useSelector(selectIsMainMenuModalOpen);
@@ -26,18 +27,24 @@ const Dashboard = (): JSX.Element => {
       {isEditPlantModalOpen && <PlantModal variant='edit' />}
 
       <div className='p-dashboard l-dashboard'>
-        <TopMenu />
-        <section className='l-dashboard__content'>
-          {view === 'calendar' ? (
-            <CalendarView />
-          ) : (
-            <div className='l-flex-centerY'>
-              <GardenView />
-            </div>
-          )}
-        </section>
-        <div className='l-dashboard__bottom-menu'>
-          <BottomMenu />
+        <div className='l-dashboard__flex-main-menu not-xss'>
+          <MainMenu />
+        </div>
+        <div className='l-dashboard__flex-content'>
+          <TopMenu />
+          <section className='l-dashboard__content'>
+            {view === 'calendar' ? (
+              <CalendarView />
+            ) : (
+              <div className='l-flex-centerY'>
+                <GardenView />
+              </div>
+            )}
+          </section>
+
+          <div className='l-dashboard__bottom-menu xxs-only'>
+            <BottomMenu />
+          </div>
         </div>
       </div>
     </div>

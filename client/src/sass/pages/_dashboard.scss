@@ -1,6 +1,20 @@
 .l-dashboard {
   height: 100vh;
 
+  @include screen-min($screen-xs) {
+    display: flex;
+  }
+
+  &__flex-main-menu {
+    flex-basis: $main-menu-width;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  &__flex-content {
+    width: 100%;
+  }
+
   &__content {
     height: calc(100vh - #{$menu-height * 2});
     overflow-y: auto;

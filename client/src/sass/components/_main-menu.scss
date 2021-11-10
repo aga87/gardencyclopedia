@@ -1,4 +1,14 @@
 .c-main-menu {
+  &__title {
+    height: $menu-height;
+    @include h5;
+    line-height: $menu-height;
+    font-style: italic;
+    color: $white;
+    background-color: $red;
+    padding-left: 0.75em;
+  }
+
   &__list {
     list-style-type: none;
   }

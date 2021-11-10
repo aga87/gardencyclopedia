@@ -4,6 +4,9 @@
 
 .l-top-menu {
   height: $menu-height;
+  @include screen-max($screen-xs) {
+    position: relative;
+  }
 
   &__list {
     display: flex;
@@ -11,5 +14,16 @@
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
+
+    @include screen-min($screen-xs) {
+      justify-content: flex-end;
+    }
+  }
+
+  // true center
+  &__list-item-center {
+    @include screen-max($screen-xs) {
+      @include centerXY-abs;
+    }
   }
 }
