@@ -1,5 +1,5 @@
 // Layout utils
-.xss-only {
+.xxs-only {
   @include screen-min($screen-xs) {
     display: none !important;
   }
