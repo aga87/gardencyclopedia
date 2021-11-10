@@ -4,9 +4,11 @@ import {
   selectIsMainMenuModalOpen,
   selectView,
   selectIsAddPlantModalOpen,
-  selectIsEditPlantModalOpen
+  selectIsEditPlantModalOpen,
+  selectIsUserSettingsModalOpen
 } from '../redux/reducers/index';
 import MainMenuModal from '../components/MainMenuModal';
+import UserSettingsModal from '../components/UserSettingsModal';
 import PlantModal from '../components/PlantModal';
 import TopToolbar from '../components/Menus/TopToolbar';
 import BottomToolbar from '../components/Menus/BottomToolbar';
@@ -16,6 +18,7 @@ import MainMenu from '../components/Menus/MainMenu';
 
 const Dashboard = (): JSX.Element => {
   const isMainMenuModalOpen = useSelector(selectIsMainMenuModalOpen);
+  const isUserSettingsModalOpen = useSelector(selectIsUserSettingsModalOpen);
   const isAddPlantModalOpen = useSelector(selectIsAddPlantModalOpen);
   const isEditPlantModalOpen = useSelector(selectIsEditPlantModalOpen);
   const view = useSelector(selectView);
@@ -23,6 +26,7 @@ const Dashboard = (): JSX.Element => {
   return (
     <div>
       {isMainMenuModalOpen && <MainMenuModal />}
+      {isUserSettingsModalOpen && <UserSettingsModal />}
       {isAddPlantModalOpen && <PlantModal variant='add' />}
       {isEditPlantModalOpen && <PlantModal variant='edit' />}
 

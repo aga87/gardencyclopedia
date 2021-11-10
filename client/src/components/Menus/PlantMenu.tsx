@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../../redux/actions/plantsActions';
 import { openEditPlantModal } from '../../redux/actions/uiActions';

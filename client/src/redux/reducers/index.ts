@@ -35,6 +35,9 @@ export const selectIsAddPlantModalOpen = (state: RootState): boolean =>
 export const selectIsEditPlantModalOpen = (state: RootState): boolean =>
   fromUiReducer.selectIsEditPlantModalOpen(state.uiReducer);
 
+export const selectIsUserSettingsModalOpen = (state: RootState): boolean =>
+  fromUiReducer.selectIsUserSettingsModalOpen(state.uiReducer);
+
 export const selectPlantToEdit = (state: RootState): Plant =>
   fromUiReducer.selectPlantToEdit(state.uiReducer);
 

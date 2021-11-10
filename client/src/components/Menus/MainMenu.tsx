@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setView } from '../../redux/actions/uiActions';
+import { openUserSettingsModal, setView } from '../../redux/actions/uiActions';
 import { logout } from '../../redux/actions/authActions';
 import { selectUsername } from '../../redux/reducers/index';
 import Btn from '../Btn';
@@ -11,7 +11,7 @@ const MainMenu = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleUserClick = () => {
-    // TODO: open user modal
+    dispatch(openUserSettingsModal());
   };
 
   const handleCalendarClick = () => {
