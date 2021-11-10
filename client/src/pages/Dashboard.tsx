@@ -27,7 +27,7 @@ const Dashboard = (): JSX.Element => {
       {isEditPlantModalOpen && <PlantModal variant='edit' />}
 
       <div className='p-dashboard l-dashboard'>
-        <div className='l-dashboard__flex-main-menu not-xss'>
+        <div className='l-dashboard__flex-main-menu not-xxs'>
           <MainMenu />
         </div>
         <div className='l-dashboard__flex-content'>
