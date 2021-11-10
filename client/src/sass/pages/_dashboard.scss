@@ -19,6 +19,7 @@
     height: calc(100vh - #{$toolbar-height * 2});
     overflow-y: auto;
     padding: $blh * 0.5rem;
+    padding-bottom: $blh * 1rem;
 
     @include screen-min($screen-xxs) {
       padding-left: $blh * 1rem;

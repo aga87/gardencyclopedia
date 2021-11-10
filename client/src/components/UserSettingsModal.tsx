@@ -1,24 +1,18 @@
 import React from 'react';
 import Modal from './Modal';
+import UpcomingFeatures from './UpcomingFeatures';
 
-const UserSettingsModal = (): JSX.Element => {
-  const upcomingFeatures = [
-    'User authentication with OAuth.',
-    'Change user email.',
-    'Change user password.',
-    'Change user name.'
-  ];
-
-  const upcomingFeaturesListItems = upcomingFeatures.map(feature => (
-    <li>{feature}</li>
-  ));
-
-  return (
-    <Modal title='User settings'>
-      <p>Coming soon:</p>
-      <ul>{upcomingFeaturesListItems}</ul>
-    </Modal>
-  );
-};
+const UserSettingsModal = (): JSX.Element => (
+  <Modal title='User settings'>
+    <UpcomingFeatures
+      features={[
+        'User authentication with OAuth.',
+        'Update user email.',
+        'Update user password.',
+        'Change username.'
+      ]}
+    />
+  </Modal>
+);
 
 export default UserSettingsModal;

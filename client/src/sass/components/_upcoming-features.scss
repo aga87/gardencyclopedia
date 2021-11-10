@@ -1,0 +1,13 @@
+.c-upcoming-features {
+  text-align: center;
+  color: $grey;
+
+  &__title {
+    font-weight: 300;
+    margin-bottom: $blh * 0.5rem;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+}
