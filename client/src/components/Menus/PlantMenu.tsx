@@ -42,17 +42,17 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
             <li>
               <Btn
                 variant='dropdown'
-                icon={<Icon name='trash' />}
-                text='Delete'
-                handleClick={handleDeleteClick}
+                icon={<Icon name='edit' />}
+                text='Edit'
+                handleClick={handleEditClick}
               />
             </li>
             <li>
               <Btn
                 variant='dropdown'
-                icon={<Icon name='edit' />}
-                text='Edit'
-                handleClick={handleEditClick}
+                icon={<Icon name='trash' />}
+                text='Delete'
+                handleClick={handleDeleteClick}
               />
             </li>
           </ul>
