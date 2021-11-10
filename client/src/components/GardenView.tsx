@@ -1,12 +1,10 @@
 import React from 'react';
-import Icon from './nano/Icon';
-import Logo from './nano/Logo';
+import Header from './Header';
 import UpcomingFeatures from './UpcomingFeatures';
 
 const GardenView = (): JSX.Element => (
-  <div className='c-garden-view'>
-    <Logo variant='light' />
-    <h1 className='c-garden-view__title t1'>Garden</h1>
+  <div>
+    <Header variant='secondary' title='Garden' />
     <UpcomingFeatures
       features={[
         'Keep track of all plants in your garden.',
@@ -16,7 +14,6 @@ const GardenView = (): JSX.Element => (
         'Archive selected plants for future reference.'
       ]}
     />
-    <Icon name='seedling' />
   </div>
 );
 
