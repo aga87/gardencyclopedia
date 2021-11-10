@@ -21,7 +21,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    bottom: $menu-height;
+    bottom: $toolbar-height;
 
     @include screen-min($screen-xs) {
       bottom: 0;

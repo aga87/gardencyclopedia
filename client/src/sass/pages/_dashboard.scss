@@ -16,7 +16,7 @@
   }
 
   &__content {
-    height: calc(100vh - #{$menu-height * 2});
+    height: calc(100vh - #{$toolbar-height * 2});
     overflow-y: auto;
     padding: $blh * 0.5rem;
 
@@ -24,9 +24,13 @@
       padding-left: $blh * 1rem;
       padding-right: $blh * 1rem;
     }
+
+    @include screen-min($screen-xs) {
+      height: calc(100vh - #{$toolbar-xs-height});
+    }
   }
 
-  &__bottom-menu {
+  &__bottom-toolbar {
     @include fixed-to-bottom();
   }
 }

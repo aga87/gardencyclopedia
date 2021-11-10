@@ -6,11 +6,12 @@ import {
 } from '../../redux/actions/uiActions';
 import { filterPlants, sortPlants } from '../../redux/actions/plantsActions';
 import { plantCategories, sortOptions } from '../../utils/constants';
+import Toolbar from './Toolbar';
 import Btn from '../Btn';
 import Icon from '../nano/Icon';
 import Select from '../nano/Select';
 
-const TopMenu = (): JSX.Element => {
+const TopToolbar = (): JSX.Element => {
   const [filter, setFilter] = useState<Category>('');
   const [sort, setSort] = useState<Sort>('name');
   const dispatch = useDispatch();
@@ -34,12 +35,12 @@ const TopMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-top-menu l-top-menu'>
-      <ul className='l-top-menu__list'>
+    <Toolbar>
+      <ul className='l-top-toolbar'>
         <li className='xxs-only'>
           <Btn icon={<Icon name='menu' />} handleClick={handleMainMenuClick} />
         </li>
-        <li className='l-top-menu__list-item-center'>
+        <li className='l-top-toolbar__item-center'>
           <Select
             options={plantCategories}
             placeholder='All Plants'
@@ -61,8 +62,8 @@ const TopMenu = (): JSX.Element => {
           <Btn icon={<Icon name='plus' />} handleClick={handleAddClick} />
         </li>
       </ul>
-    </nav>
+    </Toolbar>
   );
 };
 
-export default TopMenu;
+export default TopToolbar;

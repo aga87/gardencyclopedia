@@ -1,8 +1,8 @@
 .c-main-menu {
   &__title {
-    height: $menu-height;
+    height: $toolbar-xs-height;
     @include h5;
-    line-height: $menu-height;
+    line-height: $toolbar-xs-height;
     font-style: italic;
     color: $white;
     background-color: $red;

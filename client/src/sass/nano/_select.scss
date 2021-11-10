@@ -2,7 +2,7 @@
   $bg-size: 9px;
   @include input;
   text-align: center;
-  height: calc(#{$menu-height} - 2px);
+  height: calc(#{$toolbar-height} - 2px);
   appearance: none;
   padding: 0 calc(0.5em + #{$bg-size}) 0 0.5em;
   background-color: transparent;
