@@ -1,6 +1,7 @@
 .select {
   $bg-size: 9px;
-  @include input;
+  font-family: inherit;
+  @include h6;
   text-align: center;
   height: calc(#{$toolbar-height} - 2px);
   appearance: none;
@@ -14,6 +15,10 @@
 
   &:hover {
     cursor: pointer;
+  }
+
+  &:focus {
+    outline: 1px solid $orange;
   }
 
   &.select--sort {
