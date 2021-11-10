@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { emptyPlant } from '../constants';
 
 export default function useComponentVisibility(initialIsVisible) {
   const [isComponentVisible, setIsComponentVisible] =
