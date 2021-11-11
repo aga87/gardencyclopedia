@@ -15,6 +15,7 @@ import { login, register } from '../redux/actions/authActions';
 import TextField from './TextField';
 import Error from './nano/Error';
 import SubmitBtn from './nano/SubmitBtn';
+import SuccessMsg from './nano/SuccessMsg';
 
 type AuthFormProps = {
   variant: 'login' | 'register';
@@ -108,17 +109,19 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   return (
     <form noValidate onSubmit={handleSubmit} className='c-form l-form'>
       {variant === 'login' && errId === 'LOGIN_FAIL' && (
-        <div className='l-form__error'>
+        <div className='l-form__server-msg'>
           <Error variant='server' msg={errMsg} />
         </div>
       )}
       {variant === 'register' && errId === 'REGISTER_FAIL' && (
-        <div className='l-form__error'>
+        <div className='l-form__server-msg'>
           <Error variant='server' msg={errMsg} />
         </div>
       )}
       {variant === 'register' && hasJustRegistered && (
-        <p>Registration successful. Please log in.</p>
+        <div className='l-form__server-msg'>
+          <SuccessMsg msg='Registration successful. Please log in.' />
+        </div>
       )}
       {variant === 'register' && (
         <div className='l-form__field'>
