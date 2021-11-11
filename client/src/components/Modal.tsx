@@ -18,16 +18,16 @@ const Modal: React.FC<ModalProps> = ({
   }
 
   return (
-    <section className='c-modal l-modal'>
+    <div className='c-modal l-modal'>
       <div className={contentClass}>
         <div className='l-modal__header'>
           <ModalHeader title={title} />
         </div>
-        <div className={variant === 'primary' ? 'l-modal__children' : ''}>
+        <section className={variant === 'primary' ? 'l-modal__children' : ''}>
           {children}
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
   );
 };
 
