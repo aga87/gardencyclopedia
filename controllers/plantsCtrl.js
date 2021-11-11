@@ -3,7 +3,10 @@ const Plant = require('../models/Plant');
 const plantCtrl = {
   getAll: async (req, res) => {
     try {
-      const plants = await Plant.find().select('-__v').sort({ name: 1 });
+      const userId = req.user.id; // comes from auth middleware (and is included in the signed jwt token: jwt.sign(...))
+      const plants = await Plant.find({ userId })
+        .select('-__v')
+        .sort({ name: 1 });
       const plantsWithCount = {
         count: plants.length,
         plants
@@ -23,11 +26,12 @@ const plantCtrl = {
         sowFrom: req.body.sowFrom,
         sowUntil: req.body.sowUntil,
         harvestFrom: req.body.harvestFrom,
-        harvestUntil: req.body.harvestUntil
+        harvestUntil: req.body.harvestUntil,
+        userId: req.user.id // comes from auth middleware (and is included in the signed jwt token: jwt.sign(...))
       });
 
       const plant = await newPlant.save();
-      //  Don't output __v field
+      //  Don't output __v or userId fields
       res.status(201).json({
         _id: plant._id,
         name: plant.name,

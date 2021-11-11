@@ -24,7 +24,9 @@ const months = [
   'December'
 ];
 
-const invalidMonthMsg = `{VALUE} is not a valid month. Valid months are: ${months.join(', ')}.`;
+const invalidMonthMsg = `{VALUE} is not a valid month. Valid months are: ${months.join(
+  ', '
+)}.`;
 
 const PlantSchema = new Schema({
   name: {
@@ -109,6 +111,10 @@ const PlantSchema = new Schema({
       message: invalidMonthMsg
     },
     trim: true
+  },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
   }
 });
 
