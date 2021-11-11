@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import { deletePlant } from '../../redux/actions/plantsActions';
 import { openEditPlantModal } from '../../redux/actions/uiActions';
 import useComponentVisibility from '../../utils/hooks/useComponentVisibility';
-import Btn from '../Btn';
+import IconButton from '../IconButton';
+import Button from '../Button';
 import Icon from '../nano/Icon';
 
 type PlantMenuProps = {
@@ -31,16 +32,17 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
 
   return (
     <nav className='c-plant-menu l-plant-menu'>
-      <Btn
+      <IconButton
         variant='secondary'
         icon={<Icon name='more' />}
+        ariaLabel={`Open ${plant.name} options`}
         handleClick={handleMoreClick}
       />
       <div ref={ref}>
         {isComponentVisible && (
           <ul className='c-plant-menu__dropdown l-plant-menu__dropdown'>
             <li>
-              <Btn
+              <Button
                 variant='dropdown'
                 icon={<Icon name='edit' />}
                 text='Edit'
@@ -48,7 +50,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
               />
             </li>
             <li>
-              <Btn
+              <Button
                 variant='dropdown'
                 icon={<Icon name='trash' />}
                 text='Delete'

@@ -1,4 +1,4 @@
-.submit-btn {
+.btn {
   display: inline-block;
   background-color: $white;
   font-family: inherit;
@@ -25,7 +25,11 @@
     color: $white;
   }
 
-  &.submit-btn--secondary {
+  &__icon {
+    margin-right: 0.5em;
+  }
+
+  &.btn--secondary {
     font-weight: bold;
     color: $red;
     border-color: $red;
@@ -33,5 +37,9 @@
     &:active {
       background-color: $red-05;
     }
+  }
+
+  &.btn--tertiary {
+    width: unset;
   }
 }

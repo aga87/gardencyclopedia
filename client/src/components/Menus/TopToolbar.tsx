@@ -7,7 +7,7 @@ import {
 import { filterPlants, sortPlants } from '../../redux/actions/plantsActions';
 import { plantCategories, sortOptions } from '../../utils/constants';
 import Toolbar from './Toolbar';
-import Btn from '../Btn';
+import IconButton from '../IconButton';
 import Icon from '../nano/Icon';
 import Select from '../nano/Select';
 
@@ -38,7 +38,11 @@ const TopToolbar = (): JSX.Element => {
     <Toolbar>
       <ul className='l-top-toolbar'>
         <li className='xxs-only'>
-          <Btn icon={<Icon name='menu' />} handleClick={handleMainMenuClick} />
+          <IconButton
+            icon={<Icon name='menu' />}
+            ariaLabel='Open main menu modal'
+            handleClick={handleMainMenuClick}
+          />
         </li>
         <li className='l-top-toolbar__item-center'>
           <Select
@@ -59,7 +63,11 @@ const TopToolbar = (): JSX.Element => {
           />
         </li>
         <li>
-          <Btn icon={<Icon name='plus' />} handleClick={handleAddClick} />
+          <IconButton
+            icon={<Icon name='plus' />}
+            ariaLabel='Open new plant modal'
+            handleClick={handleAddClick}
+          />
         </li>
       </ul>
     </Toolbar>

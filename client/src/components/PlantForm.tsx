@@ -16,7 +16,7 @@ import {
 import TextField from './TextField';
 import SelectField from './SelectField';
 import Fieldset from './nano/Fieldset';
-import SubmitBtn from './nano/SubmitBtn';
+import SubmitButton from './nano/SubmitButton';
 
 const PlantForm = (): JSX.Element => {
   const plantToEdit = useSelector(selectPlantToEdit);
@@ -201,7 +201,7 @@ const PlantForm = (): JSX.Element => {
           </div>
         </Fieldset>
       </div>
-      <SubmitBtn variant='secondary' text='Save' />
+      <SubmitButton variant='secondary' text='Save' />
     </form>
   );
 };

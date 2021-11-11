@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { openAddPlantModal } from '../redux/actions/uiActions';
-import Btn from './Btn';
+import Button from './Button';
 import Icon from './nano/Icon';
 
 const NoPlants = (): JSX.Element => {
@@ -15,8 +15,8 @@ const NoPlants = (): JSX.Element => {
     <div>
       <h2 className='t5'>No Plants</h2>
       <p>
-        <Btn
-          variant='secondary'
+        <Button
+          variant='tertiary'
           icon={<Icon name='plus' />}
           text='New Plant'
           handleClick={handleClick}

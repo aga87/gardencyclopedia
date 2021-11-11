@@ -14,7 +14,7 @@ import {
 import { login, register } from '../redux/actions/authActions';
 import TextField from './TextField';
 import Error from './nano/Error';
-import SubmitBtn from './nano/SubmitBtn';
+import SubmitButton from './nano/SubmitButton';
 import SuccessMsg from './nano/SuccessMsg';
 
 type AuthFormProps = {
@@ -172,7 +172,7 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
           }
         />
       </div>
-      <SubmitBtn text={variant === 'login' ? 'Log in' : 'Register'} />
+      <SubmitButton text={variant === 'login' ? 'Log in' : 'Register'} />
     </form>
   );
 };
