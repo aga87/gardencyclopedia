@@ -3,7 +3,10 @@ const Plant = require('../models/Plant');
 const plantCtrl = {
   getAll: async (req, res) => {
     try {
-      const plants = await Plant.find().select('-__v').sort({ name: 1 });
+      const userId = req.user.id; // comes from auth middleware (and is included in the signed jwt token: jwt.sign(...))
+      const plants = await Plant.find({ userId })
+        .select('-__v')
+        .sort({ name: 1 });
       const plantsWithCount = {
         count: plants.length,
         plants
