@@ -4,11 +4,12 @@ import { sortPlants } from '../../redux/actions/plantsActions';
 import { setView } from '../../redux/actions/uiActions';
 import { selectView } from '../../redux/reducers/index';
 import { sortOptions } from '../../utils/constants';
+import Toolbar from './Toolbar';
 import Select from '../nano/Select';
 import Btn from '../Btn';
 import Icon from '../nano/Icon';
 
-const BottomMenu = (): JSX.Element => {
+const BottomToolbar = (): JSX.Element => {
   const [sort, setSort] = useState<Sort>('name');
   const view = useSelector(selectView);
   const dispatch = useDispatch();
@@ -27,9 +28,9 @@ const BottomMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-bottom-menu l-bottom-menu'>
-      <ul className='l-bottom-menu__list'>
-        <li className='l-bottom-menu__list-item-center'>
+    <Toolbar>
+      <ul className='l-bottom-toolbar'>
+        <li className='l-bottom-toolbar__item-center'>
           <Select
             variant='sort'
             options={sortOptions}
@@ -52,8 +53,8 @@ const BottomMenu = (): JSX.Element => {
           )}
         </li>
       </ul>
-    </nav>
+    </Toolbar>
   );
 };
 
-export default BottomMenu;
+export default BottomToolbar;

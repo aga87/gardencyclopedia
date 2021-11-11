@@ -1,0 +1,7 @@
+.success-msg {
+  background-color: $green;
+  color: $white;
+  padding: $blh * 0.25rem;
+  border: 2px solid $green;
+  @include s1;
+}

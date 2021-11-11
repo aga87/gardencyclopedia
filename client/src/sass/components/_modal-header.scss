@@ -1,7 +1,11 @@
 .c-modal-header {
-  height: $menu-height;
+  height: $toolbar-height;
   background-color: $red;
   color: $white;
+
+  @include screen-min($screen-xs) {
+    height: $toolbar-xs-height;
+  }
 }
 
 .l-modal-header {

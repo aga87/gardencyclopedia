@@ -1,18 +1,37 @@
 .l-dashboard {
   height: 100vh;
 
+  @include screen-min($screen-xs) {
+    display: flex;
+  }
+
+  &__flex-main-menu {
+    flex-basis: $main-menu-width;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  &__flex-content {
+    width: 100%;
+  }
+
   &__content {
-    height: calc(100vh - #{$menu-height * 2});
+    height: calc(100vh - #{$toolbar-height * 2});
     overflow-y: auto;
     padding: $blh * 0.5rem;
+    padding-bottom: $blh * 1rem;
 
     @include screen-min($screen-xxs) {
       padding-left: $blh * 1rem;
       padding-right: $blh * 1rem;
     }
+
+    @include screen-min($screen-xs) {
+      height: calc(100vh - #{$toolbar-xs-height});
+    }
   }
 
-  &__bottom-menu {
+  &__bottom-toolbar {
     @include fixed-to-bottom();
   }
 }

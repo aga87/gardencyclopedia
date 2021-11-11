@@ -2,6 +2,7 @@ import {
   OPEN_MAIN_MENU_MODAL,
   OPEN_ADD_PLANT_MODAL,
   OPEN_EDIT_PLANT_MODAL,
+  OPEN_USER_SETTINGS_MODAL,
   CLOSE_MODAL,
   SET_VIEW,
   LOGOUT_SUCCESS
@@ -13,6 +14,7 @@ const initialState = {
   isMainMenuModalOpen: false,
   isAddPlantModalOpen: false,
   isEditPlantModalOpen: false,
+  isUserSettingsModalOpen: false,
   plantToEdit: emptyPlant,
   view: 'calendar' as View
 };
@@ -38,12 +40,18 @@ const uiReducer = (state = initialState, action: Action): State => {
         isEditPlantModalOpen: true,
         plantToEdit: action.payload
       };
+    case OPEN_USER_SETTINGS_MODAL:
+      return {
+        ...state,
+        isUserSettingsModalOpen: true
+      };
     case CLOSE_MODAL:
       return {
         ...state,
         isMainMenuModalOpen: false,
         isAddPlantModalOpen: false,
         isEditPlantModalOpen: false,
+        isUserSettingsModalOpen: false,
         plantToEdit: emptyPlant
       };
     case SET_VIEW:
@@ -68,5 +76,7 @@ export const selectIsAddPlantModalOpen = (state: State): boolean =>
   state.isAddPlantModalOpen;
 export const selectIsEditPlantModalOpen = (state: State): boolean =>
   state.isEditPlantModalOpen;
+export const selectIsUserSettingsModalOpen = (state: State): boolean =>
+  state.isUserSettingsModalOpen;
 export const selectPlantToEdit = (state: State): Plant => state.plantToEdit;
 export const selectView = (state: State): View => state.view;

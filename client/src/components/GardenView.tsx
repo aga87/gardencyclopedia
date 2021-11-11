@@ -1,34 +1,20 @@
 import React from 'react';
-import Icon from './nano/Icon';
-import Logo from './nano/Logo';
+import Header from './Header';
+import UpcomingFeatures from './UpcomingFeatures';
 
-const GardenView = (): JSX.Element => {
-  const upcomingFeatures = [
-    'Keep track of all plants in your garden.',
-    'Record plant location, growing medium and conditions.',
-    'Record your gardening progress for each plant.',
-    'Record harvesting time and yields.',
-    'Archive selected plants for future reference.'
-  ];
-
-  const upcomingFeaturesListItems = upcomingFeatures.map(feature => (
-    <li>{feature}</li>
-  ));
-
-  return (
-    <div className='c-garden-view'>
-      <Logo variant='light' />
-      <h1 className='c-garden-view__title l-garden-view__title t1'>
-        Garden
-        <br />
-        <span className='c-garden-view__subtitle t3'>Coming Soon:</span>
-      </h1>
-      <ul className='c-garden-view__list l-garden-view__list'>
-        {upcomingFeaturesListItems}
-      </ul>
-      <Icon name='seedling' />
-    </div>
-  );
-};
+const GardenView = (): JSX.Element => (
+  <div>
+    <Header variant='secondary' title='Garden' />
+    <UpcomingFeatures
+      features={[
+        'Keep track of all plants in your garden.',
+        'Record plant location, growing medium and conditions.',
+        'Record your gardening progress for each plant.',
+        'Record harvesting time and yields.',
+        'Archive selected plants for future reference.'
+      ]}
+    />
+  </div>
+);
 
 export default GardenView;

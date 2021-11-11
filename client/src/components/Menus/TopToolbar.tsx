@@ -4,21 +4,23 @@ import {
   openMainMenuModal,
   openAddPlantModal
 } from '../../redux/actions/uiActions';
-import { filterPlants } from '../../redux/actions/plantsActions';
-import { plantCategories } from '../../utils/constants';
+import { filterPlants, sortPlants } from '../../redux/actions/plantsActions';
+import { plantCategories, sortOptions } from '../../utils/constants';
+import Toolbar from './Toolbar';
 import Btn from '../Btn';
 import Icon from '../nano/Icon';
 import Select from '../nano/Select';
 
-const TopMenu = (): JSX.Element => {
+const TopToolbar = (): JSX.Element => {
   const [filter, setFilter] = useState<Category>('');
+  const [sort, setSort] = useState<Sort>('name');
   const dispatch = useDispatch();
 
   const handleMainMenuClick = () => {
     dispatch(openMainMenuModal());
   };
 
-  const handlePlusClick = () => {
+  const handleAddClick = () => {
     dispatch(openAddPlantModal());
   };
 
@@ -27,13 +29,18 @@ const TopMenu = (): JSX.Element => {
     dispatch(filterPlants(e.target.value as Category));
   };
 
+  const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSort(e.target.value as Sort);
+    dispatch(sortPlants(e.target.value as Sort));
+  };
+
   return (
-    <nav className='c-top-menu l-top-menu'>
-      <ul className='l-top-menu__list'>
-        <li>
+    <Toolbar>
+      <ul className='l-top-toolbar'>
+        <li className='xxs-only'>
           <Btn icon={<Icon name='menu' />} handleClick={handleMainMenuClick} />
         </li>
-        <li>
+        <li className='l-top-toolbar__item-center'>
           <Select
             options={plantCategories}
             placeholder='All Plants'
@@ -42,12 +49,21 @@ const TopMenu = (): JSX.Element => {
             ariaLabel='Filter plants'
           />
         </li>
+        <li className='not-xxs'>
+          <Select
+            variant='sort'
+            options={sortOptions}
+            value={sort}
+            handleChange={handleSort}
+            ariaLabel='Sort plants by'
+          />
+        </li>
         <li>
-          <Btn icon={<Icon name='plus' />} handleClick={handlePlusClick} />
+          <Btn icon={<Icon name='plus' />} handleClick={handleAddClick} />
         </li>
       </ul>
-    </nav>
+    </Toolbar>
   );
 };
 
-export default TopMenu;
+export default TopToolbar;

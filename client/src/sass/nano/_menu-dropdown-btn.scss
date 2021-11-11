@@ -15,10 +15,11 @@
 
   &:hover {
     cursor: pointer;
+    background-color: $grey;
   }
 
-  &:focus,
-  &:hover {
-    background-color: $grey-04;
+  &:focus {
+    border: 1px solid $orange;
+    outline: none;
   }
 }
