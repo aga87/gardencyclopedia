@@ -1,0 +1,18 @@
+.button {
+  @include btn-base;
+
+  &:hover,
+  &:focus {
+    color: $green;
+    border-color: $green;
+  }
+
+  &:active {
+    background-color: $green;
+    color: $white;
+  }
+
+  &__icon {
+    margin-right: 0.5em;
+  }
+}

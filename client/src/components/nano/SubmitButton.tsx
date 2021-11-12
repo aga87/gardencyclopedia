@@ -9,7 +9,7 @@ const SubmitButton = ({
   variant = 'primary',
   text
 }: SubmitButtonProps): JSX.Element => {
-  let className = 'btn';
+  let className = 'submit-button';
   if (variant !== 'primary') {
     className = `${className} ${className}--${variant}`;
   }

@@ -16,7 +16,6 @@ const NoPlants = (): JSX.Element => {
       <h2 className='t5'>No Plants</h2>
       <p>
         <Button
-          variant='tertiary'
           icon={<Icon name='plus' />}
           text='New Plant'
           handleClick={handleClick}

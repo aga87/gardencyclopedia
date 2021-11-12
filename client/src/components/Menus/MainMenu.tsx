@@ -34,7 +34,7 @@ const MainMenu = (): JSX.Element => {
           <Button
             icon={<Icon name='user-cog' />}
             text={username}
-            variant='dropdown'
+            variant='block'
             handleClick={handleUserClick}
           />
         </li>
@@ -42,7 +42,7 @@ const MainMenu = (): JSX.Element => {
           <Button
             icon={<Icon name='calendar' />}
             text='Calendar'
-            variant='dropdown'
+            variant='block'
             handleClick={handleCalendarClick}
           />
         </li>
@@ -50,7 +50,7 @@ const MainMenu = (): JSX.Element => {
           <Button
             icon={<Icon name='seedling' />}
             text='Garden'
-            variant='dropdown'
+            variant='block'
             handleClick={handleGardenClick}
           />
         </li>
@@ -58,7 +58,7 @@ const MainMenu = (): JSX.Element => {
           <Button
             icon={<Icon name='logout' />}
             text='Logout'
-            variant='dropdown'
+            variant='block'
             handleClick={handleLogoutClick}
           />
         </li>
