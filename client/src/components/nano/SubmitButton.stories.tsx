@@ -1,19 +1,19 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import SubmitBtn from './SubmitBtn';
+import SubmitButton from './SubmitButton';
 
 export default {
-  title: 'Nano/SubmitBtn',
-  component: SubmitBtn,
+  title: 'Nano/SubmitButton',
+  component: SubmitButton,
   argTypes: {
     text: {
       defaultValue: 'Submit'
     }
   }
-} as ComponentMeta<typeof SubmitBtn>;
+} as ComponentMeta<typeof SubmitButton>;
 
-const Template: ComponentStory<typeof SubmitBtn> = args => (
-  <SubmitBtn {...args} />
+const Template: ComponentStory<typeof SubmitButton> = args => (
+  <SubmitButton {...args} />
 );
 
 export const Primary = Template.bind({});

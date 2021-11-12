@@ -1,15 +1,15 @@
 import React from 'react';
 
-type SubmitBtnProps = {
+type SubmitButtonProps = {
   variant?: 'primary' | 'secondary';
   text: string;
 };
 
-const SubmitBtn = ({
+const SubmitButton = ({
   variant = 'primary',
   text
-}: SubmitBtnProps): JSX.Element => {
-  let className = 'submit-btn';
+}: SubmitButtonProps): JSX.Element => {
+  let className = 'submit-button';
   if (variant !== 'primary') {
     className = `${className} ${className}--${variant}`;
   }
@@ -21,4 +21,4 @@ const SubmitBtn = ({
   );
 };
 
-export default SubmitBtn;
+export default SubmitButton;

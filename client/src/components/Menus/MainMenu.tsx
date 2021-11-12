@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openUserSettingsModal, setView } from '../../redux/actions/uiActions';
 import { logout } from '../../redux/actions/authActions';
 import { selectUsername } from '../../redux/reducers/index';
-import Btn from '../Btn';
+import Button from '../Button';
 import Icon from '../nano/Icon';
 
 const MainMenu = (): JSX.Element => {
@@ -31,34 +31,34 @@ const MainMenu = (): JSX.Element => {
       <p className='c-main-menu__title'>Gardencyclopedia</p>
       <ul className='c-main-menu__list'>
         <li>
-          <Btn
+          <Button
             icon={<Icon name='user-cog' />}
             text={username}
-            variant='dropdown'
+            variant='block'
             handleClick={handleUserClick}
           />
         </li>
         <li>
-          <Btn
+          <Button
             icon={<Icon name='calendar' />}
             text='Calendar'
-            variant='dropdown'
+            variant='block'
             handleClick={handleCalendarClick}
           />
         </li>
         <li>
-          <Btn
+          <Button
             icon={<Icon name='seedling' />}
             text='Garden'
-            variant='dropdown'
+            variant='block'
             handleClick={handleGardenClick}
           />
         </li>
         <li>
-          <Btn
+          <Button
             icon={<Icon name='logout' />}
             text='Logout'
-            variant='dropdown'
+            variant='block'
             handleClick={handleLogoutClick}
           />
         </li>

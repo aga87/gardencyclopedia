@@ -1,4 +1,4 @@
-.menu-btn {
+.icon-button {
   display: inline-block;
   font-family: inherit;
   @include h5;
@@ -16,11 +16,9 @@
     outline: none;
   }
 
-  &.menu-btn--secondary {
+  &.icon-button--secondary {
     color: $grey-04;
     @include h6;
-    padding-bottom: 0;
-    padding-top: 0;
 
     &:hover,
     &:active {

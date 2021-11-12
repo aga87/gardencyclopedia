@@ -6,7 +6,7 @@ import { selectView } from '../../redux/reducers/index';
 import { sortOptions } from '../../utils/constants';
 import Toolbar from './Toolbar';
 import Select from '../nano/Select';
-import Btn from '../Btn';
+import IconButton from '../IconButton';
 import Icon from '../nano/Icon';
 
 const BottomToolbar = (): JSX.Element => {
@@ -41,14 +41,16 @@ const BottomToolbar = (): JSX.Element => {
         </li>
         <li>
           {view === 'garden' ? (
-            <Btn
+            <IconButton
               icon={<Icon name='calendar' />}
               handleClick={handleCalendarClick}
+              ariaLabel='Switch to calendar view'
             />
           ) : (
-            <Btn
+            <IconButton
               icon={<Icon name='seedling' />}
               handleClick={handleGardenClick}
+              ariaLabel='Switch to garden view'
             />
           )}
         </li>

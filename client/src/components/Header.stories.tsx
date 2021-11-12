@@ -7,5 +7,12 @@ export default {
   component: Header
 } as ComponentMeta<typeof Header>;
 
-export const HeaderComponent: ComponentStory<typeof Header> = () => <Header />;
-HeaderComponent.storyName = 'Header';
+const Template: ComponentStory<typeof Header> = args => <Header {...args} />;
+
+export const Primary = Template.bind({});
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  variant: 'secondary',
+  title: 'Section header'
+};
