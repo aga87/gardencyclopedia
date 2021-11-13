@@ -7,11 +7,6 @@ export default {
   component: Logo
 } as ComponentMeta<typeof Logo>;
 
-const Template: ComponentStory<typeof Logo> = args => <Logo {...args} />;
+export const LogoComponent: ComponentStory<typeof Logo> = () => <Logo />;
 
-export const Primary = Template.bind({});
-
-export const Light = Template.bind({});
-Light.args = {
-  variant: 'light'
-};
+LogoComponent.storyName = 'Logo';
