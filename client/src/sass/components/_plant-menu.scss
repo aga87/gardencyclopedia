@@ -2,7 +2,7 @@
   &__dropdown {
     list-style-type: none;
     border: 1px solid $black;
-    box-shadow: 2px 2px 2px;
+    box-shadow: 2px 2px 2px $tin;
   }
 }
 
@@ -12,7 +12,7 @@
   &__dropdown {
     position: absolute;
     right: 0;
-    top: 30px;
+    top: 40px;
     width: 200px;
   }
 }
