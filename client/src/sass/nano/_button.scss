@@ -1,14 +1,17 @@
 .button {
   @include btn-base;
+  background-color: $electric;
+  border-color: $electric;
+  color: $white;
 
   &:hover,
   &:focus {
-    color: $green;
-    border-color: $green;
+    color: $electric;
+    border-color: $electric;
   }
 
   &:active {
-    background-color: $green;
+    background-color: $electric;
     color: $white;
   }
 

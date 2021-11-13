@@ -12,17 +12,16 @@
   }
 
   &:focus {
-    color: $orange;
-    outline: none;
+    border: 1px solid $vermillion;
   }
 
   &.icon-button--secondary {
-    color: $grey-04;
+    color: $clean;
     @include h6;
 
     &:hover,
     &:active {
-      color: $dark-grey;
+      color: $charcoal;
     }
   }
 }

@@ -5,10 +5,11 @@
 
   &__caption {
     text-align: center;
+    @include s1;
     font-weight: bold;
     background-color: $white;
     padding: $blh * 0.25rem 0.5em;
-    border-top: 1px solid $red;
+    border-top: 1px solid $light;
   }
 }
 

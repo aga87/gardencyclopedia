@@ -201,7 +201,7 @@ const PlantForm = (): JSX.Element => {
           </div>
         </Fieldset>
       </div>
-      <SubmitButton variant='secondary' text='Save' />
+      <SubmitButton text='Save' />
     </form>
   );
 };

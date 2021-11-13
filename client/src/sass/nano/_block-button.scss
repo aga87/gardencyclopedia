@@ -1,5 +1,5 @@
 .block-button {
-  display: block;
+  width: 100%;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -15,11 +15,15 @@
 
   &:hover {
     cursor: pointer;
-    background-color: $grey;
+    background-color: $light;
   }
 
   &:focus {
-    border: 1px solid $orange;
     outline: none;
+  }
+
+  &:active {
+    background-color: $forest;
+    color: $white;
   }
 }

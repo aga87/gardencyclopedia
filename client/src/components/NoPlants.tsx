@@ -12,16 +12,19 @@ const NoPlants = (): JSX.Element => {
   };
 
   return (
-    <div>
+    <div className='c-no-plants'>
       <h2 className='t5'>No Plants</h2>
+      <Button
+        icon={<Icon name='plus' />}
+        text='New Plant'
+        handleClick={handleClick}
+      />
       <p>
-        <Button
-          icon={<Icon name='plus' />}
-          text='New Plant'
-          handleClick={handleClick}
-        />
-        or press the <Icon name='plus' /> button in the top right corner to add
-        a new plant.
+        or press the{' '}
+        <span className='c-no-plants__icon'>
+          <Icon name='plus' />
+        </span>{' '}
+        button in the top right corner to add a new plant.
       </p>
     </div>
   );

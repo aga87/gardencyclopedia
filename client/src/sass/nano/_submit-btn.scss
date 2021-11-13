@@ -1,25 +1,19 @@
 .submit-button {
   @include btn-base;
+  color: $forest;
+  background-color: $electric;
+  border-color: $forest;
   width: 100%;
 
   &:hover,
   &:focus {
-    color: $green;
-    border-color: $green;
+    color: $white;
+    border-color: $electric;
   }
 
   &:active {
-    background-color: $green;
+    background-color: $forest;
+    border-color: $electric;
     color: $white;
-  }
-
-  &.submit-button--secondary {
-    font-weight: bold;
-    color: $red;
-    border-color: $red;
-
-    &:active {
-      background-color: $red-05;
-    }
   }
 }

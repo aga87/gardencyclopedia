@@ -7,7 +7,7 @@
   color: $grey;
   padding: 0.25em 0.5em;
   border: none;
-  border-bottom: 2px solid $grey-04;
+  border-bottom: 2px solid $clean;
 
   &:hover,
   &:focus {
@@ -19,7 +19,7 @@
   }
 
   &.tab--selected {
-    border-color: $green;
+    border-color: $electric;
     color: $black;
   }
 }

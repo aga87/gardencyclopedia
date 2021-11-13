@@ -24,7 +24,7 @@ const Select = ({
   }
 
   const selectOptions = options.map(option => (
-    <option key={option} value={option}>
+    <option key={option} value={option} className='select__option'>
       {capitalize(option)}
     </option>
   ));
@@ -36,7 +36,11 @@ const Select = ({
       aria-label={ariaLabel}
       className={className}
     >
-      {placeholder && <option value=''>{placeholder}</option>}
+      {placeholder && (
+        <option value='' className='select__placeholder'>
+          {placeholder}
+        </option>
+      )}
       {selectOptions}
     </select>
   );

@@ -5,22 +5,20 @@
   font-family: inherit;
   background-color: $white;
   padding: (0.25rem * $blh) 0.5em;
-  border: 1px solid $grey;
+  border: 1px solid $tin;
   border-radius: $border-radius;
 
   &:focus {
-    border-color: $green;
-    box-shadow: 0 0 6px $green;
+    border-color: $electric;
+    box-shadow: 0 0 6px $electric;
     outline: none;
   }
 }
 
 @mixin btn-base {
   display: inline-block;
-  background-color: $white;
   font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  @include h6;
   padding: (0.25rem * $blh) 0.5em;
   border: 1px solid $black;
   border-radius: $border-radius;
