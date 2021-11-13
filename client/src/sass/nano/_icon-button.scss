@@ -1,6 +1,6 @@
 .icon-button {
   display: inline-block;
-  font-family: inherit;
+  font-family: $font-stack;
   @include h5;
   color: $white;
   background-color: transparent;
@@ -17,7 +17,7 @@
 
   &.icon-button--secondary {
     color: $clean;
-    @include h6;
+    @include h6-base;
 
     &:hover,
     &:active {

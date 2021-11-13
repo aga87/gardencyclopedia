@@ -6,13 +6,14 @@
 
   &:hover,
   &:focus {
-    color: $electric;
+    color: $forest;
     border-color: $electric;
   }
 
   &:active {
-    background-color: $electric;
-    color: $white;
+    background-color: $forest;
+    color: $electric;
+    border-color: $electric;
   }
 
   &__icon {

@@ -1,7 +1,7 @@
 .select {
   $bg-size: 9px;
-  font-family: inherit;
-  @include h6;
+  font-family: $font-stack;
+  @include h6-base;
   text-align: center;
   color: $white;
   height: calc(#{$toolbar-height} - 2px);

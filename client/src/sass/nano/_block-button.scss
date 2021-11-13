@@ -1,8 +1,7 @@
 .block-button {
   width: 100%;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-family: $font-stack;
+  @include h6-base;
   text-align: left;
   background-color: $white;
   padding: 1em 0.75em;

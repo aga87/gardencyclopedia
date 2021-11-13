@@ -1,8 +1,7 @@
 .tab {
   display: inline-block;
-  font-family: inherit;
-  line-height: inherit;
-  font-size: inherit;
+  font-family: $font-stack;
+  @include h6-base;
   background: $white;
   color: $grey;
   padding: 0.25em 0.5em;
