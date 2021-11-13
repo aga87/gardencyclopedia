@@ -12,15 +12,17 @@ const NoPlants = (): JSX.Element => {
   };
 
   return (
-    <div className='c-no-plants'>
-      <h2 className='c-no-plants__title'>No Plants</h2>
-      <Button
-        icon={<Icon name='plus' />}
-        text='New Plant'
-        handleClick={handleClick}
-      />
+    <div className='c-no-plants l-no-plants'>
+      <h2 className='c-no-plants__title l-no-plants__title'>No Plants</h2>
+      <div className='l-no-plants__btn'>
+        <Button
+          icon={<Icon name='plus' />}
+          text='New Plant'
+          handleClick={handleClick}
+        />
+      </div>
       <p>
-        or press the{' '}
+        Or press the{' '}
         <span className='c-no-plants__icon'>
           <Icon name='plus' />
         </span>{' '}

@@ -9,3 +9,10 @@
     color: $electric;
   }
 }
+
+.l-no-plants {
+  &__title,
+  &__btn {
+    margin-bottom: $blh * 0.25rem;
+  }
+}
