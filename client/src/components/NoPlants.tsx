@@ -13,7 +13,7 @@ const NoPlants = (): JSX.Element => {
 
   return (
     <div className='c-no-plants'>
-      <h2 className='t5'>No Plants</h2>
+      <h2 className='c-no-plants__title'>No Plants</h2>
       <Button
         icon={<Icon name='plus' />}
         text='New Plant'

@@ -1,7 +1,7 @@
 .tab {
   display: inline-block;
   font-family: $font-stack;
-  @include h6-base;
+  @include t-base;
   background: $white;
   color: $grey;
   padding: 0.25em 0.5em;

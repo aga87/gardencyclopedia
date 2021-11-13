@@ -13,7 +13,7 @@ const Error = ({
 }: ErrorProps): JSX.Element | null => {
   if (!msg) return null;
   return (
-    <p id={id} className={variant === 'primary' ? 'error s1' : 'error-server'}>
+    <p id={id} className={variant === 'primary' ? 'error' : 'error-server'}>
       {msg}
     </p>
   );

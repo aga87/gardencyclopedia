@@ -6,6 +6,10 @@
   @include screen-min($screen-xs) {
     height: $toolbar-xs-height;
   }
+
+  &__title {
+    @include t-base;
+  }
 }
 
 .l-modal-header {

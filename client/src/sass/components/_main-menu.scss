@@ -1,7 +1,7 @@
 .c-main-menu {
   &__title {
     height: $toolbar-xs-height;
-    @include h5;
+    @include t5;
     line-height: $toolbar-xs-height;
     font-style: italic;
     color: $white;

@@ -1,5 +1,6 @@
 .c-plant-entry-header {
   &__title {
+    @include t5;
     font-style: italic;
   }
 }

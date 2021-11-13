@@ -1,7 +1,7 @@
 .icon-button {
   display: inline-block;
   font-family: $font-stack;
-  @include h5;
+  @include t5;
   color: $white;
   background-color: transparent;
   padding: (0.25rem * $blh) (0.5rem * $blh);
@@ -17,7 +17,7 @@
 
   &.icon-button--secondary {
     color: $clean;
-    @include h6-base;
+    @include t-base;
 
     &:hover,
     &:active {

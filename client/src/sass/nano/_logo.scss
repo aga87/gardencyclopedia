@@ -1,4 +1,5 @@
 .logo {
   display: inline-block;
+  @include t1;
   color: $electric;
 }

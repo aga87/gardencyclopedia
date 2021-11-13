@@ -1,7 +1,7 @@
 @mixin input {
   width: 100%;
   font-family: $font-stack;
-  @include h6-base;
+  @include t-base;
   background-color: $white;
   padding: (0.25rem * $blh) 0.5em;
   border: 1px solid $tin;
@@ -17,7 +17,7 @@
 @mixin btn-base {
   display: inline-block;
   font-family: $font-stack;
-  @include h6-base;
+  @include t-base;
   padding: (0.25rem * $blh) 0.5em;
   border: 1px solid $black;
   border-radius: $border-radius;

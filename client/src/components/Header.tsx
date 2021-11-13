@@ -18,7 +18,7 @@ const Header = ({
   return (
     <header className={className}>
       <Logo />
-      <h1 className='c-header__title t1'>{title}</h1>
+      <h1 className='c-header__title'>{title}</h1>
     </header>
   );
 };

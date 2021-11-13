@@ -1,5 +1,6 @@
 .tag {
   display: inline-block;
+  @include s1;
   font-weight: 300;
   padding: 0 0.5em;
   border: 1px solid $tin;

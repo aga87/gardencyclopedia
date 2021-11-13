@@ -3,11 +3,11 @@ import Icon from './Icon';
 
 const Loader = (): JSX.Element => (
   <div className='loader'>
-    <span className='t3'>
+    <span className='loader__icon'>
       <Icon name='spinner' />
     </span>
     <br />
-    <span className='s1'>Loading</span>
+    <span className='loader__caption'>Loading</span>
   </div>
 );
 

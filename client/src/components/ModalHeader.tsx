@@ -22,7 +22,7 @@ const ModalHeader = ({ title }: ModalHeaderProps): JSX.Element => {
         ariaLabel={`Close ${title}`}
         handleClick={handleCloseModal}
       />
-      <h2 className='l-modal-header__title t6'>{title}</h2>
+      <h2 className='c-modal-header__title l-modal-header__title'>{title}</h2>
     </header>
   );
 };

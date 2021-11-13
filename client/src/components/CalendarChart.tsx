@@ -16,7 +16,7 @@ const CalendarChart = ({
   harvestUntil
 }: CalendarChartProps): JSX.Element => {
   const monthHeadings = months.map(month => (
-    <th className='c-calendar-chart__heading s1' key={month}>
+    <th className='c-calendar-chart__heading' key={month}>
       {month.slice(0, 3)}
     </th>
   ));

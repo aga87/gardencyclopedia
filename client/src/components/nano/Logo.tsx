@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from './Icon';
 
 const Logo = (): JSX.Element => (
-  <div className='logo t1'>
+  <div className='logo'>
     <Icon name='seedling' />
   </div>
 );

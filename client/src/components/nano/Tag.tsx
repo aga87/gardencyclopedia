@@ -6,7 +6,7 @@ type TagProps = {
 };
 
 const Tag = ({ tag }: TagProps): JSX.Element => (
-  <div className='tag s1'>{capitalize(tag)}</div>
+  <div className='tag'>{capitalize(tag)}</div>
 );
 
 export default Tag;
