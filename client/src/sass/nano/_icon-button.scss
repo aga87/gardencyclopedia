@@ -13,6 +13,7 @@
 
   &:focus {
     border: 1px solid $vermillion;
+    outline: none;
   }
 
   &.icon-button--secondary {
