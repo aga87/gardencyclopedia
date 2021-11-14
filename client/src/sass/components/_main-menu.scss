@@ -1,14 +1,4 @@
 .c-main-menu {
-  &__title {
-    height: $toolbar-xs-height;
-    @include t5;
-    line-height: $toolbar-xs-height;
-    font-style: italic;
-    color: $white;
-    background-color: $forest;
-    padding-left: 0.75em;
-  }
-
   &__list {
     list-style-type: none;
   }

@@ -1,3 +1,15 @@
+.p-dashboard {
+  &__title {
+    height: $toolbar-xs-height;
+    @include t5;
+    line-height: $toolbar-xs-height;
+    font-style: italic;
+    color: $white;
+    background-color: $forest;
+    padding-left: 0.75em;
+  }
+}
+
 .l-dashboard {
   height: 100vh;
 
