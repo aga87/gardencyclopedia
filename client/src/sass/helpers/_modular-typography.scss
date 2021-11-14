@@ -44,7 +44,7 @@ $font-size-s2: 1rem / $type-scale / $type-scale;
   line-height: ceil($font-size-s1 / $blh) * ($blh / $font-size-s1);
 }
 
-// .s2 {
-//   font-size: $font-size-s2;
-//   line-height: ceil($font-size-s2 / $blh) * ($blh / $font-size-s1);
-// }
+@mixin s2 {
+  font-size: $font-size-s2;
+  line-height: ceil($font-size-s2 / $blh) * ($blh / $font-size-s1);
+}

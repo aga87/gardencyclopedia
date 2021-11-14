@@ -1,5 +1,6 @@
 import React from 'react';
 import PlantEntry from './PlantEntry';
+import CalendarCaption from './CalendarCaption';
 
 type CalendarProps = {
   plants: Plant[];
@@ -15,9 +16,9 @@ const Calendar = ({ plants }: CalendarProps): JSX.Element => {
   return (
     <figure className='c-calendar l-calendar'>
       <ul className='c-calendar__list'>{plantListItems}</ul>
-      <figcaption className='c-calendar__caption l-calendar__caption'>
-        {plantListItems.length} {plantListItems.length > 1 ? 'Plants' : 'Plant'}{' '}
-      </figcaption>
+      <div className='l-calendar__caption'>
+        <CalendarCaption noOfPlants={plantListItems.length} />
+      </div>
     </figure>
   );
 };

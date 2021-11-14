@@ -2,15 +2,6 @@
   &__list {
     list-style-type: none;
   }
-
-  &__caption {
-    text-align: center;
-    @include s1;
-    font-weight: bold;
-    background-color: $white;
-    padding: $blh * 0.25rem 0.5em;
-    border-top: 1px solid $light;
-  }
 }
 
 .l-calendar {
