@@ -1,0 +1,18 @@
+.c-no-plants {
+  text-align: center;
+
+  &__title {
+    @include t5;
+  }
+
+  &__icon {
+    color: $electric;
+  }
+}
+
+.l-no-plants {
+  &__title,
+  &__btn {
+    margin-bottom: $blh * 0.25rem;
+  }
+}

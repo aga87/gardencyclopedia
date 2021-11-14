@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { openAddPlantModal } from '../redux/actions/uiActions';
-import Button from './Button';
+import Button from './nano/Button';
 import Icon from './nano/Icon';
 
 const NoPlants = (): JSX.Element => {
@@ -12,16 +12,21 @@ const NoPlants = (): JSX.Element => {
   };
 
   return (
-    <div>
-      <h2 className='t5'>No Plants</h2>
-      <p>
+    <div className='c-no-plants l-no-plants'>
+      <h2 className='c-no-plants__title l-no-plants__title'>No Plants</h2>
+      <div className='l-no-plants__btn'>
         <Button
           icon={<Icon name='plus' />}
           text='New Plant'
           handleClick={handleClick}
         />
-        or press the <Icon name='plus' /> button in the top right corner to add
-        a new plant.
+      </div>
+      <p>
+        Or press the{' '}
+        <span className='c-no-plants__icon'>
+          <Icon name='plus' />
+        </span>{' '}
+        button in the top right corner to add a new plant.
       </p>
     </div>
   );

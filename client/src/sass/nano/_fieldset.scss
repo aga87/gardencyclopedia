@@ -1,11 +1,10 @@
 .fieldset {
-  border: 1px solid $green;
-  background-color: $light-grey;
+  background-color: $light;
+  border: 1px solid $light;
   border-radius: $border-radius;
 
   &__legend {
     @include s1;
-    color: $green;
     font-weight: bold;
   }
 }

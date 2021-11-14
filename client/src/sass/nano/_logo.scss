@@ -1,8 +1,5 @@
 .logo {
   display: inline-block;
-  color: $green;
-
-  &.logo--light {
-    opacity: 0.5;
-  }
+  @include t1;
+  color: $electric;
 }

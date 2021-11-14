@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { deletePlant } from '../../redux/actions/plantsActions';
 import { openEditPlantModal } from '../../redux/actions/uiActions';
 import useComponentVisibility from '../../utils/hooks/useComponentVisibility';
-import IconButton from '../IconButton';
-import Button from '../Button';
+import IconButton from '../nano/IconButton';
+import Button from '../nano/Button';
 import Icon from '../nano/Icon';
 
 type PlantMenuProps = {

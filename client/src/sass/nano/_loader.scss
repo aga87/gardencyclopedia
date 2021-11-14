@@ -3,4 +3,12 @@
   text-align: center;
   color: $grey-04;
   font-style: italic;
+
+  &__icon {
+    @include t3;
+  }
+
+  &__caption {
+    @include s1;
+  }
 }

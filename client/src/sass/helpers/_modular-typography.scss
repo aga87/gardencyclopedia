@@ -1,4 +1,4 @@
-$font-size-h6: 1rem;
+$base-font-size: 1rem;
 $font-size-h5: 1rem * $type-scale;
 $font-size-h4: 1rem * ($type-scale * $type-scale);
 $font-size-h3: 1rem * ($type-scale * $type-scale * $type-scale);
@@ -9,7 +9,7 @@ $font-size-h1: 1rem *
 $font-size-s1: 1rem / $type-scale;
 $font-size-s2: 1rem / $type-scale / $type-scale;
 
-@mixin h1 {
+@mixin t1 {
   font-size: $font-size-h1;
   line-height: ceil($font-size-h1 / $blh) * ($blh / $font-size-h1);
 }
@@ -19,7 +19,7 @@ $font-size-s2: 1rem / $type-scale / $type-scale;
 //   line-height: ceil($font-size-h2 / $blh) * ($blh / $font-size-h2);
 // }
 
-@mixin h3 {
+@mixin t3 {
   font-size: $font-size-h3;
   line-height: ceil($font-size-h3 / $blh) * ($blh / $font-size-h3);
 }
@@ -29,13 +29,13 @@ $font-size-s2: 1rem / $type-scale / $type-scale;
 //   line-height: ceil($font-size-h4 / $blh) * ($blh / $font-size-h4);
 // }
 
-@mixin h5 {
+@mixin t5 {
   font-size: $font-size-h5;
   line-height: ceil($font-size-h5 / $blh) * ($blh / $font-size-h5);
 }
 
-@mixin h6 {
-  font-size: $font-size-h6;
+@mixin t-base {
+  font-size: $base-font-size;
   line-height: $blh;
 }
 
@@ -44,7 +44,7 @@ $font-size-s2: 1rem / $type-scale / $type-scale;
   line-height: ceil($font-size-s1 / $blh) * ($blh / $font-size-s1);
 }
 
-// .s2 {
-//   font-size: $font-size-s2;
-//   line-height: ceil($font-size-s2 / $blh) * ($blh / $font-size-s1);
-// }
+@mixin s2 {
+  font-size: $font-size-s2;
+  line-height: ceil($font-size-s2 / $blh) * ($blh / $font-size-s1);
+}

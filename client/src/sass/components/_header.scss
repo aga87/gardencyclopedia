@@ -2,10 +2,11 @@
   text-align: center;
 
   &.c-header--secondary {
-    color: $grey;
+    color: $tin;
   }
 
   &__title {
+    @include t1;
     $screen-xxs: 20rem;
     @include fluid-typography(10rem, $screen-xxs, 1rem, 2.5rem);
     font-style: italic;

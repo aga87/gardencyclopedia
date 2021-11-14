@@ -1,8 +1,9 @@
 .c-upcoming-features {
   text-align: center;
-  color: $grey;
+  color: $tin;
 
   &__title {
+    @include t3;
     font-weight: 300;
     margin-bottom: $blh * 0.5rem;
   }

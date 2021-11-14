@@ -1,5 +1,6 @@
 .error-server {
-  background-color: $red-05;
+  @include s1;
   padding: $blh * 0.25rem;
-  border: 2px solid $red;
+  background-color: $red-05;
+  border: 1px solid $red;
 }

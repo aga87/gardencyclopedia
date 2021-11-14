@@ -9,7 +9,7 @@ const UpcomingFeatures = ({ features }: UpcomingFeaturesProps): JSX.Element => {
 
   return (
     <div className='c-upcoming-features'>
-      <h2 className='c-upcoming-features__title t3'>Coming Soon:</h2>
+      <h2 className='c-upcoming-features__title'>Coming Soon:</h2>
       <ul className='c-upcoming-features__list'>{upcomingFeaturesListItems}</ul>
     </div>
   );

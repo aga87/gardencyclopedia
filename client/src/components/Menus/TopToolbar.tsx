@@ -7,7 +7,7 @@ import {
 import { filterPlants, sortPlants } from '../../redux/actions/plantsActions';
 import { plantCategories, sortOptions } from '../../utils/constants';
 import Toolbar from './Toolbar';
-import IconButton from '../IconButton';
+import IconButton from '../nano/IconButton';
 import Icon from '../nano/Icon';
 import Select from '../nano/Select';
 

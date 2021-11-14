@@ -1,24 +1,31 @@
 .select {
   $bg-size: 9px;
-  font-family: inherit;
-  @include h6;
+  font-family: $font-stack;
+  @include t-base;
   text-align: center;
+  color: $white;
   height: calc(#{$toolbar-height} - 2px);
   appearance: none;
   padding: 0 calc(0.5em + #{$bg-size}) 0 0.5em;
   background-color: transparent;
-  background-image: url('../../svg/caret-down-solid.svg');
+  background-image: url('../../svg/caret-down-solid-white.svg');
   background-repeat: no-repeat;
   background-size: $bg-size;
   background-position: 95% 55%;
   border: none;
+
+  &__option,
+  &__placeholder {
+    background-color: $white;
+    color: $forest;
+  }
 
   &:hover {
     cursor: pointer;
   }
 
   &:focus {
-    outline: 1px solid $orange;
+    outline: 1px solid $vermillion;
   }
 
   &.select--sort {

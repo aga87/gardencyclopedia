@@ -17,8 +17,8 @@ const Header = ({
 
   return (
     <header className={className}>
-      <Logo variant={variant === 'primary' ? 'primary' : 'light'} />
-      <h1 className='c-header__title t1'>{title}</h1>
+      <Logo />
+      <h1 className='c-header__title'>{title}</h1>
     </header>
   );
 };

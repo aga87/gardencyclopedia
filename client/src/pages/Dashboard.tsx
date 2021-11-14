@@ -32,6 +32,7 @@ const Dashboard = (): JSX.Element => {
 
       <div className='p-dashboard l-dashboard'>
         <div className='l-dashboard__flex-main-menu not-xxs'>
+          <h2 className='p-dashboard__title'>Gardencyclopedia</h2>
           <MainMenu />
         </div>
         <div className='l-dashboard__flex-content'>
