@@ -146,7 +146,7 @@ const PlantForm = (): JSX.Element => {
         />
       </div>
       <div className='l-form__field-last'>
-        <Fieldset legend='Calendar'>
+        <Fieldset legend='Chart'>
           <div className='l-form__field'>
             <SelectField
               inputId='sow-from'
