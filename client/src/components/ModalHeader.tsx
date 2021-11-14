@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../redux/actions/uiActions';
-import IconButton from './IconButton';
+import IconButton from './nano/IconButton';
 import Icon from './nano/Icon';
 
 type ModalHeaderProps = {

@@ -6,7 +6,7 @@ import { selectView } from '../../redux/reducers/index';
 import { sortOptions } from '../../utils/constants';
 import Toolbar from './Toolbar';
 import Select from '../nano/Select';
-import IconButton from '../IconButton';
+import IconButton from '../nano/IconButton';
 import Icon from '../nano/Icon';
 
 const BottomToolbar = (): JSX.Element => {
