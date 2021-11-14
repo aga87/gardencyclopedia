@@ -6,10 +6,10 @@ const UserSettingsModal = (): JSX.Element => (
   <Modal title='User settings'>
     <UpcomingFeatures
       features={[
-        'User authentication with OAuth.',
+        'Email verification with OAuth2.',
         'Update user email.',
         'Update user password.',
-        'Change username.'
+        'Delete account.'
       ]}
     />
   </Modal>
