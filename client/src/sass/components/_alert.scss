@@ -1,5 +1,6 @@
 .c-alert {
   background-color: $black-065;
+  padding: $blh * 1rem 0;
 
   &__content {
     background-color: $white;
@@ -37,11 +38,12 @@
   @include fixed-full-screen;
   z-index: 1;
   overflow: auto;
+  display: flex;
 
   &__content {
     width: 90%;
     max-width: 380px;
-    @include centerXY-abs;
+    margin: auto;
   }
 
   &__btn-group {
