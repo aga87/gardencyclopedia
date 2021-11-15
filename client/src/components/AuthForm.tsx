@@ -6,13 +6,6 @@ import {
   selectHasJustRegistered
 } from '../redux/reducers/index';
 import useAuthForm from '../utils/hooks/useAuthForm';
-// import useFormInput from '../utils/hooks/useFormInput';
-// import {
-//   validateUsername,
-//   validateEmail,
-//   validatePassword
-// } from '../utils/validation-utils';
-// import { login, register } from '../redux/actions/authActions';
 import TextField from './TextField';
 import Error from './nano/Error';
 import SubmitButton from './nano/SubmitButton';
@@ -24,28 +17,43 @@ type AuthFormProps = {
 
 const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   const hasJustRegistered = useSelector(selectHasJustRegistered);
-  const errMsg = useSelector(selectErrMsg);
-  const errId = useSelector(selectErrId);
+  const serverErrMsg = useSelector(selectErrMsg);
+  const serverErrId = useSelector(selectErrId);
+  // Field constraints
+  const constraints = {
+    username: {
+      maxLength: 20,
+      required: true
+    },
+    email: {
+      maxLength: 254,
+      required: true
+    },
+    password: {
+      minLength: 8,
+      maxLength: 128,
+      required: true
+    }
+  };
   const {
     username,
     email,
     password,
-    constraints,
     clientLoginErrors,
     clientRegErrors,
     handleSubmit
-  } = useAuthForm(variant);
+  } = useAuthForm(variant, constraints);
 
   return (
     <form noValidate onSubmit={handleSubmit} className='c-form l-form'>
-      {variant === 'login' && errId === 'LOGIN_FAIL' && (
+      {variant === 'login' && serverErrId === 'LOGIN_FAIL' && (
         <div className='l-form__server-msg'>
-          <Error variant='server' msg={errMsg} />
+          <Error variant='server' msg={serverErrMsg} />
         </div>
       )}
-      {variant === 'register' && errId === 'REGISTER_FAIL' && (
+      {variant === 'register' && serverErrId === 'REGISTER_FAIL' && (
         <div className='l-form__server-msg'>
-          <Error variant='server' msg={errMsg} />
+          <Error variant='server' msg={serverErrMsg} />
         </div>
       )}
       {variant === 'register' && hasJustRegistered && (
