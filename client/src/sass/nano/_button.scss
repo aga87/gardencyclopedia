@@ -4,6 +4,44 @@
   border-color: $electric;
   color: $white;
 
+  &.button--secondary {
+    background-color: $white;
+    color: $tin;
+    border-color: $tin;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+      color: $black;
+      border-color: $black;
+    }
+
+    &:active {
+      color: $white;
+      background-color: $tin;
+      border-color: $tin;
+    }
+  }
+
+  &.button--tertiary {
+    background-color: $white;
+    color: $red;
+    border-color: $red;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+      background-color: $red;
+      color: $white;
+      border-color: $red;
+    }
+
+    &:active {
+      background-color: $charcoal;
+      border-color: $charcoal;
+    }
+  }
+
   &:hover,
   &:focus {
     color: $forest;

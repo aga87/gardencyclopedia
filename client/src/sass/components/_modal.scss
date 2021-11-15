@@ -7,6 +7,24 @@
     border-bottom: 2px solid $forest;
     border-right: 1px solid $forest;
   }
+
+  &__header {
+    height: $toolbar-height;
+    background-color: $forest;
+    color: $white;
+
+    @include screen-min($screen-xs) {
+      height: $toolbar-xs-height;
+    }
+  }
+
+  &__title {
+    @include t-base;
+  }
+
+  &__children {
+    padding: $blh * 0.5rem;
+  }
 }
 
 .l-modal {
@@ -18,7 +36,7 @@
     max-width: 300px;
     min-height: 100%;
 
-    &.l-modal__content--narrow {
+    &.l-modal__content--secondary {
       max-width: 220px;
     }
   }
@@ -28,7 +46,14 @@
     top: 0;
   }
 
-  &__children {
-    padding: $blh * 0.5rem;
+  &__header-flex {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+  }
+
+  &__title {
+    @include centerXY-abs; // true center
   }
 }
