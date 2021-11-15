@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import {
   selectErrMsg,
   selectErrId,
   selectHasJustRegistered
 } from '../redux/reducers/index';
-import useFormInput from '../utils/hooks/useFormInput';
-import {
-  validateUsername,
-  validateEmail,
-  validatePassword
-} from '../utils/validation-utils';
-import { login, register } from '../redux/actions/authActions';
+import useAuthForm from '../utils/hooks/useAuthForm';
 import TextField from './TextField';
 import Error from './nano/Error';
 import SubmitButton from './nano/SubmitButton';
@@ -23,99 +17,28 @@ type AuthFormProps = {
 
 const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   const hasJustRegistered = useSelector(selectHasJustRegistered);
-  const username = useFormInput('');
-  const email = useFormInput('');
-  const password = useFormInput('');
-  const errMsg = useSelector(selectErrMsg);
-  const errId = useSelector(selectErrId);
-  const [clientLoginErrors, setClientLoginErrors] = useState({
-    email: '',
-    password: ''
-  });
-  const [clientRegErrors, setClientRegErrors] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
-  const dispatch = useDispatch();
-
-  // Field constraints
-  const constraints = {
-    username: {
-      maxLength: 20,
-      required: true
-    },
-    email: {
-      maxLength: 254,
-      required: true
-    },
-    password: {
-      minLength: 8,
-      maxLength: 128,
-      required: true
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // LOGIN
-    if (variant === 'login') {
-      // Client-side validation
-      const loginFormErrors = {
-        email: validateEmail(email.value, constraints.email),
-        password: validatePassword(password.value, constraints.password)
-      };
-
-      setClientLoginErrors(loginFormErrors);
-
-      const formErrorExists = Object.values(loginFormErrors).some(
-        value => value !== ''
-      );
-
-      if (formErrorExists) return;
-
-      // Submit if there is no errors
-      const user = {
-        email: email.value,
-        password: password.value
-      };
-      dispatch(login(user));
-    } else {
-      // REGISTRATION - client-side validation
-      const regFormErrors = {
-        username: validateUsername(username.value, constraints.username),
-        email: validateEmail(email.value, constraints.email),
-        password: validatePassword(password.value, constraints.password)
-      };
-
-      setClientRegErrors(regFormErrors);
-
-      const formErrorExists = Object.values(regFormErrors).some(
-        value => value !== ''
-      );
-
-      if (formErrorExists) return;
-
-      // Submit if there is no errors
-      const newUser = {
-        username: username.value,
-        email: email.value,
-        password: password.value
-      };
-      dispatch(register(newUser));
-    }
-  };
+  const serverErrMsg = useSelector(selectErrMsg);
+  const serverErrId = useSelector(selectErrId);
+  const {
+    username,
+    email,
+    password,
+    constraints,
+    clientLoginErrors,
+    clientRegErrors,
+    handleSubmit
+  } = useAuthForm(variant);
 
   return (
     <form noValidate onSubmit={handleSubmit} className='c-form l-form'>
-      {variant === 'login' && errId === 'LOGIN_FAIL' && (
+      {variant === 'login' && serverErrId === 'LOGIN_FAIL' && (
         <div className='l-form__server-msg'>
-          <Error variant='server' msg={errMsg} />
+          <Error variant='server' msg={serverErrMsg} />
         </div>
       )}
-      {variant === 'register' && errId === 'REGISTER_FAIL' && (
+      {variant === 'register' && serverErrId === 'REGISTER_FAIL' && (
         <div className='l-form__server-msg'>
-          <Error variant='server' msg={errMsg} />
+          <Error variant='server' msg={serverErrMsg} />
         </div>
       )}
       {variant === 'register' && hasJustRegistered && (
