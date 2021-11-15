@@ -19,30 +19,15 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   const hasJustRegistered = useSelector(selectHasJustRegistered);
   const serverErrMsg = useSelector(selectErrMsg);
   const serverErrId = useSelector(selectErrId);
-  // Field constraints
-  const constraints = {
-    username: {
-      maxLength: 20,
-      required: true
-    },
-    email: {
-      maxLength: 254,
-      required: true
-    },
-    password: {
-      minLength: 8,
-      maxLength: 128,
-      required: true
-    }
-  };
   const {
     username,
     email,
     password,
+    constraints,
     clientLoginErrors,
     clientRegErrors,
     handleSubmit
-  } = useAuthForm(variant, constraints);
+  } = useAuthForm(variant);
 
   return (
     <form noValidate onSubmit={handleSubmit} className='c-form l-form'>

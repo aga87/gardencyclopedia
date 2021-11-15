@@ -8,7 +8,7 @@ import {
 } from '../validation-utils';
 import { login, register } from '../../redux/actions/authActions';
 
-export default function useAuthForm(variant, constraints) {
+const useAuthForm = (variant: 'login' | 'register') => {
   const username = useFormInput('');
   const email = useFormInput('');
   const password = useFormInput('');
@@ -23,8 +23,24 @@ export default function useAuthForm(variant, constraints) {
   });
   const dispatch = useDispatch();
 
-  // (e: React.FormEvent<HTMLFormElement>)
-  const handleSubmit = e => {
+  // Field constraints
+  const constraints = {
+    username: {
+      maxLength: 20,
+      required: true
+    },
+    email: {
+      maxLength: 254,
+      required: true
+    },
+    password: {
+      minLength: 8,
+      maxLength: 128,
+      required: true
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // LOGIN
     if (variant === 'login') {
@@ -78,8 +94,11 @@ export default function useAuthForm(variant, constraints) {
     username,
     email,
     password,
+    constraints,
     clientLoginErrors,
     clientRegErrors,
     handleSubmit
   };
-}
+};
+
+export default useAuthForm;
