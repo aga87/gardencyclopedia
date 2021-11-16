@@ -74,7 +74,7 @@ export const sortPlants = (
         // e.g. for harvesting period from Nov - Feb the earliest month is January
         const earliestMonthPlantA = harvestingPeriodArrPlantA.indexOf(1);
         const earliestMonthPlantB = harvestingPeriodArrPlantB.indexOf(1);
-        
+
         return earliestMonthPlantA - earliestMonthPlantB;
       };
       return plants.sort(compareHarvestFrom);
