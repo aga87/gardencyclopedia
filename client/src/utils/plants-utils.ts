@@ -1,25 +1,3 @@
-// const firstIndex = months.indexOf(monthStart);
-// const lastIndex = months.indexOf(monthEnd);
-// const dataIsMissing = firstIndex === -1 || lastIndex === -1;
-
-// const monthRow = months.map((month, i) => {
-//   if (dataIsMissing) return <td key={month} className='month-data' />;
-//   if (firstIndex < lastIndex) {
-//     if (i >= firstIndex && i <= lastIndex)
-//       return <td key={month} className={className} />;
-//     return <td key={month} className='month-data' />;
-//   }
-//   if (firstIndex > lastIndex) {
-//     if (i <= lastIndex) return <td key={month} className={className} />;
-//     if (i > lastIndex && i < firstIndex)
-//       return <td key={month} className='month-data' />;
-//     return <td key={month} className={className} />;
-//   }
-//   // if equal
-//   if (i === firstIndex) return <td key={month} className={className} />;
-//   return <td key={month} className='month-data' />;
-// });
-
 export const toZeroOnesArr = (
   monthStart: Month,
   monthEnd: Month,
@@ -62,13 +40,43 @@ export const sortPlants = (
       return plants.sort(compareCategory);
     }
     case 'sowing time': {
-      const compareSowFrom = (a: Plant, b: Plant) =>
-        months.indexOf(a.sowFrom) - months.indexOf(b.sowFrom);
+      const compareSowFrom = (a: Plant, b: Plant) => {
+        const sowingPeriodArrPlantA = toZeroOnesArr(
+          a.sowFrom,
+          a.sowUntil,
+          months
+        );
+        const sowingPeriodArrPlantB = toZeroOnesArr(
+          b.sowFrom,
+          b.sowUntil,
+          months
+        );
+        // e.g. for sowing period from Nov - Feb the earliest month is January
+        const earliestMonthPlantA = sowingPeriodArrPlantA.indexOf(1);
+        const earliestMonthPlantB = sowingPeriodArrPlantB.indexOf(1);
+
+        return earliestMonthPlantA - earliestMonthPlantB;
+      };
       return plants.sort(compareSowFrom);
     }
     case 'harvest time': {
-      const compareHarvestFrom = (a: Plant, b: Plant) =>
-        months.indexOf(a.harvestFrom) - months.indexOf(b.harvestFrom);
+      const compareHarvestFrom = (a: Plant, b: Plant) => {
+        const harvestingPeriodArrPlantA = toZeroOnesArr(
+          a.harvestFrom,
+          a.harvestUntil,
+          months
+        );
+        const harvestingPeriodArrPlantB = toZeroOnesArr(
+          b.harvestFrom,
+          b.harvestUntil,
+          months
+        );
+        // e.g. for harvesting period from Nov - Feb the earliest month is January
+        const earliestMonthPlantA = harvestingPeriodArrPlantA.indexOf(1);
+        const earliestMonthPlantB = harvestingPeriodArrPlantB.indexOf(1);
+        
+        return earliestMonthPlantA - earliestMonthPlantB;
+      };
       return plants.sort(compareHarvestFrom);
     }
     default:
