@@ -10,7 +10,8 @@ import {
 import MainMenuModal from '../components/MainMenuModal';
 import UserSettingsModal from '../components/UserSettingsModal';
 import PlantModal from '../components/PlantModal';
-import TopToolbar from '../components/Menus/TopToolbar';
+import TopCalendarToolbar from '../components/Menus/TopCalendarToolbar';
+import TopGardenToolbar from '../components/Menus/TopGardenToolbar';
 import BottomCalendarToolbar from '../components/Menus/BottomCalendarToolbar';
 import BottomGardenToolbar from '../components/Menus/BottomGardenToolbar';
 import CalendarView from '../components/CalendarView';
@@ -37,7 +38,7 @@ const Dashboard = (): JSX.Element => {
           <MainMenu />
         </div>
         <div className='l-dashboard__flex-content'>
-          <TopToolbar />
+          {view === 'calendar' ? <TopCalendarToolbar /> : <TopGardenToolbar />}
           <section className='l-dashboard__content'>
             {view === 'calendar' ? (
               <CalendarView />
@@ -48,7 +49,11 @@ const Dashboard = (): JSX.Element => {
             )}
           </section>
           <div className='l-dashboard__bottom-toolbar xxs-only'>
-            {view === 'calendar' ? <BottomCalendarToolbar /> : <BottomGardenToolbar />}
+            {view === 'calendar' ? (
+              <BottomCalendarToolbar />
+            ) : (
+              <BottomGardenToolbar />
+            )}
           </div>
         </div>
       </div>
