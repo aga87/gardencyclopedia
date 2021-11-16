@@ -9,7 +9,7 @@ import {
 } from '../redux/reducers/index';
 import { getPlants } from '../redux/actions/plantsActions';
 import { months } from '../utils/constants';
-import sortPlants from '../utils/plants-utils';
+import { sortPlants } from '../utils/plants-utils';
 import Loader from './nano/Loader';
 import NoPlants from './NoPlants';
 import Calendar from './Calendar';
