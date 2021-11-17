@@ -40,13 +40,7 @@ const Dashboard = (): JSX.Element => {
         <div className='l-dashboard__flex-content'>
           {view === 'calendar' ? <TopCalendarToolbar /> : <TopGardenToolbar />}
           <section className='l-dashboard__content'>
-            {view === 'calendar' ? (
-              <CalendarView />
-            ) : (
-              <div className='l-flex-centerY'>
-                <GardenView />
-              </div>
-            )}
+            {view === 'calendar' ? <CalendarView /> : <GardenView />}
           </section>
           <div className='l-dashboard__bottom-toolbar xxs-only'>
             {view === 'calendar' ? (

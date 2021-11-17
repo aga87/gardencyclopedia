@@ -8,12 +8,7 @@ import CalendarCaption from './CalendarCaption';
 const Calendar = (): JSX.Element => {
   const plantIds = useSelector(selectFilteredSortedPlantIds);
 
-  if (plantIds.length === 0)
-    return (
-      <div className='l-flex-centerY'>
-        <NoPlants />
-      </div>
-    );
+  if (plantIds.length === 0) return <NoPlants />;
 
   const plantListItems = plantIds.map(plantId => (
     <li key={plantId} className='l-calendar__list-item'>

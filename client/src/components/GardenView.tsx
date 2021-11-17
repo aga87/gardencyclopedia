@@ -3,7 +3,7 @@ import Header from './Header';
 import UpcomingFeatures from './UpcomingFeatures';
 
 const GardenView = (): JSX.Element => (
-  <div>
+  <div className='c-garden-view l-garden-view'>
     <Header variant='secondary' title='Garden' />
     <UpcomingFeatures
       features={[

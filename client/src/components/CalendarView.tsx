@@ -13,12 +13,7 @@ const CalendarView = (): JSX.Element => {
     dispatch(getPlants());
   }, [dispatch]);
 
-  if (isLoading)
-    return (
-      <div className='l-flex-centerY'>
-        <Loader />
-      </div>
-    );
+  if (isLoading) return <Loader />;
 
   return <Calendar />;
 };

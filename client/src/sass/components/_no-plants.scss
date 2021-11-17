@@ -11,6 +11,8 @@
 }
 
 .l-no-plants {
+  @include flex-column-centerY;
+
   &__title,
   &__btn {
     margin-bottom: $blh * 0.25rem;
