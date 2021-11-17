@@ -16,12 +16,16 @@ const MonthlyDataRow = ({
   const className = `month-data month-data--${variant}`;
 
   const tabularMonthData = toZeroOnesArr(monthStart, monthEnd, months);
-  const monthDataRow = tabularMonthData.map(data => {
-    if (data === 0) return <td className='month-data' />;
-    return <td className={className} />;
+  const monthDataRow = tabularMonthData.map((data, i) => {
+    if (data === 0) return <td key={months[i]} className='month-data' />;
+    return <td key={months[i]} className={className} />;
   });
 
-  return <><tr>{monthDataRow}</tr></>;
+  return (
+    <>
+      <tr>{monthDataRow}</tr>
+    </>
+  );
 };
 
 export default MonthlyDataRow;

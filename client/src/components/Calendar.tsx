@@ -24,9 +24,9 @@ const Calendar = (): JSX.Element => {
   return (
     <figure className='c-calendar l-calendar'>
       <ul className='c-calendar__list'>{plantListItems}</ul>
-      <div className='l-calendar__caption'>
+      <figcaption className='l-calendar__caption'>
         <CalendarCaption noOfPlants={plantListItems.length} />
-      </div>
+      </figcaption>
     </figure>
   );
 };
