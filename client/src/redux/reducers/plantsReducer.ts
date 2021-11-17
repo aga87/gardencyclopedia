@@ -112,7 +112,8 @@ export default plantsReducer;
 export const selectIsLoading = (state: State): boolean => state.isLoading;
 export const selectFilter = (state: State): Category => state.filter;
 export const selectSort = (state: State): Sort => state.sort;
-export const selectFilteredSortedPlants = (state: State): Plant[] => {
+
+export const selectFilteredSortedPlantIds = (state: State): string[] => {
   // Filter by category
   const filteredPlants = state.plants.filter(plant => {
     if (!state.filter) return state.plants;
@@ -120,5 +121,13 @@ export const selectFilteredSortedPlants = (state: State): Plant[] => {
   });
   // Sort
   const sortedFilteredPlants = sortPlants(filteredPlants, state.sort, months);
-  return sortedFilteredPlants;
+  // Get ids
+  const sortedFilteredPlantIds = sortedFilteredPlants.map(plant => plant._id);
+  return sortedFilteredPlantIds as string[];
+};
+
+export const selectPlantById = (state: State, id: string): Plant | null => {
+  const selectedPlant = state.plants.find(plant => plant._id === id);
+  if (!selectedPlant) return null;
+  return selectedPlant;
 };

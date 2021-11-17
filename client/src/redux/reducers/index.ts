@@ -23,8 +23,11 @@ export const selectFilter = (state: RootState): Category =>
 export const selectSort = (state: RootState): Sort =>
   fromPlantsReducer.selectSort(state.plantsReducer);
 
-export const selectFilteredSortedPlants = (state: RootState): Plant[] => 
-fromPlantsReducer.selectFilteredSortedPlants(state.plantsReducer);
+export const selectFilteredSortedPlantIds = (state: RootState): string[] =>
+  fromPlantsReducer.selectFilteredSortedPlantIds(state.plantsReducer);
+
+export const selectPlantById = (state: RootState, id: string): Plant | null =>
+  fromPlantsReducer.selectPlantById(state.plantsReducer, id);
 
 // Global UI selectors
 export const selectIsMainMenuModalOpen = (state: RootState): boolean =>

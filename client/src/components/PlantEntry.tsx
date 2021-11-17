@@ -1,14 +1,23 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectPlantById } from '../redux/reducers/index';
+import type { RootState } from '../redux/store';
 import PlantEntryHeader from './PlantEntryHeader';
 import PlantDesc from './nano/PlantDesc';
 import Tag from './nano/Tag';
 import CalendarChart from './CalendarChart';
 
 type PlantEntryProps = {
-  plant: Plant;
+  plantId: string;
 };
 
-const PlantEntry = ({ plant }: PlantEntryProps): JSX.Element => {
+const PlantEntry = ({ plantId }: PlantEntryProps): JSX.Element | null => {
+  const plant = useSelector((state: RootState) =>
+    selectPlantById(state, plantId)
+  );
+
+  if (!plant) return null;
+
   const { desc, category, sowFrom, sowUntil, harvestFrom, harvestUntil } =
     plant;
 
