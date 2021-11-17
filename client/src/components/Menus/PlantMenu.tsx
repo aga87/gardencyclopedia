@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../../redux/actions/plantsActions';
-import { openEditPlantModal } from '../../redux/actions/uiActions';
+import { openEditPlantModal, setView } from '../../redux/actions/uiActions';
 import useComponentVisibility from '../../utils/hooks/useComponentVisibility';
 import DeleteConfirmationAlert from '../DeleteConfirmationAlert';
 import IconButton from '../nano/IconButton';
@@ -20,6 +20,10 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
 
   const handleMoreClick = () => {
     setIsComponentVisible(true);
+  };
+
+  const handleAddToGarden = () => {
+    dispatch(setView('garden'));
   };
 
   const handleDeleteClick = () => {
@@ -60,6 +64,14 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
         <div ref={ref}>
           {isComponentVisible && (
             <ul className='c-plant-menu__dropdown l-plant-menu__dropdown'>
+              <li>
+                <Button
+                  variant='block'
+                  icon={<Icon name='seedling' />}
+                  text='Plant'
+                  handleClick={handleAddToGarden}
+                />
+              </li>
               <li>
                 <Button
                   variant='block'
