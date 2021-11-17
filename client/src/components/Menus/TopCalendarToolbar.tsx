@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   openMainMenuModal,
   openAddPlantModal
 } from '../../redux/actions/uiActions';
 import { filterPlants, sortPlants } from '../../redux/actions/plantsActions';
 import { plantCategories, sortOptions } from '../../utils/constants';
+import { selectFilter, selectSort } from '../../redux/reducers/index';
 import Toolbar from './Toolbar';
 import IconButton from '../nano/IconButton';
 import Icon from '../nano/Icon';
 import Select from '../nano/Select';
 
 const TopToolbar = (): JSX.Element => {
-  const [filter, setFilter] = useState<Category>('');
-  const [sort, setSort] = useState<Sort>('name');
+  const filter = useSelector(selectFilter);
+  const sort = useSelector(selectSort);
   const dispatch = useDispatch();
 
   const handleMainMenuClick = () => {
@@ -25,12 +26,10 @@ const TopToolbar = (): JSX.Element => {
   };
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilter(e.target.value as Category);
     dispatch(filterPlants(e.target.value as Category));
   };
 
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSort(e.target.value as Sort);
     dispatch(sortPlants(e.target.value as Sort));
   };
 
