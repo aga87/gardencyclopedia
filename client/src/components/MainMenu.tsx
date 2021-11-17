@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { openUserSettingsModal, setView } from '../../redux/actions/uiActions';
-import { logout } from '../../redux/actions/authActions';
-import { selectUsername } from '../../redux/reducers/index';
-import Button from '../nano/Button';
-import Icon from '../nano/Icon';
+import { openUserSettingsModal, setView } from '../redux/actions/uiActions';
+import { logout } from '../redux/actions/authActions';
+import { selectUsername } from '../redux/reducers/index';
+import Button from './nano/Button';
+import Icon from './nano/Icon';
 
 const MainMenu = (): JSX.Element => {
   const username = useSelector(selectUsername);

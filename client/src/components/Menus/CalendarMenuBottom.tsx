@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { sortPlants } from '../../redux/actions/plantsActions';
 import { setView } from '../../redux/actions/uiActions';
+import { selectSort } from '../../redux/reducers/index';
 import { sortOptions } from '../../utils/constants';
 import Toolbar from './Toolbar';
 import Select from '../nano/Select';
@@ -9,11 +10,10 @@ import IconButton from '../nano/IconButton';
 import Icon from '../nano/Icon';
 
 const BottomCalendarToolbar = (): JSX.Element => {
-  const [sort, setSort] = useState<Sort>('name');
+  const sort = useSelector(selectSort);
   const dispatch = useDispatch();
 
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSort(e.target.value as Sort);
     dispatch(sortPlants(e.target.value as Sort));
   };
 

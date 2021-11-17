@@ -10,13 +10,13 @@ import {
 import MainMenuModal from '../components/MainMenuModal';
 import UserSettingsModal from '../components/UserSettingsModal';
 import PlantModal from '../components/PlantModal';
-import TopCalendarToolbar from '../components/Menus/TopCalendarToolbar';
-import TopGardenToolbar from '../components/Menus/TopGardenToolbar';
-import BottomCalendarToolbar from '../components/Menus/BottomCalendarToolbar';
-import BottomGardenToolbar from '../components/Menus/BottomGardenToolbar';
+import CalendarMenuTop from '../components/Menus/CalendarMenuTop';
+import GardenMenuTop from '../components/Menus/GardenMenuTop';
+import CalendarMenuBottom from '../components/Menus/CalendarMenuBottom';
+import GardenMenuBottom from '../components/Menus/GardenMenuBottom';
 import CalendarView from '../components/CalendarView';
 import GardenView from '../components/GardenView';
-import MainMenu from '../components/Menus/MainMenu';
+import MainMenu from '../components/MainMenu';
 
 const Dashboard = (): JSX.Element => {
   const isMainMenuModalOpen = useSelector(selectIsMainMenuModalOpen);
@@ -38,15 +38,15 @@ const Dashboard = (): JSX.Element => {
           <MainMenu />
         </div>
         <div className='l-dashboard__flex-content'>
-          {view === 'calendar' ? <TopCalendarToolbar /> : <TopGardenToolbar />}
+          {view === 'calendar' ? <CalendarMenuTop /> : <GardenMenuTop />}
           <section className='l-dashboard__content'>
             {view === 'calendar' ? <CalendarView /> : <GardenView />}
           </section>
           <div className='l-dashboard__bottom-toolbar xxs-only'>
             {view === 'calendar' ? (
-              <BottomCalendarToolbar />
+              <CalendarMenuBottom />
             ) : (
-              <BottomGardenToolbar />
+              <GardenMenuBottom />
             )}
           </div>
         </div>

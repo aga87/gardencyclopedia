@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deletePlant } from '../../redux/actions/plantsActions';
-import { openEditPlantModal, setView } from '../../redux/actions/uiActions';
-import useComponentVisibility from '../../utils/hooks/useComponentVisibility';
-import DeleteConfirmationAlert from '../DeleteConfirmationAlert';
-import IconButton from '../nano/IconButton';
-import Button from '../nano/Button';
-import Icon from '../nano/Icon';
+import { deletePlant } from '../redux/actions/plantsActions';
+import { openEditPlantModal, setView } from '../redux/actions/uiActions';
+import useComponentVisibility from '../utils/hooks/useComponentVisibility';
+import DeleteConfirmationAlert from './DeleteConfirmationAlert';
+import IconButton from './nano/IconButton';
+import Button from './nano/Button';
+import Icon from './nano/Icon';
 
 type PlantMenuProps = {
   plant: Plant;
