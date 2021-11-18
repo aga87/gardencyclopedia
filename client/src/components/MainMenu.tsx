@@ -2,12 +2,13 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openUserSettingsModal, setView } from '../redux/actions/uiActions';
 import { logout } from '../redux/actions/authActions';
-import { selectUsername } from '../redux/reducers/index';
-import Button from './nano/Button';
+import { selectUsername, selectView } from '../redux/reducers/index';
+import MenuDropdownButton from './nano/MenuDropdownButton';
 import Icon from './nano/Icon';
 
 const MainMenu = (): JSX.Element => {
   const username = useSelector(selectUsername);
+  const view = useSelector(selectView);
   const dispatch = useDispatch();
 
   const handleUserClick = () => {
@@ -30,34 +31,32 @@ const MainMenu = (): JSX.Element => {
     <nav className='c-main-menu'>
       <ul className='c-main-menu__list'>
         <li>
-          <Button
+          <MenuDropdownButton
             icon={<Icon name='user-cog' />}
             text={username}
-            variant='block'
             handleClick={handleUserClick}
           />
         </li>
         <li>
-          <Button
+          <MenuDropdownButton
             icon={<Icon name='calendar' />}
             text='Calendar'
-            variant='block'
             handleClick={handleCalendarClick}
+            selected={view === 'calendar'}
           />
         </li>
         <li>
-          <Button
+          <MenuDropdownButton
             icon={<Icon name='seedling' />}
             text='Garden'
-            variant='block'
             handleClick={handleGardenClick}
+            selected={view === 'garden'}
           />
         </li>
         <li>
-          <Button
+          <MenuDropdownButton
             icon={<Icon name='logout' />}
             text='Logout'
-            variant='block'
             handleClick={handleLogoutClick}
           />
         </li>

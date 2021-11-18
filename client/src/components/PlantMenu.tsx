@@ -5,7 +5,7 @@ import { openEditPlantModal, setView } from '../redux/actions/uiActions';
 import useComponentVisibility from '../utils/hooks/useComponentVisibility';
 import DeleteConfirmationAlert from './DeleteConfirmationAlert';
 import IconButton from './nano/IconButton';
-import Button from './nano/Button';
+import MenuDropdownButton from './nano/MenuDropdownButton';
 import Icon from './nano/Icon';
 
 type PlantMenuProps = {
@@ -65,24 +65,21 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
           {isComponentVisible && (
             <ul className='c-plant-menu__dropdown l-plant-menu__dropdown'>
               <li>
-                <Button
-                  variant='block'
+                <MenuDropdownButton
                   icon={<Icon name='seedling' />}
                   text='Plant'
                   handleClick={handleAddToGarden}
                 />
               </li>
               <li>
-                <Button
-                  variant='block'
+                <MenuDropdownButton
                   icon={<Icon name='edit' />}
                   text='Edit'
                   handleClick={handleEditClick}
                 />
               </li>
               <li>
-                <Button
-                  variant='block'
+                <MenuDropdownButton
                   icon={<Icon name='trash' />}
                   text='Delete'
                   handleClick={handleDeleteClick}

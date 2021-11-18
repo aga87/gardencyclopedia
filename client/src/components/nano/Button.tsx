@@ -1,7 +1,7 @@
 import React from 'react';
 
 type ButtonProps = {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'block';
+  variant?: 'primary' | 'secondary' | 'tertiary';
   text: string;
   icon?: React.ReactNode;
   handleClick: () => void;
@@ -14,22 +14,13 @@ const Button = ({
   handleClick
 }: ButtonProps): JSX.Element => {
   let className = 'button';
-  if (variant !== 'block') {
+  if (variant !== 'primary') {
     className = `${className} ${className}--${variant}`;
-  } else if (variant === 'block') {
-    className = 'block-button';
-  }
-
-  let iconClassName = '';
-  if (variant !== 'block') {
-    iconClassName = 'button__icon';
-  } else if (variant === 'block') {
-    iconClassName = 'block-button__icon';
   }
 
   return (
     <button type='button' onClick={handleClick} className={className}>
-      {icon && <span className={iconClassName}>{icon}</span>}
+      {icon && <span className='button__icon'>{icon}</span>}
       {text}
     </button>
   );
