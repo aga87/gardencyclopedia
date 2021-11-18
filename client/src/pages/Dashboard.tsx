@@ -7,6 +7,7 @@ import {
   selectIsEditPlantModalOpen,
   selectIsUserSettingsModalOpen
 } from '../redux/reducers/index';
+import DashboardTemplate from '../components/templates/DashboardTemplate';
 import MainMenuModal from '../components/MainMenuModal';
 import UserSettingsModal from '../components/UserSettingsModal';
 import PlantModal from '../components/PlantModal';
@@ -29,28 +30,26 @@ const Dashboard = (): JSX.Element => {
     <div>
       {isMainMenuModalOpen && <MainMenuModal />}
       {isUserSettingsModalOpen && <UserSettingsModal />}
-      {isAddPlantModalOpen && <PlantModal variant='add' />}
-      {isEditPlantModalOpen && <PlantModal variant='edit' />}
 
-      <div className='p-dashboard l-dashboard'>
-        <div className='l-dashboard__flex-main-menu not-xxs'>
-          <h2 className='p-dashboard__title'>Gardencyclopedia</h2>
-          <MainMenu />
+      {view === 'calendar' ? (
+        <div>
+          {isAddPlantModalOpen && <PlantModal variant='add' />}
+          {isEditPlantModalOpen && <PlantModal variant='edit' />}
+          <DashboardTemplate
+            sideContent={<MainMenu />}
+            topMenu={<CalendarMenuTop />}
+            bottomMenuMobile={<CalendarMenuBottom />}
+            content={<CalendarView />}
+          />
         </div>
-        <div className='l-dashboard__flex-content'>
-          {view === 'calendar' ? <CalendarMenuTop /> : <GardenMenuTop />}
-          <section className='l-dashboard__content'>
-            {view === 'calendar' ? <CalendarView /> : <GardenView />}
-          </section>
-          <div className='l-dashboard__bottom-toolbar xxs-only'>
-            {view === 'calendar' ? (
-              <CalendarMenuBottom />
-            ) : (
-              <GardenMenuBottom />
-            )}
-          </div>
-        </div>
-      </div>
+      ) : (
+        <DashboardTemplate
+          sideContent={<MainMenu />}
+          topMenu={<GardenMenuTop />}
+          bottomMenuMobile={<GardenMenuBottom />}
+          content={<GardenView />}
+        />
+      )}
     </div>
   );
 };
