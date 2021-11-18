@@ -19,7 +19,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleMoreClick = () => {
-    setIsComponentVisible(true);
+    setIsComponentVisible(!isComponentVisible);
   };
 
   const handleAddToGarden = () => {
@@ -46,7 +46,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
   };
 
   return (
-    <div>
+    <div ref={ref}>
       {isAlertVisible && (
         <DeleteConfirmationAlert
           itemName={plant.name}
@@ -61,7 +61,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
           ariaLabel={`Open ${plant.name} options`}
           handleClick={handleMoreClick}
         />
-        <div ref={ref}>
+        <div>
           {isComponentVisible && (
             <ul className='c-plant-menu__dropdown l-plant-menu__dropdown'>
               <li>
