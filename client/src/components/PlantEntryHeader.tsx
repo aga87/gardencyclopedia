@@ -1,5 +1,5 @@
 import React from 'react';
-import PlantMenu from './Menus/PlantMenu';
+import PlantMenu from './PlantMenu';
 
 type PlantEntryHeaderProps = {
   plant: Plant;

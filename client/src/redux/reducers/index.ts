@@ -13,8 +13,6 @@ export default combineReducers({
 });
 
 // Global plant selectors
-export const selectAllPlants = (state: RootState): Plant[] =>
-  fromPlantsReducer.selectAllPlants(state.plantsReducer);
 
 export const selectIsLoading = (state: RootState): boolean =>
   fromPlantsReducer.selectIsLoading(state.plantsReducer);
@@ -24,6 +22,12 @@ export const selectFilter = (state: RootState): Category =>
 
 export const selectSort = (state: RootState): Sort =>
   fromPlantsReducer.selectSort(state.plantsReducer);
+
+export const selectFilteredSortedPlantIds = (state: RootState): string[] =>
+  fromPlantsReducer.selectFilteredSortedPlantIds(state.plantsReducer);
+
+export const selectPlantById = (state: RootState, id: string): Plant | null =>
+  fromPlantsReducer.selectPlantById(state.plantsReducer, id);
 
 // Global UI selectors
 export const selectIsMainMenuModalOpen = (state: RootState): boolean =>

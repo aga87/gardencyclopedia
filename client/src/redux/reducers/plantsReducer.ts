@@ -7,6 +7,8 @@ import {
   FILTER_PLANTS,
   SORT_PLANTS
 } from '../actions/types';
+import { months } from '../../utils/constants';
+import { sortPlants } from '../../utils/plants-utils';
 
 const initialState = {
   plants: [] as Plant[],
@@ -107,7 +109,25 @@ const plantsReducer = (state = initialState, action: Action): State => {
 export default plantsReducer;
 
 // Selectors
-export const selectAllPlants = (state: State): Plant[] => state.plants;
 export const selectIsLoading = (state: State): boolean => state.isLoading;
 export const selectFilter = (state: State): Category => state.filter;
 export const selectSort = (state: State): Sort => state.sort;
+
+export const selectFilteredSortedPlantIds = (state: State): string[] => {
+  // Filter by category
+  const filteredPlants = state.plants.filter(plant => {
+    if (!state.filter) return state.plants;
+    return plant.category === state.filter;
+  });
+  // Sort
+  const sortedFilteredPlants = sortPlants(filteredPlants, state.sort, months);
+  // Get ids
+  const sortedFilteredPlantIds = sortedFilteredPlants.map(plant => plant._id);
+  return sortedFilteredPlantIds as string[];
+};
+
+export const selectPlantById = (state: State, id: string): Plant | null => {
+  const selectedPlant = state.plants.find(plant => plant._id === id);
+  if (!selectedPlant) return null;
+  return selectedPlant;
+};

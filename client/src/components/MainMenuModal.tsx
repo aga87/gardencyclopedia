@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../redux/actions/uiActions';
-import MainMenu from './Menus/MainMenu';
+import MainMenu from './MainMenu';
 import Modal from './Modal';
 
 const MainMenuModal = (): JSX.Element => {
