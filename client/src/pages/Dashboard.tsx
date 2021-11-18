@@ -10,10 +10,10 @@ import {
 import MainMenuModal from '../components/MainMenuModal';
 import UserSettingsModal from '../components/UserSettingsModal';
 import PlantModal from '../components/PlantModal';
-import CalendarMenuTop from '../components/Menus/CalendarMenuTop';
-import GardenMenuTop from '../components/Menus/GardenMenuTop';
-import CalendarMenuBottom from '../components/Menus/CalendarMenuBottom';
-import GardenMenuBottom from '../components/Menus/GardenMenuBottom';
+import CalendarMenuTop from '../components/CalendarMenuTop';
+import GardenMenuTop from '../components/GardenMenuTop';
+import CalendarMenuBottom from '../components/CalendarMenuBottom';
+import GardenMenuBottom from '../components/GardenMenuBottom';
 import CalendarView from '../components/CalendarView';
 import GardenView from '../components/GardenView';
 import MainMenu from '../components/MainMenu';

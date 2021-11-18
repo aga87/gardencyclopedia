@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   openMainMenuModal,
   openAddPlantModal
-} from '../../redux/actions/uiActions';
-import { filterPlants, sortPlants } from '../../redux/actions/plantsActions';
-import { plantCategories, sortOptions } from '../../utils/constants';
-import { selectFilter, selectSort } from '../../redux/reducers/index';
-import Toolbar from './Toolbar';
-import IconButton from '../nano/IconButton';
-import Icon from '../nano/Icon';
-import Select from '../nano/Select';
+} from '../redux/actions/uiActions';
+import { filterPlants, sortPlants } from '../redux/actions/plantsActions';
+import { plantCategories, sortOptions } from '../utils/constants';
+import { selectFilter, selectSort } from '../redux/reducers/index';
+import IconButton from './nano/IconButton';
+import Icon from './nano/Icon';
+import Select from './nano/Select';
 
 const TopToolbar = (): JSX.Element => {
   const filter = useSelector(selectFilter);
@@ -34,8 +33,8 @@ const TopToolbar = (): JSX.Element => {
   };
 
   return (
-    <Toolbar>
-      <ul className='l-top-toolbar'>
+    <nav className='c-menu-top l-menu-top'>
+      <ul className='l-menu-top__list'>
         <li className='xxs-only'>
           <IconButton
             icon={<Icon name='menu' />}
@@ -43,7 +42,7 @@ const TopToolbar = (): JSX.Element => {
             handleClick={handleMainMenuClick}
           />
         </li>
-        <li className='l-top-toolbar__item-center'>
+        <li className='l-menu-top__item-center'>
           <Select
             options={plantCategories}
             placeholder='All Plants'
@@ -69,7 +68,7 @@ const TopToolbar = (): JSX.Element => {
           />
         </li>
       </ul>
-    </Toolbar>
+    </nav>
   );
 };
 

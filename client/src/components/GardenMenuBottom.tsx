@@ -1,9 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setView } from '../../redux/actions/uiActions';
-import Toolbar from './Toolbar';
-import IconButton from '../nano/IconButton';
-import Icon from '../nano/Icon';
+import { setView } from '../redux/actions/uiActions';
+import IconButton from './nano/IconButton';
+import Icon from './nano/Icon';
 
 const BottomGardenToolbar = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -13,8 +12,8 @@ const BottomGardenToolbar = (): JSX.Element => {
   };
 
   return (
-    <Toolbar>
-      <ul className='l-bottom-toolbar'>
+    <nav className='c-menu-bottom l-menu-bottom'>
+      <ul className='l-menu-bottom__list'>
         <li>
           <IconButton
             icon={<Icon name='calendar' />}
@@ -23,7 +22,7 @@ const BottomGardenToolbar = (): JSX.Element => {
           />
         </li>
       </ul>
-    </Toolbar>
+    </nav>
   );
 };
 
