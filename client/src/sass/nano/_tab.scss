@@ -8,13 +8,14 @@
   border: none;
   border-bottom: 2px solid $clean;
 
-  &:hover,
-  &:focus {
-    outline: none;
-  }
-
   &:hover {
     cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    font-weight: bold;
+    color: $black;
   }
 
   &.tab--selected {
