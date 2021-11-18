@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {
   selectErrMsg,
@@ -29,6 +29,15 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
     handleSubmit
   } = useAuthForm(variant);
 
+  const firstInputRef = useRef<HTMLInputElement>(null);
+
+  // Focus first input when the form renders
+  useEffect(() => {
+    if (firstInputRef.current) {
+      firstInputRef.current.focus();
+    }
+  }, [variant]);
+
   return (
     <form noValidate onSubmit={handleSubmit} className='c-form l-form'>
       {variant === 'login' && serverErrId === 'LOGIN_FAIL' && (
@@ -49,6 +58,7 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
       {variant === 'register' && (
         <div className='l-form__field'>
           <TextField
+            ref={firstInputRef}
             inputId='username'
             label='Username'
             value={username.value}
@@ -62,6 +72,7 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
       )}
       <div className='l-form__field'>
         <TextField
+          ref={variant === 'login' ? firstInputRef : null}
           inputId={`${variant}-email`}
           label='Email'
           type='email'
