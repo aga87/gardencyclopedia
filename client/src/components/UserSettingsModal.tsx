@@ -12,7 +12,11 @@ const UserSettingsModal = (): JSX.Element => {
   };
 
   return (
-    <Modal title='User settings' handleClose={handleCloseModal}>
+    <Modal
+      title='User settings'
+      id='user-settings-modal-id'
+      handleClose={handleCloseModal}
+    >
       <UpcomingFeatures
         features={[
           'Email verification with OAuth2.',

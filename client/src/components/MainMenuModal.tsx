@@ -12,7 +12,12 @@ const MainMenuModal = (): JSX.Element => {
   };
 
   return (
-    <Modal variant='secondary' title='Main Menu' handleClose={handleCloseModal}>
+    <Modal
+      variant='secondary'
+      title='Main Menu'
+      id='main-menu-modal-id'
+      handleClose={handleCloseModal}
+    >
       <MainMenu />
     </Modal>
   );

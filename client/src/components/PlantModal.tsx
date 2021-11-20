@@ -18,6 +18,7 @@ const PlantModal = ({ variant }: PlantModalProps): JSX.Element => {
   return (
     <Modal
       title={variant === 'add' ? 'New Plant' : 'Edit Plant'}
+      id={variant === 'add' ? 'add-plant-modal-id' : 'edit-plant-modal-id'}
       handleClose={handleCloseModal}
     >
       <PlantForm />

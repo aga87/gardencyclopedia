@@ -58,6 +58,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
       {isAlertVisible && (
         <DeleteConfirmationAlert
           itemName={plant.name}
+          id={`delete-alert${plant._id}`}
           handleCancel={handleCancelDeleteClick}
           handleDelete={handleConfirmDeleteClick}
         />
