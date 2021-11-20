@@ -1,7 +1,20 @@
-.l-plant-entry__desc {
-  margin-bottom: $blh * 0.25rem;
-}
+.l-plant-entry {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
 
-.l-plant-entry__category {
-  margin-bottom: $blh * 0.5rem;
+  &__menu-btn {
+    position: relative;
+    top: 4px;
+  }
+
+  &__desc {
+    margin-bottom: $blh * 0.25rem;
+  }
+
+  &__category {
+    margin-bottom: $blh * 0.5rem;
+  }
 }

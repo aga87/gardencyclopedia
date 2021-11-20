@@ -80,6 +80,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
             <ul
               className='c-plant-menu__dropdown l-plant-menu__dropdown'
               id={`plant-menu-dropdown-${plant._id}`}
+              role='presentation'
               aria-labelledby={`plant-menu-dropdown-button-${plant._id}`}
             >
               <li>
