@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import useTabFocus from '../utils/hooks/useTabFocus';
+import useWidgetKeyboardSupport from '../utils/hooks/useWidgetKeyboardSupport';
 import Tab from './nano/Tab';
 import AuthForm from './AuthForm';
 
 const TabbedAuthForm = (): JSX.Element => {
   const tabs = ['login', 'register'];
   const [tab, setTab] = useState<'login' | 'register'>('login');
-  const { tabRefs, handleKeyDown } = useTabFocus(tabs);
+  const { widgetItemsRefs, handleKeyDown } = useWidgetKeyboardSupport(tabs, 0);
 
   const handleLoginTabClick = () => {
     setTab('login');
@@ -21,7 +21,7 @@ const TabbedAuthForm = (): JSX.Element => {
       <div role='tablist' className='l-tabbed-form__tabs'>
         <Tab
           ref={ref => {
-            tabRefs.current[0] = ref;
+            widgetItemsRefs.current[0] = ref;
           }}
           text='Log in'
           selected={tab === 'login'}
@@ -31,7 +31,7 @@ const TabbedAuthForm = (): JSX.Element => {
         />
         <Tab
           ref={ref => {
-            tabRefs.current[1] = ref;
+            widgetItemsRefs.current[1] = ref;
           }}
           text='Register'
           selected={tab === 'register'}

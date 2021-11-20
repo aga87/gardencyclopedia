@@ -37,6 +37,7 @@ const MenuDropdownButton = React.forwardRef<
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         className={className}
+        tabIndex={selected ? 0 : -1} // roving tabindex
       >
         {icon && <span className='menu-dropdown-button__icon'>{icon}</span>}
         {text}
