@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import useTabFocus from '../utils/hooks/useTabFocus';
 import Tab from './nano/Tab';
 import AuthForm from './AuthForm';

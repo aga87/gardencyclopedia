@@ -1,18 +1,25 @@
 import React, { useRef } from 'react';
 
-type MenuBlockButtonProps = {
+type MenuDropdownButtonProps = {
   text: string;
   icon: React.ReactNode;
   selected?: boolean;
   handleClick: () => void;
+  handleKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
 };
 
 const MenuDropdownButton = React.forwardRef<
   HTMLButtonElement,
-  MenuBlockButtonProps
+  MenuDropdownButtonProps
 >(
   (
-    { text, icon = null, selected = false, handleClick }: MenuBlockButtonProps,
+    {
+      text,
+      icon = null,
+      selected = false,
+      handleClick,
+      handleKeyDown
+    }: MenuDropdownButtonProps,
     ref
   ): JSX.Element => {
     const localButtonRef = useRef<HTMLButtonElement>(null);
@@ -28,6 +35,7 @@ const MenuDropdownButton = React.forwardRef<
         ref={buttonRef}
         type='button'
         onClick={handleClick}
+        onKeyDown={handleKeyDown}
         className={className}
       >
         {icon && <span className='menu-dropdown-button__icon'>{icon}</span>}
