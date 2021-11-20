@@ -21,8 +21,8 @@ const BottomCalendarToolbar = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-menu-bottom'>
-      <ul className='l-menu-bottom__list'>
+    <nav className='c-menu-bottom' aria-label='secondary'>
+      <ul role='presentation' className='l-menu-bottom__list'>
         <li className='l-menu-bottom__item-center'>
           <Select
             variant='sort'

@@ -34,8 +34,8 @@ const MainMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-main-menu'>
-      <ul className='c-main-menu__list'>
+    <nav className='c-main-menu' aria-label='main'>
+      <ul role='presentation' className='c-main-menu__list'>
         <li>
           <MenuDropdownButton
             ref={ref => {

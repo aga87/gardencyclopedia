@@ -34,7 +34,7 @@ const TopToolbar = (): JSX.Element => {
 
   return (
     <nav className='c-menu-top l-menu-top'>
-      <ul className='l-menu-top__list'>
+      <ul role='presentation' className='l-menu-top__list'>
         <li className='xxs-only'>
           <IconButton
             icon={<Icon name='menu' />}

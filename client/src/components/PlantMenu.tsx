@@ -7,6 +7,7 @@ import DeleteConfirmationAlert from './DeleteConfirmationAlert';
 import MenuDropdownToggleButton from './nano/MenuDropdownToggleButton';
 import MenuDropdownButton from './nano/MenuDropdownButton';
 import Icon from './nano/Icon';
+import plantsReducer from '../redux/reducers/plantsReducer';
 
 type PlantMenuProps = {
   plant: Plant;

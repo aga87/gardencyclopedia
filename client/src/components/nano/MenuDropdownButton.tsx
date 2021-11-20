@@ -34,6 +34,7 @@ const MenuDropdownButton = React.forwardRef<
       <button
         ref={buttonRef}
         type='button'
+        role='menuitem'
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         className={className}
