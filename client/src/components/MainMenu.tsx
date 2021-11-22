@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openUserSettingsModal, setView } from '../redux/actions/uiActions';
 import { logout } from '../redux/actions/authActions';
 import { selectUsername, selectView } from '../redux/reducers/index';
+import { capitalize } from '../utils/text-utils';
 import useWidgetKeyboardSupport from '../utils/hooks/useWidgetKeyboardSupport';
 import MenuDropdownButton from './nano/MenuDropdownButton';
 import Icon from './nano/Icon';
@@ -11,7 +12,7 @@ const MainMenu = (): JSX.Element => {
   const username = useSelector(selectUsername);
   const view = useSelector(selectView);
   const dispatch = useDispatch();
-  const menuItems = ['settings', 'calendar', 'garden', 'logout'];
+  const menuItems = [`${username}`, 'calendar', 'garden', 'logout'];
   const initialFocus = menuItems.indexOf(view);
   const { widgetItemsRefs, handleKeyDown } = useWidgetKeyboardSupport(
     menuItems,
@@ -43,7 +44,7 @@ const MainMenu = (): JSX.Element => {
               widgetItemsRefs.current[0] = ref;
             }}
             icon={<Icon name='user-cog' />}
-            text={username}
+            text={menuItems[0]}
             handleClick={handleUserClick}
             handleKeyDown={handleKeyDown}
           />
@@ -54,7 +55,7 @@ const MainMenu = (): JSX.Element => {
               widgetItemsRefs.current[1] = ref;
             }}
             icon={<Icon name='calendar' />}
-            text='Calendar'
+            text={capitalize(menuItems[1])}
             selected={view === 'calendar'}
             handleClick={handleCalendarClick}
             handleKeyDown={handleKeyDown}
@@ -66,7 +67,7 @@ const MainMenu = (): JSX.Element => {
               widgetItemsRefs.current[2] = ref;
             }}
             icon={<Icon name='seedling' />}
-            text='Garden'
+            text={capitalize(menuItems[2])}
             selected={view === 'garden'}
             handleClick={handleGardenClick}
             handleKeyDown={handleKeyDown}
@@ -78,7 +79,7 @@ const MainMenu = (): JSX.Element => {
               widgetItemsRefs.current[3] = ref;
             }}
             icon={<Icon name='logout' />}
-            text='Logout'
+            text={capitalize(menuItems[3])}
             handleClick={handleLogoutClick}
             handleKeyDown={handleKeyDown}
           />
