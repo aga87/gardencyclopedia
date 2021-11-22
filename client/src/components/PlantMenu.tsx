@@ -3,18 +3,17 @@ import { useDispatch } from 'react-redux';
 import { deletePlant } from '../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../redux/actions/uiActions';
 import useMenuDropdown from '../utils/hooks/useMenuDropdown';
-import DeleteConfirmationAlert from './DeleteConfirmationAlert';
+import ConfirmDeletionDialogAlert from './ConfirmDeletionDialogAlert';
 import MenuDropdownToggleButton from './nano/MenuDropdownToggleButton';
 import MenuDropdownButton from './nano/MenuDropdownButton';
 import Icon from './nano/Icon';
-import plantsReducer from '../redux/reducers/plantsReducer';
 
 type PlantMenuProps = {
   plant: Plant;
 };
 
 const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
-  const menuItems = ['plant', 'edit', 'delete'];
+  const menuItems = ['Plant', 'Edit', 'Delete'];
   const {
     ref,
     isComponentVisible,
@@ -42,7 +41,6 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
 
   const handleConfirmDeleteClick = () => {
     dispatch(deletePlant(plant._id as string));
-    setIsComponentVisible(false);
   };
 
   const handleCancelDeleteClick = () => {
@@ -57,7 +55,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
   return (
     <div ref={ref}>
       {isAlertVisible && (
-        <DeleteConfirmationAlert
+        <ConfirmDeletionDialogAlert
           itemName={plant.name}
           id={`delete-alert${plant._id}`}
           handleCancel={handleCancelDeleteClick}
@@ -88,7 +86,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
               <li>
                 <MenuDropdownButton
                   icon={<Icon name='seedling' />}
-                  text='Plant'
+                  text={menuItems[0]}
                   ref={menuRef => {
                     menuItemsRefs.current[0] = menuRef;
                   }}
@@ -99,7 +97,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
               <li>
                 <MenuDropdownButton
                   icon={<Icon name='edit' />}
-                  text='Edit'
+                  text={menuItems[1]}
                   ref={menuRef => {
                     menuItemsRefs.current[1] = menuRef;
                   }}
@@ -110,7 +108,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
               <li>
                 <MenuDropdownButton
                   icon={<Icon name='trash' />}
-                  text='Delete'
+                  text={menuItems[2]}
                   ref={menuRef => {
                     menuItemsRefs.current[2] = menuRef;
                   }}

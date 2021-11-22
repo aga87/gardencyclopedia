@@ -1,5 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
+import useModalKeyboardSupport from '../utils/hooks/useModalKeyboardSupport';
 import Button from './nano/Button';
 import Icon from './nano/Icon';
 
@@ -16,6 +17,11 @@ const DeleteConfirmationAlert = ({
   handleCancel,
   handleDelete
 }: DeleteConfirmationAlertProps): JSX.Element => {
+  const modalActions = ['cancel', 'delete'];
+  const { refs, handleKeyDown } = useModalKeyboardSupport(
+    modalActions,
+    handleCancel
+  );
   // Modal portal
   const modalEl = document.querySelector('#modal');
 
@@ -40,17 +46,25 @@ const DeleteConfirmationAlert = ({
           <ul role='presentation' className='l-alert__btn-group'>
             <li className='l-alert__btn-group-item'>
               <Button
+                ref={ref => {
+                  refs.current[0] = ref;
+                }}
                 variant='secondary'
                 text='Cancel'
                 handleClick={handleCancel}
+                handleKeyDown={handleKeyDown}
               />
             </li>
             <li className='l-alert__btn-group-item'>
               <Button
+                ref={ref => {
+                  refs.current[1] = ref;
+                }}
                 variant='tertiary'
                 icon={<Icon name='trash' />}
                 text='Delete'
                 handleClick={handleDelete}
+                handleKeyDown={handleKeyDown}
               />
             </li>
           </ul>
