@@ -12,9 +12,10 @@ const MainMenu = (): JSX.Element => {
   const view = useSelector(selectView);
   const dispatch = useDispatch();
   const menuItems = ['settings', 'calendar', 'garden', 'logout'];
+  const initialFocus = menuItems.indexOf(view);
   const { widgetItemsRefs, handleKeyDown } = useWidgetKeyboardSupport(
     menuItems,
-    1
+    initialFocus
   );
 
   const handleUserClick = () => {
