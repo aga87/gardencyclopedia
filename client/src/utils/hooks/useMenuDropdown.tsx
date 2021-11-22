@@ -9,11 +9,18 @@ const useMenuDropdown = (menuItems: string[]) => {
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
   const [focusedMenuItem, setFocusedMenuItem] = useState(0);
 
+  const handleMenuToggleClick = () => {
+    setIsComponentVisible(!isComponentVisible);
+  };
+
+  const hideDropdown = () => {
+    setIsComponentVisible(false);
+  };
+
   const handleMenuToggleKeyDown = (
     e: React.KeyboardEvent<HTMLButtonElement>
   ) => {
     const { key } = e;
-    console.log(key);
     switch (key) {
       case 'Down': // Edge
       case 'ArrowDown':
@@ -102,9 +109,10 @@ const useMenuDropdown = (menuItems: string[]) => {
   return {
     ref,
     isComponentVisible,
-    setIsComponentVisible,
     toggleButtonRef,
     menuItemsRefs,
+    hideDropdown,
+    handleMenuToggleClick,
     handleMenuToggleKeyDown,
     handleMenuKeyDown
   };

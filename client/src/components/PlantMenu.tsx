@@ -17,18 +17,15 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
   const {
     ref,
     isComponentVisible,
-    setIsComponentVisible,
     toggleButtonRef,
     menuItemsRefs,
+    hideDropdown,
+    handleMenuToggleClick,
     handleMenuToggleKeyDown,
     handleMenuKeyDown
   } = useMenuDropdown(menuItems);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const dispatch = useDispatch();
-
-  const handleMenuClick = () => {
-    setIsComponentVisible(!isComponentVisible);
-  };
 
   const handleAddToGarden = () => {
     dispatch(setView('garden'));
@@ -36,7 +33,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
 
   const handleDeleteClick = () => {
     setIsAlertVisible(true);
-    setIsComponentVisible(false);
+    hideDropdown();
   };
 
   const handleConfirmDeleteClick = () => {
@@ -49,7 +46,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
 
   const handleEditClick = () => {
     dispatch(openEditPlantModal(plant));
-    setIsComponentVisible(false);
+    hideDropdown();
   };
 
   return (
@@ -70,7 +67,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
           ariaLabel={
             isComponentVisible ? `Open ${plant.name} options` : 'Close options'
           }
-          handleClick={handleMenuClick}
+          handleClick={handleMenuToggleClick}
           handleKeyDown={handleMenuToggleKeyDown}
           id={`plant-menu-dropdown-button-${plant._id}`}
           dropdownId={`plant-menu-dropdown-${plant._id}`}
