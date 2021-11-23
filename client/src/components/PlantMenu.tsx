@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { deletePlant } from '../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../redux/actions/uiActions';
 import useMenuDropdown from '../utils/hooks/useMenuDropdown';
-import ConfirmDeletionDialogAlert from './ConfirmDeletionDialogAlert';
+import ConfirmDeletionAlert from './ConfirmDeletionAlert';
 import MenuDropdownToggleButton from './nano/MenuDropdownToggleButton';
 import MenuDropdownButton from './nano/MenuDropdownButton';
 import Icon from './nano/Icon';
@@ -52,7 +52,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
   return (
     <div ref={ref}>
       {isAlertVisible && (
-        <ConfirmDeletionDialogAlert
+        <ConfirmDeletionAlert
           itemName={plant.name}
           id={`delete-alert${plant._id}`}
           handleCancel={handleCancelDeleteClick}

@@ -10,7 +10,6 @@ const useModalKeyboardSupport = (
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     const { key } = e;
-    console.log(key);
     switch (key) {
       case 'Enter':
       case 'Space': {

@@ -1,24 +1,24 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import useModalKeyboardSupport from '../utils/hooks/useModalKeyboardSupport';
+import useAlertKeyboardSupport from '../utils/hooks/useAlertKeyboardSupport';
 import Button from './nano/Button';
 import Icon from './nano/Icon';
 
-type DeleteConfirmationAlertProps = {
+type ConfirmDeletionAlertProps = {
   itemName: string;
   id: string;
   handleCancel: () => void;
   handleDelete: () => void;
 };
 
-const DeleteConfirmationAlert = ({
+const ConfirmDeletionAlert = ({
   itemName,
   id,
   handleCancel,
   handleDelete
-}: DeleteConfirmationAlertProps): JSX.Element => {
+}: ConfirmDeletionAlertProps): JSX.Element => {
   const modalActions = ['cancel', 'delete'];
-  const { refs, handleKeyDown } = useModalKeyboardSupport(
+  const { refs, handleKeyDown } = useAlertKeyboardSupport(
     modalActions,
     handleCancel
   );
@@ -77,4 +77,4 @@ const DeleteConfirmationAlert = ({
   return Alert;
 };
 
-export default DeleteConfirmationAlert;
+export default ConfirmDeletionAlert;
