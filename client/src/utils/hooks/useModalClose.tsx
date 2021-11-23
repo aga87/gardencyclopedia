@@ -19,9 +19,18 @@ const useModalClose = () => {
     }
   };
 
+  // Element that triggered the modal
+  const activeElement = document.activeElement as HTMLButtonElement;
+
   useEffect(() => {
     window.addEventListener('keydown', handleCloseModal);
-    return () => window.removeEventListener('keydown', handleCloseModal);
+    return () => {
+      window.removeEventListener('keydown', handleCloseModal);
+      // If the element that triggered the modal is still in the DOM, restore focus
+      if (activeElement) {
+        activeElement.focus();
+      }
+    };
   }, []);
 
   return { handleCloseModalClick };
