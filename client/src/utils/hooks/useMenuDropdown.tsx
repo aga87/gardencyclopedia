@@ -1,20 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
-import useComponentVisibility from './useComponentVisibility';
+import useCloseOnClickOutside from './useCloseOnClickOutside';
 import { getNextIndex, getPreviousIndex } from '../list-utils';
 
 const useMenuDropdown = (menuItems: string[]) => {
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useComponentVisibility(false); // Hide menu dropdown on click outside
+  const { ref, isOpen, setIsOpen } =
+  useCloseOnClickOutside(false); // Hide menu dropdown on click outside
   const menuItemsRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
   const [focusedMenuItem, setFocusedMenuItem] = useState(0);
 
   const handleMenuToggleClick = () => {
-    setIsComponentVisible(!isComponentVisible);
+    setIsOpen(!isOpen);
   };
 
   const hideDropdown = () => {
-    setIsComponentVisible(false);
+    setIsOpen(false);
   };
 
   const handleMenuToggleKeyDown = (
@@ -28,14 +28,14 @@ const useMenuDropdown = (menuItems: string[]) => {
       case 'Enter': {
         e.preventDefault();
         setFocusedMenuItem(0);
-        setIsComponentVisible(true);
+        setIsOpen(true);
         break;
       }
       case 'Up': // Edge
       case 'ArrowUp': {
         e.preventDefault();
         setFocusedMenuItem(menuItems.length - 1);
-        setIsComponentVisible(true);
+        setIsOpen(true);
         break;
       }
       default:
@@ -55,7 +55,7 @@ const useMenuDropdown = (menuItems: string[]) => {
       case 'Esc': // Edge
       case 'Escape': {
         e.preventDefault();
-        setIsComponentVisible(false);
+        setIsOpen(false);
         setFocusedMenuItem(-1);
         break;
       }
@@ -104,11 +104,11 @@ const useMenuDropdown = (menuItems: string[]) => {
         menuItem.focus();
       }
     }
-  }, [focusedMenuItem, isComponentVisible]);
+  }, [focusedMenuItem, isOpen]);
 
   return {
     ref,
-    isComponentVisible,
+    isOpen,
     toggleButtonRef,
     menuItemsRefs,
     hideDropdown,

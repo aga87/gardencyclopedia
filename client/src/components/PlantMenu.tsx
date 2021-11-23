@@ -16,7 +16,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
   const menuItems = ['Plant', 'Edit', 'Delete'];
   const {
     ref,
-    isComponentVisible,
+    isOpen,
     toggleButtonRef,
     menuItemsRefs,
     hideDropdown,
@@ -65,7 +65,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
           variant='secondary'
           icon={<Icon name='more' />}
           ariaLabel={
-            isComponentVisible ? `Open ${plant.name} options` : 'Close options'
+            isOpen ? `Open ${plant.name} options` : 'Close options'
           }
           handleClick={handleMenuToggleClick}
           handleKeyDown={handleMenuToggleKeyDown}
@@ -73,7 +73,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
           dropdownId={`plant-menu-dropdown-${plant._id}`}
         />
         <div>
-          {isComponentVisible && (
+          {isOpen && (
             <ul
               className='c-plant-menu__dropdown l-plant-menu__dropdown'
               id={`plant-menu-dropdown-${plant._id}`}
