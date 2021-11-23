@@ -1,12 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { getNextIndex, getPreviousIndex } from '../list-utils';
 
-const useModalKeyboardSupport = (
+const useAlertKeyboardSupport = (
   modalItems: string[],
   handleCancel: () => void
 ) => {
   const [focusedItem, setFocusedItem] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleCloseAlert = (e: KeyboardEvent): void => {
+    const { key } = e;
+    switch (key) {
+      case 'Escape':
+        e.preventDefault();
+        handleCancel();
+        break;
+      default:
+    }
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     const { key } = e;
@@ -28,11 +39,6 @@ const useModalKeyboardSupport = (
         setFocusedItem(nextIndex);
         break;
       }
-      case 'Escape': {
-        e.preventDefault();
-        handleCancel();
-        break;
-      }
       default:
     }
   };
@@ -42,7 +48,21 @@ const useModalKeyboardSupport = (
     itemToFocus.focus();
   }, [focusedItem]);
 
+  // Element that triggered alert dialog
+  const activeElement = document.activeElement as HTMLButtonElement;
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleCloseAlert);
+    return () => {
+      window.removeEventListener('keydown', handleCloseAlert);
+      // If the element that triggered the alert dialog is still in the DOM, restore focus
+      if (activeElement) {
+        activeElement.focus();
+      }
+    };
+  }, [activeElement]);
+
   return { refs, handleKeyDown };
 };
 
-export default useModalKeyboardSupport;
+export default useAlertKeyboardSupport;

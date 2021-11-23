@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../../redux/actions/uiActions';
 
@@ -13,6 +13,7 @@ const useModalClose = () => {
     const { key } = e;
     switch (key) {
       case 'Escape':
+        e.preventDefault();
         dispatch(closeModal());
         break;
       default:
@@ -31,7 +32,7 @@ const useModalClose = () => {
         activeElement.focus();
       }
     };
-  }, []);
+  }, [activeElement]);
 
   return { handleCloseModalClick };
 };
