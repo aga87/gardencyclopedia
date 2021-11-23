@@ -1,21 +1,17 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { closeModal } from '../redux/actions/uiActions';
+import useModalClose from '../utils/hooks/useModalClose';
 import Modal from './Modal';
 import UpcomingFeatures from './UpcomingFeatures';
 
 const UserSettingsModal = (): JSX.Element => {
-  const dispatch = useDispatch();
 
-  const handleCloseModal = () => {
-    dispatch(closeModal());
-  };
+  const { handleCloseModalClick } = useModalClose();
 
   return (
     <Modal
       title='User settings'
       id='user-settings-modal-id'
-      handleClose={handleCloseModal}
+      handleClose={handleCloseModalClick}
     >
       <UpcomingFeatures
         features={[
