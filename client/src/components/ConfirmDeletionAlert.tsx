@@ -28,7 +28,7 @@ const ConfirmDeletionAlert = ({
   const Alert = (
     <div
       className='c-alert l-alert'
-      role='dialog'
+      role='alertdialog'
       aria-modal
       aria-labelledby={id}
       aria-describedby={`${id}-content`}
