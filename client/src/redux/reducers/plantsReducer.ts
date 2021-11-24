@@ -10,11 +10,20 @@ import {
 import { months } from '../../utils/constants';
 import { sortPlants } from '../../utils/plants-utils';
 
+export type StatusMsg = {
+  id: number;
+  msg: string;
+};
+
 const initialState = {
   plants: [] as Plant[],
   isLoading: false,
   filter: '' as Category,
-  sort: 'name' as Sort
+  sort: 'name' as Sort,
+  statusMsg: {
+    id: 0,
+    msg: ''
+  } as StatusMsg
 };
 
 type State = typeof initialState;
@@ -74,21 +83,27 @@ const plantsReducer = (state = initialState, action: Action): State => {
       const newPlant = action.payload;
       return {
         ...state,
-        plants: [newPlant, ...state.plants]
+        plants: [newPlant, ...state.plants],
+        statusMsg: {
+          id: state.statusMsg.id + 1,
+          msg: `Plant ${newPlant.name} added.`
+        }
       };
     }
     case EDIT_PLANT: {
       const editedPlant = action.payload;
       const updatedPlants = state.plants.map((plant: Plant) => {
-        if (plant._id === editedPlant._id) {
-          return editedPlant;
-        }
+        if (plant._id === editedPlant._id) return editedPlant;
         return plant;
       });
 
       return {
         ...state,
-        plants: updatedPlants
+        plants: updatedPlants,
+        statusMsg: {
+          id: state.statusMsg.id + 1,
+          msg: `Plant ${editedPlant.name} edited.`
+        }
       };
     }
     case DELETE_PLANT: {
@@ -98,7 +113,11 @@ const plantsReducer = (state = initialState, action: Action): State => {
       );
       return {
         ...state,
-        plants: remainingPlants
+        plants: remainingPlants,
+        statusMsg: {
+          id: state.statusMsg.id + 1,
+          msg: `Plant deleted.`
+        }
       };
     }
     default:
@@ -131,3 +150,5 @@ export const selectPlantById = (state: State, id: string): Plant | null => {
   if (!selectedPlant) return null;
   return selectedPlant;
 };
+
+export const selectStatusMsg = (state: State): StatusMsg => state.statusMsg;
