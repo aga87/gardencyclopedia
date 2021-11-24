@@ -4,6 +4,7 @@ import uiReducer, * as fromUiReducer from './uiReducer';
 import authReducer, * as fromAuthReducer from './authReducer';
 import errorReducer, * as fromErrorReducer from './errorReducer';
 import type { RootState } from '../store';
+import type { StatusMsg } from './plantsReducer';
 
 export default combineReducers({
   plantsReducer,
@@ -28,6 +29,9 @@ export const selectFilteredSortedPlantIds = (state: RootState): string[] =>
 
 export const selectPlantById = (state: RootState, id: string): Plant | null =>
   fromPlantsReducer.selectPlantById(state.plantsReducer, id);
+
+export const selectStatusMsg = (state: RootState): StatusMsg =>
+  fromPlantsReducer.selectStatusMsg(state.plantsReducer);
 
 // Global UI selectors
 export const selectIsMainMenuModalOpen = (state: RootState): boolean =>

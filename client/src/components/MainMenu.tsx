@@ -2,13 +2,22 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openUserSettingsModal, setView } from '../redux/actions/uiActions';
 import { logout } from '../redux/actions/authActions';
-import { selectUsername } from '../redux/reducers/index';
-import Button from './nano/Button';
+import { selectUsername, selectView } from '../redux/reducers/index';
+import { capitalize } from '../utils/text-utils';
+import useWidgetKeyboardSupport from '../utils/hooks/useWidgetKeyboardSupport';
+import MenuDropdownButton from './nano/MenuDropdownButton';
 import Icon from './nano/Icon';
 
 const MainMenu = (): JSX.Element => {
   const username = useSelector(selectUsername);
+  const view = useSelector(selectView);
   const dispatch = useDispatch();
+  const menuItems = [`${username}`, 'calendar', 'garden', 'logout'];
+  const initialFocus = menuItems.indexOf(view);
+  const { widgetItemsRefs, handleKeyDown } = useWidgetKeyboardSupport(
+    menuItems,
+    initialFocus
+  );
 
   const handleUserClick = () => {
     dispatch(openUserSettingsModal());
@@ -27,38 +36,52 @@ const MainMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-main-menu'>
-      <ul className='c-main-menu__list'>
+    <nav className='c-main-menu' aria-label='main'>
+      <ul role='presentation' className='c-main-menu__list'>
         <li>
-          <Button
+          <MenuDropdownButton
+            ref={ref => {
+              widgetItemsRefs.current[0] = ref;
+            }}
             icon={<Icon name='user-cog' />}
-            text={username}
-            variant='block'
+            text={menuItems[0]}
             handleClick={handleUserClick}
+            handleKeyDown={handleKeyDown}
           />
         </li>
         <li>
-          <Button
+          <MenuDropdownButton
+            ref={ref => {
+              widgetItemsRefs.current[1] = ref;
+            }}
             icon={<Icon name='calendar' />}
-            text='Calendar'
-            variant='block'
+            text={capitalize(menuItems[1])}
+            selected={view === 'calendar'}
             handleClick={handleCalendarClick}
+            handleKeyDown={handleKeyDown}
           />
         </li>
         <li>
-          <Button
+          <MenuDropdownButton
+            ref={ref => {
+              widgetItemsRefs.current[2] = ref;
+            }}
             icon={<Icon name='seedling' />}
-            text='Garden'
-            variant='block'
+            text={capitalize(menuItems[2])}
+            selected={view === 'garden'}
             handleClick={handleGardenClick}
+            handleKeyDown={handleKeyDown}
           />
         </li>
         <li>
-          <Button
+          <MenuDropdownButton
+            ref={ref => {
+              widgetItemsRefs.current[3] = ref;
+            }}
             icon={<Icon name='logout' />}
-            text='Logout'
-            variant='block'
+            text={capitalize(menuItems[3])}
             handleClick={handleLogoutClick}
+            handleKeyDown={handleKeyDown}
           />
         </li>
       </ul>

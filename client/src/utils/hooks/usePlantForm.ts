@@ -13,7 +13,58 @@ import {
 } from '../validation-utils';
 import useFormInput from './useFormInput';
 
-const usePlantForm = () => {
+type Input = {
+  value: string;
+  handleChange: (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => void;
+};
+
+type ReturnType = {
+  name: Input;
+  desc: Input;
+  category: Input;
+  sowFrom: Input;
+  sowUntil: Input;
+  harvestFrom: Input;
+  harvestUntil: Input;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  constraints: {
+    name: {
+      required: boolean;
+      maxLength: number;
+    };
+    desc: {
+      required: boolean;
+      maxLength: number;
+    };
+    sowFrom: {
+      required: boolean;
+    };
+    sowUntil: {
+      required: boolean;
+    };
+    harvestFrom: {
+      required: boolean;
+    };
+    harvestUntil: {
+      required: boolean;
+    };
+  };
+  errors: {
+    name: string;
+    desc: string;
+    category: string;
+    sowFrom: string;
+    sowUntil: string;
+    harvestFrom: string;
+    harvestUntil: string;
+  };
+};
+
+const usePlantForm = (): ReturnType => {
   const plantToEdit = useSelector(selectPlantToEdit);
   const name = useFormInput(plantToEdit.name);
   const desc = useFormInput(plantToEdit.desc);

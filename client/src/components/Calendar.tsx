@@ -4,6 +4,7 @@ import { selectFilteredSortedPlantIds } from '../redux/reducers/index';
 import NoPlants from './NoPlants';
 import PlantEntry from './PlantEntry';
 import CalendarCaption from './CalendarCaption';
+import StatusMessage from './StatusMessage';
 
 const Calendar = (): JSX.Element => {
   const plantIds = useSelector(selectFilteredSortedPlantIds);
@@ -17,12 +18,19 @@ const Calendar = (): JSX.Element => {
   ));
 
   return (
-    <figure className='c-calendar l-calendar'>
+    <div
+      className='c-calendar l-calendar'
+      role='region'
+      id='calendar'
+      aria-label='Calendar'
+      aria-live='polite'
+    >
+      <StatusMessage />
       <ul className='c-calendar__list'>{plantListItems}</ul>
-      <figcaption className='l-calendar__caption'>
+      <div className='l-calendar__caption'>
         <CalendarCaption noOfPlants={plantListItems.length} />
-      </figcaption>
-    </figure>
+      </div>
+    </div>
   );
 };
 

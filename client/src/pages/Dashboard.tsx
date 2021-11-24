@@ -10,7 +10,7 @@ import {
 import DashboardTemplate from '../components/templates/DashboardTemplate';
 import MainMenuModal from '../components/MainMenuModal';
 import UserSettingsModal from '../components/UserSettingsModal';
-import PlantModal from '../components/PlantModal';
+import PlantFormModal from '../components/PlantFormModal';
 import CalendarMenuTop from '../components/CalendarMenuTop';
 import GardenMenuTop from '../components/GardenMenuTop';
 import CalendarMenuBottom from '../components/CalendarMenuBottom';
@@ -33,8 +33,8 @@ const Dashboard = (): JSX.Element => {
 
       {view === 'calendar' ? (
         <div>
-          {isAddPlantModalOpen && <PlantModal variant='add' />}
-          {isEditPlantModalOpen && <PlantModal variant='edit' />}
+          {isAddPlantModalOpen && <PlantFormModal variant='add' />}
+          {isEditPlantModalOpen && <PlantFormModal variant='edit' />}
           <DashboardTemplate
             sideContent={<MainMenu />}
             topMenu={<CalendarMenuTop />}

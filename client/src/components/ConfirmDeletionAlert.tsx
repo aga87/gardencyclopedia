@@ -1,48 +1,70 @@
 import React from 'react';
-import ReactDOM, { createPortal } from 'react-dom';
+import { createPortal } from 'react-dom';
+import useAlertKeyboardSupport from '../utils/hooks/useAlertKeyboardSupport';
 import Button from './nano/Button';
 import Icon from './nano/Icon';
 
-type DeleteConfirmationAlertProps = {
+type ConfirmDeletionAlertProps = {
   itemName: string;
+  id: string;
   handleCancel: () => void;
   handleDelete: () => void;
 };
 
-const DeleteConfirmationAlert = ({
+const ConfirmDeletionAlert = ({
   itemName,
+  id,
   handleCancel,
   handleDelete
-}: DeleteConfirmationAlertProps): JSX.Element => {
+}: ConfirmDeletionAlertProps): JSX.Element => {
+  const modalActions = ['cancel', 'delete'];
+  const { refs, handleKeyDown } = useAlertKeyboardSupport(
+    modalActions,
+    handleCancel
+  );
   // Modal portal
   const modalEl = document.querySelector('#modal');
 
   const Alert = (
-    <div className='c-alert l-alert'>
+    <div
+      className='c-alert l-alert'
+      role='alertdialog'
+      aria-modal
+      aria-labelledby={id}
+      aria-describedby={`${id}-content`}
+    >
       <div className='c-alert__content l-alert__content'>
-        <header className='c-alert__header'>
+        <header className='c-alert__header' id={id}>
           <h2 className='c-alert__title'>Confirm deletion</h2>
         </header>
         <div className='c-alert__body'>
-          <p className='c-alert__msg'>
+          <p className='c-alert__msg' id={`${id}-content`}>
             Are you sure you want to delete{' '}
             <span className='c-alert__item-name'>{itemName}</span> ?<br />
             The action cannot be undone.
           </p>
-          <ul className='l-alert__btn-group'>
+          <ul role='presentation' className='l-alert__btn-group'>
             <li className='l-alert__btn-group-item'>
               <Button
+                ref={ref => {
+                  refs.current[0] = ref;
+                }}
                 variant='secondary'
                 text='Cancel'
                 handleClick={handleCancel}
+                handleKeyDown={handleKeyDown}
               />
             </li>
             <li className='l-alert__btn-group-item'>
               <Button
+                ref={ref => {
+                  refs.current[1] = ref;
+                }}
                 variant='tertiary'
                 icon={<Icon name='trash' />}
                 text='Delete'
                 handleClick={handleDelete}
+                handleKeyDown={handleKeyDown}
               />
             </li>
           </ul>
@@ -55,4 +77,4 @@ const DeleteConfirmationAlert = ({
   return Alert;
 };
 
-export default DeleteConfirmationAlert;
+export default ConfirmDeletionAlert;

@@ -26,3 +26,13 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.h-visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%); // future-proofing
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

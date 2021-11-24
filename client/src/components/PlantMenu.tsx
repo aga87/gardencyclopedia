@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePlant } from '../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../redux/actions/uiActions';
-import useComponentVisibility from '../utils/hooks/useComponentVisibility';
-import DeleteConfirmationAlert from './DeleteConfirmationAlert';
-import IconButton from './nano/IconButton';
-import Button from './nano/Button';
+import useMenuDropdown from '../utils/hooks/useMenuDropdown';
+import ConfirmDeletionAlert from './ConfirmDeletionAlert';
+import MenuDropdownToggleButton from './nano/MenuDropdownToggleButton';
+import MenuDropdownButton from './nano/MenuDropdownButton';
 import Icon from './nano/Icon';
 
 type PlantMenuProps = {
@@ -13,14 +13,19 @@ type PlantMenuProps = {
 };
 
 const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useComponentVisibility(false); // Hide menu dropdown on click outside
+  const menuItems = ['Plant', 'Edit', 'Delete'];
+  const {
+    ref,
+    isOpen,
+    toggleButtonRef,
+    menuItemsRefs,
+    hideDropdown,
+    handleMenuToggleClick,
+    handleMenuToggleKeyDown,
+    handleMenuKeyDown
+  } = useMenuDropdown(menuItems);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const dispatch = useDispatch();
-
-  const handleMoreClick = () => {
-    setIsComponentVisible(true);
-  };
 
   const handleAddToGarden = () => {
     dispatch(setView('garden'));
@@ -28,12 +33,11 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
 
   const handleDeleteClick = () => {
     setIsAlertVisible(true);
-    setIsComponentVisible(false);
+    hideDropdown();
   };
 
   const handleConfirmDeleteClick = () => {
     dispatch(deletePlant(plant._id as string));
-    setIsComponentVisible(false);
   };
 
   const handleCancelDeleteClick = () => {
@@ -42,50 +46,69 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
 
   const handleEditClick = () => {
     dispatch(openEditPlantModal(plant));
-    setIsComponentVisible(false);
+    hideDropdown();
   };
 
   return (
-    <div>
+    <div ref={ref}>
       {isAlertVisible && (
-        <DeleteConfirmationAlert
+        <ConfirmDeletionAlert
           itemName={plant.name}
+          id={`delete-alert${plant._id}`}
           handleCancel={handleCancelDeleteClick}
           handleDelete={handleConfirmDeleteClick}
         />
       )}
       <nav className='c-plant-menu l-plant-menu'>
-        <IconButton
+        <MenuDropdownToggleButton
+          ref={toggleButtonRef}
           variant='secondary'
           icon={<Icon name='more' />}
-          ariaLabel={`Open ${plant.name} options`}
-          handleClick={handleMoreClick}
+          ariaLabel={isOpen ? 'Close options' : `Open ${plant.name} options`}
+          handleClick={handleMenuToggleClick}
+          handleKeyDown={handleMenuToggleKeyDown}
+          id={`plant-menu-dropdown-button-${plant._id}`}
+          dropdownId={`plant-menu-dropdown-${plant._id}`}
         />
-        <div ref={ref}>
-          {isComponentVisible && (
-            <ul className='c-plant-menu__dropdown l-plant-menu__dropdown'>
+        <div>
+          {isOpen && (
+            <ul
+              className='c-plant-menu__dropdown l-plant-menu__dropdown'
+              id={`plant-menu-dropdown-${plant._id}`}
+              role='presentation'
+              aria-labelledby={`plant-menu-dropdown-button-${plant._id}`}
+            >
               <li>
-                <Button
-                  variant='block'
+                <MenuDropdownButton
                   icon={<Icon name='seedling' />}
-                  text='Plant'
+                  text={menuItems[0]}
+                  ref={menuRef => {
+                    menuItemsRefs.current[0] = menuRef;
+                  }}
                   handleClick={handleAddToGarden}
+                  handleKeyDown={handleMenuKeyDown}
                 />
               </li>
               <li>
-                <Button
-                  variant='block'
+                <MenuDropdownButton
                   icon={<Icon name='edit' />}
-                  text='Edit'
+                  text={menuItems[1]}
+                  ref={menuRef => {
+                    menuItemsRefs.current[1] = menuRef;
+                  }}
                   handleClick={handleEditClick}
+                  handleKeyDown={handleMenuKeyDown}
                 />
               </li>
               <li>
-                <Button
-                  variant='block'
+                <MenuDropdownButton
                   icon={<Icon name='trash' />}
-                  text='Delete'
+                  text={menuItems[2]}
+                  ref={menuRef => {
+                    menuItemsRefs.current[2] = menuRef;
+                  }}
                   handleClick={handleDeleteClick}
+                  handleKeyDown={handleMenuKeyDown}
                 />
               </li>
             </ul>

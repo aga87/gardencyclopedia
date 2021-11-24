@@ -4,6 +4,7 @@ import Icon from './nano/Icon';
 
 type ModalProps = {
   title: string;
+  id: string; // for accessibility
   variant?: 'primary' | 'secondary';
   handleClose: () => void;
 };
@@ -12,6 +13,7 @@ type ModalProps = {
 const Modal: React.FC<ModalProps> = ({
   variant = 'primary',
   title,
+  id,
   children,
   handleClose
 }): JSX.Element => {
@@ -21,7 +23,13 @@ const Modal: React.FC<ModalProps> = ({
   }
 
   return (
-    <div className='c-modal l-modal'>
+    <div
+      className='c-modal l-modal'
+      role='dialog'
+      aria-modal
+      aria-labelledby={id}
+      aria-describedby={`${id}-content`}
+    >
       <div className={contentClass}>
         <div className='l-modal__header'>
           <header className='c-modal__header'>
@@ -31,11 +39,16 @@ const Modal: React.FC<ModalProps> = ({
                 ariaLabel={`Close ${title}`}
                 handleClick={handleClose}
               />
-              <h2 className='c-modal__title l-modal__title'>{title}</h2>
+              <h2 className='c-modal__title l-modal__title' id={id}>
+                {title}
+              </h2>
             </div>
           </header>
         </div>
-        <section className={variant === 'primary' ? 'c-modal__children' : ''}>
+        <section
+          id={`${id}-content`}
+          className={variant === 'primary' ? 'c-modal__children' : ''}
+        >
           {children}
         </section>
       </div>

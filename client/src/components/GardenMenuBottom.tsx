@@ -12,8 +12,8 @@ const BottomGardenToolbar = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-menu-bottom l-menu-bottom'>
-      <ul className='l-menu-bottom__list'>
+    <nav className='c-menu-bottom l-menu-bottom' aria-label='secondary'>
+      <ul role='presentation' className='l-menu-bottom__list'>
         <li>
           <IconButton
             icon={<Icon name='calendar' />}

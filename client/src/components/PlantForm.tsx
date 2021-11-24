@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { months, plantCategories } from '../utils/constants';
 import usePlantForm from '../utils/hooks/usePlantForm';
 import TextField from './TextField';
@@ -20,10 +20,20 @@ const PlantForm = (): JSX.Element => {
     errors
   } = usePlantForm();
 
+  const firstInputRef = useRef<HTMLInputElement>(null);
+
+  // Focus first input when the form renders and when form has errors
+  useEffect(() => {
+    if (firstInputRef.current) {
+      firstInputRef.current.focus();
+    }
+  }, [errors]);
+
   return (
     <form className='c-form l-form' noValidate onSubmit={handleSubmit}>
       <div className='l-form__field'>
         <TextField
+          ref={firstInputRef}
           inputId='plant-name'
           label='Plant name'
           value={name.value}

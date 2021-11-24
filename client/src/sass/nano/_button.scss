@@ -12,8 +12,9 @@
 
     &:hover,
     &:focus {
-      color: $black;
-      border-color: $black;
+      color: $white;
+      border-color: $vermillion;
+      background-color: $vermillion;
     }
 
     &:active {

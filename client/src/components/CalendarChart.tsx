@@ -1,5 +1,6 @@
 import React from 'react';
 import { months } from '../utils/constants';
+import { getAccessibleChartLabel } from '../utils/text-utils';
 import MonthlyDataRow from './MonthlyDataRow';
 
 type CalendarChartProps = {
@@ -21,24 +22,34 @@ const CalendarChart = ({
     </th>
   ));
 
+  const accessibleChartLabel = getAccessibleChartLabel(
+    sowFrom,
+    sowUntil,
+    harvestFrom,
+    harvestUntil
+  );
+
   return (
-    <table className='c-calendar-chart'>
-      <thead>
-        <tr>{monthHeadings}</tr>
-      </thead>
-      <tbody>
-        <MonthlyDataRow
-          variant='sow'
-          monthStart={sowFrom}
-          monthEnd={sowUntil}
-        />
-        <MonthlyDataRow
-          variant='harvest'
-          monthStart={harvestFrom}
-          monthEnd={harvestUntil}
-        />
-      </tbody>
-    </table>
+    <div>
+      <p className='h-visually-hidden'>{accessibleChartLabel}</p>
+      <table className='c-calendar-chart' role='presentation'>
+        <thead aria-hidden='true'>
+          <tr>{monthHeadings}</tr>
+        </thead>
+        <tbody>
+          <MonthlyDataRow
+            variant='sow'
+            monthStart={sowFrom}
+            monthEnd={sowUntil}
+          />
+          <MonthlyDataRow
+            variant='harvest'
+            monthStart={harvestFrom}
+            monthEnd={harvestUntil}
+          />
+        </tbody>
+      </table>
+    </div>
   );
 };
 
