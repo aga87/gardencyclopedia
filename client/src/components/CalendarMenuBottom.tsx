@@ -24,13 +24,15 @@ const BottomCalendarToolbar = (): JSX.Element => {
     <nav className='c-menu-bottom' aria-label='secondary'>
       <ul role='presentation' className='l-menu-bottom__list'>
         <li className='l-menu-bottom__item-center'>
-          <Select
-            variant='sort'
-            options={sortOptions}
-            value={sort}
-            handleChange={handleSort}
-            ariaLabel='Sort plants by'
-          />
+          <form role='search' aria-label='Sort plants by'>
+            <Select
+              variant='sort'
+              options={sortOptions}
+              value={sort}
+              handleChange={handleSort}
+              controlledRegionId='calendar'
+            />
+          </form>
         </li>
         <li>
           <IconButton

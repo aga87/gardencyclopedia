@@ -22,12 +22,12 @@ const PlantForm = (): JSX.Element => {
 
   const firstInputRef = useRef<HTMLInputElement>(null);
 
-  // Focus first input when the form renders
+  // Focus first input when the form renders and when form has errors
   useEffect(() => {
     if (firstInputRef.current) {
       firstInputRef.current.focus();
     }
-  }, []);
+  }, [errors]);
 
   return (
     <form className='c-form l-form' noValidate onSubmit={handleSubmit}>

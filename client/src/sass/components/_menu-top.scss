@@ -30,4 +30,8 @@
       @include centerXY-abs;
     }
   }
+
+  &__search-form {
+    display: flex;
+  }
 }

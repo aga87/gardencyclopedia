@@ -64,9 +64,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
           ref={toggleButtonRef}
           variant='secondary'
           icon={<Icon name='more' />}
-          ariaLabel={
-            isOpen ? `Open ${plant.name} options` : 'Close options'
-          }
+          ariaLabel={isOpen ? 'Close options' : `Open ${plant.name} options`}
           handleClick={handleMenuToggleClick}
           handleKeyDown={handleMenuToggleKeyDown}
           id={`plant-menu-dropdown-button-${plant._id}`}

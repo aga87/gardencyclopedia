@@ -27,6 +27,10 @@
     background-position-y: 54%;
   }
 
+  &__legend-caption {
+    @include s2;
+  }
+
   &__legend-heading {
     @include s2;
     text-align: center;

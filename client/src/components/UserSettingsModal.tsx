@@ -4,7 +4,6 @@ import Modal from './Modal';
 import UpcomingFeatures from './UpcomingFeatures';
 
 const UserSettingsModal = (): JSX.Element => {
-
   const { handleCloseModalClick } = useModalClose();
 
   return (

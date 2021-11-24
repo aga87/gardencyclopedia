@@ -43,27 +43,35 @@ const TopToolbar = (): JSX.Element => {
           />
         </li>
         <li className='l-menu-top__item-center'>
-          <Select
-            options={plantCategories}
-            placeholder='All Plants'
-            value={filter}
-            handleChange={handleFilterChange}
-            ariaLabel='Filter plants'
-          />
-        </li>
-        <li className='not-xxs'>
-          <Select
-            variant='sort'
-            options={sortOptions}
-            value={sort}
-            handleChange={handleSort}
-            ariaLabel='Sort plants by'
-          />
+          <form
+            className='l-menu-top__search-form'
+            role='search'
+            aria-label='Search calendar plants'
+          >
+            <Select
+              options={plantCategories}
+              placeholder='All Plants'
+              value={filter}
+              handleChange={handleFilterChange}
+              ariaLabel='Filter by'
+              controlledRegionId='calendar'
+            />
+            <div className='not-xxs'>
+              <Select
+                variant='sort'
+                options={sortOptions}
+                value={sort}
+                handleChange={handleSort}
+                ariaLabel='Sort by'
+                controlledRegionId='calendar'
+              />
+            </div>
+          </form>
         </li>
         <li>
           <IconButton
             icon={<Icon name='plus' />}
-            ariaLabel='Open new plant modal'
+            ariaLabel='Add a new plant'
             handleClick={handleAddClick}
           />
         </li>

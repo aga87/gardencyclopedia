@@ -15,12 +15,14 @@ const DashboardTemplate = ({
 }: DashboardTemplateProps): JSX.Element => (
   <div className='t-dashboard l-dashboard'>
     <div className='l-dashboard__flex-main-menu not-xxs'>
-      <h2 className='t-dashboard__title'>Gardencyclopedia</h2>
+      <h1 className='t-dashboard__title'>Gardencyclopedia</h1>
       {sideContent}
     </div>
     <div className='l-dashboard__flex-content'>
       {topMenu}
-      <section className='l-dashboard__content'>{content}</section>
+      <main role='main' className='l-dashboard__content'>
+        {content}
+      </main>
       <div className='l-dashboard__bottom-toolbar xxs-only'>
         {bottomMenuMobile}
       </div>

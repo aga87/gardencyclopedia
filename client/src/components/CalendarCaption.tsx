@@ -11,6 +11,7 @@ const CalendarCaption = ({ noOfPlants }: CalendarCaptionProps): JSX.Element => (
         {noOfPlants} {noOfPlants === 1 ? 'Plant' : 'Plants'}
       </summary>
       <table>
+        <caption className='c-calendar-caption__legend-caption'>Legend</caption>
         <thead>
           <tr>
             <th className='c-calendar-caption__legend-heading'>Sow</th>

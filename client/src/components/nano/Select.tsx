@@ -8,6 +8,7 @@ type SelectProps = {
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   ariaLabel?: string;
+  controlledRegionId: string;
 };
 
 const Select = ({
@@ -16,7 +17,8 @@ const Select = ({
   placeholder = '',
   value,
   handleChange,
-  ariaLabel = ''
+  ariaLabel = '',
+  controlledRegionId
 }: SelectProps): JSX.Element => {
   let className = 'select';
   if (variant !== 'primary') {
@@ -34,6 +36,7 @@ const Select = ({
       value={value}
       onChange={handleChange}
       aria-label={ariaLabel}
+      aria-controls={controlledRegionId}
       className={className}
     >
       {placeholder && (
