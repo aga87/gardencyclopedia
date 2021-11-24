@@ -2,9 +2,19 @@ import React, { useState, useRef, useEffect } from 'react';
 import useCloseOnClickOutside from './useCloseOnClickOutside';
 import { getNextIndex, getPreviousIndex } from '../list-utils';
 
-const useMenuDropdown = (menuItems: string[]) => {
-  const { ref, isOpen, setIsOpen } =
-  useCloseOnClickOutside(false); // Hide menu dropdown on click outside
+type ReturnType = {
+  ref: React.MutableRefObject<HTMLDivElement | null>;
+  isOpen: boolean;
+  toggleButtonRef: React.MutableRefObject<HTMLButtonElement | null>;
+  menuItemsRefs: React.MutableRefObject<(HTMLButtonElement | null)[]>;
+  hideDropdown: () => void;
+  handleMenuToggleClick: () => void;
+  handleMenuToggleKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
+  handleMenuKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
+};
+
+const useMenuDropdown = (menuItems: string[]): ReturnType => {
+  const { ref, isOpen, setIsOpen } = useCloseOnClickOutside(false); // Hide menu dropdown on click outside
   const menuItemsRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
   const [focusedMenuItem, setFocusedMenuItem] = useState(0);

@@ -8,7 +8,47 @@ import {
 } from '../validation-utils';
 import { login, register } from '../../redux/actions/authActions';
 
-const useAuthForm = (variant: 'login' | 'register') => {
+type Input = {
+  value: string;
+  handleChange: (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => void;
+};
+
+type ReturnType = {
+  username: Input;
+  email: Input;
+  password: Input;
+  constraints: {
+    username: {
+      maxLength: number;
+      required: boolean;
+    };
+    email: {
+      maxLength: number;
+      required: boolean;
+    };
+    password: {
+      minLength: number;
+      maxLength: number;
+      required: boolean;
+    };
+  };
+  clientLoginErrors: {
+    email: string;
+    password: string;
+  };
+  clientRegErrors: {
+    username: string;
+    email: string;
+    password: string;
+  };
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+};
+
+const useAuthForm = (variant: 'login' | 'register'): ReturnType => {
   const username = useFormInput('');
   const email = useFormInput('');
   const password = useFormInput('');

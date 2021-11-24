@@ -1,6 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-const useCloseOnClickOutside = (initialIsVisible: boolean) => {
+type ReturnType = {
+  ref: React.MutableRefObject<HTMLDivElement | null>;
+  isOpen: boolean;
+  setIsOpen: (arg0: boolean) => void;
+};
+
+const useCloseOnClickOutside = (initialIsVisible: boolean): ReturnType => {
   const [isOpen, setIsOpen] = useState(initialIsVisible);
   const ref = useRef<HTMLDivElement>(null);
 

@@ -1,15 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { getNextIndex, getPreviousIndex } from '../list-utils';
 
+type ReturnType = {
+  widgetItemsRefs: React.MutableRefObject<(HTMLButtonElement | null)[]>;
+  handleKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
+};
+
 const useWidgetKeyboardSupport = (
   widgetItems: string[],
   initialValue: number
-) => {
+): ReturnType => {
   const [focusedItem, setFocusedItem] = useState(initialValue);
   const widgetItemsRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   // Keyboard support: manage focus
-  function handleKeyDown(e: React.KeyboardEvent<HTMLButtonElement>) {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     const { key } = e;
     switch (key) {
       case 'Enter':
@@ -48,7 +53,7 @@ const useWidgetKeyboardSupport = (
       }
       default:
     }
-  }
+  };
 
   useEffect(() => {
     const widgetItemToFocus = widgetItemsRefs.current[

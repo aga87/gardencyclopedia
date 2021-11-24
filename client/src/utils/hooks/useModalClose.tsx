@@ -2,7 +2,11 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../../redux/actions/uiActions';
 
-const useModalClose = () => {
+type ReturnType = {
+  handleCloseModalClick: () => void;
+};
+
+const useModalClose = (): ReturnType => {
   const dispatch = useDispatch();
 
   const handleCloseModalClick = () => {

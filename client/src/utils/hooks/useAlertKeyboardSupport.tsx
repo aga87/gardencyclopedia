@@ -1,10 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { getNextIndex, getPreviousIndex } from '../list-utils';
 
+type ReturnType = {
+  refs: React.MutableRefObject<(HTMLButtonElement | null)[]>;
+  handleKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
+};
+
 const useAlertKeyboardSupport = (
   modalItems: string[],
   handleCancel: () => void
-) => {
+): ReturnType => {
   const [focusedItem, setFocusedItem] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
 
