@@ -1,6 +1,6 @@
 import React from 'react';
 
-type SubmitButtonProps = {
+export type SubmitButtonProps = {
   text: string;
 };
 

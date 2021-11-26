@@ -1,16 +1,17 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import Tag from './Tag';
+import type { TagProps } from './Tag';
 
 export default {
   title: 'Nano/Tag',
   component: Tag
-} as ComponentMeta<typeof Tag>;
+} as Meta;
 
-export const TagComponent: ComponentStory<typeof Tag> = args => (
-  <Tag {...args} />
-);
+export const TagComponent: Story<TagProps> = args => <Tag {...args} />;
+
 TagComponent.args = {
   tag: 'Tagged'
 };
+
 TagComponent.storyName = 'Tag';

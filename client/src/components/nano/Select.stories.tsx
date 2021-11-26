@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import Select from './Select';
+import type {SelectProps} from './Select';
 
 export default {
   title: 'Nano/Select',
@@ -13,9 +14,9 @@ export default {
       }
     }
   }
-} as ComponentMeta<typeof Select>;
+} as Meta;
 
-const Template: ComponentStory<typeof Select> = args => {
+const Template: Story<SelectProps> = args => {
   const [value, setValue] = useState(args.value ?? '');
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

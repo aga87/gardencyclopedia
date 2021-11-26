@@ -1,6 +1,6 @@
 import React from 'react';
 
-type TabProps = {
+export type TabProps = {
   text: string;
   selected: boolean;
   tabPanelId: string;

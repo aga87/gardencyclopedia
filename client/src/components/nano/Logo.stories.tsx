@@ -1,12 +1,12 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import Logo from './Logo';
 
 export default {
   title: 'Nano/Logo',
   component: Logo
-} as ComponentMeta<typeof Logo>;
+} as Meta;
 
-export const LogoComponent: ComponentStory<typeof Logo> = () => <Logo />;
+export const LogoComponent: Story = () => <Logo />;
 
 LogoComponent.storyName = 'Logo';

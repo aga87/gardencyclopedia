@@ -1,16 +1,18 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import PlantEntrySubtitle from './PlantEntrySubtitle';
+import type { PlantEntrySubtitleProps } from './PlantEntrySubtitle';
 
 export default {
   title: 'Nano/PlantEntrySubtitle',
   component: PlantEntrySubtitle
-} as ComponentMeta<typeof PlantEntrySubtitle>;
+} as Meta;
 
-export const PlantEntrySubtitleComponent: ComponentStory<typeof PlantEntrySubtitle> = args => (
-  <PlantEntrySubtitle {...args} />
-);
+export const PlantEntrySubtitleComponent: Story<PlantEntrySubtitleProps> =
+  args => <PlantEntrySubtitle {...args} />;
+
 PlantEntrySubtitleComponent.args = {
   subtitle: 'Plant entry subtitle / plant variety'
 };
+
 PlantEntrySubtitleComponent.storyName = 'Description';

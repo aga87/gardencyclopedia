@@ -1,13 +1,14 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import SuccessMsg from './SuccessMsg';
+import type { SuccessMsgProps } from './SuccessMsg';
 
 export default {
   title: 'Nano/SuccessMsg',
   component: SuccessMsg
-} as ComponentMeta<typeof SuccessMsg>;
+} as Meta;
 
-export const SuccessMsgComponent: ComponentStory<typeof SuccessMsg> = args => (
+export const SuccessMsgComponent: Story<SuccessMsgProps> = args => (
   <SuccessMsg {...args} />
 );
 
