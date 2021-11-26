@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import SubmitButton from './SubmitButton';
-import type { SubmitButtonProps } from './SubmitButton';
+
+type SubmitButtonProps = React.ComponentProps<typeof SubmitButton>;
 
 export default {
   title: 'Nano/SubmitButton',

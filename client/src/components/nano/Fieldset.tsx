@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type FieldsetProps = {
+type FieldsetProps = {
   legend: string;
 };
 

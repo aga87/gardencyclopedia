@@ -16,7 +16,7 @@ import {
   faCalendar
 } from '@fortawesome/free-regular-svg-icons';
 
-export type IconProps = {
+type IconProps = {
   name:
     | 'menu'
     | 'plus'

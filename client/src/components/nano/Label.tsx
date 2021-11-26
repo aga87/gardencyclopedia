@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type LabelProps = {
+type LabelProps = {
   label: string;
   inputId: string;
   required?: boolean;

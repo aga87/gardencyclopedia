@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import Fieldset from './Fieldset';
-import type { FieldsetProps } from './Fieldset';
+
+type FieldsetProps = React.ComponentProps<typeof Fieldset>;
 
 export default {
   title: 'Nano/Fieldset',
@@ -14,7 +15,7 @@ export default {
       defaultValue: 'Legend'
     }
   }
-} as Meta;
+} as Meta<FieldsetProps>;
 
 export const FieldsetComponent: Story<FieldsetProps> = args => (
   <Fieldset {...args} />

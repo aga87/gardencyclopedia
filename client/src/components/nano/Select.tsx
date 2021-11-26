@@ -1,7 +1,7 @@
 import React from 'react';
 import { capitalize } from '../../utils/text-utils';
 
-export type SelectProps = {
+type SelectProps = {
   variant?: 'primary' | 'sort';
   options: string[];
   placeholder?: string;

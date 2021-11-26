@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type PlantEntrySubtitleProps = {
+type PlantEntrySubtitleProps = {
   subtitle: string;
 };
 

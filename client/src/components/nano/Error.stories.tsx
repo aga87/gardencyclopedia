@@ -1,12 +1,13 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import Error from './Error';
-import type { ErrorProps } from './Error';
+
+type ErrorProps = React.ComponentProps<typeof Error>;
 
 export default {
   title: 'Nano/Error',
   component: Error
-} as Meta;
+} as Meta<ErrorProps>;
 
 const Template: Story<ErrorProps> = args => <Error {...args} />;
 

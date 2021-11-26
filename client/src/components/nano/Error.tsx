@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type ErrorProps = {
+type ErrorProps = {
   id?: string;
   msg: string;
   variant?: 'primary' | 'server';
