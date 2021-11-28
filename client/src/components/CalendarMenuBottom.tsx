@@ -6,7 +6,6 @@ import { selectSort } from '../redux/reducers/index';
 import { sortOptions } from '../utils/constants';
 import Select from './nano/Select';
 import IconButton from './nano/IconButton';
-import Icon from './nano/Icon';
 
 const BottomCalendarToolbar = (): JSX.Element => {
   const sort = useSelector(selectSort);
@@ -36,7 +35,7 @@ const BottomCalendarToolbar = (): JSX.Element => {
         </li>
         <li>
           <IconButton
-            icon={<Icon name='seedling' />}
+            iconName='seedling'
             handleClick={handleGardenClick}
             ariaLabel='Switch to garden view'
           />

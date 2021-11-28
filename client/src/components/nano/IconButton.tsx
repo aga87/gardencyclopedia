@@ -1,15 +1,18 @@
 import React from 'react';
+import Icon from './Icon';
+
+type IconProps = React.ComponentProps<typeof Icon>;
 
 type IconButtonProps = {
   variant?: 'primary' | 'secondary';
-  icon: React.ReactNode;
+  iconName: IconProps['name'];
   ariaLabel: string;
   handleClick: () => void;
 };
 
 const IconButton = ({
   variant = 'primary',
-  icon,
+  iconName,
   ariaLabel,
   handleClick
 }: IconButtonProps): JSX.Element => {
@@ -25,7 +28,7 @@ const IconButton = ({
       className={className}
       aria-label={ariaLabel}
     >
-      {icon}
+      <Icon name={iconName} />
     </button>
   );
 };

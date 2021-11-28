@@ -8,7 +8,6 @@ import { filterPlants, sortPlants } from '../redux/actions/plantsActions';
 import { plantCategories, sortOptions } from '../utils/constants';
 import { selectFilter, selectSort } from '../redux/reducers/index';
 import IconButton from './nano/IconButton';
-import Icon from './nano/Icon';
 import Select from './nano/Select';
 
 const TopToolbar = (): JSX.Element => {
@@ -37,7 +36,7 @@ const TopToolbar = (): JSX.Element => {
       <ul role='presentation' className='l-menu-top__list'>
         <li className='xxs-only'>
           <IconButton
-            icon={<Icon name='menu' />}
+            iconName='menu'
             ariaLabel='Open main menu modal'
             handleClick={handleMainMenuClick}
           />
@@ -70,7 +69,7 @@ const TopToolbar = (): JSX.Element => {
         </li>
         <li>
           <IconButton
-            icon={<Icon name='plus' />}
+            iconName='plus'
             ariaLabel='Add a new plant'
             handleClick={handleAddClick}
           />

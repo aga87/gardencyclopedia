@@ -1,6 +1,5 @@
 import React from 'react';
 import IconButton from './nano/IconButton';
-import Icon from './nano/Icon';
 
 type ModalProps = {
   title: string;
@@ -35,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({
           <header className='c-modal__header'>
             <div className='l-modal__header-flex'>
               <IconButton
-                icon={<Icon name='close' />}
+                iconName='close'
                 ariaLabel={`Close ${title}`}
                 handleClick={handleClose}
               />
