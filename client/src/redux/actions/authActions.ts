@@ -26,7 +26,7 @@ export type TokenState = () => {
 
 export const register =
   ({ username, email, password }: NewUser) =>
-  async (dispatch: Dispatch) => {
+  async (dispatch: Dispatch): Promise<void> => {
     const config = {
       headers: {
         'Content-type': 'application/json'
@@ -62,27 +62,29 @@ export const tokenConfig = (getState: TokenState) => {
   return config;
 };
 
-const loadUser = () => async (dispatch: Dispatch, getState: TokenState) => {
-  dispatch({
-    type: USER_LOADING
-  });
-  try {
-    const res = await axios.get('/api/auth/user', tokenConfig(getState));
+const loadUser =
+  () =>
+  async (dispatch: Dispatch, getState: TokenState): Promise<void> => {
     dispatch({
-      type: USER_LOADED,
-      payload: res.data
+      type: USER_LOADING
     });
-  } catch (err: any) {
-    dispatch(getErrors(err.response.data, err.response.status));
-    dispatch({
-      type: LOGIN_FAIL
-    });
-  }
-};
+    try {
+      const res = await axios.get('/api/auth/user', tokenConfig(getState));
+      dispatch({
+        type: USER_LOADED,
+        payload: res.data
+      });
+    } catch (err: any) {
+      dispatch(getErrors(err.response.data, err.response.status));
+      dispatch({
+        type: LOGIN_FAIL
+      });
+    }
+  };
 
 export const login =
   ({ email, password }: User) =>
-  async (dispatch: Dispatch) => {
+  async (dispatch: Dispatch): Promise<void> => {
     const config = {
       headers: {
         'Content-type': 'application/json'
@@ -104,7 +106,9 @@ export const login =
     }
   };
 
-export const logout = () => ({
+type Action = { type: typeof LOGOUT_SUCCESS };
+
+export const logout = (): Action => ({
   type: LOGOUT_SUCCESS
 });
 

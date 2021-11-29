@@ -25,24 +25,26 @@ type Action =
     };
 
 export const addPlant =
-  (newPlant: Plant) => async (dispatch: Dispatch, getState: TokenState) => {
+  (newPlant: Plant) =>
+  async (dispatch: Dispatch, getState: TokenState): Promise<void> => {
     try {
       const res = await axios.post(
         '/api/plants',
         newPlant,
         tokenConfig(getState)
       );
-      return dispatch({
+      dispatch({
         type: ADD_PLANT,
         payload: res.data
       });
     } catch (err: any) {
-      return dispatch(getErrors(err.response.data, err.response.status));
+      dispatch(getErrors(err.response.data, err.response.status));
     }
   };
 
 export const deletePlant =
-  (id: string) => async (dispatch: Dispatch, getState: TokenState) => {
+  (id: string) =>
+  async (dispatch: Dispatch, getState: TokenState): Promise<void> => {
     try {
       await axios.delete(`/api/plants/${id}`, tokenConfig(getState));
       dispatch({
@@ -56,7 +58,7 @@ export const deletePlant =
 
 export const editPlant =
   (id: string, editedPlant: Plant) =>
-  async (dispatch: Dispatch, getState: TokenState) => {
+  async (dispatch: Dispatch, getState: TokenState): Promise<void> => {
     try {
       const res = await axios.put(
         `/api/plants/${id}`,
@@ -77,7 +79,8 @@ export const setPlantsLoading = (): Action => ({
 });
 
 export const getPlants =
-  () => async (dispatch: Dispatch, getState: TokenState) => {
+  () =>
+  async (dispatch: Dispatch, getState: TokenState): Promise<void> => {
     dispatch(setPlantsLoading());
     try {
       const res = await axios.get('/api/plants', tokenConfig(getState));
