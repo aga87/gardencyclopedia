@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setView } from '../redux/actions/uiActions';
 import IconButton from './nano/IconButton';
 
-const BottomGardenToolbar = (): JSX.Element => {
+const GardenMenuBottom = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleCalendarClick = () => {
@@ -25,4 +25,4 @@ const BottomGardenToolbar = (): JSX.Element => {
   );
 };
 
-export default BottomGardenToolbar;
+export default GardenMenuBottom;
