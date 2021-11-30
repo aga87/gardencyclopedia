@@ -4,7 +4,7 @@ import usePlantForm from '../utils/hooks/usePlantForm';
 import TextField from './TextField';
 import SelectField from './SelectField';
 import Fieldset from './nano/Fieldset';
-import SubmitButton from './nano/SubmitButton';
+import SubmitButton from './nano/buttons/SubmitButton';
 
 const PlantForm = (): JSX.Element => {
   const {

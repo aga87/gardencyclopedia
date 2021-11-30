@@ -5,7 +5,7 @@ import SubmitButton from './SubmitButton';
 type SubmitButtonProps = React.ComponentProps<typeof SubmitButton>;
 
 export default {
-  title: 'Nano/SubmitButton',
+  title: 'Nano/Buttons/SubmitButton',
   component: SubmitButton
 } as Meta;
 

@@ -8,7 +8,7 @@ import {
 import useAuthForm from '../utils/hooks/useAuthForm';
 import TextField from './TextField';
 import Error from './nano/Error';
-import SubmitButton from './nano/SubmitButton';
+import SubmitButton from './nano/buttons/SubmitButton';
 import SuccessMsg from './nano/SuccessMsg';
 
 type AuthFormProps = {

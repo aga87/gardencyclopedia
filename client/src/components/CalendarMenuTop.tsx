@@ -7,7 +7,7 @@ import {
 import { filterPlants, sortPlants } from '../redux/actions/plantsActions';
 import { plantCategories, sortOptions } from '../utils/constants';
 import { selectFilter, selectSort } from '../redux/reducers/index';
-import IconButton from './nano/IconButton';
+import IconButton from './nano/buttons/IconButton';
 import Select from './nano/Select';
 
 const TopToolbar = (): JSX.Element => {

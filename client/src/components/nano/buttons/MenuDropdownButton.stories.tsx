@@ -5,7 +5,7 @@ import MenuDropdownButton from './MenuDropdownButton';
 type MenuDropdownButtonProps = React.ComponentProps<typeof MenuDropdownButton>;
 
 export default {
-  title: 'Nano/MenuDropdownButton',
+  title: 'Nano/Buttons/MenuDropdownButton',
   component: MenuDropdownButton,
   argTypes: {
     handleClick: { action: 'Button clicked' },

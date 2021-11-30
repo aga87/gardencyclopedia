@@ -4,8 +4,8 @@ import { deletePlant } from '../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../redux/actions/uiActions';
 import useMenuDropdown from '../utils/hooks/useMenuDropdown';
 import ConfirmDeletionAlert from './ConfirmDeletionAlert';
-import DropdownToggleButton from './nano/DropdownToggleButton';
-import MenuDropdownButton from './nano/MenuDropdownButton';
+import DropdownToggleButton from './nano/buttons/DropdownToggleButton';
+import MenuDropdownButton from './nano/buttons/MenuDropdownButton';
 
 type PlantMenuProps = {
   plant: Plant;

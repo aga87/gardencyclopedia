@@ -5,7 +5,7 @@ import Tab from './Tab';
 type TabProps = React.ComponentProps<typeof Tab>;
 
 export default {
-  title: 'Nano/Tab',
+  title: 'Nano/Buttons/Tab',
   component: Tab,
   argTypes: {
     handleClick: { action: 'Tab clicked' }

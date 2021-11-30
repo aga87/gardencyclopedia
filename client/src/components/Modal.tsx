@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from './nano/IconButton';
+import IconButton from './nano/buttons/IconButton';
 
 type ModalProps = {
   title: string;

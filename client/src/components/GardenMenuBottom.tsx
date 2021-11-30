@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setView } from '../redux/actions/uiActions';
-import IconButton from './nano/IconButton';
+import IconButton from './nano/buttons/IconButton';
 
 const GardenMenuBottom = (): JSX.Element => {
   const dispatch = useDispatch();
