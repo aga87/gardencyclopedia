@@ -2,7 +2,6 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import useAlertKeyboardSupport from '../utils/hooks/useAlertKeyboardSupport';
 import Button from './nano/Button';
-import Icon from './nano/Icon';
 
 type ConfirmDeletionAlertProps = {
   itemName: string;
@@ -61,7 +60,7 @@ const ConfirmDeletionAlert = ({
                   refs.current[1] = ref;
                 }}
                 variant='tertiary'
-                icon={<Icon name='trash' />}
+                iconName='trash'
                 text='Delete'
                 handleClick={handleDelete}
                 handleKeyDown={handleKeyDown}

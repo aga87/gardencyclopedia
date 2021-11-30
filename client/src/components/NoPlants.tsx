@@ -7,7 +7,7 @@ import Icon from './nano/Icon';
 const NoPlants = (): JSX.Element => {
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleAddPlantClick = () => {
     dispatch(openAddPlantModal());
   };
 
@@ -15,11 +15,7 @@ const NoPlants = (): JSX.Element => {
     <div className='c-no-plants l-no-plants'>
       <h2 className='c-no-plants__title l-no-plants__title'>No Plants</h2>
       <div className='l-no-plants__btn'>
-        <Button
-          icon={<Icon name='plus' />}
-          text='New Plant'
-          handleClick={handleClick}
-        />
+        <Button iconName='plus' text='New Plant' handleClick={handleAddPlantClick} />
       </div>
       <p>
         Or press the{' '}
