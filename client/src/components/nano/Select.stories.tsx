@@ -8,29 +8,20 @@ export default {
   title: 'Nano/Select',
   component: Select,
   argTypes: {
-    // controlled value prop
+    handleChange: { action: 'handleChange' },
+    // disable controls for controlled value prop
     value: {
       control: {
         disable: true
       }
     }
+  },
+  parameters: {
+    backgrounds: { default: 'forest' }
   }
 } as Meta<SelectProps>;
 
-const Template: Story<SelectProps> = args => {
-  const [value, setValue] = useState(args.value ?? '');
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(e.target.value);
-  };
-
-  return (
-    <>
-      <Select {...args} value={value} handleChange={handleChange} />
-      <pre style={{ marginTop: 10 }}>{value}</pre>
-    </>
-  );
-};
+const Template: Story<SelectProps> = args => <Select {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
