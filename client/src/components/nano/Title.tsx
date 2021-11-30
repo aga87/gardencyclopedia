@@ -5,7 +5,7 @@ type TitleProps = {
 };
 
 const Title = ({ title }: TitleProps): JSX.Element => (
-  <h2 className='plant-entry-title'>{title}</h2>
+  <h2 className='title'>{title}</h2>
 );
 
 export default Title;

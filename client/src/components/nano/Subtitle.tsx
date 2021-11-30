@@ -5,7 +5,7 @@ type SubtitleProps = {
 };
 
 const Subtitle = ({ subtitle }: SubtitleProps): JSX.Element => (
-  <p className='plant-entry-subtitle'>{subtitle}</p>
+  <p className='subtitle'>{subtitle}</p>
 );
 
 export default Subtitle;
