@@ -6,7 +6,6 @@ import { selectUsername, selectView } from '../redux/reducers/index';
 import { capitalize } from '../utils/text-utils';
 import useWidgetKeyboardSupport from '../utils/hooks/useWidgetKeyboardSupport';
 import MenuDropdownButton from './nano/MenuDropdownButton';
-import Icon from './nano/Icon';
 
 const MainMenu = (): JSX.Element => {
   const username = useSelector(selectUsername);
@@ -43,7 +42,7 @@ const MainMenu = (): JSX.Element => {
             ref={ref => {
               widgetItemsRefs.current[0] = ref;
             }}
-            icon={<Icon name='user-cog' />}
+            iconName='user-cog'
             text={menuItems[0]}
             handleClick={handleUserClick}
             handleKeyDown={handleKeyDown}
@@ -54,7 +53,7 @@ const MainMenu = (): JSX.Element => {
             ref={ref => {
               widgetItemsRefs.current[1] = ref;
             }}
-            icon={<Icon name='calendar' />}
+            iconName='calendar'
             text={capitalize(menuItems[1])}
             selected={view === 'calendar'}
             handleClick={handleCalendarClick}
@@ -66,7 +65,7 @@ const MainMenu = (): JSX.Element => {
             ref={ref => {
               widgetItemsRefs.current[2] = ref;
             }}
-            icon={<Icon name='seedling' />}
+            iconName='seedling'
             text={capitalize(menuItems[2])}
             selected={view === 'garden'}
             handleClick={handleGardenClick}
@@ -78,7 +77,7 @@ const MainMenu = (): JSX.Element => {
             ref={ref => {
               widgetItemsRefs.current[3] = ref;
             }}
-            icon={<Icon name='logout' />}
+            iconName='logout'
             text={capitalize(menuItems[3])}
             handleClick={handleLogoutClick}
             handleKeyDown={handleKeyDown}

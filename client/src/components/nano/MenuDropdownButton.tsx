@@ -1,8 +1,11 @@
 import React, { useRef } from 'react';
+import Icon from './Icon';
+
+type IconProps = React.ComponentProps<typeof Icon>;
 
 type MenuDropdownButtonProps = {
   text: string;
-  icon: React.ReactNode;
+  iconName: IconProps['name'];
   selected?: boolean;
   handleClick: () => void;
   handleKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
@@ -15,7 +18,7 @@ const MenuDropdownButton = React.forwardRef<
   (
     {
       text,
-      icon = null,
+      iconName,
       selected = false,
       handleClick,
       handleKeyDown
@@ -39,7 +42,9 @@ const MenuDropdownButton = React.forwardRef<
         className={className}
         tabIndex={selected ? 0 : -1} // roving tabindex
       >
-        {icon && <span className='menu-dropdown-button__icon'>{icon}</span>}
+        <span className='menu-dropdown-button__icon'>
+          <Icon name={iconName} />
+        </span>
         {text}
       </button>
     );

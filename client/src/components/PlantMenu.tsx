@@ -80,7 +80,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
             >
               <li>
                 <MenuDropdownButton
-                  icon={<Icon name='seedling' />}
+                  iconName='seedling'
                   text={menuItems[0]}
                   ref={menuRef => {
                     menuItemsRefs.current[0] = menuRef;
@@ -91,7 +91,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
               </li>
               <li>
                 <MenuDropdownButton
-                  icon={<Icon name='edit' />}
+                  iconName='edit'
                   text={menuItems[1]}
                   ref={menuRef => {
                     menuItemsRefs.current[1] = menuRef;
@@ -102,7 +102,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
               </li>
               <li>
                 <MenuDropdownButton
-                  icon={<Icon name='trash' />}
+                  iconName='trash'
                   text={menuItems[2]}
                   ref={menuRef => {
                     menuItemsRefs.current[2] = menuRef;
