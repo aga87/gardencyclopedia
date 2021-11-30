@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { selectPlantById } from '../redux/reducers/index';
 import type { RootState } from '../redux/store';
 import PlantMenu from './PlantMenu';
-import PlantEntryTitle from './nano/PlantEntryTitle';
-import PlantEntrySubtitle from './nano/PlantEntrySubtitle';
+import Title from './nano/Title';
+import Subtitle from './nano/Subtitle';
 import Tag from './nano/Tag';
 import CalendarChart from './CalendarChart';
 
@@ -25,13 +25,13 @@ const PlantEntry = ({ plantId }: PlantEntryProps): JSX.Element | null => {
   return (
     <div className='c-plant-entry'>
       <div className='l-plant-entry__header'>
-        <PlantEntryTitle title={plant.name} />
+        <Title title={plant.name} />
         <div className='l-plant-entry-header__menu-btn'>
           <PlantMenu plant={plant} />
         </div>
       </div>
       <div className='l-plant-entry__desc'>
-        <PlantEntrySubtitle subtitle={desc} />
+        <Subtitle subtitle={desc} />
       </div>
       <div className='l-plant-entry__category'>
         <Tag tag={category} />
