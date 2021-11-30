@@ -4,9 +4,8 @@ import { deletePlant } from '../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../redux/actions/uiActions';
 import useMenuDropdown from '../utils/hooks/useMenuDropdown';
 import ConfirmDeletionAlert from './ConfirmDeletionAlert';
-import MenuDropdownToggleButton from './nano/MenuDropdownToggleButton';
+import DropdownToggleButton from './nano/DropdownToggleButton';
 import MenuDropdownButton from './nano/MenuDropdownButton';
-import Icon from './nano/Icon';
 
 type PlantMenuProps = {
   plant: Plant;
@@ -60,10 +59,10 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
         />
       )}
       <nav className='c-plant-menu l-plant-menu'>
-        <MenuDropdownToggleButton
+        <DropdownToggleButton
           ref={toggleButtonRef}
           variant='secondary'
-          icon={<Icon name='more' />}
+          iconName='more'
           ariaLabel={isOpen ? 'Close options' : `Open ${plant.name} options`}
           handleClick={handleMenuToggleClick}
           handleKeyDown={handleMenuToggleKeyDown}
