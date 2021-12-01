@@ -2,9 +2,9 @@ import React from 'react';
 import IconButton from './nano/buttons/IconButton';
 
 type ModalProps = {
+  variant?: 'primary' | 'secondary';
   title: string;
   id: string; // for accessibility
-  variant?: 'primary' | 'secondary';
   handleClose: () => void;
 };
 
