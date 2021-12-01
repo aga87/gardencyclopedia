@@ -5,9 +5,9 @@ import { setView } from '../redux/actions/uiActions';
 import { selectSort } from '../redux/reducers/index';
 import { sortOptions } from '../utils/constants';
 import Select from './nano/Select';
-import IconButton from './nano/IconButton';
+import IconButton from './nano/buttons/IconButton';
 
-const BottomCalendarToolbar = (): JSX.Element => {
+const CalendarMenuBottom = (): JSX.Element => {
   const sort = useSelector(selectSort);
   const dispatch = useDispatch();
 
@@ -45,4 +45,4 @@ const BottomCalendarToolbar = (): JSX.Element => {
   );
 };
 
-export default BottomCalendarToolbar;
+export default CalendarMenuBottom;
