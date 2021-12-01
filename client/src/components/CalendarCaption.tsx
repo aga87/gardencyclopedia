@@ -28,4 +28,5 @@ const CalendarCaption = ({ noOfPlants }: CalendarCaptionProps): JSX.Element => (
     </details>
   </div>
 );
+
 export default CalendarCaption;
