@@ -1,5 +1,4 @@
 import { GET_ERRORS, CLEAR_ERRORS } from '../actions/types';
-import type { ErrAction } from '../actions/errorActions';
 
 const initialState = {
   errMsg: '',
@@ -8,6 +7,15 @@ const initialState = {
 };
 
 type State = typeof initialState;
+
+type ErrAction =
+  | {
+      type: typeof GET_ERRORS;
+      payload: { errMsg: string; errStatus: number | null; errId: string };
+    }
+  | {
+      type: typeof CLEAR_ERRORS;
+    };
 
 const errorReducer = (state = initialState, action: ErrAction): State => {
   switch (action.type) {

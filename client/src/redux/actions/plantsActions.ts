@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Dispatch } from '@reduxjs/toolkit';
+import { Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import {
   ADD_PLANT,
   DELETE_PLANT,
@@ -13,16 +13,7 @@ import { tokenConfig } from './authActions';
 import { getErrors } from './errorActions';
 import type { TokenState } from './authActions';
 
-type Action =
-  | { type: typeof PLANTS_LOADING }
-  | {
-      type: typeof SORT_PLANTS;
-      payload: Sort;
-    }
-  | {
-      type: typeof FILTER_PLANTS;
-      payload: Category;
-    };
+type BasicAction = { type: string };
 
 export const addPlant =
   (newPlant: Plant) =>
@@ -74,7 +65,7 @@ export const editPlant =
     }
   };
 
-export const setPlantsLoading = (): Action => ({
+export const setPlantsLoading = (): BasicAction => ({
   type: PLANTS_LOADING
 });
 
@@ -93,12 +84,12 @@ export const getPlants =
     }
   };
 
-export const filterPlants = (filter: Category): Action => ({
+export const filterPlants = (filter: Category): PayloadAction<Category> => ({
   type: FILTER_PLANTS,
   payload: filter
 });
 
-export const sortPlants = (sort: Sort): Action => ({
+export const sortPlants = (sort: Sort): PayloadAction<Sort> => ({
   type: SORT_PLANTS,
   payload: sort
 });

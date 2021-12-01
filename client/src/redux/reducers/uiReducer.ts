@@ -8,7 +8,6 @@ import {
   LOGOUT_SUCCESS
 } from '../actions/types';
 import { emptyPlant } from '../../utils/constants';
-import type { UIAction } from '../actions/uiActions';
 
 const initialState = {
   isMainMenuModalOpen: false,
@@ -20,7 +19,24 @@ const initialState = {
 };
 
 type State = typeof initialState;
-type Action = UIAction | { type: typeof LOGOUT_SUCCESS };
+
+export type Action =
+  | {
+      type:
+        | typeof OPEN_MAIN_MENU_MODAL
+        | typeof CLOSE_MODAL
+        | typeof OPEN_ADD_PLANT_MODAL
+        | typeof OPEN_USER_SETTINGS_MODAL;
+    }
+  | {
+      type: typeof OPEN_EDIT_PLANT_MODAL;
+      payload: Plant;
+    }
+  | {
+      type: typeof SET_VIEW;
+      payload: View;
+    }
+  | { type: typeof LOGOUT_SUCCESS };
 
 const uiReducer = (state = initialState, action: Action): State => {
   switch (action.type) {

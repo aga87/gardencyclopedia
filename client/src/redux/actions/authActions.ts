@@ -11,6 +11,8 @@ import {
 } from './types';
 import { clearErrors, getErrors } from './errorActions';
 
+type BasicAction = { type: string };
+
 type User = {
   email: string;
   password: string;
@@ -106,9 +108,7 @@ export const login =
     }
   };
 
-type Action = { type: typeof LOGOUT_SUCCESS };
-
-export const logout = (): Action => ({
+export const logout = (): BasicAction => ({
   type: LOGOUT_SUCCESS
 });
 
