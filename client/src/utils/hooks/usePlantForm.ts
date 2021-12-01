@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../redux/store';
 import { addPlant, editPlant } from '../../redux/actions/plantsActions';
 import { closeModal } from '../../redux/actions/uiActions';
 import { selectPlantToEdit } from '../../redux/reducers/index';
@@ -82,7 +83,7 @@ const usePlantForm = (): ReturnType => {
     harvestFrom: '',
     harvestUntil: ''
   });
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // Field constraints
   const constraints = {

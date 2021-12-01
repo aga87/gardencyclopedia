@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/store';
 import { closeModal } from '../../redux/actions/uiActions';
 
 type ReturnType = {
@@ -7,7 +7,7 @@ type ReturnType = {
 };
 
 const useModalClose = (): ReturnType => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleCloseModalClick = () => {
     dispatch(closeModal());

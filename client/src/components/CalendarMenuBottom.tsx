@@ -1,5 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../redux/store';
 import { sortPlants } from '../redux/actions/plantsActions';
 import { setView } from '../redux/actions/uiActions';
 import { selectSort } from '../redux/reducers/index';
@@ -9,7 +10,7 @@ import IconButton from './nano/buttons/IconButton';
 
 const CalendarMenuBottom = (): JSX.Element => {
   const sort = useSelector(selectSort);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(sortPlants(e.target.value as Sort));

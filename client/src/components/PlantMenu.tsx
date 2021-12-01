@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../redux/store';
 import { deletePlant } from '../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../redux/actions/uiActions';
 import useMenuDropdown from '../utils/hooks/useMenuDropdown';
@@ -24,7 +24,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
     handleMenuKeyDown
   } = useMenuDropdown(menuItems);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleAddToGarden = () => {
     dispatch(setView('garden'));
