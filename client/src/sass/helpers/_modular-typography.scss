@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $base-font-size: 1rem;
 $font-size-h5: 1rem * $type-scale;
 $font-size-h4: 1rem * ($type-scale * $type-scale);
@@ -6,12 +8,14 @@ $font-size-h2: 1rem * ($type-scale * $type-scale * $type-scale * $type-scale);
 $font-size-h1: 1rem *
   ($type-scale * $type-scale * $type-scale * $type-scale * $type-scale);
 
-$font-size-s1: 1rem / $type-scale;
-$font-size-s2: 1rem / $type-scale / $type-scale;
+$font-size-s1: math.div(1rem, $type-scale);
+$type-scale-square: $type-scale * $type-scale;
+$font-size-s2: math.div(1rem, $type-scale-square);
 
 @mixin t1 {
   font-size: $font-size-h1;
-  line-height: ceil($font-size-h1 / $blh) * ($blh / $font-size-h1);
+  line-height: ceil(math.div($font-size-h1, $blh)) *
+    math.div($blh, $font-size-h1);
 }
 
 // @mixin h2 {
@@ -21,7 +25,8 @@ $font-size-s2: 1rem / $type-scale / $type-scale;
 
 @mixin t3 {
   font-size: $font-size-h3;
-  line-height: ceil($font-size-h3 / $blh) * ($blh / $font-size-h3);
+  line-height: ceil(math.div($font-size-h3, $blh)) *
+    math.div($blh, $font-size-h3);
 }
 
 // @mixin h4 {
@@ -31,7 +36,8 @@ $font-size-s2: 1rem / $type-scale / $type-scale;
 
 @mixin t5 {
   font-size: $font-size-h5;
-  line-height: ceil($font-size-h5 / $blh) * ($blh / $font-size-h5);
+  line-height: ceil(math.div($font-size-h5, $blh)) *
+    math.div($blh, $font-size-h5);
 }
 
 @mixin t-base {
@@ -41,10 +47,12 @@ $font-size-s2: 1rem / $type-scale / $type-scale;
 
 @mixin s1 {
   font-size: $font-size-s1;
-  line-height: ceil($font-size-s1 / $blh) * ($blh / $font-size-s1);
+  line-height: ceil(math.div($font-size-s1, $blh)) *
+    math.div($blh, $font-size-s1);
 }
 
 @mixin s2 {
   font-size: $font-size-s2;
-  line-height: ceil($font-size-s2 / $blh) * ($blh / $font-size-s1);
+  line-height: ceil(math.div($font-size-s2, $blh)) *
+    math.div($blh, $font-size-s1);
 }
