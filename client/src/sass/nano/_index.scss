@@ -1,4 +1,8 @@
-@import './button';
+@import './buttons/button';
+@import './buttons/icon-button';
+@import './buttons/menu-dropdown-button';
+@import './buttons/submit-button';
+@import './buttons/tab';
 @import './error';
 @import './error-server';
 @import './fieldset';
@@ -6,14 +10,10 @@
 @import './label';
 @import './loader';
 @import './logo';
-@import './icon-button';
-@import './menu-dropdown-button';
 @import './month-data';
-@import './plant-entry-subtitle';
-@import './plant-entry-title';
 @import './select';
 @import './status-message';
-@import './submit-button';
+@import './subtitle';
 @import './success-msg';
-@import './tab';
 @import './tag';
+@import './title';

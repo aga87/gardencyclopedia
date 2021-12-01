@@ -4,9 +4,8 @@ import { deletePlant } from '../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../redux/actions/uiActions';
 import useMenuDropdown from '../utils/hooks/useMenuDropdown';
 import ConfirmDeletionAlert from './ConfirmDeletionAlert';
-import MenuDropdownToggleButton from './nano/MenuDropdownToggleButton';
-import MenuDropdownButton from './nano/MenuDropdownButton';
-import Icon from './nano/Icon';
+import DropdownToggleButton from './nano/buttons/DropdownToggleButton';
+import MenuDropdownButton from './nano/buttons/MenuDropdownButton';
 
 type PlantMenuProps = {
   plant: Plant;
@@ -60,10 +59,10 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
         />
       )}
       <nav className='c-plant-menu l-plant-menu'>
-        <MenuDropdownToggleButton
+        <DropdownToggleButton
           ref={toggleButtonRef}
           variant='secondary'
-          icon={<Icon name='more' />}
+          iconName='more'
           ariaLabel={isOpen ? 'Close options' : `Open ${plant.name} options`}
           handleClick={handleMenuToggleClick}
           handleKeyDown={handleMenuToggleKeyDown}
@@ -80,7 +79,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
             >
               <li>
                 <MenuDropdownButton
-                  icon={<Icon name='seedling' />}
+                  iconName='seedling'
                   text={menuItems[0]}
                   ref={menuRef => {
                     menuItemsRefs.current[0] = menuRef;
@@ -91,7 +90,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
               </li>
               <li>
                 <MenuDropdownButton
-                  icon={<Icon name='edit' />}
+                  iconName='edit'
                   text={menuItems[1]}
                   ref={menuRef => {
                     menuItemsRefs.current[1] = menuRef;
@@ -102,7 +101,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
               </li>
               <li>
                 <MenuDropdownButton
-                  icon={<Icon name='trash' />}
+                  iconName='trash'
                   text={menuItems[2]}
                   ref={menuRef => {
                     menuItemsRefs.current[2] = menuRef;

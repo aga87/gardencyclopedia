@@ -1,11 +1,11 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import Loader from './Loader';
 
 export default {
   title: 'Nano/Loader',
   component: Loader
-} as ComponentMeta<typeof Loader>;
+} as Meta;
 
-export const LoaderComponent: ComponentStory<typeof Loader> = () => <Loader />;
+export const LoaderComponent: Story = () => <Loader />;
 LoaderComponent.storyName = 'Loader';

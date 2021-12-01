@@ -1,8 +1,11 @@
 import React from 'react';
+import Icon from '../Icon';
 
-type MenuDropdownToggleButtonProps = {
+type IconProps = React.ComponentProps<typeof Icon>;
+
+type DropdownToggleButtonProps = {
   variant?: 'primary' | 'secondary';
-  icon: React.ReactNode;
+  iconName: IconProps['name'];
   ariaLabel: string;
   id: string;
   dropdownId: string;
@@ -10,20 +13,20 @@ type MenuDropdownToggleButtonProps = {
   handleKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
 };
 
-const MenuDropdownToggleButton = React.forwardRef<
+const DropdownToggleButton = React.forwardRef<
   HTMLButtonElement,
-  MenuDropdownToggleButtonProps
+  DropdownToggleButtonProps
 >(
   (
     {
       variant = 'primary',
-      icon,
+      iconName,
       ariaLabel,
       id,
       dropdownId,
       handleClick,
       handleKeyDown
-    }: MenuDropdownToggleButtonProps,
+    }: DropdownToggleButtonProps,
     ref
   ): JSX.Element => {
     let className = 'icon-button';
@@ -43,10 +46,10 @@ const MenuDropdownToggleButton = React.forwardRef<
         aria-haspopup
         aria-controls={dropdownId}
       >
-        {icon}
+        <Icon name={iconName} />
       </button>
     );
   }
 );
 
-export default MenuDropdownToggleButton;
+export default DropdownToggleButton;

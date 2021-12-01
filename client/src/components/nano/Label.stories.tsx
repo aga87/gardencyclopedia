@@ -1,6 +1,8 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import Label from './Label';
+
+type LabelProps = React.ComponentProps<typeof Label>;
 
 export default {
   title: 'Nano/Label',
@@ -10,9 +12,9 @@ export default {
       defaultValue: ''
     }
   }
-} as ComponentMeta<typeof Label>;
+} as Meta<LabelProps>;
 
-const Template: ComponentStory<typeof Label> = args => <Label {...args} />;
+const Template: Story<LabelProps> = args => <Label {...args} />;
 
 export const Primary = Template.bind({});
 

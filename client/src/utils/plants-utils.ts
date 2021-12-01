@@ -1,9 +1,20 @@
-export const toZeroOnesArr = (
-  monthStart: Month,
-  monthEnd: Month,
-  months: Month[]
-): number[] =>
-  months.map((month, i) => {
+export const toZeroOnesArr = (monthStart: Month, monthEnd: Month): number[] => {
+  const months: Month[] = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  
+  return months.map((month, i) => {
     const startingMonthIndex = months.indexOf(monthStart);
     const endingMonthIndex = months.indexOf(monthEnd);
     const dataIsMissing = startingMonthIndex === -1 || endingMonthIndex === -1;
@@ -22,12 +33,9 @@ export const toZeroOnesArr = (
     if (i === startingMonthIndex) return 1;
     return 0;
   });
+};
 
-export const sortPlants = (
-  plants: Plant[],
-  sort: Sort,
-  months: Month[]
-): Plant[] => {
+export const sortPlants = (plants: Plant[], sort: Sort): Plant[] => {
   switch (sort) {
     case 'name':
       return plants;
@@ -41,16 +49,8 @@ export const sortPlants = (
     }
     case 'sowing time': {
       const compareSowFrom = (a: Plant, b: Plant) => {
-        const sowingPeriodArrPlantA = toZeroOnesArr(
-          a.sowFrom,
-          a.sowUntil,
-          months
-        );
-        const sowingPeriodArrPlantB = toZeroOnesArr(
-          b.sowFrom,
-          b.sowUntil,
-          months
-        );
+        const sowingPeriodArrPlantA = toZeroOnesArr(a.sowFrom, a.sowUntil);
+        const sowingPeriodArrPlantB = toZeroOnesArr(b.sowFrom, b.sowUntil);
         // e.g. for sowing period from Nov - Feb the earliest month is January
         const earliestMonthPlantA = sowingPeriodArrPlantA.indexOf(1);
         const earliestMonthPlantB = sowingPeriodArrPlantB.indexOf(1);
@@ -63,13 +63,11 @@ export const sortPlants = (
       const compareHarvestFrom = (a: Plant, b: Plant) => {
         const harvestingPeriodArrPlantA = toZeroOnesArr(
           a.harvestFrom,
-          a.harvestUntil,
-          months
+          a.harvestUntil
         );
         const harvestingPeriodArrPlantB = toZeroOnesArr(
           b.harvestFrom,
-          b.harvestUntil,
-          months
+          b.harvestUntil
         );
         // e.g. for harvesting period from Nov - Feb the earliest month is January
         const earliestMonthPlantA = harvestingPeriodArrPlantA.indexOf(1);

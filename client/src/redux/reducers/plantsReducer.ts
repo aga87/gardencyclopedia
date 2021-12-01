@@ -7,7 +7,6 @@ import {
   FILTER_PLANTS,
   SORT_PLANTS
 } from '../actions/types';
-import { months } from '../../utils/constants';
 import { sortPlants } from '../../utils/plants-utils';
 
 export type StatusMsg = {
@@ -139,7 +138,7 @@ export const selectFilteredSortedPlantIds = (state: State): string[] => {
     return plant.category === state.filter;
   });
   // Sort
-  const sortedFilteredPlants = sortPlants(filteredPlants, state.sort, months);
+  const sortedFilteredPlants = sortPlants(filteredPlants, state.sort);
   // Get ids
   const sortedFilteredPlantIds = sortedFilteredPlants.map(plant => plant._id);
   return sortedFilteredPlantIds as string[];

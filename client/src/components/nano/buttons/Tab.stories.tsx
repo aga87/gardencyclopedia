@@ -1,16 +1,18 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import Tab from './Tab';
 
+type TabProps = React.ComponentProps<typeof Tab>;
+
 export default {
-  title: 'Nano/Tab',
+  title: 'Nano/Buttons/Tab',
   component: Tab,
   argTypes: {
     handleClick: { action: 'Tab clicked' }
   }
-} as ComponentMeta<typeof Tab>;
+} as Meta<TabProps>;
 
-const Template: ComponentStory<typeof Tab> = args => <Tab {...args} />;
+const Template: Story<TabProps> = args => <Tab {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

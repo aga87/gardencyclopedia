@@ -1,10 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setView } from '../redux/actions/uiActions';
-import IconButton from './nano/IconButton';
-import Icon from './nano/Icon';
+import IconButton from './nano/buttons/IconButton';
 
-const BottomGardenToolbar = (): JSX.Element => {
+const GardenMenuBottom = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleCalendarClick = () => {
@@ -16,7 +15,7 @@ const BottomGardenToolbar = (): JSX.Element => {
       <ul role='presentation' className='l-menu-bottom__list'>
         <li>
           <IconButton
-            icon={<Icon name='calendar' />}
+            iconName='calendar'
             handleClick={handleCalendarClick}
             ariaLabel='Switch to calendar view'
           />
@@ -26,4 +25,4 @@ const BottomGardenToolbar = (): JSX.Element => {
   );
 };
 
-export default BottomGardenToolbar;
+export default GardenMenuBottom;

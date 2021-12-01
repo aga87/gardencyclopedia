@@ -1,9 +1,12 @@
 import React, { useRef } from 'react';
+import Icon from '../Icon';
+
+type IconProps = React.ComponentProps<typeof Icon>;
 
 type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'tertiary';
   text: string;
-  icon?: React.ReactNode;
+  iconName?: IconProps['name'] | null;
   handleClick: () => void;
   handleKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
 };
@@ -13,7 +16,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     {
       variant = 'primary',
       text,
-      icon = null,
+      iconName = null,
       handleClick,
       handleKeyDown
     }: ButtonProps,
@@ -35,7 +38,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         onKeyDown={e => handleKeyDown && handleKeyDown(e)}
         className={className}
       >
-        {icon && <span className='button__icon'>{icon}</span>}
+        {iconName && (
+          <span className='button__icon'>
+            <Icon name={iconName} />
+          </span>
+        )}
         {text}
       </button>
     );

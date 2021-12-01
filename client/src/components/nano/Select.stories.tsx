@@ -1,34 +1,27 @@
 import React, { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import Select from './Select';
+
+type SelectProps = React.ComponentProps<typeof Select>;
 
 export default {
   title: 'Nano/Select',
   component: Select,
   argTypes: {
-    // controlled value prop
+    handleChange: { action: 'handleChange' },
+    // disable controls for controlled value prop
     value: {
       control: {
         disable: true
       }
     }
+  },
+  parameters: {
+    backgrounds: { default: 'forest' }
   }
-} as ComponentMeta<typeof Select>;
+} as Meta<SelectProps>;
 
-const Template: ComponentStory<typeof Select> = args => {
-  const [value, setValue] = useState(args.value ?? '');
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(e.target.value);
-  };
-
-  return (
-    <>
-      <Select {...args} value={value} handleChange={handleChange} />
-      <pre style={{ marginTop: 10 }}>{value}</pre>
-    </>
-  );
-};
+const Template: Story<SelectProps> = args => <Select {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

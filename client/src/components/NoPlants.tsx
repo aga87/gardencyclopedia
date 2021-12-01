@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { openAddPlantModal } from '../redux/actions/uiActions';
-import Button from './nano/Button';
+import Button from './nano/buttons/Button';
 import Icon from './nano/Icon';
 
 const NoPlants = (): JSX.Element => {
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleAddPlantClick = () => {
     dispatch(openAddPlantModal());
   };
 
@@ -16,9 +16,9 @@ const NoPlants = (): JSX.Element => {
       <h2 className='c-no-plants__title l-no-plants__title'>No Plants</h2>
       <div className='l-no-plants__btn'>
         <Button
-          icon={<Icon name='plus' />}
+          iconName='plus'
           text='New Plant'
-          handleClick={handleClick}
+          handleClick={handleAddPlantClick}
         />
       </div>
       <p>

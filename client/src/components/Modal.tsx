@@ -1,11 +1,10 @@
 import React from 'react';
-import IconButton from './nano/IconButton';
-import Icon from './nano/Icon';
+import IconButton from './nano/buttons/IconButton';
 
 type ModalProps = {
+  variant?: 'primary' | 'secondary';
   title: string;
   id: string; // for accessibility
-  variant?: 'primary' | 'secondary';
   handleClose: () => void;
 };
 
@@ -35,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({
           <header className='c-modal__header'>
             <div className='l-modal__header-flex'>
               <IconButton
-                icon={<Icon name='close' />}
+                iconName='close'
                 ariaLabel={`Close ${title}`}
                 handleClick={handleClose}
               />
