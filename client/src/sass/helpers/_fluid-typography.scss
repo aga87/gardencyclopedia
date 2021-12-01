@@ -1,5 +1,8 @@
+@use "sass:math";
+
 @function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
+  $unit: $value * 0 + 1;
+  @return math.div($value, $unit);
 }
 
 @mixin fluid-typography($min-vw, $max-vw, $min-font-size, $max-font-size) {
