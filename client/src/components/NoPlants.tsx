@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAppDispatch } from '../redux/store';
 import { openAddPlantModal } from '../redux/actions/uiActions';
+import Icon from './00-ions/Icon';
 import Button from './01-atoms/buttons/Button';
-import Icon from './01-atoms/Icon';
 
 const NoPlants = (): JSX.Element => {
   const dispatch = useAppDispatch();
