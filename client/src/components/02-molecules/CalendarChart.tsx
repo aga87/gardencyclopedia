@@ -1,7 +1,7 @@
 import React from 'react';
-import { months } from '../utils/constants';
-import { getAccessibleChartLabel } from '../utils/text-utils';
-import MonthlyDataRow from './00-ions/MonthlyDataRow';
+import { months } from '../../utils/constants';
+import { getAccessibleChartLabel } from '../../utils/text-utils';
+import MonthlyDataRow from '../00-ions/MonthlyDataRow';
 
 type CalendarChartProps = {
   sowFrom: Month;
@@ -17,7 +17,7 @@ const CalendarChart = ({
   harvestUntil
 }: CalendarChartProps): JSX.Element => {
   const monthHeadings = months.map(month => (
-    <th className='c-calendar-chart__heading' key={month}>
+    <th className='m-calendar-chart__heading' key={month}>
       {month.slice(0, 3)}
     </th>
   ));
@@ -32,7 +32,7 @@ const CalendarChart = ({
   return (
     <div>
       <p className='h-visually-hidden'>{accessibleChartLabel}</p>
-      <table className='c-calendar-chart' role='presentation'>
+      <table className='m-calendar-chart' role='presentation'>
         <thead aria-hidden='true'>
           <tr>{monthHeadings}</tr>
         </thead>

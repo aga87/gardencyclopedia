@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectPlantById } from '../redux/reducers/index';
-import type { RootState } from '../redux/store';
-import Title from './01-atoms/Title';
-import Subtitle from './01-atoms/Subtitle';
-import Tag from './01-atoms/Tag';
-import PlantMenu from './PlantMenu';
+import { selectPlantById } from '../../redux/reducers/index';
+import type { RootState } from '../../redux/store';
+import Title from '../01-atoms/Title';
+import Subtitle from '../01-atoms/Subtitle';
+import Tag from '../01-atoms/Tag';
+import PlantMenu from '../PlantMenu';
 import CalendarChart from './CalendarChart';
 
 type PlantEntryProps = {
@@ -23,7 +23,7 @@ const PlantEntry = ({ plantId }: PlantEntryProps): JSX.Element | null => {
     plant;
 
   return (
-    <div className='c-plant-entry'>
+    <div className='m-plant-entry'>
       <div className='l-plant-entry__header'>
         <Title title={plant.name} />
         <div className='l-plant-entry-header__menu-btn'>

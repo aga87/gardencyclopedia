@@ -5,7 +5,7 @@ import CalendarChart from './CalendarChart';
 type CalendarChartProps = React.ComponentProps<typeof CalendarChart>;
 
 export default {
-  title: 'Components/CalendarChart',
+  title: 'Molecules/CalendarChart',
   component: CalendarChart
 } as Meta<CalendarChartProps>;
 
