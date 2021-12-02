@@ -43,10 +43,12 @@ export const register =
         payload: res.data
       });
       dispatch(clearErrors());
-    } catch (err: any) {
-      dispatch(
-        getErrors(err.response.data, err.response.status, REGISTER_FAIL)
-      );
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        dispatch(
+          getErrors(err.response.data, err.response.status, REGISTER_FAIL)
+        );
+      }
       dispatch({
         type: REGISTER_FAIL
       });
@@ -76,8 +78,10 @@ const loadUser =
         type: USER_LOADED,
         payload: res.data
       });
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status));
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        dispatch(getErrors(err.response.data, err.response.status));
+      }
       dispatch({
         type: LOGIN_FAIL
       });
@@ -100,8 +104,10 @@ export const login =
         payload: res.data
       });
       dispatch(clearErrors());
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status, LOGIN_FAIL));
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        dispatch(getErrors(err.response.data, err.response.status, LOGIN_FAIL));
+      }
       dispatch({
         type: LOGIN_FAIL
       });

@@ -28,8 +28,23 @@ export const addPlant =
         type: ADD_PLANT,
         payload: res.data
       });
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status));
+    } catch (err: unknown) {
+      // Axios error type guard
+      if (axios.isAxiosError(err)) {
+        // The request was made and the server responded with a status code that falls out of the range of 2xx
+        if (err.response) {
+          dispatch(getErrors(err.response.data, err.response.status));
+        }
+        // TODO: (?)
+        // else if (err.request) {
+        //   // The request was made but no response was received (already handled in the backend?)
+        //   console.log(err.request);
+        // } else {
+        //   // Something happened in setting up the request that triggered an Error
+        //   console.log('Error', err.message);
+        // }
+      }
+      // else if not axios error ... ?
     }
   };
 
@@ -42,8 +57,10 @@ export const deletePlant =
         type: DELETE_PLANT,
         payload: id
       });
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status));
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        dispatch(getErrors(err.response.data, err.response.status));
+      }
     }
   };
 
@@ -60,8 +77,10 @@ export const editPlant =
         type: EDIT_PLANT,
         payload: res.data
       });
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status));
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        dispatch(getErrors(err.response.data, err.response.status));
+      }
     }
   };
 
@@ -79,8 +98,10 @@ export const getPlants =
         type: GET_PLANTS,
         payload: res.data.plants
       });
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status));
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        dispatch(getErrors(err.response.data, err.response.status));
+      }
     }
   };
 
