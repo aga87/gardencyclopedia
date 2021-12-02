@@ -5,7 +5,7 @@ import MonthlyDataRow from './MonthlyDataRow';
 type MonthlyDataRowProps = React.ComponentProps<typeof MonthlyDataRow>;
 
 export default {
-  title: 'Components/MonthlyDataRow',
+  title: 'Ions/MonthlyDataRow',
   component: MonthlyDataRow,
   decorators: [
     story => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { months } from '../utils/constants';
 import { getAccessibleChartLabel } from '../utils/text-utils';
-import MonthlyDataRow from './MonthlyDataRow';
+import MonthlyDataRow from './00-ions/MonthlyDataRow';
 
 type CalendarChartProps = {
   sowFrom: Month;
