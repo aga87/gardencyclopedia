@@ -1,6 +1,6 @@
 import React from 'react';
 import useModalClose from '../utils/hooks/useModalClose';
-import Modal from './Modal';
+import Modal from './02-molecules/Modal';
 import PlantForm from './PlantForm';
 
 type PlantFormModalProps = {

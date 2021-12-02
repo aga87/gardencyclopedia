@@ -5,7 +5,7 @@ import Modal from './Modal';
 type ModalProps = React.ComponentProps<typeof Modal>;
 
 export default {
-  title: 'Components/Modal',
+  title: 'Molecules/Modal',
   component: Modal,
   argTypes: {
     handleClose: { action: 'handleClose' },
