@@ -8,7 +8,7 @@ type FieldsetProps = {
 const Fieldset: React.FC<FieldsetProps> = ({
   legend,
   children
-}): JSX.Element => (
+}) => (
   <fieldset className='fieldset'>
     <legend className='fieldset__legend'>{legend}</legend>
     {children}
