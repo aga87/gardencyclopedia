@@ -5,7 +5,7 @@ import CalendarCaption from './CalendarCaption';
 type CalendarCaptionProps = React.ComponentProps<typeof CalendarCaption>;
 
 export default {
-  title: 'Components/CalendarCaption',
+  title: 'Molecules/CalendarCaption',
   component: CalendarCaption
 } as Meta;
 
