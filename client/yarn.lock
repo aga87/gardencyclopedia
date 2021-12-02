@@ -12029,6 +12029,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
+"react-magnetic-di@^2.2.6":
+  "integrity" "sha512-7KEhcKbp2ik86I4uE7W6XRgygBt66rNWXeyGUn9CEWi8wOLgBR7Eg9IWLVxJdjnExnrSIWkCf1oiGuH4lwIZDQ=="
+  "resolved" "https://registry.npmjs.org/react-magnetic-di/-/react-magnetic-di-2.2.6.tgz"
+  "version" "2.2.6"
+
 "react-popper-tooltip@^3.1.1":
   "integrity" "sha512-EnERAnnKRptQBJyaee5GJScWNUKQPDD2ywvzZyUjst/wj5U64C8/CnSYLNEmP2hG0IJ3ZhtDxE8oDN+KOyavXQ=="
   "resolved" "https://registry.npmjs.org/react-popper-tooltip/-/react-popper-tooltip-3.1.1.tgz"
