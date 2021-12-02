@@ -5,7 +5,7 @@ import Fieldset from './Fieldset';
 type FieldsetProps = React.ComponentProps<typeof Fieldset>;
 
 export default {
-  title: 'Nano/Fieldset',
+  title: 'Molecules/Fieldset',
   component: Fieldset,
   argTypes: {
     children: {

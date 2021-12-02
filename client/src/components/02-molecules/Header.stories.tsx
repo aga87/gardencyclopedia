@@ -5,7 +5,7 @@ import Header from './Header';
 type HeaderProps = React.ComponentProps<typeof Header>;
 
 export default {
-  title: 'Components/Header',
+  title: 'Molecules/Header',
   component: Header
 } as Meta<HeaderProps>;
 

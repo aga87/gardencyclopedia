@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from './01-atoms/Logo';
+import Logo from '../01-atoms/Logo';
 
 type HeaderProps = {
   variant?: 'primary' | 'secondary';
@@ -10,7 +10,7 @@ const Header = ({
   variant = 'primary',
   title = 'Gardencyclopedia'
 }: HeaderProps): JSX.Element => {
-  let className = 'c-header';
+  let className = 'm-header';
   if (variant !== 'primary') {
     className = `${className} ${className}--${variant}`;
   }
@@ -18,7 +18,7 @@ const Header = ({
   return (
     <header className={className}>
       <Logo />
-      <h1 className='c-header__title'>{title}</h1>
+      <h1 className='m-header__title'>{title}</h1>
     </header>
   );
 };
