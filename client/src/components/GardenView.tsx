@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './02-molecules/Header';
-import UpcomingFeatures from './UpcomingFeatures';
+import UpcomingFeatures from './02-molecules/UpcomingFeatures';
 
 const GardenView = (): JSX.Element => (
   <div className='c-garden-view l-garden-view'>

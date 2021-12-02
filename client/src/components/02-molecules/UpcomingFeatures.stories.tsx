@@ -5,7 +5,7 @@ import UpcomingFeatures from './UpcomingFeatures';
 type UpcomingFeaturesProps = React.ComponentProps<typeof UpcomingFeatures>;
 
 export default {
-  title: 'Components/UpcomingFeatures',
+  title: 'Molecules/UpcomingFeatures',
   component: UpcomingFeatures
 } as Meta;
 

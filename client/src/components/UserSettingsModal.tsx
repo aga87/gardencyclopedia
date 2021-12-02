@@ -1,7 +1,7 @@
 import React from 'react';
 import useModalClose from '../utils/hooks/useModalClose';
 import Modal from './02-molecules/Modal';
-import UpcomingFeatures from './UpcomingFeatures';
+import UpcomingFeatures from './02-molecules/UpcomingFeatures';
 
 const UserSettingsModal = (): JSX.Element => {
   const { handleCloseModalClick } = useModalClose();
