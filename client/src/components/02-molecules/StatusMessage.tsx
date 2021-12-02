@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectStatusMsg } from '../redux/reducers/index';
+import { selectStatusMsg } from '../../redux/reducers/index';
 
 const StatusMessage = (): JSX.Element | null => {
   const statusMsg = useSelector(selectStatusMsg);
@@ -19,7 +19,7 @@ const StatusMessage = (): JSX.Element | null => {
   if (!statusMsg.msg) return null;
   if (!isVisible) return null;
   return (
-    <p role='status' className='status-message'>
+    <p role='status' className='m-status-message'>
       {statusMsg.msg}
     </p>
   );

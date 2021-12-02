@@ -4,7 +4,7 @@ import { selectFilteredSortedPlantIds } from '../redux/reducers/index';
 import NoPlants from './02-molecules/NoPlants';
 import PlantEntry from './02-molecules/PlantEntry';
 import CalendarCaption from './02-molecules/CalendarCaption';
-import StatusMessage from './StatusMessage';
+import StatusMessage from './02-molecules/StatusMessage';
 
 const Calendar = (): JSX.Element => {
   const plantIds = useSelector(selectFilteredSortedPlantIds);
