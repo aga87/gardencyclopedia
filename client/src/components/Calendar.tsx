@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectFilteredSortedPlantIds } from '../redux/reducers/index';
-import NoPlants from './NoPlants';
+import NoPlants from './02-molecules/NoPlants';
 import PlantEntry from './PlantEntry';
 import CalendarCaption from './CalendarCaption';
 import StatusMessage from './StatusMessage';
