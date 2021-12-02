@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Dispatch } from '@reduxjs/toolkit';
+import { Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import {
   ADD_PLANT,
   DELETE_PLANT,
@@ -13,16 +13,7 @@ import { tokenConfig } from './authActions';
 import { getErrors } from './errorActions';
 import type { TokenState } from './authActions';
 
-type Action =
-  | { type: typeof PLANTS_LOADING }
-  | {
-      type: typeof SORT_PLANTS;
-      payload: Sort;
-    }
-  | {
-      type: typeof FILTER_PLANTS;
-      payload: Category;
-    };
+type BasicAction = { type: string };
 
 export const addPlant =
   (newPlant: Plant) =>
@@ -37,8 +28,23 @@ export const addPlant =
         type: ADD_PLANT,
         payload: res.data
       });
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status));
+    } catch (err: unknown) {
+      // Axios error type guard
+      if (axios.isAxiosError(err)) {
+        // The request was made and the server responded with a status code that falls out of the range of 2xx
+        if (err.response) {
+          dispatch(getErrors(err.response.data, err.response.status));
+        }
+        // TODO: (?)
+        // else if (err.request) {
+        //   // The request was made but no response was received (already handled in the backend?)
+        //   console.log(err.request);
+        // } else {
+        //   // Something happened in setting up the request that triggered an Error
+        //   console.log('Error', err.message);
+        // }
+      }
+      // else if not axios error ... ?
     }
   };
 
@@ -51,8 +57,10 @@ export const deletePlant =
         type: DELETE_PLANT,
         payload: id
       });
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status));
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        dispatch(getErrors(err.response.data, err.response.status));
+      }
     }
   };
 
@@ -69,12 +77,14 @@ export const editPlant =
         type: EDIT_PLANT,
         payload: res.data
       });
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status));
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        dispatch(getErrors(err.response.data, err.response.status));
+      }
     }
   };
 
-export const setPlantsLoading = (): Action => ({
+export const setPlantsLoading = (): BasicAction => ({
   type: PLANTS_LOADING
 });
 
@@ -88,17 +98,19 @@ export const getPlants =
         type: GET_PLANTS,
         payload: res.data.plants
       });
-    } catch (err: any) {
-      dispatch(getErrors(err.response.data, err.response.status));
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        dispatch(getErrors(err.response.data, err.response.status));
+      }
     }
   };
 
-export const filterPlants = (filter: Category): Action => ({
+export const filterPlants = (filter: Category): PayloadAction<Category> => ({
   type: FILTER_PLANTS,
   payload: filter
 });
 
-export const sortPlants = (sort: Sort): Action => ({
+export const sortPlants = (sort: Sort): PayloadAction<Sort> => ({
   type: SORT_PLANTS,
   payload: sort
 });

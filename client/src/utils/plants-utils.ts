@@ -13,7 +13,7 @@ export const toZeroOnesArr = (monthStart: Month, monthEnd: Month): number[] => {
     'November',
     'December'
   ];
-  
+
   return months.map((month, i) => {
     const startingMonthIndex = months.indexOf(monthStart);
     const endingMonthIndex = months.indexOf(monthEnd);

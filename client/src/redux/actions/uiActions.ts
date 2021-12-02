@@ -1,3 +1,4 @@
+import { PayloadAction } from '@reduxjs/toolkit';
 import {
   OPEN_MAIN_MENU_MODAL,
   OPEN_ADD_PLANT_MODAL,
@@ -7,45 +8,32 @@ import {
   SET_VIEW
 } from './types';
 
-export type UIAction =
-  | {
-      type:
-        | typeof OPEN_MAIN_MENU_MODAL
-        | typeof CLOSE_MODAL
-        | typeof OPEN_ADD_PLANT_MODAL
-        | typeof OPEN_USER_SETTINGS_MODAL;
-    }
-  | {
-      type: typeof OPEN_EDIT_PLANT_MODAL;
-      payload: Plant;
-    }
-  | {
-      type: typeof SET_VIEW;
-      payload: View;
-    };
+type BasicAction = {
+  type: string;
+};
 
-export const openMainMenuModal = (): UIAction => ({
+export const openMainMenuModal = (): BasicAction => ({
   type: OPEN_MAIN_MENU_MODAL
 });
 
-export const openAddPlantModal = (): UIAction => ({
+export const openAddPlantModal = (): BasicAction => ({
   type: OPEN_ADD_PLANT_MODAL
 });
 
-export const openEditPlantModal = (plant: Plant): UIAction => ({
+export const openEditPlantModal = (plant: Plant): PayloadAction<Plant> => ({
   type: OPEN_EDIT_PLANT_MODAL,
   payload: plant
 });
 
-export const openUserSettingsModal = (): UIAction => ({
+export const openUserSettingsModal = (): BasicAction => ({
   type: OPEN_USER_SETTINGS_MODAL
 });
 
-export const closeModal = (): UIAction => ({
+export const closeModal = (): BasicAction => ({
   type: CLOSE_MODAL
 });
 
-export const setView = (view: View): UIAction => ({
+export const setView = (view: View): PayloadAction<View> => ({
   type: SET_VIEW,
   payload: view
 });

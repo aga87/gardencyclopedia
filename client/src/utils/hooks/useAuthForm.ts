@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/store';
 import useFormInput from './useFormInput';
 import {
   validateUsername,
@@ -61,7 +61,7 @@ const useAuthForm = (variant: 'login' | 'register'): ReturnType => {
     email: '',
     password: ''
   });
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // Field constraints
   const constraints = {

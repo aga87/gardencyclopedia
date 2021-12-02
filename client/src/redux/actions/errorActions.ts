@@ -1,23 +1,23 @@
+import { PayloadAction } from '@reduxjs/toolkit';
 import { GET_ERRORS, CLEAR_ERRORS } from './types';
 
-export type ErrAction =
-  | {
-      type: typeof GET_ERRORS;
-      payload: { errMsg: string; errStatus: number | null; errId: string };
-    }
-  | {
-      type: typeof CLEAR_ERRORS;
-    };
+type BasicAction = {
+  type: string;
+};
 
 export const getErrors = (
   errMsg: string,
   errStatus: number,
   errId = ''
-): ErrAction => ({
+): PayloadAction<{
+  errMsg: string;
+  errStatus: number | null;
+  errId: string;
+}> => ({
   type: GET_ERRORS,
   payload: { errMsg, errStatus, errId }
 });
 
-export const clearErrors = (): ErrAction => ({
+export const clearErrors = (): BasicAction => ({
   type: CLEAR_ERRORS
 });

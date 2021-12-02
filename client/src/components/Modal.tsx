@@ -15,7 +15,7 @@ const Modal: React.FC<ModalProps> = ({
   id,
   children,
   handleClose
-}): JSX.Element => {
+}) => {
   let contentClass = 'c-modal__content l-modal__content';
   if (variant !== 'primary') {
     contentClass = `${contentClass} l-modal__content--${variant}`;

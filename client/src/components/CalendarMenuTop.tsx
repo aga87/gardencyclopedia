@@ -1,5 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../redux/store';
 import {
   openMainMenuModal,
   openAddPlantModal
@@ -13,7 +14,7 @@ import Select from './nano/Select';
 const TopToolbar = (): JSX.Element => {
   const filter = useSelector(selectFilter);
   const sort = useSelector(selectSort);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleMainMenuClick = () => {
     dispatch(openMainMenuModal());

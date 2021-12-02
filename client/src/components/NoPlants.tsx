@@ -1,11 +1,11 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../redux/store';
 import { openAddPlantModal } from '../redux/actions/uiActions';
 import Button from './nano/buttons/Button';
 import Icon from './nano/Icon';
 
 const NoPlants = (): JSX.Element => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleAddPlantClick = () => {
     dispatch(openAddPlantModal());

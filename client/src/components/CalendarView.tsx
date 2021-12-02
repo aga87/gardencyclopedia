@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../redux/store';
 import { selectIsLoading } from '../redux/reducers/index';
 import { getPlants } from '../redux/actions/plantsActions';
 import Loader from './nano/Loader';
@@ -7,7 +8,7 @@ import Calendar from './Calendar';
 
 const CalendarView = (): JSX.Element => {
   const isLoading = useSelector(selectIsLoading);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getPlants());
