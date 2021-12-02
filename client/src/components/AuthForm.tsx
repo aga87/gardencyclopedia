@@ -8,7 +8,7 @@ import {
 import useAuthForm from '../utils/hooks/useAuthForm';
 import SubmitButton from './01-atoms/buttons/SubmitButton';
 import SuccessMsg from './01-atoms/SuccessMsg';
-import TextField from './TextField';
+import TextField from './02-molecules/TextField';
 import Error from './01-atoms/Error';
 
 type AuthFormProps = {

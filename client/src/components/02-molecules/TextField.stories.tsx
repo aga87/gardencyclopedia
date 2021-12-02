@@ -5,7 +5,7 @@ import TextField from './TextField';
 type TextFieldProps = React.ComponentProps<typeof TextField>;
 
 export default {
-  title: 'Components/TextField',
+  title: 'Molecules/TextField',
   component: TextField,
   argTypes: {
     handleChange: { action: 'handleChange' },
