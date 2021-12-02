@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from './nano/Logo';
+import Logo from './01-atoms/Logo';
 
 type HeaderProps = {
   variant?: 'primary' | 'secondary';

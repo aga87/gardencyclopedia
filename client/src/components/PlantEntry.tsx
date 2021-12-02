@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectPlantById } from '../redux/reducers/index';
 import type { RootState } from '../redux/store';
+import Title from './01-atoms/Title';
+import Subtitle from './01-atoms/Subtitle';
+import Tag from './01-atoms/Tag';
 import PlantMenu from './PlantMenu';
-import Title from './nano/Title';
-import Subtitle from './nano/Subtitle';
-import Tag from './nano/Tag';
 import CalendarChart from './CalendarChart';
 
 type PlantEntryProps = {

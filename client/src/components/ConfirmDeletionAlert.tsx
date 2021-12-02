@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import useAlertKeyboardSupport from '../utils/hooks/useAlertKeyboardSupport';
-import Button from './nano/buttons/Button';
+import Button from './01-atoms/buttons/Button';
 
 type ConfirmDeletionAlertProps = {
   itemName: string;

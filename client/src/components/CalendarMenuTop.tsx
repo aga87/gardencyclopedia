@@ -8,8 +8,8 @@ import {
 import { filterPlants, sortPlants } from '../redux/actions/plantsActions';
 import { plantCategories, sortOptions } from '../utils/constants';
 import { selectFilter, selectSort } from '../redux/reducers/index';
-import IconButton from './nano/buttons/IconButton';
-import Select from './nano/Select';
+import IconButton from './01-atoms/buttons/IconButton';
+import Select from './01-atoms/Select';
 
 const TopToolbar = (): JSX.Element => {
   const filter = useSelector(selectFilter);

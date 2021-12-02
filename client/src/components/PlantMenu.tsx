@@ -3,9 +3,10 @@ import { useAppDispatch } from '../redux/store';
 import { deletePlant } from '../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../redux/actions/uiActions';
 import useMenuDropdown from '../utils/hooks/useMenuDropdown';
+import DropdownToggleButton from './01-atoms/buttons/DropdownToggleButton';
+import MenuDropdownButton from './01-atoms/buttons/MenuDropdownButton';
 import ConfirmDeletionAlert from './ConfirmDeletionAlert';
-import DropdownToggleButton from './nano/buttons/DropdownToggleButton';
-import MenuDropdownButton from './nano/buttons/MenuDropdownButton';
+
 
 type PlantMenuProps = {
   plant: Plant;

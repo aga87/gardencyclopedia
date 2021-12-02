@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import Label from './nano/Label';
-import Error from './nano/Error';
+import Label from './01-atoms/Label';
+import Error from './01-atoms/Error';
 
 type TextFieldProps = {
   inputId: string;

@@ -6,10 +6,10 @@ import {
   selectHasJustRegistered
 } from '../redux/reducers/index';
 import useAuthForm from '../utils/hooks/useAuthForm';
+import SubmitButton from './01-atoms/buttons/SubmitButton';
+import SuccessMsg from './01-atoms/SuccessMsg';
 import TextField from './TextField';
-import Error from './nano/Error';
-import SubmitButton from './nano/buttons/SubmitButton';
-import SuccessMsg from './nano/SuccessMsg';
+import Error from './01-atoms/Error';
 
 type AuthFormProps = {
   variant: 'login' | 'register';

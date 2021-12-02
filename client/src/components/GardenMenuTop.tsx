@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppDispatch } from '../redux/store';
 import { openMainMenuModal } from '../redux/actions/uiActions';
-import IconButton from './nano/buttons/IconButton';
+import IconButton from './01-atoms/buttons/IconButton';
 
 const TopGardenToolbar = (): JSX.Element => {
   const dispatch = useAppDispatch();

@@ -5,8 +5,8 @@ import { sortPlants } from '../redux/actions/plantsActions';
 import { setView } from '../redux/actions/uiActions';
 import { selectSort } from '../redux/reducers/index';
 import { sortOptions } from '../utils/constants';
-import Select from './nano/Select';
-import IconButton from './nano/buttons/IconButton';
+import Select from './01-atoms/Select';
+import IconButton from './01-atoms/buttons/IconButton';
 
 const CalendarMenuBottom = (): JSX.Element => {
   const sort = useSelector(selectSort);
