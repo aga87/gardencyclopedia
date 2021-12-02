@@ -7,7 +7,6 @@ import {
   selectIsEditPlantModalOpen,
   selectIsUserSettingsModalOpen
 } from '../redux/reducers/index';
-import DashboardTemplate from '../components/templates/DashboardTemplate';
 import MainMenuModal from '../components/MainMenuModal';
 import UserSettingsModal from '../components/UserSettingsModal';
 import PlantFormModal from '../components/PlantFormModal';
@@ -18,6 +17,7 @@ import GardenMenuBottom from '../components/GardenMenuBottom';
 import CalendarView from '../components/CalendarView';
 import GardenView from '../components/GardenView';
 import MainMenu from '../components/MainMenu';
+import DashboardTemplate from '../components/templates/DashboardTemplate';
 
 const Dashboard = (): JSX.Element => {
   const isMainMenuModalOpen = useSelector(selectIsMainMenuModalOpen);
