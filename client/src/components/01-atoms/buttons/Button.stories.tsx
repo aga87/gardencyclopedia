@@ -5,7 +5,7 @@ import Button from './Button';
 type ButtonProps = React.ComponentProps<typeof Button>;
 
 export default {
-  title: 'Nano/Buttons/Button',
+  title: 'Atoms/Buttons/Button',
   component: Button,
   argTypes: {
     handleClick: { action: 'Button clicked' },

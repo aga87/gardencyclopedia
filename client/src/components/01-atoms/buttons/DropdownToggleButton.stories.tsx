@@ -7,7 +7,7 @@ type DropdownToggleButtonProps = React.ComponentProps<
 >;
 
 export default {
-  title: 'Nano/Buttons/DropdownToggleButton',
+  title: 'Atoms/Buttons/DropdownToggleButton',
   component: DropdownToggleButton,
   argTypes: {
     handleClick: { action: 'Button clicked' },

@@ -5,7 +5,7 @@ import Subtitle from './Subtitle';
 type SubtitleProps = React.ComponentProps<typeof Subtitle>;
 
 export default {
-  title: 'Nano/Subtitle',
+  title: 'Atoms/Subtitle',
   component: Subtitle
 } as Meta<SubtitleProps>;
 

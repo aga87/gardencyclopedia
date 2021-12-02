@@ -5,7 +5,7 @@ import Select from './Select';
 type SelectProps = React.ComponentProps<typeof Select>;
 
 export default {
-  title: 'Nano/Select',
+  title: 'Atoms/Select',
   component: Select,
   argTypes: {
     handleChange: { action: 'handleChange' },

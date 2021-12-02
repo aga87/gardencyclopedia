@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import Loader from './Loader';
 
 export default {
-  title: 'Nano/Loader',
+  title: 'Atoms/Loader',
   component: Loader
 } as Meta;
 

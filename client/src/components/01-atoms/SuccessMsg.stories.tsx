@@ -5,7 +5,7 @@ import SuccessMsg from './SuccessMsg';
 type SuccessMsgProps = React.ComponentProps<typeof SuccessMsg>;
 
 export default {
-  title: 'Nano/SuccessMsg',
+  title: 'Atoms/SuccessMsg',
   component: SuccessMsg
 } as Meta<SuccessMsgProps>;
 

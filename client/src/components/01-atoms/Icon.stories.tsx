@@ -5,7 +5,7 @@ import Icon from './Icon';
 type IconProps = React.ComponentProps<typeof Icon>;
 
 export default {
-  title: 'Nano/Icon',
+  title: 'Atoms/Icon',
   component: Icon
 } as Meta<IconProps>;
 

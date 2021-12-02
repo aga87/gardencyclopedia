@@ -5,7 +5,7 @@ import Error from './Error';
 type ErrorProps = React.ComponentProps<typeof Error>;
 
 export default {
-  title: 'Nano/Error',
+  title: 'Atoms/Error',
   component: Error
 } as Meta<ErrorProps>;
 

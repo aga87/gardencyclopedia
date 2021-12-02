@@ -5,7 +5,7 @@ import Label from './Label';
 type LabelProps = React.ComponentProps<typeof Label>;
 
 export default {
-  title: 'Nano/Label',
+  title: 'Atoms/Label',
   component: Label,
   argTypes: {
     inputId: {

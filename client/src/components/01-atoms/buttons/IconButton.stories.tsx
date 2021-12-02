@@ -5,7 +5,7 @@ import IconButton from './IconButton';
 type IconButtonProps = React.ComponentProps<typeof IconButton>;
 
 export default {
-  title: 'Nano/Buttons/IconButton',
+  title: 'Atoms/Buttons/IconButton',
   component: IconButton,
   argTypes: {
     handleClick: { action: 'Button clicked' },

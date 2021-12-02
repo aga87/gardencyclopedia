@@ -5,7 +5,7 @@ import Tag from './Tag';
 type TagProps = React.ComponentProps<typeof Tag>;
 
 export default {
-  title: 'Nano/Tag',
+  title: 'Atoms/Tag',
   component: Tag
 } as Meta<TagProps>;
 

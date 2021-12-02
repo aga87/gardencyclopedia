@@ -5,7 +5,7 @@ import Title from './Title';
 type TitleProps = React.ComponentProps<typeof Title>;
 
 export default {
-  title: 'Nano/Title',
+  title: 'Atoms/Title',
   component: Title
 } as Meta<TitleProps>;
 
