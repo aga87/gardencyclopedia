@@ -5,7 +5,7 @@ import SelectField from './SelectField';
 type SelectFieldProps = React.ComponentProps<typeof SelectField>;
 
 export default {
-  title: 'Components/SelectField',
+  title: 'Molecules/SelectField',
   component: SelectField,
   argTypes: {
     handleChange: { action: 'handleChange' },

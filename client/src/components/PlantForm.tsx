@@ -4,7 +4,7 @@ import usePlantForm from '../utils/hooks/usePlantForm';
 import SubmitButton from './01-atoms/buttons/SubmitButton';
 import Fieldset from './02-molecules/Fieldset';
 import TextField from './02-molecules/TextField';
-import SelectField from './SelectField';
+import SelectField from './02-molecules/SelectField';
 
 
 const PlantForm = (): JSX.Element => {
