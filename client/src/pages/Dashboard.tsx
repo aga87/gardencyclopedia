@@ -9,7 +9,7 @@ import {
 } from '../redux/reducers/index';
 import MainMenuModal from '../components/03-organisms/MainMenuModal';
 import UserSettingsModal from '../components/03-organisms/UserSettingsModal';
-import PlantFormModal from '../components/03-organisms/PlantFormModal';
+import CalendarPlantFormModal from '../components/03-organisms/CalendarPlantFormModal';
 import CalendarMenuTop from '../components/03-organisms/CalendarMenuTop';
 import GardenMenuTop from '../components/03-organisms/GardenMenuTop';
 import CalendarMenuBottom from '../components/03-organisms/CalendarMenuBottom';
@@ -33,8 +33,8 @@ const Dashboard = (): JSX.Element => {
 
       {view === 'calendar' ? (
         <div>
-          {isAddPlantModalOpen && <PlantFormModal variant='add' />}
-          {isEditPlantModalOpen && <PlantFormModal variant='edit' />}
+          {isAddPlantModalOpen && <CalendarPlantFormModal variant='add' />}
+          {isEditPlantModalOpen && <CalendarPlantFormModal variant='edit' />}
           <DashboardTemplate
             sideContent={<MainMenu />}
             topMenu={<CalendarMenuTop />}
