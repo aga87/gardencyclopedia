@@ -1,32 +1,32 @@
 // Lib
-@import './lib/normalize';
+@import './shared/lib/normalize';
 
 // Reset
-@import './reset';
+@import './shared/reset';
 
 // Variables
-@import './variables/index';
+@import './shared/variables/index';
 
 // Helpers
-@import './helpers/index';
+@import './shared/helpers/index';
 
 // Base
-@import './base';
+@import './shared/base';
 
 // Atoms and ions (nano)
-@import './atoms/index';
+@import './components/atoms/index';
 
 // Molecules
-@import './molecules/index';
+@import './components/molecules/index';
 
 // Components
-@import './components/index';
+@import './components/organisms/index';
 
 // Templates
-@import './templates/index';
+@import './components/templates/index';
 
 // Pages
 @import './pages/index';
 
 // Utils
-@import './utils';
+@import './shared/utils';
