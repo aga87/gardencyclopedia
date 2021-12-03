@@ -17,7 +17,7 @@ import GardenMenuBottom from '../components/GardenMenuBottom';
 import CalendarView from '../components/CalendarView';
 import GardenView from '../components/GardenView';
 import MainMenu from '../components/MainMenu';
-import DashboardTemplate from '../components/templates/DashboardTemplate';
+import DashboardTemplate from '../components/04-templates/DashboardTemplate';
 
 const Dashboard = (): JSX.Element => {
   const isMainMenuModalOpen = useSelector(selectIsMainMenuModalOpen);
