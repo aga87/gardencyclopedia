@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../redux/store';
-import { openUserSettingsModal, setView } from '../redux/actions/uiActions';
-import { logout } from '../redux/actions/authActions';
-import { selectUsername, selectView } from '../redux/reducers/index';
-import { capitalize } from '../utils/text-utils';
-import useWidgetKeyboardSupport from '../utils/hooks/useWidgetKeyboardSupport';
-import MenuDropdownButton from './01-atoms/buttons/MenuDropdownButton';
+import { useAppDispatch } from '../../redux/store';
+import { openUserSettingsModal, setView } from '../../redux/actions/uiActions';
+import { logout } from '../../redux/actions/authActions';
+import { selectUsername, selectView } from '../../redux/reducers/index';
+import { capitalize } from '../../utils/text-utils';
+import useWidgetKeyboardSupport from '../../utils/hooks/useWidgetKeyboardSupport';
+import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton';
 
 const MainMenu = (): JSX.Element => {
   const username = useSelector(selectUsername);
@@ -36,8 +36,8 @@ const MainMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-main-menu' aria-label='main'>
-      <ul role='presentation' className='c-main-menu__list'>
+    <nav className='o-main-menu' aria-label='main'>
+      <ul role='presentation' className='o-main-menu__list'>
         <li>
           <MenuDropdownButton
             ref={ref => {

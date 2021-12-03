@@ -1,15 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../redux/store';
+import { useAppDispatch } from '../../redux/store';
 import {
   openMainMenuModal,
   openAddPlantModal
-} from '../redux/actions/uiActions';
-import { filterPlants, sortPlants } from '../redux/actions/plantsActions';
-import { plantCategories, sortOptions } from '../utils/constants';
-import { selectFilter, selectSort } from '../redux/reducers/index';
-import IconButton from './01-atoms/buttons/IconButton';
-import Select from './01-atoms/Select';
+} from '../../redux/actions/uiActions';
+import { filterPlants, sortPlants } from '../../redux/actions/plantsActions';
+import { plantCategories, sortOptions } from '../../utils/constants';
+import { selectFilter, selectSort } from '../../redux/reducers/index';
+import IconButton from '../01-atoms/buttons/IconButton';
+import Select from '../01-atoms/Select';
 
 const TopToolbar = (): JSX.Element => {
   const filter = useSelector(selectFilter);
@@ -33,7 +33,7 @@ const TopToolbar = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-menu-top l-menu-top' aria-label='primary'>
+    <nav className='o-menu-top l-menu-top' aria-label='primary'>
       <ul role='presentation' className='l-menu-top__list'>
         <li className='xxs-only'>
           <IconButton

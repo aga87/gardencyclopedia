@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAppDispatch } from '../redux/store';
-import { openMainMenuModal } from '../redux/actions/uiActions';
-import IconButton from './01-atoms/buttons/IconButton';
+import { useAppDispatch } from '../../redux/store';
+import { openMainMenuModal } from '../../redux/actions/uiActions';
+import IconButton from '../01-atoms/buttons/IconButton';
 
 const TopGardenToolbar = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -11,7 +11,7 @@ const TopGardenToolbar = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-menu-top l-menu-top' aria-label='primary'>
+    <nav className='o-menu-top l-menu-top' aria-label='primary'>
       <ul role='presentation' className='l-menu-top__list'>
         <li className='xxs-only'>
           <IconButton

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectFilteredSortedPlantIds } from '../redux/reducers/index';
-import NoPlants from './02-molecules/NoPlants';
-import CalendarPlantEntry from './02-molecules/CalendarPlantEntry';
-import CalendarCaption from './02-molecules/CalendarCaption';
-import StatusMessage from './02-molecules/StatusMessage';
+import { selectFilteredSortedPlantIds } from '../../redux/reducers/index';
+import NoPlants from '../02-molecules/NoPlants';
+import CalendarPlantEntry from '../02-molecules/CalendarPlantEntry';
+import CalendarCaption from '../02-molecules/CalendarCaption';
+import StatusMessage from '../02-molecules/StatusMessage';
 
 const Calendar = (): JSX.Element => {
   const plantIds = useSelector(selectFilteredSortedPlantIds);
@@ -19,14 +19,14 @@ const Calendar = (): JSX.Element => {
 
   return (
     <div
-      className='c-calendar l-calendar'
+      className='o-calendar l-calendar'
       role='region'
       id='calendar'
       aria-label='Calendar'
       aria-live='polite'
     >
       <StatusMessage />
-      <ul className='c-calendar__list'>{plantListItems}</ul>
+      <ul className='o-calendar__list'>{plantListItems}</ul>
       <div className='l-calendar__caption'>
         <CalendarCaption noOfPlants={plantListItems.length} />
       </div>

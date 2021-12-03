@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../redux/store';
-import { sortPlants } from '../redux/actions/plantsActions';
-import { setView } from '../redux/actions/uiActions';
-import { selectSort } from '../redux/reducers/index';
-import { sortOptions } from '../utils/constants';
-import Select from './01-atoms/Select';
-import IconButton from './01-atoms/buttons/IconButton';
+import { useAppDispatch } from '../../redux/store';
+import { sortPlants } from '../../redux/actions/plantsActions';
+import { setView } from '../../redux/actions/uiActions';
+import { selectSort } from '../../redux/reducers/index';
+import { sortOptions } from '../../utils/constants';
+import Select from '../01-atoms/Select';
+import IconButton from '../01-atoms/buttons/IconButton';
 
 const CalendarMenuBottom = (): JSX.Element => {
   const sort = useSelector(selectSort);
@@ -21,7 +21,7 @@ const CalendarMenuBottom = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-menu-bottom' aria-label='secondary'>
+    <nav className='o-menu-bottom' aria-label='secondary'>
       <ul role='presentation' className='l-menu-bottom__list'>
         <li className='l-menu-bottom__item-center'>
           <form role='search' aria-label='Sort plants by'>

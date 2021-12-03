@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAppDispatch } from '../redux/store';
-import { setView } from '../redux/actions/uiActions';
-import IconButton from './01-atoms/buttons/IconButton';
+import { useAppDispatch } from '../../redux/store';
+import { setView } from '../../redux/actions/uiActions';
+import IconButton from '../01-atoms/buttons/IconButton';
 
 const GardenMenuBottom = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -11,7 +11,7 @@ const GardenMenuBottom = (): JSX.Element => {
   };
 
   return (
-    <nav className='c-menu-bottom l-menu-bottom' aria-label='secondary'>
+    <nav className='o-menu-bottom l-menu-bottom' aria-label='secondary'>
       <ul role='presentation' className='l-menu-bottom__list'>
         <li>
           <IconButton

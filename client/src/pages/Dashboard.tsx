@@ -10,13 +10,13 @@ import {
 import MainMenuModal from '../components/03-organisms/MainMenuModal';
 import UserSettingsModal from '../components/03-organisms/UserSettingsModal';
 import PlantFormModal from '../components/03-organisms/PlantFormModal';
-import CalendarMenuTop from '../components/CalendarMenuTop';
-import GardenMenuTop from '../components/GardenMenuTop';
-import CalendarMenuBottom from '../components/CalendarMenuBottom';
-import GardenMenuBottom from '../components/GardenMenuBottom';
-import CalendarView from '../components/CalendarView';
-import GardenView from '../components/GardenView';
-import MainMenu from '../components/MainMenu';
+import CalendarMenuTop from '../components/03-organisms/CalendarMenuTop';
+import GardenMenuTop from '../components/03-organisms/GardenMenuTop';
+import CalendarMenuBottom from '../components/03-organisms/CalendarMenuBottom';
+import GardenMenuBottom from '../components/03-organisms/GardenMenuBottom';
+import CalendarView from '../components/03-organisms/CalendarView';
+import GardenView from '../components/03-organisms/GardenView';
+import MainMenu from '../components/03-organisms/MainMenu';
 import DashboardTemplate from '../components/04-templates/DashboardTemplate';
 
 const Dashboard = (): JSX.Element => {
