@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectFilteredSortedPlantIds } from '../redux/reducers/index';
 import NoPlants from './02-molecules/NoPlants';
-import PlantEntry from './02-molecules/PlantEntry';
+import CalendarPlantEntry from './02-molecules/CalendarPlantEntry';
 import CalendarCaption from './02-molecules/CalendarCaption';
 import StatusMessage from './02-molecules/StatusMessage';
 
@@ -13,7 +13,7 @@ const Calendar = (): JSX.Element => {
 
   const plantListItems = plantIds.map(plantId => (
     <li key={plantId} className='l-calendar__list-item'>
-      <PlantEntry plantId={plantId} />
+      <CalendarPlantEntry plantId={plantId} />
     </li>
   ));
 
