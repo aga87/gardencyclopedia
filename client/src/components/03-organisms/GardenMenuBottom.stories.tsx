@@ -14,7 +14,7 @@ const store = {
 } as any; // FIXME: assign a correct type
 
 export default {
-  title: 'Components/GardenMenuBottom',
+  title: 'organisms/GardenMenuBottom',
   component: GardenMenuBottom,
   decorators: [story => <Provider store={store}>{story()}</Provider>]
 } as Meta;

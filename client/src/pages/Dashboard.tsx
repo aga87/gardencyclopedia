@@ -14,8 +14,8 @@ import CalendarMenuTop from '../components/03-organisms/CalendarMenuTop';
 import GardenMenuTop from '../components/03-organisms/GardenMenuTop';
 import CalendarMenuBottom from '../components/03-organisms/CalendarMenuBottom';
 import GardenMenuBottom from '../components/03-organisms/GardenMenuBottom';
-import CalendarView from '../components/03-organisms/CalendarView';
-import GardenView from '../components/03-organisms/GardenView';
+import CalendarWithLoading from '../components/03-organisms/CalendarWithLoading';
+import Garden from '../components/03-organisms/Garden';
 import MainMenu from '../components/03-organisms/MainMenu';
 import DashboardTemplate from '../components/04-templates/DashboardTemplate';
 
@@ -39,7 +39,7 @@ const Dashboard = (): JSX.Element => {
             sideContent={<MainMenu />}
             topMenu={<CalendarMenuTop />}
             bottomMenuMobile={<CalendarMenuBottom />}
-            content={<CalendarView />}
+            content={<CalendarWithLoading />}
           />
         </div>
       ) : (
@@ -47,7 +47,7 @@ const Dashboard = (): JSX.Element => {
           sideContent={<MainMenu />}
           topMenu={<GardenMenuTop />}
           bottomMenuMobile={<GardenMenuBottom />}
-          content={<GardenView />}
+          content={<Garden />}
         />
       )}
     </div>

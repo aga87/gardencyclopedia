@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../02-molecules/Header';
 import UpcomingFeatures from '../02-molecules/UpcomingFeatures';
 
-const GardenView = (): JSX.Element => (
-  <div className='c-garden-view l-garden-view'>
+const Garden = (): JSX.Element => (
+  <div className='c-garden l-garden'>
     <Header variant='secondary' title='Garden' />
     <UpcomingFeatures
       features={[
@@ -17,4 +17,4 @@ const GardenView = (): JSX.Element => (
   </div>
 );
 
-export default GardenView;
+export default Garden;
