@@ -1,5 +1,5 @@
 import React from 'react';
-import useModalClose from '../../utils/hooks/useModalClose';
+import useModalClose from '../../hooks/useModalClose';
 import Modal from '../02-molecules/Modal';
 import CalendarPlantForm from './CalendarPlantForm';
 

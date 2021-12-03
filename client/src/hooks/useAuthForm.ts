@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch } from '../redux/store';
 import useFormInput from './useFormInput';
 import {
   validateUsername,
   validateEmail,
   validatePassword
-} from '../validation-utils';
-import { login, register } from '../../redux/actions/authActions';
+} from '../utils/validation-utils';
+import { login, register } from '../redux/actions/authActions';
 
 type Input = {
   value: string;

@@ -5,7 +5,7 @@ import { openUserSettingsModal, setView } from '../../redux/actions/uiActions';
 import { logout } from '../../redux/actions/authActions';
 import { selectUsername, selectView } from '../../redux/reducers/index';
 import { capitalize } from '../../utils/text-utils';
-import useWidgetKeyboardSupport from '../../utils/hooks/useWidgetKeyboardSupport';
+import useWidgetKeyboardSupport from '../../hooks/useWidgetKeyboardSupport';
 import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton';
 
 const MainMenu = (): JSX.Element => {

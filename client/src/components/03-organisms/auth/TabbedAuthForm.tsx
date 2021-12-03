@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useWidgetKeyboardSupport from '../../../utils/hooks/useWidgetKeyboardSupport';
+import useWidgetKeyboardSupport from '../../../hooks/useWidgetKeyboardSupport';
 import Tab from '../../01-atoms/buttons/Tab';
 import AuthForm from './AuthForm';
 

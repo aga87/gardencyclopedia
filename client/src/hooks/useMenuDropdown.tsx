@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import useCloseOnClickOutside from './useCloseOnClickOutside';
-import { getNextIndex, getPreviousIndex } from '../list-utils';
+import { getNextIndex, getPreviousIndex } from '../utils/list-utils';
 
 type ReturnType = {
   ref: React.MutableRefObject<HTMLDivElement | null>;

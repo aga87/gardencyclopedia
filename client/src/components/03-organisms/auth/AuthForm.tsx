@@ -5,7 +5,7 @@ import {
   selectErrId,
   selectHasJustRegistered
 } from '../../../redux/reducers/index';
-import useAuthForm from '../../../utils/hooks/useAuthForm';
+import useAuthForm from '../../../hooks/useAuthForm';
 import SubmitButton from '../../01-atoms/buttons/SubmitButton';
 import SuccessMsg from '../../01-atoms/SuccessMsg';
 import Error from '../../01-atoms/Error';

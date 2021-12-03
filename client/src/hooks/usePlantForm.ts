@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../redux/store';
-import { addPlant, editPlant } from '../../redux/actions/plantsActions';
-import { closeModal } from '../../redux/actions/uiActions';
-import { selectPlantToEdit } from '../../redux/reducers/index';
+import { useAppDispatch } from '../redux/store';
+import { addPlant, editPlant } from '../redux/actions/plantsActions';
+import { closeModal } from '../redux/actions/uiActions';
+import { selectPlantToEdit } from '../redux/reducers/index';
 import {
   validateName,
   validateDesc,
@@ -11,7 +11,7 @@ import {
   validateSowUntil,
   validateHarvestFrom,
   validateHarvestUntil
-} from '../validation-utils';
+} from '../utils/validation-utils';
 import useFormInput from './useFormInput';
 
 type Input = {

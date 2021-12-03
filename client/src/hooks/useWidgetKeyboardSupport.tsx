@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { getNextIndex, getPreviousIndex } from '../list-utils';
+import { getNextIndex, getPreviousIndex } from '../utils/list-utils';
 
 type ReturnType = {
   widgetItemsRefs: React.MutableRefObject<(HTMLButtonElement | null)[]>;

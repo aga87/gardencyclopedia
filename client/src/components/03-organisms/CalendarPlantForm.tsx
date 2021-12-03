@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { months, plantCategories } from '../../utils/constants';
-import usePlantForm from '../../utils/hooks/usePlantForm';
+import usePlantForm from '../../hooks/usePlantForm';
 import SubmitButton from '../01-atoms/buttons/SubmitButton';
 import Fieldset from '../02-molecules/Fieldset';
 import TextField from '../02-molecules/TextField';

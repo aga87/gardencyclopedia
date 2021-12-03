@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useAppDispatch } from '../../redux/store';
-import { closeModal } from '../../redux/actions/uiActions';
+import { useAppDispatch } from '../redux/store';
+import { closeModal } from '../redux/actions/uiActions';
 
 type ReturnType = {
   handleCloseModalClick: () => void;
