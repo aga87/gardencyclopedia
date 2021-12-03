@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import useAlertKeyboardSupport from '../utils/hooks/useAlertKeyboardSupport';
-import Button from './01-atoms/buttons/Button';
+import useAlertKeyboardSupport from '../../utils/hooks/useAlertKeyboardSupport';
+import Button from '../01-atoms/buttons/Button';
 
 type ConfirmDeletionAlertProps = {
   itemName: string;
@@ -26,20 +26,20 @@ const ConfirmDeletionAlert = ({
 
   const Alert = (
     <div
-      className='c-alert l-alert'
+      className='m-alert l-alert'
       role='alertdialog'
       aria-modal
       aria-labelledby={id}
       aria-describedby={`${id}-content`}
     >
-      <div className='c-alert__content l-alert__content'>
-        <header className='c-alert__header' id={id}>
-          <h2 className='c-alert__title'>Confirm deletion</h2>
+      <div className='m-alert__content l-alert__content'>
+        <header className='m-alert__header' id={id}>
+          <h2 className='m-alert__title'>Confirm deletion</h2>
         </header>
-        <div className='c-alert__body'>
-          <p className='c-alert__msg' id={`${id}-content`}>
+        <div className='m-alert__body'>
+          <p className='m-alert__msg' id={`${id}-content`}>
             Are you sure you want to delete{' '}
-            <span className='c-alert__item-name'>{itemName}</span> ?<br />
+            <span className='m-alert__item-name'>{itemName}</span> ?<br />
             The action cannot be undone.
           </p>
           <ul role='presentation' className='l-alert__btn-group'>

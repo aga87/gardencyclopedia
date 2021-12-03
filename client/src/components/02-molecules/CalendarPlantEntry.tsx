@@ -5,7 +5,7 @@ import type { RootState } from '../../redux/store';
 import Title from '../01-atoms/Title';
 import Subtitle from '../01-atoms/Subtitle';
 import Tag from '../01-atoms/Tag';
-import PlantMenu from '../PlantMenu';
+import CalendarEntryMenu from './CalendarEntryMenu';
 import CalendarChart from './CalendarChart';
 
 type CalendarPlantEntryProps = {
@@ -27,7 +27,7 @@ const CalendarPlantEntry = ({ plantId }: CalendarPlantEntryProps): JSX.Element |
       <div className='l-calendar-plant-entry__header'>
         <Title title={plant.name} />
         <div className='l-calendar-plant-entry-header__menu-btn'>
-          <PlantMenu plant={plant} />
+          <CalendarEntryMenu plant={plant} />
         </div>
       </div>
       <div className='l-calendar-plant-entry__desc'>

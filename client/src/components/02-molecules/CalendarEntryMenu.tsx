@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../redux/store';
-import { deletePlant } from '../redux/actions/plantsActions';
-import { openEditPlantModal, setView } from '../redux/actions/uiActions';
-import useMenuDropdown from '../utils/hooks/useMenuDropdown';
-import DropdownToggleButton from './01-atoms/buttons/DropdownToggleButton';
-import MenuDropdownButton from './01-atoms/buttons/MenuDropdownButton';
+import { useAppDispatch } from '../../redux/store';
+import { deletePlant } from '../../redux/actions/plantsActions';
+import { openEditPlantModal, setView } from '../../redux/actions/uiActions';
+import useMenuDropdown from '../../utils/hooks/useMenuDropdown';
+import DropdownToggleButton from '../01-atoms/buttons/DropdownToggleButton';
+import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton';
 import ConfirmDeletionAlert from './ConfirmDeletionAlert';
 
 
-type PlantMenuProps = {
+type CalendarEntryMenuProps = {
   plant: Plant;
 };
 
-const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
+const CalendarEntryMenu = ({ plant }: CalendarEntryMenuProps): JSX.Element => {
   const menuItems = ['Plant', 'Edit', 'Delete'];
   const {
     ref,
@@ -59,7 +59,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
           handleDelete={handleConfirmDeleteClick}
         />
       )}
-      <nav className='c-plant-menu l-plant-menu'>
+      <nav className='m-calendar-entry-menu l-calendar-entry-menu'>
         <DropdownToggleButton
           ref={toggleButtonRef}
           variant='secondary'
@@ -73,7 +73,7 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
         <div>
           {isOpen && (
             <ul
-              className='c-plant-menu__dropdown l-plant-menu__dropdown'
+              className='m-calendar-entry-menu__dropdown l-calendar-entry-menu__dropdown'
               id={`plant-menu-dropdown-${plant._id}`}
               role='presentation'
               aria-labelledby={`plant-menu-dropdown-button-${plant._id}`}
@@ -119,4 +119,4 @@ const PlantMenu = ({ plant }: PlantMenuProps): JSX.Element => {
   );
 };
 
-export default PlantMenu;
+export default CalendarEntryMenu;
