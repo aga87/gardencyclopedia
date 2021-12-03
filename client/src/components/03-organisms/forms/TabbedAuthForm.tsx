@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import useWidgetKeyboardSupport from '../utils/hooks/useWidgetKeyboardSupport';
-import Tab from './01-atoms/buttons/Tab';
+import useWidgetKeyboardSupport from '../../../utils/hooks/useWidgetKeyboardSupport';
+import Tab from '../../01-atoms/buttons/Tab';
 import AuthForm from './AuthForm';
 
 const TabbedAuthForm = (): JSX.Element => {
@@ -17,7 +17,7 @@ const TabbedAuthForm = (): JSX.Element => {
   };
 
   return (
-    <div className='c-tabbed-form l-tabbed-form'>
+    <div className='o-tabbed-form l-tabbed-form'>
       <div role='tablist' className='l-tabbed-form__tabs'>
         <Tab
           ref={ref => {

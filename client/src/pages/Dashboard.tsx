@@ -7,9 +7,9 @@ import {
   selectIsEditPlantModalOpen,
   selectIsUserSettingsModalOpen
 } from '../redux/reducers/index';
-import MainMenuModal from '../components/MainMenuModal';
-import UserSettingsModal from '../components/UserSettingsModal';
-import PlantFormModal from '../components/PlantFormModal';
+import MainMenuModal from '../components/03-organisms/MainMenuModal';
+import UserSettingsModal from '../components/03-organisms/UserSettingsModal';
+import PlantFormModal from '../components/03-organisms/PlantFormModal';
 import CalendarMenuTop from '../components/CalendarMenuTop';
 import GardenMenuTop from '../components/GardenMenuTop';
 import CalendarMenuBottom from '../components/CalendarMenuBottom';

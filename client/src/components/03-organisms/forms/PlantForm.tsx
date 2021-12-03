@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from 'react';
-import { months, plantCategories } from '../utils/constants';
-import usePlantForm from '../utils/hooks/usePlantForm';
-import SubmitButton from './01-atoms/buttons/SubmitButton';
-import Fieldset from './02-molecules/Fieldset';
-import TextField from './02-molecules/TextField';
-import SelectField from './02-molecules/SelectField';
+import { months, plantCategories } from '../../../utils/constants';
+import usePlantForm from '../../../utils/hooks/usePlantForm';
+import SubmitButton from '../../01-atoms/buttons/SubmitButton';
+import Fieldset from '../../02-molecules/Fieldset';
+import TextField from '../../02-molecules/TextField';
+import SelectField from '../../02-molecules/SelectField';
 
 
 const PlantForm = (): JSX.Element => {
@@ -31,7 +31,7 @@ const PlantForm = (): JSX.Element => {
   }, [errors]);
 
   return (
-    <form className='c-form l-form' noValidate onSubmit={handleSubmit}>
+    <form className='o-form l-form' noValidate onSubmit={handleSubmit}>
       <div className='l-form__field'>
         <TextField
           ref={firstInputRef}

@@ -4,12 +4,12 @@ import {
   selectErrMsg,
   selectErrId,
   selectHasJustRegistered
-} from '../redux/reducers/index';
-import useAuthForm from '../utils/hooks/useAuthForm';
-import SubmitButton from './01-atoms/buttons/SubmitButton';
-import SuccessMsg from './01-atoms/SuccessMsg';
-import TextField from './02-molecules/TextField';
-import Error from './01-atoms/Error';
+} from '../../../redux/reducers/index';
+import useAuthForm from '../../../utils/hooks/useAuthForm';
+import SubmitButton from '../../01-atoms/buttons/SubmitButton';
+import SuccessMsg from '../../01-atoms/SuccessMsg';
+import Error from '../../01-atoms/Error';
+import TextField from '../../02-molecules/TextField';
 
 type AuthFormProps = {
   variant: 'login' | 'register';
@@ -39,7 +39,7 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   }, [variant]);
 
   return (
-    <form noValidate onSubmit={handleSubmit} className='c-form l-form'>
+    <form noValidate onSubmit={handleSubmit} className='o-form l-form'>
       {variant === 'login' && serverErrId === 'LOGIN_FAIL' && (
         <div className='l-form__server-msg'>
           <Error variant='server' msg={serverErrMsg} />

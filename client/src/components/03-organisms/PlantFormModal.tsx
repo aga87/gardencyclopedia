@@ -1,7 +1,7 @@
 import React from 'react';
-import useModalClose from '../utils/hooks/useModalClose';
-import Modal from './02-molecules/Modal';
-import PlantForm from './PlantForm';
+import useModalClose from '../../utils/hooks/useModalClose';
+import Modal from '../02-molecules/Modal';
+import PlantForm from './forms/PlantForm';
 
 type PlantFormModalProps = {
   variant: 'add' | 'edit';
