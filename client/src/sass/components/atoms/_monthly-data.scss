@@ -1,0 +1,12 @@
+.monthly-data {
+  background-color: $grey-04;
+  height: $blh * 0.5rem;
+
+  &.monthly-data--sow {
+    background-color: $electric;
+  }
+
+  &.monthly-data--harvest {
+    background-color: $fresh;
+  }
+}

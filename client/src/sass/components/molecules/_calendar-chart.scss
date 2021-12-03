@@ -1,0 +1,11 @@
+.m-calendar-chart {
+  width: 100%;
+
+  &__heading {
+    width: calc(100% / 12);
+    @include s1;
+    text-align: center;
+    color: $charcoal;
+    font-weight: 300;
+  }
+}

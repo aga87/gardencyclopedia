@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectIsUserLoading } from '../redux/reducers/index';
-import Header from '../components/Header';
-import Loader from '../components/nano/Loader';
-import TabbedAuthForm from '../components/TabbedAuthForm';
+import Loader from '../components/01-atoms/Loader';
+import Header from '../components/02-molecules/Header';
+import TabbedAuthForm from '../components/03-organisms/auth/TabbedAuthForm';
 
 const Authentication = (): JSX.Element => {
   const isUserLoading = useSelector(selectIsUserLoading);

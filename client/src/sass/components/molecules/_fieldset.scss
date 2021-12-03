@@ -1,0 +1,10 @@
+.m-fieldset {
+  background-color: $light;
+  border: 1px solid $light;
+  border-radius: $border-radius;
+
+  &__legend {
+    @include s1;
+    font-weight: bold;
+  }
+}

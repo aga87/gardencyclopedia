@@ -1,0 +1,14 @@
+.m-upcoming-features {
+  text-align: center;
+  color: $tin;
+
+  &__title {
+    @include t3;
+    font-weight: 300;
+    margin-bottom: $blh * 0.5rem;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+}

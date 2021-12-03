@@ -3,27 +3,16 @@ import { useSelector } from 'react-redux';
 import {
   selectIsMainMenuModalOpen,
   selectView,
-  selectIsAddPlantModalOpen,
-  selectIsEditPlantModalOpen,
   selectIsUserSettingsModalOpen
 } from '../redux/reducers/index';
-import DashboardTemplate from '../components/templates/DashboardTemplate';
-import MainMenuModal from '../components/MainMenuModal';
-import UserSettingsModal from '../components/UserSettingsModal';
-import PlantFormModal from '../components/PlantFormModal';
-import CalendarMenuTop from '../components/CalendarMenuTop';
-import GardenMenuTop from '../components/GardenMenuTop';
-import CalendarMenuBottom from '../components/CalendarMenuBottom';
-import GardenMenuBottom from '../components/GardenMenuBottom';
-import CalendarView from '../components/CalendarView';
-import GardenView from '../components/GardenView';
-import MainMenu from '../components/MainMenu';
+import MainMenuModal from '../components/03-organisms/MainMenuModal';
+import UserSettingsModal from '../components/03-organisms/UserSettingsModal';
+import CalendarView from './CalendarView';
+import GardenView from './GardenView';
 
 const Dashboard = (): JSX.Element => {
   const isMainMenuModalOpen = useSelector(selectIsMainMenuModalOpen);
   const isUserSettingsModalOpen = useSelector(selectIsUserSettingsModalOpen);
-  const isAddPlantModalOpen = useSelector(selectIsAddPlantModalOpen);
-  const isEditPlantModalOpen = useSelector(selectIsEditPlantModalOpen);
   const view = useSelector(selectView);
 
   return (
@@ -31,25 +20,7 @@ const Dashboard = (): JSX.Element => {
       {isMainMenuModalOpen && <MainMenuModal />}
       {isUserSettingsModalOpen && <UserSettingsModal />}
 
-      {view === 'calendar' ? (
-        <div>
-          {isAddPlantModalOpen && <PlantFormModal variant='add' />}
-          {isEditPlantModalOpen && <PlantFormModal variant='edit' />}
-          <DashboardTemplate
-            sideContent={<MainMenu />}
-            topMenu={<CalendarMenuTop />}
-            bottomMenuMobile={<CalendarMenuBottom />}
-            content={<CalendarView />}
-          />
-        </div>
-      ) : (
-        <DashboardTemplate
-          sideContent={<MainMenu />}
-          topMenu={<GardenMenuTop />}
-          bottomMenuMobile={<GardenMenuBottom />}
-          content={<GardenView />}
-        />
-      )}
+      {view === 'calendar' ? <CalendarView /> : <GardenView />}
     </div>
   );
 };

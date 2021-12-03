@@ -1,0 +1,20 @@
+.l-calendar-plant-entry {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__menu-btn {
+    position: relative;
+    top: 4px;
+  }
+
+  &__desc {
+    margin-bottom: $blh * 0.25rem;
+  }
+
+  &__category {
+    margin-bottom: $blh * 0.5rem;
+  }
+}

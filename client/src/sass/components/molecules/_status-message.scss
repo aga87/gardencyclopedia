@@ -1,0 +1,7 @@
+.m-status-message {
+  text-align: center;
+  background-color: $eggshell;
+  padding: $blh * 0.25rem;
+  border: 1px solid $forest;
+  @include s1;
+}
