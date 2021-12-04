@@ -11,7 +11,7 @@ import { selectFilter, selectSort } from '../../redux/reducers/index';
 import IconButton from '../01-atoms/buttons/IconButton';
 import Select from '../01-atoms/Select';
 
-const TopToolbar = (): JSX.Element => {
+const CalendarMenuTop = (): JSX.Element => {
   const filter = useSelector(selectFilter);
   const sort = useSelector(selectSort);
   const dispatch = useAppDispatch();
@@ -80,4 +80,4 @@ const TopToolbar = (): JSX.Element => {
   );
 };
 
-export default TopToolbar;
+export default CalendarMenuTop;
