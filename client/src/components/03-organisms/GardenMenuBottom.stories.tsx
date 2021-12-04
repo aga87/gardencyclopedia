@@ -6,9 +6,7 @@ import GardenMenuBottom from './GardenMenuBottom';
 
 // Mock Redux store
 const store = {
-  getState: () => ({
-    view: 'calendar'
-  }),
+  getState: () => ({}),
   subscribe: () => 0,
   dispatch: action('dispatch')
 } as any; // FIXME: assign a correct type
@@ -23,12 +21,12 @@ export const GardenMenuBottomComponent: Story = () => <GardenMenuBottom />;
 
 GardenMenuBottomComponent.storyName = 'GardenMenuBottom';
 
-// Solution no 2 - connect to the store (but dispatched actions are not logged)
+// // Solution no 2 - connect to the store (but dispatched actions are not logged)
 
 // import React from 'react';
 // import { Story, Meta } from '@storybook/react';
 // import { Provider } from 'react-redux';
-// import { store } from '../redux/store';
+// import { store } from '../../redux/store';
 // import GardenMenuBottom from './GardenMenuBottom';
 
 // export default {

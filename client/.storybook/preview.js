@@ -1,7 +1,7 @@
 import '../src/sass/index.scss';
 
 const customViewports = {
-  xss: {
+  xxs: {
     name: 'xxs',
     styles: {
       width: '320px',
