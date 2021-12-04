@@ -17,7 +17,7 @@ const useMenuDropdown = (menuItems: string[]): ReturnType => {
   const { ref, isOpen, setIsOpen } = useCloseOnClickOutside(false); // Hide menu dropdown on click outside
   const menuItemsRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
-  const [focusedMenuItem, setFocusedMenuItem] = useState(0);
+  const [focusedMenuItem, setFocusedMenuItem] = useState(-1);
 
   const handleMenuToggleClick = () => {
     setIsOpen(!isOpen);
