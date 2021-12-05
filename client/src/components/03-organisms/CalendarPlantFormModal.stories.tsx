@@ -2,9 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import CalendarPlantForm from './CalendarPlantForm';
+import CalendarPlantFormModal from './CalendarPlantFormModal';
 
- const store = {
+type CalendarPlantFormModalProps = React.ComponentProps<
+  typeof CalendarPlantFormModal
+>;
+
+const store = {
   getState: () => ({
     uiReducer: {
       plantToEdit: {
@@ -24,7 +28,7 @@ import CalendarPlantForm from './CalendarPlantForm';
 } as any; // FIXME: assign correct type
 
 // Mock Redux store - edit plant form
- const storeEdit = {
+const storeEdit = {
   getState: () => ({
     uiReducer: {
       plantToEdit: {
@@ -44,11 +48,13 @@ import CalendarPlantForm from './CalendarPlantForm';
 } as any; // FIXME: assign correct type
 
 export default {
-  title: 'organisms/CalendarPlantForm',
-  component: CalendarPlantForm
-} as Meta;
+  title: 'organisms/CalendarPlantFormModal',
+  component: CalendarPlantFormModal
+} as Meta<CalendarPlantFormModalProps>;
 
-const Template: Story = args => <CalendarPlantForm />;
+const Template: Story<CalendarPlantFormModalProps> = args => (
+  <CalendarPlantFormModal {...args} />
+);
 
 export const AddNewPlant = Template.bind({});
 
@@ -56,8 +62,16 @@ AddNewPlant.decorators = [
   story => <Provider store={store}>{story()}</Provider>
 ];
 
+AddNewPlant.args = {
+  variant: 'add'
+};
+
 export const EditPlant = Template.bind({});
 
 EditPlant.decorators = [
   story => <Provider store={storeEdit}>{story()}</Provider>
 ];
+
+EditPlant.args = {
+  variant: 'edit'
+};
