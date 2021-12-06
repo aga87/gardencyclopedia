@@ -1,7 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Provider } from 'react-redux';
-// import {store} from '../../redux/store'; // TODO:
 import { action } from '@storybook/addon-actions';
 import CalendarEntryMenu from './CalendarEntryMenu';
 
