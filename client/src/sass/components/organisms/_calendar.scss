@@ -5,6 +5,13 @@
 }
 
 .l-calendar {
+  height: 100%;
+
+  &__no-plants {
+    height: 100%;
+    @include flex-column-centerY;
+  }
+
   &__list-item {
     margin-bottom: $blh * 1rem;
   }
