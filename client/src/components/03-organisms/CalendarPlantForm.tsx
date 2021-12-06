@@ -6,7 +6,6 @@ import Fieldset from '../02-molecules/Fieldset';
 import TextField from '../02-molecules/TextField';
 import SelectField from '../02-molecules/SelectField';
 
-
 const CalendarPlantForm = (): JSX.Element => {
   const {
     name,

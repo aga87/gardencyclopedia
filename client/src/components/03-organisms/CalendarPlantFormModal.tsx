@@ -7,7 +7,9 @@ type CalendarPlantFormModalProps = {
   variant: 'add' | 'edit';
 };
 
-const CalendarPlantFormModal = ({ variant }: CalendarPlantFormModalProps): JSX.Element => {
+const CalendarPlantFormModal = ({
+  variant
+}: CalendarPlantFormModalProps): JSX.Element => {
   const { handleCloseModalClick } = useModalClose();
 
   return (
