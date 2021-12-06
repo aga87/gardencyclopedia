@@ -48,7 +48,7 @@ export default {
   component: CalendarPlantForm
 } as Meta;
 
-const Template: Story = args => <CalendarPlantForm />;
+const Template: Story = () => <CalendarPlantForm />;
 
 export const AddNewPlant = Template.bind({});
 
