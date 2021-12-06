@@ -9,7 +9,7 @@ const store = {
   getState: () => ({}),
   subscribe: () => 0,
   dispatch: action('dispatch')
-} as any; // FIXME: assign a correct type
+} as any;
 
 export default {
   title: 'organisms/GardenMenuBottom',
