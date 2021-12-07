@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useAppDispatch } from '../redux/store';
 import { closeModal } from '../redux/actions/uiActions';
 
@@ -6,23 +6,26 @@ type ReturnType = {
   handleCloseModalClick: () => void;
 };
 
-const useModalClose = (): ReturnType => {
+const useCloseModal = (): ReturnType => {
   const dispatch = useAppDispatch();
 
   const handleCloseModalClick = () => {
     dispatch(closeModal());
   };
 
-  const handleCloseModal = (e: KeyboardEvent): void => {
-    const { key } = e;
-    switch (key) {
-      case 'Escape':
-        e.preventDefault();
-        dispatch(closeModal());
-        break;
-      default:
-    }
-  };
+  const handleCloseModal = useCallback(
+    (e: KeyboardEvent): void => {
+      const { key } = e;
+      switch (key) {
+        case 'Escape':
+          e.preventDefault();
+          dispatch(closeModal());
+          break;
+        default:
+      }
+    },
+    [dispatch]
+  );
 
   // Element that triggered the modal
   const activeElement = document.activeElement as HTMLButtonElement;
@@ -36,9 +39,9 @@ const useModalClose = (): ReturnType => {
         activeElement.focus();
       }
     };
-  }, [activeElement]);
+  }, [activeElement, handleCloseModal]);
 
   return { handleCloseModalClick };
 };
 
-export default useModalClose;
+export default useCloseModal;

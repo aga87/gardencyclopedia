@@ -1,5 +1,5 @@
 import React from 'react';
-import useModalClose from '../../hooks/useModalClose';
+import useCloseModal from '../../hooks/useCloseModal';
 import Modal from '../02-molecules/Modal';
 import CalendarPlantForm from './CalendarPlantForm';
 
@@ -10,7 +10,7 @@ type CalendarPlantFormModalProps = {
 const CalendarPlantFormModal = ({
   variant
 }: CalendarPlantFormModalProps): JSX.Element => {
-  const { handleCloseModalClick } = useModalClose();
+  const { handleCloseModalClick } = useCloseModal();
 
   return (
     <Modal
