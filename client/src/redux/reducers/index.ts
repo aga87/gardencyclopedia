@@ -46,8 +46,8 @@ export const selectIsEditPlantModalOpen = (state: RootState): boolean =>
 export const selectIsUserSettingsModalOpen = (state: RootState): boolean =>
   fromUiReducer.selectIsUserSettingsModalOpen(state.uiReducer);
 
-export const selectPlantToEdit = (state: RootState): Plant =>
-  fromUiReducer.selectPlantToEdit(state.uiReducer);
+export const selectPlantToEditId = (state: RootState): string =>
+  fromUiReducer.selectPlantToEditId(state.uiReducer);
 
 export const selectView = (state: RootState): View =>
   fromUiReducer.selectView(state.uiReducer);

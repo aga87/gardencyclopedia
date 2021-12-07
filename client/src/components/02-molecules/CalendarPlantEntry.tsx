@@ -21,15 +21,15 @@ const CalendarPlantEntry = ({
 
   if (!plant) return null;
 
-  const { desc, category, sowFrom, sowUntil, harvestFrom, harvestUntil } =
+  const { name, desc, category, sowFrom, sowUntil, harvestFrom, harvestUntil } =
     plant;
 
   return (
     <div className='m-calendar-plant-entry'>
       <div className='l-calendar-plant-entry__header'>
-        <Title title={plant.name} />
+        <Title title={name} />
         <div className='l-calendar-plant-entry-header__menu-btn'>
-          <CalendarEntryMenu plant={plant} />
+          <CalendarEntryMenu plantId={plantId} plantName={name} />
         </div>
       </div>
       <div className='l-calendar-plant-entry__desc'>

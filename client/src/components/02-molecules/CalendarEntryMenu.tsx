@@ -8,10 +8,14 @@ import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton';
 import ConfirmDeletionAlert from './ConfirmDeletionAlert';
 
 type CalendarEntryMenuProps = {
-  plant: Plant;
+  plantName: string;
+  plantId: string;
 };
 
-const CalendarEntryMenu = ({ plant }: CalendarEntryMenuProps): JSX.Element => {
+const CalendarEntryMenu = ({
+  plantName,
+  plantId
+}: CalendarEntryMenuProps): JSX.Element => {
   const menuItems = ['Plant', 'Edit', 'Delete'];
   const {
     ref,
@@ -36,7 +40,7 @@ const CalendarEntryMenu = ({ plant }: CalendarEntryMenuProps): JSX.Element => {
   };
 
   const handleConfirmDeleteClick = () => {
-    dispatch(deletePlant(plant._id as string));
+    dispatch(deletePlant(plantId));
   };
 
   const handleCancelDeleteClick = () => {
@@ -44,7 +48,7 @@ const CalendarEntryMenu = ({ plant }: CalendarEntryMenuProps): JSX.Element => {
   };
 
   const handleEditClick = () => {
-    dispatch(openEditPlantModal(plant));
+    dispatch(openEditPlantModal(plantId));
     hideDropdown();
   };
 
@@ -52,8 +56,8 @@ const CalendarEntryMenu = ({ plant }: CalendarEntryMenuProps): JSX.Element => {
     <div ref={ref}>
       {isAlertVisible && (
         <ConfirmDeletionAlert
-          itemName={plant.name}
-          id={`delete-alert${plant._id}`}
+          itemName={plantName}
+          id={`delete-alert${plantId}`}
           handleCancel={handleCancelDeleteClick}
           handleDelete={handleConfirmDeleteClick}
         />
@@ -63,19 +67,19 @@ const CalendarEntryMenu = ({ plant }: CalendarEntryMenuProps): JSX.Element => {
           ref={toggleButtonRef}
           variant='secondary'
           iconName='more'
-          ariaLabel={isOpen ? 'Close options' : `Open ${plant.name} options`}
+          ariaLabel={isOpen ? 'Close options' : `Open ${plantName} options`}
           handleClick={handleMenuToggleClick}
           handleKeyDown={handleMenuToggleKeyDown}
-          id={`plant-menu-dropdown-button-${plant._id}`}
-          dropdownId={`plant-menu-dropdown-${plant._id}`}
+          id={`plant-menu-dropdown-button-${plantId}`}
+          dropdownId={`plant-menu-dropdown-${plantId}`}
         />
         <div>
           {isOpen && (
             <ul
               className='m-calendar-entry-menu__dropdown l-calendar-entry-menu__dropdown'
-              id={`plant-menu-dropdown-${plant._id}`}
+              id={`plant-menu-dropdown-${plantId}`}
               role='presentation'
-              aria-labelledby={`plant-menu-dropdown-button-${plant._id}`}
+              aria-labelledby={`plant-menu-dropdown-button-${plantId}`}
             >
               <li>
                 <MenuDropdownButton

@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Provider } from 'react-redux';
 import { action } from '@storybook/addon-actions';
+import mockPlantsData from '../../utils/mock-data';
 import CalendarPlantEntry from './CalendarPlantEntry';
 
 type CalendarPlantEntryProps = React.ComponentProps<typeof CalendarPlantEntry>;
@@ -10,18 +11,7 @@ type CalendarPlantEntryProps = React.ComponentProps<typeof CalendarPlantEntry>;
 const store = {
   getState: () => ({
     plantsReducer: {
-      plants: [
-        {
-          _id: '1',
-          name: 'Parsley',
-          desc: 'Curly variety',
-          category: 'herbs',
-          sowFrom: 'March',
-          sowUntil: 'August',
-          harvestFrom: 'May',
-          harvestUntil: 'September'
-        }
-      ]
+      plants: mockPlantsData
     }
   }),
   subscribe: () => 0,

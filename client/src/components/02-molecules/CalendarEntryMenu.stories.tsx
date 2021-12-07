@@ -21,18 +21,10 @@ export default {
 
 export const CalendarEntryMenuComponent: Story<CalendarEntryMenuProps> =
   args => <CalendarEntryMenu {...args} />;
-  
+
 CalendarEntryMenuComponent.args = {
-  plant: {
-    _id: '1',
-    name: 'Parsley',
-    desc: 'Curly variety',
-    category: 'herbs',
-    sowFrom: 'March',
-    sowUntil: 'August',
-    harvestFrom: 'May',
-    harvestUntil: 'September'
-  }
+  plantName: 'Parsley',
+  plantId: '1'
 };
 
 CalendarEntryMenuComponent.storyName = 'CalendarEntryMenu';

@@ -7,14 +7,13 @@ import {
   SET_VIEW,
   LOGOUT_SUCCESS
 } from '../actions/types';
-import { emptyPlant } from '../../utils/constants';
 
 const initialState = {
   isMainMenuModalOpen: false,
   isAddPlantModalOpen: false,
   isEditPlantModalOpen: false,
   isUserSettingsModalOpen: false,
-  plantToEdit: emptyPlant,
+  plantToEditId: '',
   view: 'calendar' as View
 };
 
@@ -30,7 +29,7 @@ export type Action =
     }
   | {
       type: typeof OPEN_EDIT_PLANT_MODAL;
-      payload: Plant;
+      payload: string;
     }
   | {
       type: typeof SET_VIEW;
@@ -54,7 +53,7 @@ const uiReducer = (state = initialState, action: Action): State => {
       return {
         ...state,
         isEditPlantModalOpen: true,
-        plantToEdit: action.payload
+        plantToEditId: action.payload
       };
     case OPEN_USER_SETTINGS_MODAL:
       return {
@@ -68,7 +67,7 @@ const uiReducer = (state = initialState, action: Action): State => {
         isAddPlantModalOpen: false,
         isEditPlantModalOpen: false,
         isUserSettingsModalOpen: false,
-        plantToEdit: emptyPlant
+        plantToEditId: ''
       };
     case SET_VIEW:
       return {
@@ -94,5 +93,6 @@ export const selectIsEditPlantModalOpen = (state: State): boolean =>
   state.isEditPlantModalOpen;
 export const selectIsUserSettingsModalOpen = (state: State): boolean =>
   state.isUserSettingsModalOpen;
-export const selectPlantToEdit = (state: State): Plant => state.plantToEdit;
+export const selectPlantToEditId = (state: State): string =>
+  state.plantToEditId;
 export const selectView = (state: State): View => state.view;
