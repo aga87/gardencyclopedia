@@ -27,17 +27,7 @@ const storeDefault = {
 const storeModalOpen = {
   getState: () => ({
     uiReducer: {
-      isAddPlantModalOpen: true,
-      plantToEdit: {
-        _id: '',
-        name: '',
-        desc: '',
-        category: '',
-        sowFrom: '',
-        sowUntil: '',
-        harvestFrom: '',
-        harvestUntil: ''
-      }
+      isAddPlantModalOpen: true
     },
     plantsReducer: {
       plants: []
