@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../redux/typed-hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/typed-hooks';
 import { sortPlants } from '../../redux/actions/plantsActions';
 import { setView } from '../../redux/actions/uiActions';
 import { selectSort } from '../../redux/reducers/index';
@@ -9,7 +8,7 @@ import Select from '../01-atoms/Select';
 import IconButton from '../01-atoms/buttons/IconButton';
 
 const CalendarMenuBottom = (): JSX.Element => {
-  const sort = useSelector(selectSort);
+  const sort = useAppSelector(selectSort);
   const dispatch = useAppDispatch();
 
   const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {

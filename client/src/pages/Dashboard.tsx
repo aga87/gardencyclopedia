@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../redux/typed-hooks';
 import {
   selectIsMainMenuModalOpen,
   selectView,
@@ -11,9 +11,9 @@ import CalendarView from './CalendarView';
 import GardenView from './GardenView';
 
 const Dashboard = (): JSX.Element => {
-  const isMainMenuModalOpen = useSelector(selectIsMainMenuModalOpen);
-  const isUserSettingsModalOpen = useSelector(selectIsUserSettingsModalOpen);
-  const view = useSelector(selectView);
+  const isMainMenuModalOpen = useAppSelector(selectIsMainMenuModalOpen);
+  const isUserSettingsModalOpen = useAppSelector(selectIsUserSettingsModalOpen);
+  const view = useAppSelector(selectView);
 
   return (
     <div>

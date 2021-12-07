@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../../redux/typed-hooks';
 import {
   selectErrMsg,
   selectErrId,
@@ -16,9 +16,9 @@ type AuthFormProps = {
 };
 
 const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
-  const hasJustRegistered = useSelector(selectHasJustRegistered);
-  const serverErrMsg = useSelector(selectErrMsg);
-  const serverErrId = useSelector(selectErrId);
+  const hasJustRegistered = useAppSelector(selectHasJustRegistered);
+  const serverErrMsg = useAppSelector(selectErrMsg);
+  const serverErrId = useAppSelector(selectErrId);
   const {
     username,
     email,

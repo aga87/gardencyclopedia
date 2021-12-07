@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../redux/typed-hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/typed-hooks';
 import {
   openMainMenuModal,
   openAddPlantModal
@@ -12,8 +11,8 @@ import IconButton from '../01-atoms/buttons/IconButton';
 import Select from '../01-atoms/Select';
 
 const CalendarMenuTop = (): JSX.Element => {
-  const filter = useSelector(selectFilter);
-  const sort = useSelector(selectSort);
+  const filter = useAppSelector(selectFilter);
+  const sort = useAppSelector(selectSort);
   const dispatch = useAppDispatch();
 
   const handleMainMenuClick = () => {
