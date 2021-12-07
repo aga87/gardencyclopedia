@@ -9,13 +9,13 @@ import StatusMessage from '../02-molecules/StatusMessage';
 const Calendar = (): JSX.Element => {
   const plantIds = useSelector(selectFilteredSortedPlantIds);
 
-  if (plantIds.length === 0) return <NoPlants />;
-
   const plantListItems = plantIds.map(plantId => (
     <li key={plantId} className='l-calendar__list-item'>
       <CalendarPlantEntry plantId={plantId} />
     </li>
   ));
+
+  const isEmpty = plantListItems.length === 0;
 
   return (
     <div
@@ -25,11 +25,19 @@ const Calendar = (): JSX.Element => {
       aria-label='Calendar'
       aria-live='polite'
     >
-      <StatusMessage />
-      <ul className='o-calendar__list'>{plantListItems}</ul>
-      <div className='l-calendar__caption'>
-        <CalendarCaption noOfPlants={plantListItems.length} />
-      </div>
+      {isEmpty ? (
+        <div className='l-calendar__no-plants'>
+          <NoPlants />
+        </div>
+      ) : (
+        <div>
+          <StatusMessage />
+          <ul className='o-calendar__list'>{plantListItems}</ul>
+          <div className='l-calendar__caption'>
+            <CalendarCaption noOfPlants={plantListItems.length} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

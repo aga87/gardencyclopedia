@@ -7,7 +7,6 @@ import DropdownToggleButton from '../01-atoms/buttons/DropdownToggleButton';
 import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton';
 import ConfirmDeletionAlert from './ConfirmDeletionAlert';
 
-
 type CalendarEntryMenuProps = {
   plant: Plant;
 };

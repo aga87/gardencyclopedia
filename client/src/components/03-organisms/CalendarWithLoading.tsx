@@ -6,7 +6,7 @@ import { getPlants } from '../../redux/actions/plantsActions';
 import Loader from '../01-atoms/Loader';
 import Calendar from './Calendar';
 
-const CalendarView = (): JSX.Element => {
+const CalendarWithLoading = (): JSX.Element => {
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useAppDispatch();
 
@@ -19,4 +19,4 @@ const CalendarView = (): JSX.Element => {
   return <Calendar />;
 };
 
-export default CalendarView;
+export default CalendarWithLoading;

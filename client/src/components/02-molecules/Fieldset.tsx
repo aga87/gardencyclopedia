@@ -5,10 +5,7 @@ type FieldsetProps = {
 };
 
 /* eslint react/prop-types: 0 */
-const Fieldset: React.FC<FieldsetProps> = ({
-  legend,
-  children
-}) => (
+const Fieldset: React.FC<FieldsetProps> = ({ legend, children }) => (
   <fieldset className='m-fieldset'>
     <legend className='m-fieldset__legend'>{legend}</legend>
     {children}

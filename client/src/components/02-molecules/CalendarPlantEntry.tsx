@@ -12,7 +12,9 @@ type CalendarPlantEntryProps = {
   plantId: string;
 };
 
-const CalendarPlantEntry = ({ plantId }: CalendarPlantEntryProps): JSX.Element | null => {
+const CalendarPlantEntry = ({
+  plantId
+}: CalendarPlantEntryProps): JSX.Element | null => {
   const plant = useSelector((state: RootState) =>
     selectPlantById(state, plantId)
   );

@@ -59,6 +59,7 @@ const useWidgetKeyboardSupport = (
     const widgetItemToFocus = widgetItemsRefs.current[
       focusedItem
     ] as HTMLButtonElement;
+    if (!widgetItemToFocus) return;
     widgetItemToFocus.focus();
   }, [focusedItem]);
 
