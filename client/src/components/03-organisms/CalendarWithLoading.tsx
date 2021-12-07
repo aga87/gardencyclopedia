@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../redux/typed-hooks';
 import { selectIsLoading } from '../../redux/reducers/index';
 import { getPlants } from '../../redux/actions/plantsActions';
 import Loader from '../01-atoms/Loader';
 import Calendar from './Calendar';
 
 const CalendarWithLoading = (): JSX.Element => {
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useAppSelector(selectIsLoading);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

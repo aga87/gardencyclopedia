@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch } from '../../redux/typed-hooks';
 import { setView } from '../../redux/actions/uiActions';
 import IconButton from '../01-atoms/buttons/IconButton';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../redux/typed-hooks';
 import {
   selectIsAddPlantModalOpen,
   selectIsEditPlantModalOpen
@@ -12,8 +12,8 @@ import MainMenu from '../components/03-organisms/MainMenu';
 import DashboardTemplate from '../components/04-templates/DashboardTemplate';
 
 const CalendarView = (): JSX.Element => {
-  const isAddPlantModalOpen = useSelector(selectIsAddPlantModalOpen);
-  const isEditPlantModalOpen = useSelector(selectIsEditPlantModalOpen);
+  const isAddPlantModalOpen = useAppSelector(selectIsAddPlantModalOpen);
+  const isEditPlantModalOpen = useAppSelector(selectIsEditPlantModalOpen);
 
   return (
     <div>

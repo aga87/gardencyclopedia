@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { Dispatch } from '@reduxjs/toolkit';
+import { Dispatch, AnyAction, ThunkAction } from '@reduxjs/toolkit';
+import type { RootState } from '../store';
 import {
   USER_LOADING,
   USER_LOADED,
@@ -67,8 +68,8 @@ export const tokenConfig = (getState: TokenState) => {
 };
 
 const loadUser =
-  () =>
-  async (dispatch: Dispatch, getState: TokenState): Promise<void> => {
+  (): ThunkAction<void, RootState, unknown, AnyAction> =>
+  async (dispatch: Dispatch, getState: TokenState) => {
     dispatch({
       type: USER_LOADING
     });

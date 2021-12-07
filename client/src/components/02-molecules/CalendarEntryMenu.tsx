@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch } from '../../redux/typed-hooks';
 import { deletePlant } from '../../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../../redux/actions/uiActions';
 import useMenuDropdown from '../../hooks/useMenuDropdown';

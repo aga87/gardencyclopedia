@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../redux/store';
+import { useAppDispatch } from '../redux/typed-hooks';
 import useFormInput from './useFormInput';
 import {
   validateUsername,

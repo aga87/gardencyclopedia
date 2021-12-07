@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../redux/typed-hooks';
 import { openUserSettingsModal, setView } from '../../redux/actions/uiActions';
 import { logout } from '../../redux/actions/authActions';
 import { selectUsername, selectView } from '../../redux/reducers/index';
@@ -9,8 +8,8 @@ import useWidgetKeyboardSupport from '../../hooks/useWidgetKeyboardSupport';
 import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton';
 
 const MainMenu = (): JSX.Element => {
-  const username = useSelector(selectUsername);
-  const view = useSelector(selectView);
+  const username = useAppSelector(selectUsername);
+  const view = useAppSelector(selectView);
   const dispatch = useAppDispatch();
   const menuItems = [`${username}`, 'calendar', 'garden', 'logout'];
   const initialFocus = menuItems.indexOf(view);

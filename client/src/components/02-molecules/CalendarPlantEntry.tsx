@@ -1,7 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../redux/typed-hooks';
 import { selectPlantById } from '../../redux/reducers/index';
-import type { RootState } from '../../redux/store';
 import Title from '../01-atoms/Title';
 import Subtitle from '../01-atoms/Subtitle';
 import Tag from '../01-atoms/Tag';
@@ -15,9 +14,7 @@ type CalendarPlantEntryProps = {
 const CalendarPlantEntry = ({
   plantId
 }: CalendarPlantEntryProps): JSX.Element | null => {
-  const plant = useSelector((state: RootState) =>
-    selectPlantById(state, plantId)
-  );
+  const plant = useAppSelector(state => selectPlantById(state, plantId));
 
   if (!plant) return null;
 

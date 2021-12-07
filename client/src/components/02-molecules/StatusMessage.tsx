@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../redux/typed-hooks';
 import { selectStatusMsg } from '../../redux/reducers/index';
 
 const StatusMessage = (): JSX.Element | null => {
-  const statusMsg = useSelector(selectStatusMsg);
+  const statusMsg = useAppSelector(selectStatusMsg);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

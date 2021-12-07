@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../redux/store';
-import type { RootState } from '../redux/store';
+import { useAppDispatch, useAppSelector } from '../redux/typed-hooks';
 import { addPlant, editPlant } from '../redux/actions/plantsActions';
 import { closeModal } from '../redux/actions/uiActions';
 import { selectPlantToEditId, selectPlantById } from '../redux/reducers/index';
@@ -67,8 +65,8 @@ type ReturnType = {
 };
 
 const usePlantForm = (): ReturnType => {
-  const plantToEditId = useSelector(selectPlantToEditId);
-  const plantToEdit = useSelector((state: RootState) =>
+  const plantToEditId = useAppSelector(selectPlantToEditId);
+  const plantToEdit = useAppSelector(state =>
     selectPlantById(state, plantToEditId)
   );
   const name = useFormInput(plantToEdit?.name || '');
