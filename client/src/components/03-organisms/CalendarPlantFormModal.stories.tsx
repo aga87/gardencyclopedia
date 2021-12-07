@@ -11,41 +11,40 @@ type CalendarPlantFormModalProps = React.ComponentProps<
 const store = {
   getState: () => ({
     uiReducer: {
-      plantToEdit: {
-        _id: '',
-        name: '',
-        desc: '',
-        category: '',
-        sowFrom: '',
-        sowUntil: '',
-        harvestFrom: '',
-        harvestUntil: ''
-      }
+      plantToEditId: '1'
+    },
+    plantsReducer: {
+      plants: []
     }
   }),
   subscribe: () => 0,
   dispatch: action('dispatch')
-} as any; // FIXME: assign correct type
+} as any;
 
 // Mock Redux store - edit plant form
 const storeEdit = {
   getState: () => ({
     uiReducer: {
-      plantToEdit: {
-        _id: '1',
-        name: 'Parsley',
-        desc: 'Curly variety',
-        category: 'herbs',
-        sowFrom: 'March',
-        sowUntil: 'August',
-        harvestFrom: 'May',
-        harvestUntil: 'September'
-      }
+      plantToEditId: '1'
+    },
+    plantsReducer: {
+      plants: [
+        {
+          _id: '1',
+          name: 'Parsley',
+          desc: 'Curly variety',
+          category: 'herbs',
+          sowFrom: 'March',
+          sowUntil: 'August',
+          harvestFrom: 'May',
+          harvestUntil: 'September'
+        }
+      ]
     }
   }),
   subscribe: () => 0,
   dispatch: action('dispatch')
-} as any; // FIXME: assign correct type
+} as any;
 
 export default {
   title: 'organisms/CalendarPlantFormModal',
