@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../redux/store';
+import type { RootState } from '../redux/store';
 import { addPlant, editPlant } from '../redux/actions/plantsActions';
 import { closeModal } from '../redux/actions/uiActions';
-import { selectPlantToEdit } from '../redux/reducers/index';
+import { selectPlantToEditId, selectPlantById } from '../redux/reducers/index';
 import {
   validateName,
   validateDesc,
@@ -66,14 +67,17 @@ type ReturnType = {
 };
 
 const usePlantForm = (): ReturnType => {
-  const plantToEdit = useSelector(selectPlantToEdit);
-  const name = useFormInput(plantToEdit.name);
-  const desc = useFormInput(plantToEdit.desc);
-  const category = useFormInput(plantToEdit.category);
-  const sowFrom = useFormInput(plantToEdit.sowFrom);
-  const sowUntil = useFormInput(plantToEdit.sowUntil);
-  const harvestFrom = useFormInput(plantToEdit.harvestFrom);
-  const harvestUntil = useFormInput(plantToEdit.harvestUntil);
+  const plantToEditId = useSelector(selectPlantToEditId);
+  const plantToEdit = useSelector((state: RootState) =>
+    selectPlantById(state, plantToEditId)
+  );
+  const name = useFormInput(plantToEdit?.name || '');
+  const desc = useFormInput(plantToEdit?.desc || '');
+  const category = useFormInput(plantToEdit?.category || 'uncategorised');
+  const sowFrom = useFormInput(plantToEdit?.sowFrom || '');
+  const sowUntil = useFormInput(plantToEdit?.sowUntil || '');
+  const harvestFrom = useFormInput(plantToEdit?.harvestFrom || '');
+  const harvestUntil = useFormInput(plantToEdit?.harvestUntil || '');
   const [errors, setErrors] = useState({
     name: '',
     desc: '',
@@ -147,8 +151,8 @@ const usePlantForm = (): ReturnType => {
       harvestUntil: harvestUntil.value as Month
     };
 
-    if (plantToEdit._id) {
-      dispatch(editPlant(plantToEdit._id, newPlant));
+    if (plantToEditId) {
+      dispatch(editPlant(plantToEditId, newPlant));
     } else {
       dispatch(addPlant(newPlant));
     }

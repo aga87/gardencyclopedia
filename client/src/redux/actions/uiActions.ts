@@ -20,9 +20,9 @@ export const openAddPlantModal = (): BasicAction => ({
   type: OPEN_ADD_PLANT_MODAL
 });
 
-export const openEditPlantModal = (plant: Plant): PayloadAction<Plant> => ({
+export const openEditPlantModal = (plantId: string): PayloadAction<string> => ({
   type: OPEN_EDIT_PLANT_MODAL,
-  payload: plant
+  payload: plantId
 });
 
 export const openUserSettingsModal = (): BasicAction => ({

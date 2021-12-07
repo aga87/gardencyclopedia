@@ -27,14 +27,3 @@ export const sortOptions: Sort[] = [
   'sowing time',
   'harvest time'
 ];
-
-export const emptyPlant: Plant = {
-  _id: '',
-  name: '',
-  desc: '',
-  category: plantCategories[0],
-  sowFrom: '',
-  sowUntil: '',
-  harvestFrom: '',
-  harvestUntil: ''
-};
