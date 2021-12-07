@@ -1,10 +1,10 @@
 import React from 'react';
-import useModalClose from '../../hooks/useModalClose';
+import useCloseModal from '../../hooks/useCloseModal';
 import Modal from '../02-molecules/Modal';
 import MainMenu from './MainMenu';
 
 const MainMenuModal = (): JSX.Element => {
-  const { handleCloseModalClick } = useModalClose();
+  const { handleCloseModalClick } = useCloseModal();
 
   return (
     <Modal

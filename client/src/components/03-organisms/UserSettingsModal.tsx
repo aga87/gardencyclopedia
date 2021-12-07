@@ -1,10 +1,10 @@
 import React from 'react';
-import useModalClose from '../../hooks/useModalClose';
+import useCloseModal from '../../hooks/useCloseModal';
 import Modal from '../02-molecules/Modal';
 import UpcomingFeatures from '../02-molecules/UpcomingFeatures';
 
 const UserSettingsModal = (): JSX.Element => {
-  const { handleCloseModalClick } = useModalClose();
+  const { handleCloseModalClick } = useCloseModal();
 
   return (
     <Modal
