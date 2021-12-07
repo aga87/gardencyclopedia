@@ -5,7 +5,7 @@ import Garden from '../components/03-organisms/Garden';
 import MainMenu from '../components/03-organisms/MainMenu';
 import DashboardTemplate from '../components/04-templates/DashboardTemplate';
 
-const GardenView = () => (
+const GardenView = (): JSX.Element => (
   <DashboardTemplate
     sideContent={<MainMenu />}
     topMenu={<GardenMenuTop />}
