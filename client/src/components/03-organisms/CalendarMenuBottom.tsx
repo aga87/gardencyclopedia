@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch } from '../../redux/typed-hooks';
 import { sortPlants } from '../../redux/actions/plantsActions';
 import { setView } from '../../redux/actions/uiActions';
 import { selectSort } from '../../redux/reducers/index';

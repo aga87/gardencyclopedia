@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import { useAppDispatch } from '../redux/store';
+import { useAppDispatch } from '../redux/typed-hooks';
 import { closeModal } from '../redux/actions/uiActions';
 
 type ReturnType = {

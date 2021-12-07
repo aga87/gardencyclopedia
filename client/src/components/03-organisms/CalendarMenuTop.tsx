@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch } from '../../redux/typed-hooks';
 import {
   openMainMenuModal,
   openAddPlantModal

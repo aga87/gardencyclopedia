@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../redux/store';
+import { useAppDispatch } from '../redux/typed-hooks';
 import type { RootState } from '../redux/store';
 import { addPlant, editPlant } from '../redux/actions/plantsActions';
 import { closeModal } from '../redux/actions/uiActions';
