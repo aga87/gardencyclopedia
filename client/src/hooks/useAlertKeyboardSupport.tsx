@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { getNextIndex, getPreviousIndex } from '../utils/list-utils';
 
 type ReturnType = {
@@ -13,16 +13,19 @@ const useAlertKeyboardSupport = (
   const [focusedItem, setFocusedItem] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const handleCloseAlert = (e: KeyboardEvent): void => {
-    const { key } = e;
-    switch (key) {
-      case 'Escape':
-        e.preventDefault();
-        handleCancel();
-        break;
-      default:
-    }
-  };
+  const handleCloseAlert = useCallback(
+    (e: KeyboardEvent): void => {
+      const { key } = e;
+      switch (key) {
+        case 'Escape':
+          e.preventDefault();
+          handleCancel();
+          break;
+        default:
+      }
+    },
+    [handleCancel]
+  );
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     const { key } = e;
@@ -65,7 +68,7 @@ const useAlertKeyboardSupport = (
         activeElement.focus();
       }
     };
-  }, [activeElement]);
+  }, [activeElement, handleCloseAlert]);
 
   return { refs, handleKeyDown };
 };
