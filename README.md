@@ -8,14 +8,14 @@ The demo is hosted on Heroku. [Go to Demo]() and create your own account or use 
 
 ## Tech Stack
 
-[MongoDB](https://www.mongodb.com/) & [Mongoose](https://mongoosejs.com/) - for database
-[Node.js](https://nodejs.org/en/) - development server
-[Express.js](http://expressjs.com/) - as Node web framework, for routing
-[React.js](https://reactjs.org/) ([Create React App](https://create-react-app.dev/) - for client
-[Redux](https://redux.js.org/) - for state management
-[Typescript](https://www.typescriptlang.org/) - for static typing
-[WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) - for Accessibility
-[SASS](https://sass-lang.com/) - as CSS pre-processor
+[MongoDB](https://www.mongodb.com/) & [Mongoose](https://mongoosejs.com/) - for database\
+[Node.js](https://nodejs.org/en/) - development server\
+[Express.js](http://expressjs.com/) - as Node web framework, for routing\
+[React.js](https://reactjs.org/) ([Create React App](https://create-react-app.dev/) - for client\
+[Redux](https://redux.js.org/) - for state management\
+[Typescript](https://www.typescriptlang.org/) - for static typing\
+[WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) - for Accessibility\
+[SASS](https://sass-lang.com/) - as CSS pre-processor\
 [Storybook](https://storybook.js.org/) - for presenting UI components in isolation and visually testing edge cases
 
 ## User stories / features
