@@ -4,7 +4,7 @@ Create your own gardening calendar and diary.
 
 ## Demo
 
-The demo is hosted on Heroku. [Go to Demo]() and create your own account or use `username: **test@test.com** and password: **test1234**`.
+The demo is hosted on Heroku. [Go to Demo]() and create your own account or use username: **test@test.com** and password: **test1234**.
 
 ## Tech Stack
 
@@ -20,7 +20,7 @@ The demo is hosted on Heroku. [Go to Demo]() and create your own account or use 
 
 ## User stories / features
 
-### Authentication:
+### Authentication
 
 - [x] User can register with a username, (unique) email and password
 - [x] User can log in and log out
@@ -28,9 +28,9 @@ The demo is hosted on Heroku. [Go to Demo]() and create your own account or use 
 
 Upcoming:
 
-- [] User will receive a verification email to confirm and complete the registration
-- [] User can change their email and password
-- [] User can delete their account
+- [ ] User will receive a verification email to confirm and complete the registration
+- [ ] User can change their email and password
+- [ ] User can delete their account
 
 ### Dashboard
 
@@ -45,10 +45,10 @@ Calendar view:
 
 Upcoming:
 
-- [] User can search plants by name
+- [ ] User can search plants by name
 
 Upcoming: Garden View
 
-- [] User can keep track of the plants in their garden
-- [] User can record harvesting dates and yields for each plant
-- [] User can archive selected plants for further reference
+- [ ] User can keep track of the plants in their garden
+- [ ] User can record harvesting dates and yields for each plant
+- [ ] User can archive selected plants for further reference
