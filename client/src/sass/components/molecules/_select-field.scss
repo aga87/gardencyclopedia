@@ -1,10 +1,11 @@
 .m-select-field {
   &__select {
     @include input;
+    appearance: none;
     text-align: center;
-    box-sizing: content-box; // to match input content height
-    padding-left: 0;
-    padding-right: 0;
-    height: $blh * 1rem; // match input height
+    background-image: url('../../../svg/caret-down-solid.svg');
+    background-repeat: no-repeat;
+    background-size: 9px;
+    background-position: 95% 55%;
   }
 }
