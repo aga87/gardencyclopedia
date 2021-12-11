@@ -8,7 +8,8 @@ The demo is hosted on Heroku. [Go to Demo](https://sleepy-scrubland-50721.heroku
 
 ## Storybook
 
-The Storybook for the project is hosted on [Chromatic](https://www.chromatic.com/choose/storybook-deploy). [Go to Storybook](https://www.chromatic.com/library?appId=61b4b41159ad42003a08e784) to see the UI component library.
+The Storybook for the project is hosted on [Chromatic](https://www.chromatic.com/choose/storybook-deploy).\
+[Go to Storybook](https://www.chromatic.com/library?appId=61b4b41159ad42003a08e784) to see the UI component library.
 
 ## Tech Stack
 
