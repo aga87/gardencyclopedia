@@ -16,7 +16,7 @@ The Storybook for the project is hosted on [Chromatic](https://www.chromatic.com
 - [MongoDB](https://www.mongodb.com/) & [Mongoose](https://mongoosejs.com/) - for database
 - [Node.js](https://nodejs.org/en/) - development server
 - [Express.js](http://expressjs.com/) - as Node web framework, for routing
-- [React.js](https://reactjs.org/) ([Create React App](https://create-react-app.dev/) - for client
+- [React.js](https://reactjs.org/) ([Create React App](https://create-react-app.dev/)) - for client
 - [Redux](https://redux.js.org/) - for state management
 - [Typescript](https://www.typescriptlang.org/) - for static typing
 - [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) - for Accessibility
