@@ -1,0 +1,30 @@
+{
+  "files": {
+    "0.8dd1df94.iframe.bundle.js": "./0.8dd1df94.iframe.bundle.js",
+    "1.c1568daa.iframe.bundle.js": "./1.c1568daa.iframe.bundle.js",
+    "1.c1568daa.iframe.bundle.js.map": "./1.c1568daa.iframe.bundle.js.map",
+    "2.efce28cc.iframe.bundle.js": "./2.efce28cc.iframe.bundle.js",
+    "3.ca2d1471.iframe.bundle.js": "./3.ca2d1471.iframe.bundle.js",
+    "main.css": "./static/css/main.644281c8.chunk.css",
+    "main.js": "./main.4207f15b.iframe.bundle.js",
+    "main.css.map": "./static/css/main.644281c8.chunk.css.map",
+    "runtime~main.js": "./runtime~main.07f724de.iframe.bundle.js",
+    "vendors~main.js": "./vendors~main.935cd3b5.iframe.bundle.js",
+    "vendors~main.js.map": "./vendors~main.935cd3b5.iframe.bundle.js.map",
+    "7.753bdb62.iframe.bundle.js": "./7.753bdb62.iframe.bundle.js",
+    "8.d1692f0c.iframe.bundle.js": "./8.d1692f0c.iframe.bundle.js",
+    "8.d1692f0c.iframe.bundle.js.map": "./8.d1692f0c.iframe.bundle.js.map",
+    "9.f0b9554d.iframe.bundle.js": "./9.f0b9554d.iframe.bundle.js",
+    "1.c1568daa.iframe.bundle.js.LICENSE.txt": "./1.c1568daa.iframe.bundle.js.LICENSE.txt",
+    "8.d1692f0c.iframe.bundle.js.LICENSE.txt": "./8.d1692f0c.iframe.bundle.js.LICENSE.txt",
+    "iframe.html": "./iframe.html",
+    "static/media/index.scss": "./static/media/sort-solid.7c96ea03.svg",
+    "vendors~main.935cd3b5.iframe.bundle.js.LICENSE.txt": "./vendors~main.935cd3b5.iframe.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.07f724de.iframe.bundle.js",
+    "vendors~main.935cd3b5.iframe.bundle.js",
+    "static/css/main.644281c8.chunk.css",
+    "main.4207f15b.iframe.bundle.js"
+  ]
+}
