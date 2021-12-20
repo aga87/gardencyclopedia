@@ -45,6 +45,7 @@ const DropdownToggleButton = React.forwardRef<
         id={id}
         aria-haspopup
         aria-controls={dropdownId}
+        data-testid='dropdown-toggle-button'
       >
         <Icon name={iconName} />
       </button>
