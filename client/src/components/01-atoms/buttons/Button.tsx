@@ -39,7 +39,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={className}
       >
         {iconName && (
-          <span className='button__icon'>
+          <span className='button__icon' data-testid='icon-wrapper'>
             <Icon name={iconName} />
           </span>
         )}
