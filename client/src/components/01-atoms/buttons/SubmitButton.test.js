@@ -1,5 +1,4 @@
 import { render, cleanup } from '@testing-library/react';
-import MenuDropdownButton from './MenuDropdownButton';
 import SubmitButton from './SubmitButton';
 
 afterEach(cleanup);
