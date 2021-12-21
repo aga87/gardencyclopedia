@@ -33,6 +33,7 @@ const CalendarPlantEntry = ({
         <Subtitle subtitle={desc} />
       </div>
       <div className='l-calendar-plant-entry__category'>
+        <div className='h-visually-hidden'>Category:</div>
         <Tag tag={category} />
       </div>
       <CalendarChart
