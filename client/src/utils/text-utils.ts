@@ -8,7 +8,10 @@ type SowingRange = {
   sowUntil: Month;
 };
 
-export const getSowingDataLabel = ({ sowFrom, sowUntil }: SowingRange) => {
+export const getSowingDataLabel = ({
+  sowFrom,
+  sowUntil
+}: SowingRange): string => {
   let sowingDataLabel = '';
   if (!sowFrom || !sowUntil) {
     sowingDataLabel = 'No sowing data.';
@@ -25,7 +28,10 @@ type HarvestRange = {
   harvestUntil: Month;
 };
 
-export const getHarvestDataLabel = ({ harvestFrom, harvestUntil }: HarvestRange) => {
+export const getHarvestDataLabel = ({
+  harvestFrom,
+  harvestUntil
+}: HarvestRange): string => {
   let harvestDataLabel = '';
   if (!harvestFrom || !harvestUntil) {
     harvestDataLabel = 'No harvesting data.';
