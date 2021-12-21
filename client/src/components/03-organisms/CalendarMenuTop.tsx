@@ -7,7 +7,7 @@ import {
 import { filterPlants, sortPlants } from '../../redux/actions/plantsActions';
 import { plantCategories, sortOptions } from '../../utils/constants';
 import { selectFilter, selectSort } from '../../redux/reducers/index';
-import IconButton from '../01-atoms/buttons/IconButton';
+import IconButton from '../01-atoms/buttons/IconButton/IconButton';
 import Select from '../01-atoms/Select';
 
 const CalendarMenuTop = (): JSX.Element => {

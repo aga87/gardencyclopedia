@@ -3,8 +3,8 @@ import { useAppDispatch } from '../../redux/typed-hooks';
 import { deletePlant } from '../../redux/actions/plantsActions';
 import { openEditPlantModal, setView } from '../../redux/actions/uiActions';
 import useMenuDropdown from '../../hooks/useMenuDropdown';
-import DropdownToggleButton from '../01-atoms/buttons/DropdownToggleButton';
-import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton';
+import DropdownToggleButton from '../01-atoms/buttons/DropdownToggleButton/DropdownToggleButton';
+import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton/MenuDropdownButton';
 import ConfirmDeletionAlert from './ConfirmDeletionAlert';
 
 type CalendarEntryMenuProps = {

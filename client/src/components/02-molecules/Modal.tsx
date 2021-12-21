@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from '../01-atoms/buttons/IconButton';
+import IconButton from '../01-atoms/buttons/IconButton/IconButton';
 
 type ModalProps = {
   variant?: 'primary' | 'secondary';

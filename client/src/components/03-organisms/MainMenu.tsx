@@ -5,7 +5,7 @@ import { logout } from '../../redux/actions/authActions';
 import { selectUsername, selectView } from '../../redux/reducers/index';
 import { capitalize } from '../../utils/text-utils';
 import useWidgetKeyboardSupport from '../../hooks/useWidgetKeyboardSupport';
-import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton';
+import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton/MenuDropdownButton';
 
 const MainMenu = (): JSX.Element => {
   const username = useAppSelector(selectUsername);
