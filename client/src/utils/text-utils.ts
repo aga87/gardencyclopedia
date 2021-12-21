@@ -3,15 +3,13 @@
 export const capitalize = (str: string): string =>
   str.charAt(0).toUpperCase() + str.slice(1);
 
-export const getAccessibleChartLabel = (
-  sowFrom: Month,
-  sowUntil: Month,
-  harvestFrom: Month,
-  harvestUntil: Month
-): string => {
-  let sowingDataLabel = '';
-  let harvestDataLabel = '';
+type SowingRange = {
+  sowFrom: Month;
+  sowUntil: Month;
+};
 
+export const getSowingDataLabel = ({ sowFrom, sowUntil }: SowingRange) => {
+  let sowingDataLabel = '';
   if (!sowFrom || !sowUntil) {
     sowingDataLabel = 'No sowing data.';
   } else if (sowFrom === sowUntil) {
@@ -19,7 +17,16 @@ export const getAccessibleChartLabel = (
   } else {
     sowingDataLabel = `Sow from ${sowFrom} to ${sowUntil}.`;
   }
+  return sowingDataLabel;
+};
 
+type HarvestRange = {
+  harvestFrom: Month;
+  harvestUntil: Month;
+};
+
+export const getHarvestDataLabel = ({ harvestFrom, harvestUntil }: HarvestRange) => {
+  let harvestDataLabel = '';
   if (!harvestFrom || !harvestUntil) {
     harvestDataLabel = 'No harvesting data.';
   } else if (harvestFrom === harvestUntil) {
@@ -28,5 +35,5 @@ export const getAccessibleChartLabel = (
     harvestDataLabel = `Harvest from ${harvestFrom} to ${harvestUntil}.`;
   }
 
-  return `${sowingDataLabel} ${harvestDataLabel}`;
+  return harvestDataLabel;
 };
