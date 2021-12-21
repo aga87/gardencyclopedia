@@ -1,9 +1,9 @@
 import React from 'react';
 import { useAppSelector } from '../../redux/typed-hooks';
 import { selectPlantById } from '../../redux/reducers/index';
-import Title from '../01-atoms/Title';
-import Subtitle from '../01-atoms/Subtitle';
-import Tag from '../01-atoms/Tag';
+import Title from '../01-atoms/Title/Title';
+import Subtitle from '../01-atoms/Subtitle/Subtitle';
+import Tag from '../01-atoms/Tag/Tag';
 import CalendarEntryMenu from './CalendarEntryMenu';
 import CalendarChart from './CalendarChart';
 

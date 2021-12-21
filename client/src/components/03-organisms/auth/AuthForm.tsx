@@ -7,8 +7,8 @@ import {
 } from '../../../redux/reducers/index';
 import useAuthForm from '../../../hooks/useAuthForm';
 import SubmitButton from '../../01-atoms/buttons/SubmitButton/SubmitButton';
-import SuccessMsg from '../../01-atoms/SuccessMsg';
-import Error from '../../01-atoms/Error';
+import SuccessMsg from '../../01-atoms/SuccessMsg/SuccessMsg';
+import Error from '../../01-atoms/Error/Error';
 import TextField from '../../02-molecules/TextField';
 
 type AuthFormProps = {

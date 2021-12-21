@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../00-ions/Icon';
+import Icon from '../../00-ions/Icon';
 
 const Logo = (): JSX.Element => (
   <div className='logo'>
