@@ -7,7 +7,8 @@ const defaultProps = {
   handleClick: jest.fn(),
   handleKeyDown: jest.fn(),
   text: 'Tab',
-  selected: false
+  selected: false,
+  tabPanelId: 'id'
 };
 
 test('Tab renders with correct text', () => {
@@ -40,5 +41,5 @@ test('Tab is accessible', () => {
   const tab = getByTestId('tab');
   expect(tab).toHaveAttribute('role', 'tab');
   expect(tab).toHaveAttribute('aria-selected');
-  // expect(tab).toHaveAttribute('aria-controls'); // not in the debug output - why?
+  expect(tab).toHaveAttribute('aria-controls');
 });
