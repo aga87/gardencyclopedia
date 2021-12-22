@@ -1,4 +1,4 @@
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 import SubmitButton from './SubmitButton';
 
 afterEach(cleanup);
@@ -8,7 +8,7 @@ const defaultProps = {
 };
 
 test('Button renders with correct text', () => {
-  const { getByText } = render(<SubmitButton {...defaultProps} />);
-  expect(getByText('Submit')).toBeTruthy();
-  expect(getByText('Submit').tagName).toBe('BUTTON');
+  render(<SubmitButton {...defaultProps} />);
+  expect(screen.getByText('Submit')).toBeTruthy();
+  expect(screen.getByText('Submit').tagName).toBe('BUTTON');
 });

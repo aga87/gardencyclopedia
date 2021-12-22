@@ -1,4 +1,4 @@
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import Button from './Button';
 
 afterEach(cleanup);
@@ -9,41 +9,39 @@ const defaultProps = {
 };
 
 test('Button renders with correct text', () => {
-  const { queryByText } = render(<Button {...defaultProps} />);
-  expect(queryByText('Click')).toBeTruthy();
-  expect(queryByText('Click').tagName).toBe('BUTTON');
+  render(<Button {...defaultProps} />);
+  expect(screen.queryByText('Click')).toBeTruthy();
+  expect(screen.queryByText('Click').tagName).toBe('BUTTON');
   // Change props
   render(<Button {...defaultProps} text='Go' />);
-  expect(queryByText('Go')).toBeTruthy();
+  expect(screen.queryByText('Go')).toBeTruthy();
 });
 
 test('Button calls correct function on click', () => {
   const handleClick = jest.fn();
-  const { getByText } = render(
-    <Button {...defaultProps} handleClick={handleClick} />
-  );
-  fireEvent.click(getByText(defaultProps.text));
+  render(<Button {...defaultProps} handleClick={handleClick} />);
+  fireEvent.click(screen.getByText(defaultProps.text));
   expect(handleClick).toHaveBeenCalled();
 });
 
 test('Button calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
-  const { getByText } = render(
+  render(
     <Button {...defaultProps} handleKeyDown={handleKeyDown} />
   );
-  fireEvent.keyDown(getByText(defaultProps.text));
+  fireEvent.keyDown(screen.getByText(defaultProps.text));
   expect(handleKeyDown).toHaveBeenCalled();
 });
 
 test('Button renders an icon if specified', () => {
-  const { getByText, queryByTestId, getByTestId } = render(
+  render(
     <Button {...defaultProps} />
   );
-  expect(queryByTestId('icon-wrapper')).toBeFalsy();
+  expect(screen.queryByTestId('icon-wrapper')).toBeFalsy();
   cleanup();
   // Specify icon
   render(<Button {...defaultProps} iconName='menu' />);
-  const iconWrapper = getByTestId('icon-wrapper');
-  expect(getByText(defaultProps.text)).toContainElement(iconWrapper);
+  const iconWrapper = screen.getByTestId('icon-wrapper');
+  expect(screen.getByText(defaultProps.text)).toContainElement(iconWrapper);
   expect(iconWrapper.firstChild.tagName).toBe('svg');
 });

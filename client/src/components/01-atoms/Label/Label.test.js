@@ -1,4 +1,4 @@
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 import Label from './Label';
 
 afterEach(cleanup);
@@ -9,15 +9,15 @@ const defaultProps = {
 };
 
 test('Label renders with correct text', () => {
-  const { getByText } = render(<Label {...defaultProps} />);
-  expect(getByText('Label')).toBeTruthy();
-  expect(getByText('Label').tagName).toBe('LABEL');
+  render(<Label {...defaultProps} />);
+  expect(screen.getByText('Label')).toBeTruthy();
+  expect(screen.getByText('Label').tagName).toBe('LABEL');
 });
 
 test('Label renders with asterisk only if it is required', () => {
-  const { getByText } = render(<Label {...defaultProps} />);
-  expect(getByText('Label').textContent).toBe('Label');
+  render(<Label {...defaultProps} />);
+  expect(screen.getByText('Label').textContent).toBe('Label');
   cleanup();
   render(<Label {...defaultProps} required={true} />);
-  expect(getByText('Label').textContent).toBe('Label *');
+  expect(screen.getByText('Label').textContent).toBe('Label *');
 });

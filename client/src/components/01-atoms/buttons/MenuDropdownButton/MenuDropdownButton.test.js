@@ -1,4 +1,4 @@
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, screen } from '@testing-library/react';
 import MenuDropdownButton from './MenuDropdownButton';
 
 afterEach(cleanup);
@@ -11,25 +11,23 @@ const defaultProps = {
 };
 
 test('Button renders an icon with text', () => {
-  const { getByTestId } = render(<MenuDropdownButton {...defaultProps} />);
-  expect(getByTestId('menu-dropdown-button').textContent).toBe('Delete');
-  expect(getByTestId('icon-wrapper').firstChild.tagName).toBe('svg');
+  render(<MenuDropdownButton {...defaultProps} />);
+  expect(screen.getByTestId('menu-dropdown-button').textContent).toBe('Delete');
+  expect(screen.getByTestId('icon-wrapper').firstChild.tagName).toBe('svg');
 });
 
 test('Button calls correct function on click', () => {
   const handleClick = jest.fn();
-  const { getByTestId } = render(
-    <MenuDropdownButton {...defaultProps} handleClick={handleClick} />
-  );
-  fireEvent.click(getByTestId('menu-dropdown-button'));
+  render(<MenuDropdownButton {...defaultProps} handleClick={handleClick} />);
+  fireEvent.click(screen.getByTestId('menu-dropdown-button'));
   expect(handleClick).toHaveBeenCalled();
 });
 
 test('Button calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
-  const { getByTestId } = render(
+  render(
     <MenuDropdownButton {...defaultProps} handleKeyDown={handleKeyDown} />
   );
-  fireEvent.keyDown(getByTestId('menu-dropdown-button'));
+  fireEvent.keyDown(screen.getByTestId('menu-dropdown-button'));
   expect(handleKeyDown).toHaveBeenCalled();
 });

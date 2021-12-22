@@ -1,4 +1,4 @@
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 import Error from './Error';
 
 afterEach(cleanup);
@@ -8,6 +8,6 @@ const defaultProps = {
 };
 
 test('Error renders with correct text', () => {
-  const { getByText } = render(<Error {...defaultProps} />);
-  expect(getByText('error')).toBeTruthy();
+  render(<Error {...defaultProps} />);
+  expect(screen.getByText('error')).toBeTruthy();
 });

@@ -1,4 +1,4 @@
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 import Title from './Title';
 
 afterEach(cleanup);
@@ -8,6 +8,6 @@ const defaultProps = {
 };
 
 test('Title renders with correct text', () => {
-  const { getByText } = render(<Title {...defaultProps} />);
-  expect(getByText('Some title')).toBeTruthy();
+  render(<Title {...defaultProps} />);
+  expect(screen.getByText('Some title')).toBeTruthy();
 });

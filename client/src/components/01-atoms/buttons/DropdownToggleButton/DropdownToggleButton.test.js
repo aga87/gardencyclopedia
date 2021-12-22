@@ -1,4 +1,4 @@
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import DropdownToggleButton from './DropdownToggleButton';
 
 afterEach(cleanup);
@@ -11,26 +11,24 @@ const defaultProps = {
 };
 
 test('Button renders an icon with accessible text', () => {
-  const { getByTestId } = render(<DropdownToggleButton {...defaultProps} />);
-  const button = getByTestId('dropdown-toggle-button');
+  render(<DropdownToggleButton {...defaultProps} />);
+  const button = screen.getByTestId('dropdown-toggle-button');
   expect(button).toHaveAttribute('aria-label', 'menu');
   expect(button.firstChild.tagName).toBe('svg');
 });
 
 test('Button calls correct function on click', () => {
   const handleClick = jest.fn();
-  const { getByTestId } = render(
-    <DropdownToggleButton {...defaultProps} handleClick={handleClick} />
-  );
-  fireEvent.click(getByTestId('dropdown-toggle-button'));
+  render(<DropdownToggleButton {...defaultProps} handleClick={handleClick} />);
+  fireEvent.click(screen.getByTestId('dropdown-toggle-button'));
   expect(handleClick).toHaveBeenCalled();
 });
 
 test('Button calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
-  const { getByTestId } = render(
+  render(
     <DropdownToggleButton {...defaultProps} handleKeyDown={handleKeyDown} />
   );
-  fireEvent.keyDown(getByTestId('dropdown-toggle-button'));
+  fireEvent.keyDown(screen.getByTestId('dropdown-toggle-button'));
   expect(handleKeyDown).toHaveBeenCalled();
 });

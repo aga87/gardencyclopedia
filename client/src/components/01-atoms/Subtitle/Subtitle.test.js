@@ -1,4 +1,4 @@
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 import Subtitle from './Subtitle';
 
 afterEach(cleanup);
@@ -8,6 +8,6 @@ const defaultProps = {
 };
 
 test('Subtitle renders with correct text', () => {
-  const { getByText } = render(<Subtitle {...defaultProps} />);
-  expect(getByText('Subtitle')).toBeTruthy();
+  render(<Subtitle {...defaultProps} />);
+  expect(screen.getByText('Subtitle')).toBeTruthy();
 });

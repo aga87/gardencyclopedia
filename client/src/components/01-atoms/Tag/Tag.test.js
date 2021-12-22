@@ -1,4 +1,4 @@
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 import Tag from './Tag';
 
 afterEach(cleanup);
@@ -8,6 +8,6 @@ const defaultProps = {
 };
 
 test('Tag renders with correct (capitalized) text', () => {
-  const { getByText } = render(<Tag {...defaultProps} />);
-  expect(getByText('Tag')).toBeTruthy();
+  render(<Tag {...defaultProps} />);
+  expect(screen.getByText('Tag')).toBeTruthy();
 });

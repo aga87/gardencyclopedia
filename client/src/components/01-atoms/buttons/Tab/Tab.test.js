@@ -1,4 +1,4 @@
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, screen } from '@testing-library/react';
 import Tab from './Tab';
 
 afterEach(cleanup);
@@ -12,33 +12,29 @@ const defaultProps = {
 };
 
 test('Tab renders with correct text', () => {
-  const { getByText } = render(<Tab {...defaultProps} />);
-  const tab = getByText('Tab');
+  render(<Tab {...defaultProps} />);
+  const tab = screen.getByText('Tab');
   expect(tab).toBeTruthy();
   expect(tab.tagName).toBe('BUTTON');
 });
 
 test('Tab calls correct function on click', () => {
   const handleClick = jest.fn();
-  const { getByTestId } = render(
-    <Tab {...defaultProps} handleClick={handleClick} />
-  );
-  fireEvent.click(getByTestId('tab'));
+  render(<Tab {...defaultProps} handleClick={handleClick} />);
+  fireEvent.click(screen.getByTestId('tab'));
   expect(handleClick).toHaveBeenCalled();
 });
 
 test('Tab calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
-  const { getByTestId } = render(
-    <Tab {...defaultProps} handleKeyDown={handleKeyDown} />
-  );
-  fireEvent.keyDown(getByTestId('tab'));
+  render(<Tab {...defaultProps} handleKeyDown={handleKeyDown} />);
+  fireEvent.keyDown(screen.getByTestId('tab'));
   expect(handleKeyDown).toHaveBeenCalled();
 });
 
 test('Tab is accessible', () => {
-  const { getByTestId } = render(<Tab {...defaultProps} />);
-  const tab = getByTestId('tab');
+  render(<Tab {...defaultProps} />);
+  const tab = screen.getByTestId('tab');
   expect(tab).toHaveAttribute('role', 'tab');
   expect(tab).toHaveAttribute('aria-selected');
   expect(tab).toHaveAttribute('aria-controls');

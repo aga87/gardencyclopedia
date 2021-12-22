@@ -1,4 +1,4 @@
-import { render, cleanup, getByRole } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 import CalendarCaption from './CalendarCaption';
 
 afterEach(cleanup);
@@ -8,20 +8,18 @@ const defaultProps = {
 };
 
 test('CalendarCaption renders with correct text', () => {
-  const { getByText } = render(<CalendarCaption noOfPlants={0} />);
-  expect(getByText('0 Plants')).toBeInTheDocument();
+  render(<CalendarCaption noOfPlants={0} />);
+  expect(screen.getByText('0 Plants')).toBeInTheDocument();
   cleanup();
   render(<CalendarCaption noOfPlants={1} />);
-  expect(getByText('1 Plant')).toBeInTheDocument();
+  expect(screen.getByText('1 Plant')).toBeInTheDocument();
   cleanup();
   render(<CalendarCaption {...defaultProps} />);
-  expect(getByText('12 Plants')).toBeInTheDocument();
+  expect(screen.getByText('12 Plants')).toBeInTheDocument();
 });
 
 test('CalendarCaption renders the legend with no visual regression', () => {
-  const { getByText, container } = render(
-    <CalendarCaption {...defaultProps} />
-  );
-  expect(getByText('Legend')).toBeInTheDocument();
+  const { container } = render(<CalendarCaption {...defaultProps} />);
+  expect(screen.getByText('Legend')).toBeInTheDocument();
   expect(container.firstChild).toMatchSnapshot();
 });

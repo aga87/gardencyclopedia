@@ -1,4 +1,4 @@
-import { render, cleanup, getByRole } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 import Fieldset from './Fieldset';
 
 afterEach(cleanup);
@@ -8,17 +8,19 @@ const defaultProps = {
 };
 
 test('Fieldset renders with correct legend', () => {
-  const { getByText, getByTestId } = render(<Fieldset {...defaultProps} />);
-  const legend = getByText('Some legend');
+  render(<Fieldset {...defaultProps} />);
+  const legend = screen.getByText('Some legend');
   expect(legend.tagName).toBe('LEGEND');
-  expect(getByTestId('fieldset').firstChild).toBe(legend);
+  expect(screen.getByTestId('fieldset').firstChild).toBe(legend);
 });
 
 test('Fieldset renders children components', () => {
-  const { getByTestId } = render(
+  render(
     <Fieldset {...defaultProps}>
       <input type='text' defaultValue='' data-testid='fieldset-input' />
     </Fieldset>
   );
-  expect(getByTestId('fieldset')).toContainElement(getByTestId('fieldset-input'));
+  expect(screen.getByTestId('fieldset')).toContainElement(
+    screen.getByTestId('fieldset-input')
+  );
 });
