@@ -15,9 +15,8 @@ test('Label renders with correct text', () => {
 });
 
 test('Label renders with asterisk only if it is required', () => {
-  render(<Label {...defaultProps} />);
+  const { rerender } = render(<Label {...defaultProps} />);
   expect(screen.getByText('Label').textContent).toBe('Label');
-  cleanup();
-  render(<Label {...defaultProps} required={true} />);
+  rerender(<Label {...defaultProps} required={true} />);
   expect(screen.getByText('Label').textContent).toBe('Label *');
 });

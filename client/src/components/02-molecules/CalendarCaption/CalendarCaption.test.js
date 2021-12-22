@@ -8,13 +8,11 @@ const defaultProps = {
 };
 
 test('CalendarCaption renders with correct text', () => {
-  render(<CalendarCaption noOfPlants={0} />);
+  const { rerender } = render(<CalendarCaption noOfPlants={0} />);
   expect(screen.getByText('0 Plants')).toBeInTheDocument();
-  cleanup();
-  render(<CalendarCaption noOfPlants={1} />);
+  rerender(<CalendarCaption noOfPlants={1} />);
   expect(screen.getByText('1 Plant')).toBeInTheDocument();
-  cleanup();
-  render(<CalendarCaption {...defaultProps} />);
+  rerender(<CalendarCaption {...defaultProps} />);
   expect(screen.getByText('12 Plants')).toBeInTheDocument();
 });
 

@@ -26,21 +26,16 @@ test('Button calls correct function on click', () => {
 
 test('Button calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
-  render(
-    <Button {...defaultProps} handleKeyDown={handleKeyDown} />
-  );
+  render(<Button {...defaultProps} handleKeyDown={handleKeyDown} />);
   fireEvent.keyDown(screen.getByText(defaultProps.text));
   expect(handleKeyDown).toHaveBeenCalled();
 });
 
 test('Button renders an icon if specified', () => {
-  render(
-    <Button {...defaultProps} />
-  );
+  const { rerender } = render(<Button {...defaultProps} />);
   expect(screen.queryByTestId('icon-wrapper')).toBeFalsy();
-  cleanup();
   // Specify icon
-  render(<Button {...defaultProps} iconName='menu' />);
+  rerender(<Button {...defaultProps} iconName='menu' />);
   const iconWrapper = screen.getByTestId('icon-wrapper');
   expect(screen.getByText(defaultProps.text)).toContainElement(iconWrapper);
   expect(iconWrapper.firstChild.tagName).toBe('svg');
