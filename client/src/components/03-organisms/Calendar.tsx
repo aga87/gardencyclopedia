@@ -3,7 +3,7 @@ import { useAppSelector } from '../../redux/typed-hooks';
 import { selectFilteredSortedPlantIds } from '../../redux/reducers/index';
 import NoPlants from '../02-molecules/NoPlants';
 import CalendarPlantEntry from '../02-molecules/CalendarPlantEntry';
-import CalendarCaption from '../02-molecules/CalendarCaption';
+import CalendarCaption from '../02-molecules/CalendarCaption/CalendarCaption';
 import StatusMessage from '../02-molecules/StatusMessage';
 
 const Calendar = (): JSX.Element => {
