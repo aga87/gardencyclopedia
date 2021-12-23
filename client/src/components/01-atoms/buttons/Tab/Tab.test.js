@@ -1,4 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Tab from './Tab';
 
 const defaultProps = {
@@ -17,15 +18,17 @@ test('Tab renders with correct text', () => {
 test('Tab calls correct function on click', () => {
   const handleClick = jest.fn();
   render(<Tab {...defaultProps} handleClick={handleClick} />);
-  fireEvent.click(screen.getByRole('tab', { name: /tab/i }));
-  expect(handleClick).toHaveBeenCalled();
+  userEvent.click(screen.getByRole('tab', { name: /tab/i }));
+  expect(handleClick).toHaveBeenCalledTimes(1);
 });
 
 test('Tab calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
   render(<Tab {...defaultProps} handleKeyDown={handleKeyDown} />);
-  fireEvent.keyDown(screen.getByRole('tab', { name: /tab/i }));
-  expect(handleKeyDown).toHaveBeenCalled();
+  const tab = screen.getByRole('tab', { name: /tab/i });
+  tab.focus();
+  userEvent.keyboard('{enter}');
+  expect(handleKeyDown).toHaveBeenCalledTimes(1);
 });
 
 test('Tab is accessible', () => {

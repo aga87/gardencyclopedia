@@ -1,4 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import DropdownToggleButton from './DropdownToggleButton';
 
 const defaultProps = {
@@ -19,8 +20,8 @@ test('Button renders an icon with accessible text', () => {
 test('Button calls correct function on click', () => {
   const handleClick = jest.fn();
   render(<DropdownToggleButton {...defaultProps} handleClick={handleClick} />);
-  fireEvent.click(screen.getByRole('button'));
-  expect(handleClick).toHaveBeenCalled();
+  userEvent.click(screen.getByRole('button'));
+  expect(handleClick).toHaveBeenCalledTimes(1);
 });
 
 test('Button calls correct function on key down', () => {
@@ -28,6 +29,8 @@ test('Button calls correct function on key down', () => {
   render(
     <DropdownToggleButton {...defaultProps} handleKeyDown={handleKeyDown} />
   );
-  fireEvent.keyDown(screen.getByRole('button'));
-  expect(handleKeyDown).toHaveBeenCalled();
+  const button = screen.getByRole('button');
+  button.focus();
+  userEvent.keyboard('a');
+  expect(handleKeyDown).toHaveBeenCalledTimes(1);
 });

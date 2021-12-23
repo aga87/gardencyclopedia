@@ -1,4 +1,5 @@
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import IconButton from './IconButton';
 
 const defaultProps = {
@@ -18,6 +19,6 @@ test('Button renders an icon with accessible text', () => {
 test('Button calls correct function on click', () => {
   const handleClick = jest.fn();
   render(<IconButton {...defaultProps} handleClick={handleClick} />);
-  fireEvent.click(screen.getByRole('button'));
-  expect(handleClick).toHaveBeenCalled();
+  userEvent.click(screen.getByRole('button'));
+  expect(handleClick).toHaveBeenCalledTimes(1);
 });

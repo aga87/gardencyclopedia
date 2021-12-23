@@ -1,4 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import MenuDropdownButton from './MenuDropdownButton';
 
 const defaultProps = {
@@ -17,8 +18,8 @@ test('Button renders an icon with text', () => {
 test('Button calls correct function on click', () => {
   const handleClick = jest.fn();
   render(<MenuDropdownButton {...defaultProps} handleClick={handleClick} />);
-  fireEvent.click(screen.getByRole('button', { name: /delete/i }));
-  expect(handleClick).toHaveBeenCalled();
+  userEvent.click(screen.getByRole('button', { name: /delete/i }));
+  expect(handleClick).toHaveBeenCalledTimes(1);
 });
 
 test('Button calls correct function on key down', () => {
@@ -26,6 +27,8 @@ test('Button calls correct function on key down', () => {
   render(
     <MenuDropdownButton {...defaultProps} handleKeyDown={handleKeyDown} />
   );
-  fireEvent.keyDown(screen.getByRole('button', { name: /delete/i }));
-  expect(handleKeyDown).toHaveBeenCalled();
+  const button = screen.getByRole('button', { name: /delete/i });
+  button.focus();
+  userEvent.keyboard('{arrowdown}');
+  expect(handleKeyDown).toHaveBeenCalledTimes(1);
 });

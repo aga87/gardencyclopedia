@@ -1,4 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Button from './Button';
 
 const defaultProps = {
@@ -8,24 +9,10 @@ const defaultProps = {
 
 test('Button renders with correct text', () => {
   render(<Button {...defaultProps} />);
-  expect(screen.getByRole('button', {name: /click/i})).toBeTruthy();
+  expect(screen.getByRole('button', { name: /click/i })).toBeTruthy();
   // Change props
   render(<Button {...defaultProps} text='Go' />);
-  expect(screen.getByRole('button', {name: /click/i})).toBeTruthy();
-});
-
-test('Button calls correct function on click', () => {
-  const handleClick = jest.fn();
-  render(<Button {...defaultProps} handleClick={handleClick} />);
-  fireEvent.click(screen.getByRole('button'));
-  expect(handleClick).toHaveBeenCalled();
-});
-
-test('Button calls correct function on key down', () => {
-  const handleKeyDown = jest.fn();
-  render(<Button {...defaultProps} handleKeyDown={handleKeyDown} />);
-  fireEvent.keyDown(screen.getByRole('button'));
-  expect(handleKeyDown).toHaveBeenCalled();
+  expect(screen.getByRole('button', { name: /click/i })).toBeTruthy();
 });
 
 test('Button renders an icon if specified', () => {
@@ -36,4 +23,20 @@ test('Button renders an icon if specified', () => {
   const iconWrapper = screen.getByTestId('icon-wrapper');
   expect(screen.getByText(defaultProps.text)).toContainElement(iconWrapper);
   expect(iconWrapper.firstChild.tagName).toBe('svg');
+});
+
+test('Button calls correct function on click', () => {
+  const handleClick = jest.fn();
+  render(<Button {...defaultProps} handleClick={handleClick} />);
+  userEvent.click(screen.getByRole('button'));
+  expect(handleClick).toHaveBeenCalledTimes(1);
+});
+
+test('Button calls correct function on key down', () => {
+  const handleKeyDown = jest.fn();
+  render(<Button {...defaultProps} handleKeyDown={handleKeyDown} />);
+  const button = screen.getByRole('button');
+  button.focus();
+  userEvent.keyboard('a');
+  expect(handleKeyDown).toHaveBeenCalledTimes(1);
 });
