@@ -11,7 +11,7 @@ const defaultProps = {
 
 test('Button renders an icon with text', () => {
   render(<MenuDropdownButton {...defaultProps} />);
-  expect(screen.getByRole('button', { name: /delete/i })).toBeTruthy();
+  expect(screen.getByRole('button', { name: /delete/i })).toBeInTheDocument();
   expect(screen.getByTestId('icon-wrapper').firstChild.tagName).toBe('svg');
 });
 

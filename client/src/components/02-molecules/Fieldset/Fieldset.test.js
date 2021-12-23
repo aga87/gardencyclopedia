@@ -7,7 +7,7 @@ const defaultProps = {
 
 test('Fieldset renders with correct legend', () => {
   render(<Fieldset {...defaultProps} />);
-  expect(screen.getByRole('group', {name: /some legend/i})).toBeTruthy();
+  expect(screen.getByRole('group', {name: /some legend/i})).toBeInTheDocument();
 });
 
 test('Fieldset renders children components', () => {

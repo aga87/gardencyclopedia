@@ -9,10 +9,10 @@ const defaultProps = {
 
 test('Button renders with correct text', () => {
   render(<Button {...defaultProps} />);
-  expect(screen.getByRole('button', { name: /click/i })).toBeTruthy();
+  expect(screen.getByRole('button', { name: /click/i })).toBeInTheDocument();
   // Change props
   render(<Button {...defaultProps} text='Go' />);
-  expect(screen.getByRole('button', { name: /click/i })).toBeTruthy();
+  expect(screen.getByRole('button', { name: /click/i })).toBeInTheDocument();
 });
 
 test('Button renders an icon if specified', () => {

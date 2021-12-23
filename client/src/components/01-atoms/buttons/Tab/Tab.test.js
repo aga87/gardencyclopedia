@@ -12,7 +12,7 @@ const defaultProps = {
 
 test('Tab renders with correct text', () => {
   render(<Tab {...defaultProps} />);
-  expect(screen.getByRole('tab', { name: /tab/i })).toBeTruthy();
+  expect(screen.getByRole('tab', { name: /tab/i })).toBeInTheDocument();
 });
 
 test('Tab calls correct function on click', () => {

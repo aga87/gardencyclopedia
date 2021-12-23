@@ -7,5 +7,5 @@ const defaultProps = {
 
 test('Title renders with correct text', () => {
   render(<Title {...defaultProps} />);
-  expect(screen.getByText('Some title')).toBeTruthy();
+  expect(screen.getByText('Some title')).toBeInTheDocument();
 });

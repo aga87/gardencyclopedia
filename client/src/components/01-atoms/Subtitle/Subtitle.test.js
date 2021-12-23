@@ -7,5 +7,5 @@ const defaultProps = {
 
 test('Subtitle renders with correct text', () => {
   render(<Subtitle {...defaultProps} />);
-  expect(screen.getByText('Some subtitle')).toBeTruthy();
+  expect(screen.getByText('Some subtitle')).toBeInTheDocument();
 });

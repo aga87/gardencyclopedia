@@ -7,5 +7,5 @@ const defaultProps = {
 
 test('Tag renders with correct (capitalized) text', () => {
   render(<Tag {...defaultProps} />);
-  expect(screen.getByText('Some tag')).toBeTruthy();
+  expect(screen.getByText('Some tag')).toBeInTheDocument();
 });
