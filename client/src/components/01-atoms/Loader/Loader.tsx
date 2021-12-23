@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../00-ions/Icon';
+import Icon from '../../00-ions/Icon/Icon';
 
 const Loader = (): JSX.Element => (
   <div className='loader'>
