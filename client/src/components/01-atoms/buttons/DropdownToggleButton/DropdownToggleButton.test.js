@@ -11,8 +11,8 @@ const defaultProps = {
 
 test('Button renders an icon with accessible text', () => {
   render(<DropdownToggleButton {...defaultProps} />);
-  const button = screen.getByRole('button');
-  expect(button).toHaveAttribute('aria-label', 'menu');
+  const button = screen.getByRole('button', {name: /menu/i});
+  expect(button).toBeInTheDocument();
   expect(button).not.toHaveTextContent();
   expect(button.firstChild.tagName).toBe('svg');
 });

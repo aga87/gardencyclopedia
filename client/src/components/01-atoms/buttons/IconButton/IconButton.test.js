@@ -10,9 +10,9 @@ const defaultProps = {
 
 test('Button renders an icon with accessible text', () => {
   render(<IconButton {...defaultProps} />);
-  const button = screen.getByRole('button');
+  const button = screen.getByRole('button', {name: /menu/i });
+  expect(button).toBeInTheDocument();
   expect(button).not.toHaveTextContent();
-  expect(button).toHaveAttribute('aria-label', 'menu');
   expect(button.firstChild.tagName).toBe('svg');
 });
 
