@@ -1,10 +1,23 @@
 {
-  "extends": ["react-app", "airbnb", "airbnb-typescript", "plugin:jsx-a11y/recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "extends": [
+    "react-app",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["jsx-a11y", "@typescript-eslint", "testing-library", "prettier"],
+  "plugins": [
+    "jsx-a11y",
+    "@typescript-eslint",
+    "testing-library",
+    "jest-dom",
+    "prettier"
+  ],
   "rules": {
     "react/jsx-filename-extension": [
       1,
