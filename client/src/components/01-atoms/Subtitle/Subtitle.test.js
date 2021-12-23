@@ -1,7 +1,5 @@
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Subtitle from './Subtitle';
-
-afterEach(cleanup);
 
 const defaultProps = {
   subtitle: 'Subtitle'

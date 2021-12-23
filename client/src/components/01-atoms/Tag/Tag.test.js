@@ -1,7 +1,5 @@
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Tag from './Tag';
-
-afterEach(cleanup);
 
 const defaultProps = {
   tag: 'tag'

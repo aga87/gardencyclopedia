@@ -1,7 +1,5 @@
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Error from './Error';
-
-afterEach(cleanup);
 
 const defaultProps = {
   msg: 'error'

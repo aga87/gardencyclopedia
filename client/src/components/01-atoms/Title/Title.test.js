@@ -1,7 +1,5 @@
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Title from './Title';
-
-afterEach(cleanup);
 
 const defaultProps = {
   title: 'Some title'

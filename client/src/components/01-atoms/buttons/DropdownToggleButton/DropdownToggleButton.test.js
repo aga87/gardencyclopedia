@@ -1,7 +1,5 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import DropdownToggleButton from './DropdownToggleButton';
-
-afterEach(cleanup);
 
 const defaultProps = {
   handleClick: jest.fn(),

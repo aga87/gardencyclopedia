@@ -1,7 +1,5 @@
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Label from './Label';
-
-afterEach(cleanup);
 
 const defaultProps = {
   label: 'Label',

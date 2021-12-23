@@ -1,7 +1,5 @@
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import SuccessMsg from './SuccessMsg';
-
-afterEach(cleanup);
 
 const defaultProps = {
   msg: 'Success'

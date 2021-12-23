@@ -1,7 +1,5 @@
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import SubmitButton from './SubmitButton';
-
-afterEach(cleanup);
 
 const defaultProps = {
   text: 'Submit'

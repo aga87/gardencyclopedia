@@ -1,7 +1,5 @@
-import { render, cleanup, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import IconButton from './IconButton';
-
-afterEach(cleanup);
 
 const defaultProps = {
   handleClick: jest.fn(),

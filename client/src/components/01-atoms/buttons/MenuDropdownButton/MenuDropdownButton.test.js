@@ -1,7 +1,5 @@
-import { render, cleanup, fireEvent, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import MenuDropdownButton from './MenuDropdownButton';
-
-afterEach(cleanup);
 
 const defaultProps = {
   handleClick: jest.fn(),

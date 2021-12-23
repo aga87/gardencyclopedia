@@ -1,7 +1,5 @@
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Fieldset from './Fieldset';
-
-afterEach(cleanup);
 
 const defaultProps = {
   legend: 'Some legend'

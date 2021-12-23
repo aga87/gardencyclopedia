@@ -1,7 +1,5 @@
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import CalendarCaption from './CalendarCaption';
-
-afterEach(cleanup);
 
 const defaultProps = {
   noOfPlants: 12
