@@ -27,7 +27,6 @@ const IconButton = ({
       onClick={handleClick}
       className={className}
       aria-label={ariaLabel}
-      data-testid='icon-button'
     >
       <Icon name={iconName} />
     </button>

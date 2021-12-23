@@ -7,14 +7,10 @@ const defaultProps = {
 };
 
 test('Label renders with correct text', () => {
-  render(<Label {...defaultProps} />);
-  expect(screen.getByText('Label')).toBeTruthy();
-  expect(screen.getByText('Label').tagName).toBe('LABEL');
-});
-
-test('Label renders with asterisk only if it is required', () => {
-  const { rerender } = render(<Label {...defaultProps} />);
+  const {rerender} = render(<Label {...defaultProps} />);
   expect(screen.getByText('Label').textContent).toBe('Label');
+  expect(screen.getByText('Label').tagName).toBe('LABEL');
+  // Label renders with asterisk only if it is required
   rerender(<Label {...defaultProps} required={true} />);
   expect(screen.getByText('Label').textContent).toBe('Label *');
 });

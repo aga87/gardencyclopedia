@@ -37,9 +37,11 @@ exports[`CalendarCaption renders the legend with no visual regression 1`] = `
       <tbody>
         <tr>
           <td
+            aria-label="Green color"
             class="m-calendar-caption__legend-sow"
           />
           <td
+            aria-label="Yellow color"
             class="m-calendar-caption__legend-harvest"
           />
         </tr>

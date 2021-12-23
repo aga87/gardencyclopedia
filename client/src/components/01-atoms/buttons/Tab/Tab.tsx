@@ -23,7 +23,6 @@ const Tab = React.forwardRef<HTMLButtonElement, TabProps>(
       aria-selected={selected}
       tabIndex={selected ? 0 : -1} // Roving tabindex
       aria-controls={tabPanelId}
-      data-testid='tab'
     >
       {text}
     </button>

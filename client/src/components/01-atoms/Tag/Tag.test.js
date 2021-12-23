@@ -2,10 +2,10 @@ import { render, screen } from '@testing-library/react';
 import Tag from './Tag';
 
 const defaultProps = {
-  tag: 'tag'
+  tag: 'some tag'
 };
 
 test('Tag renders with correct (capitalized) text', () => {
   render(<Tag {...defaultProps} />);
-  expect(screen.getByText('Tag')).toBeTruthy();
+  expect(screen.getByText('Some tag')).toBeTruthy();
 });

@@ -16,6 +16,8 @@ test('CalendarCaption renders with correct text', () => {
 
 test('CalendarCaption renders the legend with no visual regression', () => {
   const { container } = render(<CalendarCaption {...defaultProps} />);
-  expect(screen.getByText('Legend')).toBeInTheDocument();
+  expect(screen.getByRole('table', { name: /legend/i })).toBeTruthy();
+  expect(screen.getByRole('columnheader', { name: /sow/i })).toBeTruthy();
+  expect(screen.getByRole('columnheader', { name: /harvest/i })).toBeTruthy();
   expect(container.firstChild).toMatchSnapshot();
 });

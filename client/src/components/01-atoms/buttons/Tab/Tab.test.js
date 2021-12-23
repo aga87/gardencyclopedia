@@ -11,29 +11,26 @@ const defaultProps = {
 
 test('Tab renders with correct text', () => {
   render(<Tab {...defaultProps} />);
-  const tab = screen.getByText('Tab');
-  expect(tab).toBeTruthy();
-  expect(tab.tagName).toBe('BUTTON');
+  expect(screen.getByRole('tab', { name: /tab/i })).toBeTruthy();
 });
 
 test('Tab calls correct function on click', () => {
   const handleClick = jest.fn();
   render(<Tab {...defaultProps} handleClick={handleClick} />);
-  fireEvent.click(screen.getByTestId('tab'));
+  fireEvent.click(screen.getByRole('tab', { name: /tab/i }));
   expect(handleClick).toHaveBeenCalled();
 });
 
 test('Tab calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
   render(<Tab {...defaultProps} handleKeyDown={handleKeyDown} />);
-  fireEvent.keyDown(screen.getByTestId('tab'));
+  fireEvent.keyDown(screen.getByRole('tab', { name: /tab/i }));
   expect(handleKeyDown).toHaveBeenCalled();
 });
 
 test('Tab is accessible', () => {
   render(<Tab {...defaultProps} />);
-  const tab = screen.getByTestId('tab');
-  expect(tab).toHaveAttribute('role', 'tab');
+  const tab = screen.getByRole('tab', { name: /tab/i });
   expect(tab).toHaveAttribute('aria-selected');
   expect(tab).toHaveAttribute('aria-controls');
 });

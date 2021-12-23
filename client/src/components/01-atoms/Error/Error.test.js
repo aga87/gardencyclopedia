@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { getByRole, render, screen } from '@testing-library/react';
 import Error from './Error';
 
 const defaultProps = {
@@ -7,5 +7,5 @@ const defaultProps = {
 
 test('Error renders with correct text', () => {
   render(<Error {...defaultProps} />);
-  expect(screen.getByText('error')).toBeTruthy();
+  expect(screen.getByRole('alert')).toHaveTextContent(/error/i);
 });

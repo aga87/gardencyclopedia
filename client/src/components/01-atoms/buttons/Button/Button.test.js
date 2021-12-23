@@ -8,24 +8,23 @@ const defaultProps = {
 
 test('Button renders with correct text', () => {
   render(<Button {...defaultProps} />);
-  expect(screen.queryByText('Click')).toBeTruthy();
-  expect(screen.queryByText('Click').tagName).toBe('BUTTON');
+  expect(screen.getByRole('button', {name: /click/i})).toBeTruthy();
   // Change props
   render(<Button {...defaultProps} text='Go' />);
-  expect(screen.queryByText('Go')).toBeTruthy();
+  expect(screen.getByRole('button', {name: /click/i})).toBeTruthy();
 });
 
 test('Button calls correct function on click', () => {
   const handleClick = jest.fn();
   render(<Button {...defaultProps} handleClick={handleClick} />);
-  fireEvent.click(screen.getByText(defaultProps.text));
+  fireEvent.click(screen.getByRole('button'));
   expect(handleClick).toHaveBeenCalled();
 });
 
 test('Button calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
   render(<Button {...defaultProps} handleKeyDown={handleKeyDown} />);
-  fireEvent.keyDown(screen.getByText(defaultProps.text));
+  fireEvent.keyDown(screen.getByRole('button'));
   expect(handleKeyDown).toHaveBeenCalled();
 });
 

@@ -20,8 +20,14 @@ const CalendarCaption = ({ noOfPlants }: CalendarCaptionProps): JSX.Element => (
         </thead>
         <tbody>
           <tr>
-            <td className='m-calendar-caption__legend-sow' />
-            <td className='m-calendar-caption__legend-harvest' />
+            <td
+              className='m-calendar-caption__legend-sow'
+              aria-label='Green color'
+            />
+            <td
+              className='m-calendar-caption__legend-harvest'
+              aria-label='Yellow color'
+            />
           </tr>
         </tbody>
       </table>

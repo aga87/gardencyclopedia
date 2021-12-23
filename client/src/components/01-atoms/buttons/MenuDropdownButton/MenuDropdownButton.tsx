@@ -41,7 +41,6 @@ const MenuDropdownButton = React.forwardRef<
         onKeyDown={handleKeyDown}
         className={className}
         tabIndex={selected ? 0 : -1} // roving tabindex
-        data-testid='menu-dropdown-button'
       >
         <span className='menu-dropdown-button__icon' data-testid='icon-wrapper'>
           <Icon name={iconName} />

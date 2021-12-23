@@ -7,6 +7,5 @@ const defaultProps = {
 
 test('Button renders with correct text', () => {
   render(<SubmitButton {...defaultProps} />);
-  expect(screen.getByText('Submit')).toBeTruthy();
-  expect(screen.getByText('Submit').tagName).toBe('BUTTON');
+  expect(screen.getByRole('button', { name: /submit/i })).toBeTruthy();
 });
