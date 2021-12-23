@@ -25,8 +25,7 @@ test('Tab calls correct function on click', () => {
 test('Tab calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
   render(<Tab {...defaultProps} handleKeyDown={handleKeyDown} />);
-  const tab = screen.getByRole('tab', { name: /tab/i });
-  tab.focus();
+  screen.getByRole('tab', { name: /tab/i }).focus();
   userEvent.keyboard('{enter}');
   expect(handleKeyDown).toHaveBeenCalledTimes(1);
 });

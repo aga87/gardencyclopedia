@@ -13,7 +13,7 @@ test('Button renders an icon with accessible text', () => {
   const button = screen.getByRole('button', {name: /menu/i });
   expect(button).toBeInTheDocument();
   expect(button).not.toHaveTextContent();
-  expect(button.firstChild.tagName).toBe('svg');
+  expect(button.querySelector('svg')).toBeInTheDocument();
 });
 
 test('Button calls correct function on click', () => {

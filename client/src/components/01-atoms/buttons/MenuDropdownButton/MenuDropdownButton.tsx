@@ -42,7 +42,7 @@ const MenuDropdownButton = React.forwardRef<
         className={className}
         tabIndex={selected ? 0 : -1} // roving tabindex
       >
-        <span className='menu-dropdown-button__icon' data-testid='icon-wrapper'>
+        <span className='menu-dropdown-button__icon'>
           <Icon name={iconName} />
         </span>
         {text}

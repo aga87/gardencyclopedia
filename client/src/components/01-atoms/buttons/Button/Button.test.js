@@ -8,21 +8,18 @@ const defaultProps = {
 };
 
 test('Button renders with correct text', () => {
-  render(<Button {...defaultProps} />);
+  const {rerender} = render(<Button {...defaultProps} />);
   expect(screen.getByRole('button', { name: /click/i })).toBeInTheDocument();
-  // Change props
-  render(<Button {...defaultProps} text='Go' />);
-  expect(screen.getByRole('button', { name: /click/i })).toBeInTheDocument();
+  rerender(<Button {...defaultProps} text='Go' />);
+  expect(screen.getByRole('button', { name: /go/i })).toBeInTheDocument();
 });
 
 test('Button renders an icon if specified', () => {
   const { rerender } = render(<Button {...defaultProps} />);
-  expect(screen.queryByTestId('icon-wrapper')).toBeFalsy();
-  // Specify icon
+  const button = screen.getByRole('button', { name: /click/i });
+  expect(button.querySelector('svg')).not.toBeInTheDocument();
   rerender(<Button {...defaultProps} iconName='menu' />);
-  const iconWrapper = screen.getByTestId('icon-wrapper');
-  expect(screen.getByText(defaultProps.text)).toContainElement(iconWrapper);
-  expect(iconWrapper.firstChild.tagName).toBe('svg');
+  expect(button.querySelector('svg')).toBeInTheDocument();
 });
 
 test('Button calls correct function on click', () => {
@@ -35,8 +32,7 @@ test('Button calls correct function on click', () => {
 test('Button calls correct function on key down', () => {
   const handleKeyDown = jest.fn();
   render(<Button {...defaultProps} handleKeyDown={handleKeyDown} />);
-  const button = screen.getByRole('button');
-  button.focus();
+  screen.getByRole('button').focus();
   userEvent.keyboard('a');
   expect(handleKeyDown).toHaveBeenCalledTimes(1);
 });

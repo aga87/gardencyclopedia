@@ -11,8 +11,9 @@ const defaultProps = {
 
 test('Button renders an icon with text', () => {
   render(<MenuDropdownButton {...defaultProps} />);
-  expect(screen.getByRole('button', { name: /delete/i })).toBeInTheDocument();
-  expect(screen.getByTestId('icon-wrapper').firstChild.tagName).toBe('svg');
+  const button = screen.getByRole('button', { name: /delete/i });
+  expect(button).toBeInTheDocument();
+  expect(button.querySelector('svg')).toBeInTheDocument();
 });
 
 test('Button calls correct function on click', () => {
@@ -27,8 +28,7 @@ test('Button calls correct function on key down', () => {
   render(
     <MenuDropdownButton {...defaultProps} handleKeyDown={handleKeyDown} />
   );
-  const button = screen.getByRole('button', { name: /delete/i });
-  button.focus();
+  screen.getByRole('button', { name: /delete/i }).focus();
   userEvent.keyboard('{arrowdown}');
   expect(handleKeyDown).toHaveBeenCalledTimes(1);
 });
