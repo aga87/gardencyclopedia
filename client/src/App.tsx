@@ -12,7 +12,7 @@ const App = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(loadUser());
-  });
+  }, [dispatch]);
 
   return <div>{isAuthenticated ? <Dashboard /> : <Authentication />}</div>;
 };

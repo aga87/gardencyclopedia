@@ -16,7 +16,7 @@ const CalendarView = (): JSX.Element => {
   const isEditPlantModalOpen = useAppSelector(selectIsEditPlantModalOpen);
 
   return (
-    <div>
+    <div data-testid='calendar-dashboard'>
       {isAddPlantModalOpen && <CalendarPlantFormModal variant='add' />}
       {isEditPlantModalOpen && <CalendarPlantFormModal variant='edit' />}
       <DashboardTemplate

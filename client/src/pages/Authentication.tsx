@@ -9,7 +9,10 @@ const Authentication = (): JSX.Element => {
   const isUserLoading = useAppSelector(selectIsUserLoading);
 
   return (
-    <div className='p-authentication l-authentication'>
+    <div
+      className='p-authentication l-authentication'
+      data-testid='authentication'
+    >
       <div className='l-authentication__content'>
         <Header />
         {isUserLoading ? (
