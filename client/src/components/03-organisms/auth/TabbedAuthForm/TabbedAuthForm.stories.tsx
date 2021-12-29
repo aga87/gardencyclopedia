@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Story, Meta } from '@storybook/react';
-import { store } from '../../../redux/store';
+import { store } from '../../../../redux/store';
 
 import TabbedAuthForm from './TabbedAuthForm';
 

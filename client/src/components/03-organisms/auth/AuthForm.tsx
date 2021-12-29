@@ -39,7 +39,12 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
   }, [variant]);
 
   return (
-    <form noValidate onSubmit={handleSubmit} className='o-form l-form'>
+    <form
+      aria-label={`${variant}-form`}
+      noValidate
+      onSubmit={handleSubmit}
+      className='o-form l-form'
+    >
       {variant === 'login' && serverErrId === 'LOGIN_FAIL' && (
         <div className='l-form__server-msg'>
           <Error variant='server' msg={serverErrMsg} />

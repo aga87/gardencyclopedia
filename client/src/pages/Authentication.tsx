@@ -3,7 +3,7 @@ import { useAppSelector } from '../redux/typed-hooks';
 import { selectIsUserLoading } from '../redux/reducers/index';
 import Loader from '../components/01-atoms/Loader/Loader';
 import Header from '../components/02-molecules/Header';
-import TabbedAuthForm from '../components/03-organisms/auth/TabbedAuthForm';
+import TabbedAuthForm from '../components/03-organisms/auth/TabbedAuthForm/TabbedAuthForm';
 
 const Authentication = (): JSX.Element => {
   const isUserLoading = useAppSelector(selectIsUserLoading);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import useWidgetKeyboardSupport from '../../../hooks/useWidgetKeyboardSupport';
-import Tab from '../../01-atoms/buttons/Tab/Tab';
-import AuthForm from './AuthForm';
+import useWidgetKeyboardSupport from '../../../../hooks/useWidgetKeyboardSupport';
+import Tab from '../../../01-atoms/buttons/Tab/Tab';
+import AuthForm from '../AuthForm';
 
 const TabbedAuthForm = (): JSX.Element => {
   const tabs = ['login', 'register'];
