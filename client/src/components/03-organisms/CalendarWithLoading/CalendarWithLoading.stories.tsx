@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Provider } from 'react-redux';
 import { action } from '@storybook/addon-actions';
-import mockPlantsData from '../../utils/mock-data';
+import mockPlantsData from '../../../utils/mock-data';
 import CalendarWithLoading from './CalendarWithLoading';
 
 // Mock Redux store
