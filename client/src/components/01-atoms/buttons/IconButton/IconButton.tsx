@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from '../../../00-ions/Icon/Icon';
 
-type IconProps = React.ComponentProps<typeof Icon>;
+export type IconProps = React.ComponentProps<typeof Icon>;
 
 type IconButtonProps = {
   variant?: 'primary' | 'secondary';

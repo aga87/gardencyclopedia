@@ -3,7 +3,8 @@ import Label from './Label';
 
 const defaultProps = {
   label: 'Label',
-  required: false
+  required: false,
+  inputId: 'id'
 };
 
 test('Label renders with correct text', () => {

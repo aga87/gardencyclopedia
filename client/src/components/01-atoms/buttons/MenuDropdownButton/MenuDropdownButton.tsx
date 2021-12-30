@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import Icon from '../../../00-ions/Icon/Icon';
 
-type IconProps = React.ComponentProps<typeof Icon>;
+export type IconProps = React.ComponentProps<typeof Icon>; // to reuse in the test file
 
 type MenuDropdownButtonProps = {
   text: string;

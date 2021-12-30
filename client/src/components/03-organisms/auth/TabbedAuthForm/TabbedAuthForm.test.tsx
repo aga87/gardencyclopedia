@@ -4,12 +4,13 @@ import { Provider } from 'react-redux';
 import { store } from '../../../../redux/store';
 import TabbedAuthForm from './TabbedAuthForm';
 
+beforeEach(() => render(
+  <Provider store={store}>
+    <TabbedAuthForm />
+  </Provider>
+));
+
 test('TabbedAuthForm renders login form on initial render and when login tab is selected', () => {
-  render(
-    <Provider store={store}>
-      <TabbedAuthForm />
-    </Provider>
-  );
   const loginTab = screen.getByRole('tab', { name: /log in/i });
   expect(loginTab).toBeInTheDocument();
   expect(loginTab).toHaveAttribute('aria-selected', 'true');
@@ -18,11 +19,6 @@ test('TabbedAuthForm renders login form on initial render and when login tab is 
 });
 
 test('TabbedAuthForm renders registration form when register tab is selected', () => {
-  render(
-    <Provider store={store}>
-      <TabbedAuthForm />
-    </Provider>
-  );
   const registerTab = screen.getByRole('tab', { name: /register/i });
   expect(registerTab).toBeInTheDocument();
   expect(registerTab).toHaveAttribute('aria-selected', 'false');

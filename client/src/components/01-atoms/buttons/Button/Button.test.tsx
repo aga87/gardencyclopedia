@@ -8,7 +8,7 @@ const defaultProps = {
 };
 
 test('Button renders with correct text', () => {
-  const {rerender} = render(<Button {...defaultProps} />);
+  const { rerender } = render(<Button {...defaultProps} />);
   expect(screen.getByRole('button', { name: /click/i })).toBeInTheDocument();
   rerender(<Button {...defaultProps} text='Go' />);
   expect(screen.getByRole('button', { name: /go/i })).toBeInTheDocument();

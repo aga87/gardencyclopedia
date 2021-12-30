@@ -1,11 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import MenuDropdownButton from './MenuDropdownButton';
+import type { IconProps } from './MenuDropdownButton';
 
 const defaultProps = {
   handleClick: jest.fn(),
   handleKeyDown: jest.fn(),
-  iconName: 'trash',
+  iconName: 'trash' as IconProps['name'],
   text: 'Delete'
 };
 

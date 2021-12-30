@@ -1,19 +1,22 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import DropdownToggleButton from './DropdownToggleButton';
+import type { IconProps } from './DropdownToggleButton';
 
 const defaultProps = {
   handleClick: jest.fn(),
   handleKeyDown: jest.fn(),
-  iconName: 'menu',
-  ariaLabel: 'menu'
+  iconName: 'menu' as IconProps['name'],
+  ariaLabel: 'menu',
+  id: 'id',
+  dropdownId: 'dropdown-id'
 };
 
 test('Button renders an icon with accessible text', () => {
   render(<DropdownToggleButton {...defaultProps} />);
   const button = screen.getByRole('button', {name: /menu/i});
   expect(button).toBeInTheDocument();
-  expect(button).not.toHaveTextContent();
+  expect(button.textContent).toBe('');
   expect(button.querySelector('svg')).toBeInTheDocument();
 });
 

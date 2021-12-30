@@ -1,13 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import axios from 'axios';
 import { Provider } from 'react-redux';
-import { store } from '../src/redux/store';
+import { store } from './redux/store';
 import App from './App';
 
 jest.mock('axios');
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 test('App renders authentication page when user authentication fails', async () => {
-  axios.get.mockRejectedValueOnce(new Error('authentication failed'));
+  mockedAxios.get.mockRejectedValueOnce(new Error('authentication failed'));
   render(
     <Provider store={store}>
       <App />
@@ -22,7 +23,7 @@ test('App renders calendar dashboard view when user authentication succeeds', as
   const user = {
     username: 'user'
   };
-  axios.get.mockResolvedValueOnce({ data: user });
+  mockedAxios.get.mockResolvedValueOnce({ data: user });
   render(
     <Provider store={store}>
       <App />
