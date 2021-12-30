@@ -5,7 +5,9 @@ type SuccessMsgProps = {
 };
 
 const SuccessMsg = ({ msg }: SuccessMsgProps): JSX.Element => (
-  <p className='success-msg' role='status'>{msg}</p>
+  <p className='success-msg' role='status'>
+    {msg}
+  </p>
 );
 
 export default SuccessMsg;
