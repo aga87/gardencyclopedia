@@ -11,18 +11,12 @@ beforeEach(() => render(
 ));
 
 test('TabbedAuthForm renders login form on initial render and when login tab is selected', () => {
-  const loginTab = screen.getByRole('tab', { name: /log in/i });
-  expect(loginTab).toBeInTheDocument();
-  expect(loginTab).toHaveAttribute('aria-selected', 'true');
-  expect(screen.getByRole('tabpanel')).toBeInTheDocument();
+  expect(screen.getByRole('tab', { name: /log in/i, selected: true })).toBeInTheDocument();
   expect(screen.getByRole('form', { name: 'login-form' })).toBeInTheDocument();
 });
 
 test('TabbedAuthForm renders registration form when register tab is selected', () => {
-  const registerTab = screen.getByRole('tab', { name: /register/i });
-  expect(registerTab).toBeInTheDocument();
-  expect(registerTab).toHaveAttribute('aria-selected', 'false');
-  expect(screen.getByRole('tabpanel')).toBeInTheDocument();
+  const registerTab = screen.getByRole('tab', { name: /register/i, selected: false });
   expect(
     screen.queryByRole('form', { name: 'register-form' })
   ).not.toBeInTheDocument();
@@ -31,4 +25,9 @@ test('TabbedAuthForm renders registration form when register tab is selected', (
   expect(
     screen.getByRole('form', { name: 'register-form' })
   ).toBeInTheDocument();
+});
+
+test('TabbedAuthForm is accessible', () => {
+  expect(screen.getByRole('tabpanel')).toBeInTheDocument();
+  expect(screen.getByRole('tablist')).toBeInTheDocument();
 });
