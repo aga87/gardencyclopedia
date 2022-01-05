@@ -2884,7 +2884,7 @@
     "lz-string" "^1.4.4"
     "pretty-format" "^26.6.2"
 
-"@testing-library/dom@^8.11.1", "@testing-library/dom@>=7.21.4":
+"@testing-library/dom@^8.11.1", "@testing-library/dom@^8.2.0", "@testing-library/dom@>=7.21.4":
   "integrity" "sha512-3KQDyx9r0RKYailW2MiYrSSKEfH0GTkI51UGEvJenvcoDoeRYs0PZpi2SXqtnMClQvCqdtTTpOfFETDTVADpAg=="
   "resolved" "https://registry.npmjs.org/@testing-library/dom/-/dom-8.11.1.tgz"
   "version" "8.11.1"
@@ -13858,6 +13858,11 @@
     "@istanbuljs/schema" "^0.1.2"
     "glob" "^7.1.4"
     "minimatch" "^3.0.4"
+
+"testing-library-selector@^0.2.1":
+  "integrity" "sha512-cTC9X3w3KAz04Q23vKN9FQdnBeB06C1Cr1tEmy10KNyx1BiVyoYz5i3iojmSGbPPndSPhiUauQWn3tDvrrBMeQ=="
+  "resolved" "https://registry.npmjs.org/testing-library-selector/-/testing-library-selector-0.2.1.tgz"
+  "version" "0.2.1"
 
 "text-table@^0.2.0", "text-table@0.2.0":
   "integrity" "sha1-f17oI66AUgfACvLfSoTsP8+lcLQ="
