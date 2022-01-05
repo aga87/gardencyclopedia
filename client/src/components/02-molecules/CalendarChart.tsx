@@ -31,10 +31,12 @@ const CalendarChart = ({
   })} ${getHarvestDataLabel({ harvestFrom, harvestUntil })}`;
 
   return (
-    <div>
-      <p className='h-visually-hidden'>{accessibleChartLabel}</p>
-      <table className='m-calendar-chart' role='presentation'>
-        <thead aria-hidden='true'>
+    <figure aria-label='chart'>
+      <figcaption className='h-visually-hidden'>
+        {accessibleChartLabel}
+      </figcaption>
+      <table className='m-calendar-chart' aria-hidden='true'>
+        <thead>
           <tr>{monthHeadings}</tr>
         </thead>
         <tbody>
@@ -50,7 +52,7 @@ const CalendarChart = ({
           />
         </tbody>
       </table>
-    </div>
+    </figure>
   );
 };
 

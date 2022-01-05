@@ -62,12 +62,12 @@ const CalendarEntryMenu = ({
           handleDelete={handleConfirmDeleteClick}
         />
       )}
-      <nav className='m-calendar-entry-menu l-calendar-entry-menu'>
+      <nav className='m-calendar-entry-menu l-calendar-entry-menu' aria-label='Plant options'>
         <DropdownToggleButton
           ref={toggleButtonRef}
           variant='secondary'
           iconName='more'
-          ariaLabel={isOpen ? 'Close options' : `Open ${plantName} options`}
+          ariaLabel={isOpen ? 'Close options' : `Open options`}
           handleClick={handleMenuToggleClick}
           handleKeyDown={handleMenuToggleKeyDown}
           id={`plant-menu-dropdown-button-${plantId}`}
