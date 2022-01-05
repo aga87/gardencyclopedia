@@ -1,11 +1,31 @@
 {
   "extends": [
     "react-app",
+    "react-app/jest",
     "airbnb",
     "airbnb-typescript",
     "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:jest-dom/recommended",
     "prettier"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "**/*.stories.*"
+      ],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
+    },
+    {
+      "files": [
+        "**/*.test.*"
+      ],
+      "extends": [
+        "plugin:testing-library/react"
+      ]
+    }
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -56,6 +76,7 @@
       }
     ],
     "jsx-a11y/no-onchange": "off",
-    "no-underscore-dangle": [2, { "allow": ["_id"] }]
+    "no-underscore-dangle": [2, { "allow": ["_id"] }],
+    "jest-dom/prefer-in-document": "error"
   }
 }
