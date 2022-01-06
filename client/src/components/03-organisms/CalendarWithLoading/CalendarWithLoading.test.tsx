@@ -2,6 +2,7 @@ import axios from 'axios';
 import { render, screen } from '@testing-library/react';
 import { byRole } from 'testing-library-selector';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { store } from '../../../redux/store';
 import mockPlantsData from '../../../utils/mock-data';
@@ -75,7 +76,7 @@ describe('<CalendarWithLoading />', () => {
       });
       expect(ui.chart.getAll().length).toBe(mockPlantsData.length);
       // Renders caption
-      const caption = `${mockPlantsData.length} plants`
+      const caption = `${mockPlantsData.length} plants`;
       expect(screen.getByText(new RegExp(caption, 'i'))).toBeInTheDocument();
     });
 
@@ -88,12 +89,15 @@ describe('<CalendarWithLoading />', () => {
       const plantNavs = await ui.plantNav.findAll();
       expect(plantNavs.length).toBe(mockPlantsData.length);
       plantNavs.forEach(plantNav => {
-        userEvent.click(ui.openPlantNavBtn.get(plantNav));
+        act(() => {
+          userEvent.click(ui.openPlantNavBtn.get(plantNav));
+        });
         expect(ui.deleteBtn.get(plantNav)).toBeInTheDocument();
         expect(ui.editBtn.get(plantNav)).toBeInTheDocument();
         expect(ui.plantBtn.get(plantNav)).toBeInTheDocument();
         expect(ui.openPlantNavBtn.query(plantNav)).not.toBeInTheDocument();
         expect(ui.closePlantNavBtn.get(plantNav)).toBeInTheDocument();
+        userEvent.click(ui.closePlantNavBtn.get(plantNav));
       });
     });
 
