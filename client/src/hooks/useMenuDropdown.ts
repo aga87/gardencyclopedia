@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import useCloseOnClickOutside from './useCloseOnClickOutside';
+import useCloseOnClickOutside from './useOnClickOutside';
 import { getNextIndex, getPreviousIndex } from '../utils/list-utils';
 
 type ReturnType = {
@@ -14,10 +14,13 @@ type ReturnType = {
 };
 
 const useMenuDropdown = (menuItems: string[]): ReturnType => {
-  const { ref, isOpen, setIsOpen } = useCloseOnClickOutside(false); // Hide menu dropdown on click outside
+  const [isOpen, setIsOpen] = useState(false);
   const menuItemsRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
   const [focusedMenuItem, setFocusedMenuItem] = useState(-1);
+  // Hide menu dropdown on click outside
+  const ref = useRef<HTMLDivElement>(null);
+  useCloseOnClickOutside(ref, () => setIsOpen(false));
 
   const handleMenuToggleClick = () => {
     setIsOpen(!isOpen);
