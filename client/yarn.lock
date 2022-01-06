@@ -2913,6 +2913,17 @@
     "lodash" "^4.17.15"
     "redent" "^3.0.0"
 
+"@testing-library/react-hooks@^7.0.2":
+  "integrity" "sha512-dYxpz8u9m4q1TuzfcUApqi8iFfR6R0FaMbr2hjZJy1uC8z+bO/K4v8Gs9eogGKYQop7QsrBTFkv/BCF7MzD2Cg=="
+  "resolved" "https://registry.npmjs.org/@testing-library/react-hooks/-/react-hooks-7.0.2.tgz"
+  "version" "7.0.2"
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@types/react" ">=16.9.0"
+    "@types/react-dom" ">=16.9.0"
+    "@types/react-test-renderer" ">=16.9.0"
+    "react-error-boundary" "^3.1.0"
+
 "@testing-library/react@^11.1.0":
   "integrity" "sha512-tzRNp7pzd5QmbtXNG/mhdcl7Awfu/Iz1RaVHY75zTdOkmHCuzMhRL83gWHSgOAcjS3CCbyfwUHMZgRJb4kAfpA=="
   "resolved" "https://registry.npmjs.org/@testing-library/react/-/react-11.2.7.tgz"
@@ -3153,7 +3164,7 @@
   "resolved" "https://registry.npmjs.org/@types/qs/-/qs-6.9.7.tgz"
   "version" "6.9.7"
 
-"@types/react-dom@^17.0.9":
+"@types/react-dom@^17.0.9", "@types/react-dom@>=16.9.0":
   "integrity" "sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg=="
   "resolved" "https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.9.tgz"
   "version" "17.0.9"
@@ -3177,7 +3188,14 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^17.0.26":
+"@types/react-test-renderer@>=16.9.0":
+  "integrity" "sha512-3Fi2O6Zzq/f3QR9dRnlnHso9bMl7weKCviFmfF6B4LS1Uat6Hkm15k0ZAQuDz+UBq6B3+g+NM6IT2nr5QgPzCw=="
+  "resolved" "https://registry.npmjs.org/@types/react-test-renderer/-/react-test-renderer-17.0.1.tgz"
+  "version" "17.0.1"
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^17.0.26", "@types/react@>=16.9.0":
   "integrity" "sha512-MXxuXrH2xOcv5cp/su4oz69dNQnSA90JjFw5HBd5wifw6Ihi94j7dRJm7qNsB30tnruXSCPc9qmlhGop4nh9Hw=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.26.tgz"
   "version" "17.0.26"
@@ -12007,7 +12025,7 @@
     "node-dir" "^0.1.10"
     "strip-indent" "^3.0.0"
 
-"react-dom@*", "react-dom@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1", "react-dom@^16.6.0 || ^17.0.0", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>= 16.3.0", "react-dom@>=16.8", "react-dom@>=16.8.0":
+"react-dom@*", "react-dom@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1", "react-dom@^16.6.0 || ^17.0.0", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>= 16.3.0", "react-dom@>=16.8", "react-dom@>=16.8.0", "react-dom@>=16.9.0":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -12032,6 +12050,13 @@
     "@base2/pretty-print-object" "1.0.1"
     "is-plain-object" "5.0.0"
     "react-is" "17.0.2"
+
+"react-error-boundary@^3.1.0":
+  "integrity" "sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA=="
+  "resolved" "https://registry.npmjs.org/react-error-boundary/-/react-error-boundary-3.1.4.tgz"
+  "version" "3.1.4"
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 "react-error-overlay@^6.0.9":
   "integrity" "sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew=="
@@ -12233,7 +12258,7 @@
     "use-composed-ref" "^1.0.0"
     "use-latest" "^1.0.0"
 
-"react@*", "react@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1", "react@^16.13.1 || ^17.0.0", "react@^16.14.0 || ^17.0.0", "react@^16.6.0 || ^17.0.0", "react@^16.8.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^16.8.4 || ^17.0.0", "react@^17.0.2", "react@>= 0.14.0", "react@>= 16", "react@>= 16.3.0", "react@>=16.12.0", "react@>=16.3.0", "react@>=16.8", "react@>=16.8.0", "react@>=16.x", "react@17.0.2":
+"react@*", "react@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1", "react@^16.13.1 || ^17.0.0", "react@^16.14.0 || ^17.0.0", "react@^16.6.0 || ^17.0.0", "react@^16.8.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^16.8.4 || ^17.0.0", "react@^17.0.2", "react@>= 0.14.0", "react@>= 16", "react@>= 16.3.0", "react@>=16.12.0", "react@>=16.13.1", "react@>=16.3.0", "react@>=16.8", "react@>=16.8.0", "react@>=16.9.0", "react@>=16.x", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
