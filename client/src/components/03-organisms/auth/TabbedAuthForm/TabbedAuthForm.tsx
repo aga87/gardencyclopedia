@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import useWidgetKeyboardSupport from '../../../../hooks/useWidgetKeyboardSupport';
+import useRovingFocus from '../../../../hooks/useRovingFocus';
 import Tab from '../../../01-atoms/buttons/Tab/Tab';
 import AuthForm from '../AuthForm';
 
 const TabbedAuthForm = (): JSX.Element => {
-  const tabs = ['login', 'register'];
-  const [tab, setTab] = useState<'login' | 'register'>('login');
-  const { widgetItemsRefs, handleKeyDown } = useWidgetKeyboardSupport(tabs, 0);
+  // Tabs corresponding to form variants
+  type AuthFormProps = React.ComponentProps<typeof AuthForm>;
+  const [selectedTab, selectTab] = useState<AuthFormProps['variant']>('login');
+  const { widgetItemsRefs, handleKeyDown } = useRovingFocus(2, 0, true);
 
   const handleLoginTabClick = () => {
-    setTab('login');
+    selectTab('login');
   };
 
   const handleRegisterTabClick = () => {
-    setTab('register');
+    selectTab('register');
   };
 
   return (
@@ -24,7 +25,7 @@ const TabbedAuthForm = (): JSX.Element => {
             widgetItemsRefs.current[0] = ref;
           }}
           text='Log in'
-          selected={tab === 'login'}
+          selected={selectedTab === 'login'}
           tabPanelId='tabpanel-login'
           handleClick={handleLoginTabClick}
           handleKeyDown={handleKeyDown}
@@ -34,14 +35,14 @@ const TabbedAuthForm = (): JSX.Element => {
             widgetItemsRefs.current[1] = ref;
           }}
           text='Register'
-          selected={tab === 'register'}
+          selected={selectedTab === 'register'}
           tabPanelId='tabpanel-register'
           handleClick={handleRegisterTabClick}
           handleKeyDown={handleKeyDown}
         />
       </div>
-      <div role='tabpanel' id={`tabpanel-${tab}`}>
-        <AuthForm variant={tab} />
+      <div role='tabpanel' id={`tabpanel-${selectedTab}`}>
+        <AuthForm variant={selectedTab} />
       </div>
     </div>
   );

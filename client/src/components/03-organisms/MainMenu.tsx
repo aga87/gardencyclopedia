@@ -4,18 +4,24 @@ import { openUserSettingsModal, setView } from '../../redux/actions/uiActions';
 import { logout } from '../../redux/actions/authActions';
 import { selectUsername, selectView } from '../../redux/reducers/index';
 import { capitalize } from '../../utils/text-utils';
-import useWidgetKeyboardSupport from '../../hooks/useWidgetKeyboardSupport';
+import useRovingFocus from '../../hooks/useRovingFocus';
 import MenuDropdownButton from '../01-atoms/buttons/MenuDropdownButton/MenuDropdownButton';
 
 const MainMenu = (): JSX.Element => {
   const username = useAppSelector(selectUsername);
   const view = useAppSelector(selectView);
   const dispatch = useAppDispatch();
-  const menuItems = [`${username}`, 'calendar', 'garden', 'logout'];
-  const initialFocus = menuItems.indexOf(view);
-  const { widgetItemsRefs, handleKeyDown } = useWidgetKeyboardSupport(
-    menuItems,
-    initialFocus
+  const menuItems = [
+    `${username}`,
+    'calendar' as View,
+    'garden' as View,
+    'logout'
+  ];
+  const initialFocus = menuItems.indexOf(view); // set initial focus based on the current view
+  const { widgetItemsRefs, handleKeyDown } = useRovingFocus(
+    menuItems.length,
+    initialFocus,
+    true
   );
 
   const handleUserClick = () => {
