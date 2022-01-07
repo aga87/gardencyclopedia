@@ -1,15 +1,15 @@
 import React, { useRef, useEffect } from 'react';
-import { useAppSelector } from '../../../redux/typed-hooks';
+import { useAppSelector } from '../../../../redux/typed-hooks';
 import {
   selectErrMsg,
   selectErrId,
   selectHasJustRegistered
-} from '../../../redux/reducers/index';
-import useAuthForm from '../../../hooks/useAuthForm';
-import SubmitButton from '../../01-atoms/buttons/SubmitButton/SubmitButton';
-import SuccessMsg from '../../01-atoms/SuccessMsg/SuccessMsg';
-import Error from '../../01-atoms/Error/Error';
-import TextField from '../../02-molecules/TextField';
+} from '../../../../redux/reducers/index';
+import useAuthForm from '../../../../hooks/useAuthForm';
+import SubmitButton from '../../../01-atoms/buttons/SubmitButton/SubmitButton';
+import SuccessMsg from '../../../01-atoms/SuccessMsg/SuccessMsg';
+import Error from '../../../01-atoms/Error/Error';
+import TextField from '../../../02-molecules/TextField';
 
 type AuthFormProps = {
   variant: 'login' | 'register';
@@ -40,7 +40,7 @@ const AuthForm = ({ variant }: AuthFormProps): JSX.Element => {
 
   return (
     <form
-      aria-label={`${variant}-form`}
+      aria-label={`${variant} form`}
       noValidate
       onSubmit={handleSubmit}
       className='o-form l-form'

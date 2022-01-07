@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useRovingFocus from '../../../../hooks/useRovingFocus';
 import Tab from '../../../01-atoms/buttons/Tab/Tab';
-import AuthForm from '../AuthForm';
+import AuthForm from '../AuthForm/AuthForm';
 
 const TabbedAuthForm = (): JSX.Element => {
   // Tabs corresponding to form variants
