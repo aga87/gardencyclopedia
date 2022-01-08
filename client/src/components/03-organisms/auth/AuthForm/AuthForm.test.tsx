@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import axios from 'axios';
 import userEvent from '@testing-library/user-event';
 import { byRole, byLabelText } from 'testing-library-selector';
@@ -23,6 +23,11 @@ const ui = {
 
 describe('AuthForm', () => {
   describe('Login AuthForm', () => {
+    const mockUser = {
+      email: 'test@test.com',
+      password: 'password'
+    };
+
     beforeEach(() =>
       render(
         <Provider store={store}>
@@ -40,14 +45,15 @@ describe('AuthForm', () => {
     });
 
     test('form will submit with email and password', async () => {
-      userEvent.type(ui.email.get(), 'test@test.com');
-      userEvent.type(ui.password.get(), 'password');
+      userEvent.type(ui.email.get(), mockUser.email);
+      userEvent.type(ui.password.get(), mockUser.password);
       userEvent.click(ui.loginBtn.get());
       expect(mockedAxios.post).toHaveBeenCalledTimes(1);
+      expect(mockedAxios.post.mock.calls[0][1]).toBe(JSON.stringify(mockUser));
     });
 
     test('client-side validation: form will render errors and not submit without email', () => {
-      userEvent.type(ui.password.get(), 'password');
+      userEvent.type(ui.password.get(), mockUser.password);
       expect(ui.email.get()).toHaveDisplayValue('');
       userEvent.click(ui.loginBtn.get());
       expect(mockedAxios.post).not.toHaveBeenCalled();
@@ -55,7 +61,7 @@ describe('AuthForm', () => {
     });
 
     test('client-side validation: form will render errors and not submit without password', () => {
-      userEvent.type(ui.email.get(), 'test@test.com');
+      userEvent.type(ui.email.get(), mockUser.email);
       expect(ui.password.get()).toHaveDisplayValue('');
       userEvent.click(ui.loginBtn.get());
       expect(mockedAxios.post).not.toHaveBeenCalled();
@@ -63,16 +69,15 @@ describe('AuthForm', () => {
     });
 
     test('server-side validation: form will render error if the submitted credentials are invalid', async () => {
-      userEvent.type(ui.email.get(), 'test@test.com');
-      userEvent.type(ui.password.get(), 'password');
+      userEvent.type(ui.email.get(), mockUser.email);
+      userEvent.type(ui.password.get(), mockUser.password);
       const mockedAxiosError = {
         response: {
           data: 'Invalid credentials',
           status: 400
         }
       };
-      // Ensure correct error type
-      mockedAxios.isAxiosError.mockReturnValueOnce(true);
+      mockedAxios.isAxiosError.mockReturnValueOnce(true); // Ensure Axios error type
       mockedAxios.post.mockRejectedValueOnce(mockedAxiosError);
       userEvent.click(ui.loginBtn.get());
       expect(mockedAxios.post).toHaveBeenCalledTimes(1);
@@ -84,6 +89,12 @@ describe('AuthForm', () => {
   });
 
   describe('Registration AuthForm', () => {
+    const mockNewUser = {
+      username: 'new user',
+      email: 'test@test.com',
+      password: 'password'
+    };
+
     beforeEach(() =>
       render(
         <Provider store={store}>
@@ -108,12 +119,15 @@ describe('AuthForm', () => {
     });
 
     test('form will submit with username, email and password and render success message', async () => {
-      userEvent.type(ui.username.get(), 'user');
-      userEvent.type(ui.email.get(), 'test@test.com');
-      userEvent.type(ui.password.get(), 'password');
+      userEvent.type(ui.username.get(), mockNewUser.username);
+      userEvent.type(ui.email.get(), mockNewUser.email);
+      userEvent.type(ui.password.get(), mockNewUser.password);
       mockedAxios.post.mockResolvedValueOnce({ data: 'Success' });
       userEvent.click(ui.registerBtn.get());
       expect(mockedAxios.post).toHaveBeenCalledTimes(1);
+      expect(mockedAxios.post.mock.calls[0][1]).toBe(
+        JSON.stringify(mockNewUser)
+      );
       await ui.successMsg.find();
       expect(ui.successMsg.get()).toHaveTextContent(
         'Registration successful. Please log in.'

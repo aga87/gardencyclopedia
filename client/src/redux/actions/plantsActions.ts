@@ -35,16 +35,7 @@ export const addPlant =
         if (err.response) {
           dispatch(getErrors(err.response.data, err.response.status));
         }
-        // TODO: (?)
-        // else if (err.request) {
-        //   // The request was made but no response was received (already handled in the backend?)
-        //   console.log(err.request);
-        // } else {
-        //   // Something happened in setting up the request that triggered an Error
-        //   console.log('Error', err.message);
-        // }
       }
-      // else if not axios error ... ?
     }
   };
 
