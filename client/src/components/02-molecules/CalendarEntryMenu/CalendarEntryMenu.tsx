@@ -5,7 +5,7 @@ import { openEditPlantModal, setView } from '../../../redux/actions/uiActions';
 import useMenuDropdown from '../../../hooks/useMenuDropdown';
 import DropdownToggleButton from '../../01-atoms/buttons/DropdownToggleButton/DropdownToggleButton';
 import MenuDropdownButton from '../../01-atoms/buttons/MenuDropdownButton/MenuDropdownButton';
-import ConfirmDeletionAlert from '../ConfirmDeletionAlert';
+import ConfirmDeletionAlert from '../ConfirmDeletionAlert/ConfirmDeletionAlert';
 
 type CalendarEntryMenuProps = {
   plantName: string;
