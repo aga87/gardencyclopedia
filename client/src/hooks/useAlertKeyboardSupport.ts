@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { getNextIndex, getPreviousIndex } from '../utils/list-utils';
+import useCloseOnEscapeKeyDown from './useCloseOnEscapeKeyDown';
 
 type ReturnType = {
   refs: React.MutableRefObject<(HTMLButtonElement | null)[]>;
@@ -12,20 +13,8 @@ const useAlertKeyboardSupport = (
 ): ReturnType => {
   const [focusedItem, setFocusedItem] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const handleCloseAlert = useCallback(
-    (e: KeyboardEvent): void => {
-      const { key } = e;
-      switch (key) {
-        case 'Escape':
-          e.preventDefault();
-          handleCancel();
-          break;
-        default:
-      }
-    },
-    [handleCancel]
-  );
+  // Close with Escape key and restore focus // TODO: restore focus function
+  useCloseOnEscapeKeyDown(handleCancel);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     const { key } = e;
@@ -55,20 +44,6 @@ const useAlertKeyboardSupport = (
     const itemToFocus = refs.current[focusedItem] as HTMLButtonElement;
     itemToFocus.focus();
   }, [focusedItem]);
-
-  // Element that triggered alert dialog
-  const activeElement = document.activeElement as HTMLButtonElement;
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleCloseAlert);
-    return () => {
-      window.removeEventListener('keydown', handleCloseAlert);
-      // If the element that triggered the alert dialog is still in the DOM, restore focus
-      if (activeElement) {
-        activeElement.focus();
-      }
-    };
-  }, [activeElement, handleCloseAlert]);
 
   return { refs, handleKeyDown };
 };

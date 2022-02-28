@@ -1,6 +1,9 @@
 import React from 'react';
 import { months } from '../../utils/constants';
-import { getAccessibleChartLabel } from '../../utils/text-utils';
+import {
+  getSowingDataLabel,
+  getHarvestDataLabel
+} from '../../utils/text-utils';
 import MonthlyDataRow from '../00-ions/MonthlyDataRow';
 
 type CalendarChartProps = {
@@ -22,18 +25,18 @@ const CalendarChart = ({
     </th>
   ));
 
-  const accessibleChartLabel = getAccessibleChartLabel(
+  const accessibleChartLabel = `${getSowingDataLabel({
     sowFrom,
-    sowUntil,
-    harvestFrom,
-    harvestUntil
-  );
+    sowUntil
+  })} ${getHarvestDataLabel({ harvestFrom, harvestUntil })}`;
 
   return (
-    <div>
-      <p className='h-visually-hidden'>{accessibleChartLabel}</p>
-      <table className='m-calendar-chart' role='presentation'>
-        <thead aria-hidden='true'>
+    <figure aria-label='chart'>
+      <figcaption className='h-visually-hidden'>
+        {accessibleChartLabel}
+      </figcaption>
+      <table className='m-calendar-chart' aria-hidden='true'>
+        <thead>
           <tr>{monthHeadings}</tr>
         </thead>
         <tbody>
@@ -49,7 +52,7 @@ const CalendarChart = ({
           />
         </tbody>
       </table>
-    </div>
+    </figure>
   );
 };
 

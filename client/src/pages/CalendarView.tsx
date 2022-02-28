@@ -6,7 +6,7 @@ import {
 } from '../redux/reducers/index';
 import CalendarPlantFormModal from '../components/03-organisms/CalendarPlantFormModal';
 import CalendarMenuTop from '../components/03-organisms/CalendarMenuTop';
-import CalendarWithLoading from '../components/03-organisms/CalendarWithLoading';
+import CalendarWithLoading from '../components/03-organisms/CalendarWithLoading/CalendarWithLoading';
 import CalendarMenuBottom from '../components/03-organisms/CalendarMenuBottom';
 import MainMenu from '../components/03-organisms/MainMenu';
 import DashboardTemplate from '../components/04-templates/DashboardTemplate';
@@ -16,7 +16,7 @@ const CalendarView = (): JSX.Element => {
   const isEditPlantModalOpen = useAppSelector(selectIsEditPlantModalOpen);
 
   return (
-    <div>
+    <div data-testid='calendar-dashboard'>
       {isAddPlantModalOpen && <CalendarPlantFormModal variant='add' />}
       {isEditPlantModalOpen && <CalendarPlantFormModal variant='edit' />}
       <DashboardTemplate

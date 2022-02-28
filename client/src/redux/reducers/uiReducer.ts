@@ -23,9 +23,9 @@ export type Action =
   | {
       type:
         | typeof OPEN_MAIN_MENU_MODAL
-        | typeof CLOSE_MODAL
         | typeof OPEN_ADD_PLANT_MODAL
-        | typeof OPEN_USER_SETTINGS_MODAL;
+        | typeof OPEN_USER_SETTINGS_MODAL
+        | typeof CLOSE_MODAL;
     }
   | {
       type: typeof OPEN_EDIT_PLANT_MODAL;

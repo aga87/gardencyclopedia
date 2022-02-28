@@ -1,6 +1,6 @@
 import React from 'react';
 import useCloseModal from '../../hooks/useCloseModal';
-import Modal from '../02-molecules/Modal';
+import Modal from '../02-molecules/Modal/Modal';
 import UpcomingFeatures from '../02-molecules/UpcomingFeatures';
 
 const UserSettingsModal = (): JSX.Element => {

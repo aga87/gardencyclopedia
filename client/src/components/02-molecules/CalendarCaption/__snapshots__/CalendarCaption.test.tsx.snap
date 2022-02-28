@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarCaption renders the legend with no visual regression 1`] = `
+<div
+  class="m-calendar-caption"
+>
+  <details
+    class="m-calendar-caption__details"
+  >
+    <summary
+      class="m-calendar-caption__details-summary"
+    >
+      12
+       
+      Plants
+    </summary>
+    <table>
+      <caption
+        class="m-calendar-caption__legend-caption"
+      >
+        Legend
+      </caption>
+      <thead>
+        <tr>
+          <th
+            class="m-calendar-caption__legend-heading"
+          >
+            Sow
+          </th>
+          <th
+            class="m-calendar-caption__legend-heading"
+          >
+            Harvest
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            aria-label="Green color"
+            class="m-calendar-caption__legend-sow"
+          />
+          <td
+            aria-label="Yellow color"
+            class="m-calendar-caption__legend-harvest"
+          />
+        </tr>
+      </tbody>
+    </table>
+  </details>
+</div>
+`;

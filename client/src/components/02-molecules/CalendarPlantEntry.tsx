@@ -1,10 +1,10 @@
 import React from 'react';
 import { useAppSelector } from '../../redux/typed-hooks';
 import { selectPlantById } from '../../redux/reducers/index';
-import Title from '../01-atoms/Title';
-import Subtitle from '../01-atoms/Subtitle';
-import Tag from '../01-atoms/Tag';
-import CalendarEntryMenu from './CalendarEntryMenu';
+import Title from '../01-atoms/Title/Title';
+import Subtitle from '../01-atoms/Subtitle/Subtitle';
+import Tag from '../01-atoms/Tag/Tag';
+import CalendarEntryMenu from './CalendarEntryMenu/CalendarEntryMenu';
 import CalendarChart from './CalendarChart';
 
 type CalendarPlantEntryProps = {
@@ -33,6 +33,7 @@ const CalendarPlantEntry = ({
         <Subtitle subtitle={desc} />
       </div>
       <div className='l-calendar-plant-entry__category'>
+        <div className='h-visually-hidden'>Category:</div>
         <Tag tag={category} />
       </div>
       <CalendarChart
