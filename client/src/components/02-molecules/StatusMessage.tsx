@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useAppSelector } from '../../redux/typed-hooks';
 import { selectStatusMsg } from '../../redux/reducers/index';
+import useVisibilityTimeout from '../../hooks/useVisibilityTimeout';
 
 const StatusMessage = (): JSX.Element | null => {
   const statusMsg = useAppSelector(selectStatusMsg);
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const timeId = setTimeout(() => {
-      setIsVisible(false);
-    }, 3000);
-    return () => {
-      clearTimeout(timeId);
-      setIsVisible(true);
-    };
-  }, [statusMsg.id]);
+  const isVisible = useVisibilityTimeout(3000, statusMsg.id);
 
   if (!statusMsg.msg) return null;
   if (!isVisible) return null;
